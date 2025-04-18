@@ -1,0 +1,1 @@
+Open up Intellisense Project.lvproj and open the VI called Autocomplete Demo.vi to see a demonstration of the XControl functionality.

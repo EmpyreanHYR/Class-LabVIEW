@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="12008004">
+	<Property Name="NI.Lib.Description" Type="Str">This XControl demonstrates using some of the picture functions available in LabVIEW in an XControl. This control allows you to paint objects such as lines, circles, and text into a picture control. The picture control then outputs the painted image.
+
+This XControl is also configured to give you the option to undo the last action, clear the image on the canvas, import a new image file, or save the image when you right-click the canvas.</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%A#!"!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!,U!!!*Q(C=T:3R&lt;B."%)&lt;`!S31+-"&amp;;C!+P-!U3"1IEF`"$U!TLR$2I!M)Y9Y/;4LK0!&amp;3GN"03WE*8C!+(16C_?[]4M\WA3F!9D&gt;TPPP`P&gt;FP&gt;S=H^?W7&gt;%.F6TMY/&amp;D']LY_LNJ3+ZV7.JS"8T0U33[P:&gt;/`SL8MW`G(\M!PKS&amp;,I1T($Z&amp;'WM\FFU&gt;DL4SB&gt;&gt;;Y@WG0_V@WK$_QR`SB0?+PW&gt;P_OLXF&lt;^C&lt;`K;^Y7`:[XZ2W&lt;$8`%*.&lt;P%-6F)9M,7=-L"(4KO5X^J`[J?^P@&amp;;70/X\?JD\`*`67CFQIW[P[K`I&lt;_DM?@N\H_#@^OEJDNZSK-E%914JP\%%TX2%TX2%TX2!TX1!TX1!TX1(&gt;X2(&gt;X2(&gt;X2$&gt;X1$&gt;X1$&gt;X1_YYO&gt;+%,H6V**E]G3J)G#:,"I#CZ*$Q*4]+4]0#IB#@B38A3HI3()5JY%J[%*_&amp;*?(B.#5`#E`!E0!E0K8K3\$M[0!E0[28Q"$Q"4]!4]$#F!JY!)*AM3"QE!5/"'&gt;Q%0!&amp;0Q-/N!J[!*_!*?!)?&lt;!5]!5`!%`!%0,T3\ULU.&amp;V(BY=U=HA=(I@(Y8&amp;Y3#W(R_&amp;R?"Q?BY@JZ0!Y0![%-['4(!1Z,TE$H!?(R_(B2Q[0Q_0Q/$Q/$V:`1N\P4%@4&gt;82Y$"[$R_!R?!Q?5MDA-8A-(I0(Y#'N$"[$R_!R?!Q?JJ,"9`!90!;)-3H4SUBGP'A--A3$B\__7KQ`J?B*L/`^JUSV5&amp;5,5,7Q6!N'N2"5$VDVY&amp;102(7D64&gt;1&gt;7.5&amp;[S[%&amp;6!V9F6%[I/V$H8"8&amp;+H""TYIC9%6.CHZBUL`\FA?@HZVIM&amp;DI^0&gt;8*S9HG]\G/DIYUG]UUH5[VP\_PS73C6&lt;N08\:G^6W;@\D&lt;P$\1Y=O(\Z[^@$Q\@0VA&gt;DB``_F"SZD/&lt;X8^;[O&lt;8VL&gt;_&gt;DKXH'LJUWL&amp;]4XJGW_.?XVC[;^_&lt;FJ&lt;Z]V\;2NWO&gt;KWB^KDL]PY^5XYE,.GS\/V,QF\SLX``&amp;NV$5N@S`X[#?/$B:&amp;!!!!!!</Property>
+	<Property Name="NI.Lib.LocalName" Type="Str">Paint XControl</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">302022660</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="subVIs" Type="Folder">
+		<Item Name="SaveFile" Type="Folder">
+			<Item Name="Supporting Files" Type="Folder">
+				<Item Name="BITMAPFILEHEADER.vi" Type="VI" URL="../subVIs/SaveFile/Supporting Files/BITMAPFILEHEADER.vi"/>
+				<Item Name="BITMAPINFOHEADER.vi" Type="VI" URL="../subVIs/SaveFile/Supporting Files/BITMAPINFOHEADER.vi"/>
+				<Item Name="Picture to 2-D Color Array.vi" Type="VI" URL="../subVIs/SaveFile/Supporting Files/Picture to 2-D Color Array.vi"/>
+			</Item>
+			<Item Name="Bitmap File Writer.vi" Type="VI" URL="../subVIs/SaveFile/Bitmap File Writer.vi"/>
+		</Item>
+		<Item Name="Get Extension.vi" Type="VI" URL="../subVIs/Get Extension.vi"/>
+		<Item Name="LabVIEW Coordinates to Picture Coordinates.vi" Type="VI" URL="../subVIs/LabVIEW Coordinates to Picture Coordinates.vi"/>
+	</Item>
+	<Item Name="controls" Type="Folder">
+		<Item Name="Color Array.ctl" Type="VI" URL="../controls/Color Array.ctl"/>
+		<Item Name="tool enum.ctl" Type="VI" URL="../controls/tool enum.ctl"/>
+	</Item>
+	<Item Name="Data 1.ctl" Type="Ability VI" URL="../Data 1.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="State 1.ctl" Type="Ability VI" URL="../State 1.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="Facade 1.vi" Type="Ability VI" URL="../Facade 1.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="Init 1.vi" Type="Ability VI" URL="../Init 1.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+</XControl>

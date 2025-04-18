@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>LabVIEW 2009 Database Connectivity Toolkit Readme</title>
+<style type="text/css">
+/***************************************************/
+/* MINIMAL STYLES */
+/* The following section defines styles that every HTML Help project should need. */
+
+/* Specifies White Background color */
+body {background-color:#ffffff}
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+P { margin-top:6.00pt; margin-bottom:6.00pt; font-family:Verdana; font-size:8pt; color: #000000; }
+
+BR { font-size:4.00pt; }
+
+H1,H2,H3,H4,H5,H6 { color:#000000 }
+
+/* Use H1 for all topic headings. */
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:12pt; font-weight:bold;  }
+
+/* Use H2 for second-level headings. */
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:10pt; font-weight:bold;  }
+
+/* Use H3 for third-level headings. */
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; font-weight:bold;  }
+
+/* Use H4 for fourth-level headings. */
+H4 { margin-top:3.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; font-weight:bold;  }
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+H5 { margin-top:3.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; font-weight:bold;  }
+H6 { margin-top:3.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; font-weight:bold;  }
+
+/* Use the Body style class for normal paragraphs. */
+P.Body { margin-top:6.00pt; margin-bottom:6.00pt; font-family:Verdana; font-size:8pt; color:#000000;  }
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+P.Anchor { margin-top:6.00pt; margin-bottom:6.00pt; font-family:Verdana; font-size:10pt; color:#000000;  }
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+P.Indent1 { margin-left:12.00pt; margin-top:6.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; color:#000000;  }
+P.Indent2 { margin-left:24.00pt; margin-top:6.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; color:#000000;  }
+P.Indent3 { margin-left:36.00pt; margin-top:6.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; color:#000000;  }
+
+/* Use the LI style for all list items. */
+LI { margin-top:3.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; color:#000000; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+OL { margin-left:18.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; font-family:Verdana; font-size:8pt; color:#000000; list-style-type: decimal; }
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+ol ol {list-style-type:lower-alpha}
+ol ol ol {list-style-type:decimal}
+ol ol ol ol {list-style-type:lower-alpha}
+ol ol ol ol ol {list-style-type:decimal}
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+ol ol ol ol ol ol ol {list-style-type:decimal}
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+OL.EquationNum { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; font-family:Verdana; font-size:8pt; color:#000000; list-style-type: decimal; }
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+OL.List-abc { margin-left:18.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; font-family:Verdana; font-size:8pt; color:#000000; list-style-type:lower-alpha; }
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+UL { margin-left:12.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; font-family:Verdana; font-size:8pt; color:#000000;}
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+UL.List-Box { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; font-family:Verdana; font-size:8pt; color:#000000; list-style-type: square; }
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+Table.Borderless { border:none; }
+
+/* Use the Bordered style class for tables that need borders. */
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+/* Use the Borderless-Wide style class for tables that do not need borders and that you want to stretch to fill the entire topic width. */
+Table.Borderless-Wide { border:none; width:100%; }
+
+/* Use the Bordered-Wide style class for tables that need borders and that you want to stretch to fill the entire topic width. */
+Table.Bordered-Wide { border-width: 1pt; border-style: solid; border-color: #000000; width:100%; border-collapse: collapse; }
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+TD { font-family:Verdana; font-size:8pt; color:#000000; vertical-align:top; padding:3px; }
+
+/* Use the Bordered style class for table cells in Bordered or Bordered-Wide tables. */
+TD.Bordered { font-family:Verdana; font-size:8pt; color:#000000; vertical-align:top; border-width: 1pt; border-style: solid; border-color: #000000; }
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+TD.Icon { width:40px; vertical-align:top; }
+
+/* Use the Table-cell-8pt style class for table cells in tables that contain a lot of information and need smaller text to fit it all on one screen to prevent a horizontal scroll bar from appearing. */
+TD.Table-cell-8pt { font-family:Verdana; font-size:7pt; color:#000000;  }
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+TH { font-family:Verdana; font-size:8pt; color:#000000; font-weight:bold; padding:3px; }
+
+/* Use the Bordered style class for table heading cells in Bordered or Bordered-Wide tables. */
+TH.Bordered { font-family:Verdana; font-size:8pt; color:#000000; font-weight:bold;  border-width: 1pt; border-style: solid; border-color: #000000; }
+
+/* Use the Table-cell-8pt style class for table heading cells in tables that contain a lot of information and need smaller text to fit it all on one screen to prevent a horizontal scroll bar from appearing. */
+TH.Table-Head-8pt { font-family:Verdana; font-size:7pt; color:#000000; font-weight:bold; }
+
+/* Use the Left-Align style class for table heading cells that you want to left align instead of center align. */
+TH.Left-Align { font-family:Verdana; font-size:8pt; color:#000000; font-weight:bold; padding:3px; text-align:left; }
+
+/***************************************************/
+/* CHARACTER FORMATS */
+/* The following section defines character formats that every HTML Help project should need. */
+
+/* Use the Dark-Red format for warnings or cautions. */
+#Dark-Red { color: #800000 }
+
+/* Use the Monospace format for code or syntax examples. */
+#Monospace { font-family: Courier New; font-size: 8pt; }
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+#Monospace-Bold { font-family: Courier New; font-size: 8pt; font-weight: bold; }
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+#Monospace-Italic { font-family: Courier New; font-size: 8pt; font-style: italic; }
+
+/* Use the Platform format to denote a specific platform. */
+#Platform { color: #0000FF; font-weight: bold; }
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+#Symbol { font-family: Symbol; font-size: 8pt; }
+
+/* The following styles define the color of links. */
+a:link { color: #007700 }
+a:hover { color: #FF0000 }
+a:active { color: #FF0000 }
+a:visited { color: #7F007F }
+
+/***************************************************/
+/* ACTIVITY STYLES */
+/* The following section defines styles that only tutorial-style HTML Help projects should need. */
+
+/* Use the Activity-Objective style class for the objective at the beginning of an activity topic. */
+H3.Activity-Objective { color: #800000; }
+
+/***************************************************/
+/* CODE STYLES */
+/* The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New; font-size:8pt; color:#000000;  }
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New; font-size:8pt; color:#000000;  }
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New; font-size:8pt; color:#000000;  }
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New; font-size:8pt; color:#000000;  }
+
+/***************************************************/
+/* FUNCTION STYLES */
+/* The following section defines styles that you might need to format function reference help. */
+
+P.F-VI-Code4 { margin-left:48.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New; font-size:8pt; color:#000000;  }
+P.F-VI-Code5 { margin-left:60.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New; font-size:8pt; color:#000000;  }
+P.F-VI-Equation { margin-top:9.00pt; margin-bottom:9.00pt; font-family:Verdana; font-size:8pt; color:#000000;  }
+
+OL.F-VI-EquationNum { margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; font-family:Verdana; font-size:8pt; color:#000000; list-style-type: decimal; }
+</style>
+</HEAD>
+<body>
+
+<h1>LabVIEW 2009 Database Connectivity Toolkit Readme</h1>
+<p class="Body">June 2009</p>
+
+<p class="Body">This file contains important last-minute information about the LabVIEW 2009 Database Connectivity Toolkit, including installation issues.</p>
+
+<p class="Body">Refer to the <a href="http://www.ni.com">National Instruments Web site</a> for the latest information about the Database Connectivity Toolkit. Refer to the <em>LabVIEW Database Connectivity Toolkit User Manual</em> and the <em>LabVIEW Help</em> for more information about using the Database Connectivity Toolkit.</p>
+
+<p class="body">
+<a href="#requirements">System Requirements</a><br>
+<a href="#installation">Installation Instructions</a><br>
+<a href="#dbclient">Recommended Database Client Software</a><br>
+<a href="#help">Accessing the Help</a><br>
+<a href="#examples">Finding Examples</a><br>
+<a href="#known">Known Issues</a><br>
+<a href="#bugfixes">Bug Fixes</a>
+</p>
+
+<h2><a name="requirements">System Requirements</a></h2>
+
+<p class="Body">The computer you are using must meet the following minimum system requirements to run the Database Connectivity Toolkit:</p>
+
+<ul>
+<li>Windows Vista/XP/2000</li>
+<li>A minimum of 40 MB free disk space</li>
+<li>LabVIEW 2009</li>
+</ul>
+
+<h2><a name="installation">Installation Instructions</a></h2>
+
+<p class="Body">Before installing the Database Connectivity Toolkit, uninstall any previous versions of the SQL Toolkit for G that you have installed. The Database Connectivity Toolkit and the SQL Toolkit for G use different methods of communicating with databases. Sharing VIs between toolkits can result in errors.</p>
+
+<h3>Version 2009</h3>
+<p class="Body">You can install all of your LabVIEW products&#8212;including the Database Connectivity Toolkit&#8212;using the LabVIEW 2009 Platform DVDs. You can find installation instructions for the Database Connectivity Toolkit along with activation instructions in the following locations:</p>
+	<ul>
+	<li><em>LabVIEW Release Notes</em>, which are available in your LabVIEW software kit. </li>
+	<li><em>LabVIEW 2009 Platform DVDs Readme</em>, which is available on the top-level of LabVIEW Platform DVD 1.</li>
+	</ul>
+
+<p class="Body">To request additional LabVIEW 2009 Platform DVDs, refer to the <a href="http://digital.ni.com/express.nsf/bycode/media?opendocument">
+National Instruments Web site</a>.</p>
+
+<h2><a name="dbclient">Recommended Database Client Software</a></h2>
+
+<p class="Body">The Database Connectivity Toolkit works with any database or data source that has ODBC or OLE DB drivers. The following list describes issues and recommendations for which database client software to use. Refer to the <em>Known Issues</em> section of this readme for database-specific issues.</p>
+
+<ul>
+<li><strong>Microsoft Access</strong>&#8212; National Instruments recommends that you use the Microsoft Jet 4.0 or later OLE DB Provider.</li>
+<li><strong>Microsoft SQL Server</strong>&#8212;National Instruments recommends that you use the Microsoft OLE DB Provider for SQL Server.</li>
+<li><strong>Oracle 7 and 8</strong>&#8212;You must install Oracle Client software on the machine to which you install the Database Connectivity Toolkit. National Instruments recommends that you use the Oracle Provider for OLE DB 8.1.6.2.0 or later. You can download the Oracle Provider from the <a href="http://www.oracle.com">Oracle</a> Web site at <span id="Monospace">www.oracle.com</span>.</li>
+</ul>
+
+<h2><a name="help">Accessing the Help</a></h2>
+<p class="Body">The <em>LabVIEW Database Connectivity Toolkit User Manual</em> contains conceptual information about using the Database Connectivity Toolkit. Open this manual by selecting <strong>Start&#0187;Programs&#0187;National Instruments&#0187;LabVIEW 2009&#0187;LabVIEW Manuals</strong> and opening <span id="Monospace">DCT_User_Manual.pdf</span> or by navigating to the <span id="Monospace">labview\manuals</span> directory and opening <span id="Monospace">DCT_User_Manual.pdf</span>.</p>
+
+<p class="Body">The LabVIEW Database Connectivity Toolkit VI and Function Help contains reference information about Database VIs and functions. Complete the following steps to access the LabVIEW Database Connectivity Toolkit VI and Function Help.</p>
+
+<ol>
+<li>Launch LabVIEW.</li> 
+<li>Select <strong>Help&#0187;Search the LabVIEW Help</strong> from the pull-down menu to launch the <em>LabVIEW Help</em>.</li>
+<li>Click the <strong>Contents</strong> tab.</li>
+<li>Navigate to <strong>Toolkits&#0187;Database VIs and Function</strong>.</li>
+</ol>
+
+<h2><a name="examples">Finding Examples</a></h2>
+
+<p class="Body">LabVIEW examples for the Database Connectivity Toolkit are located in the <span id="Monospace">labview\examples\database</span> folder. You can modify an example VI to fit an application, or you can copy and paste from one or more examples into a VI that you create.</p>
+
+<p class="Body">You also can find example VIs using the NI Example Finder. Select <strong>Help&#0187;Find Examples</strong> to launch the NI Example Finder.</p>
+
+<p class="Body">Use the <strong>Browse</strong> or <strong>Search</strong> page of the NI Example Finder to find an example VI. In the <strong>Browse</strong> page, the Database Connectivity Toolkit examples are located in
+the <strong>Toolkits and Modules&#0187;Database Connectivity</strong> folder.</p>
+
+
+<h2><a name="known">Known Issues</a></h2>
+<p class="Body">You can access the software and documentation known issues list online. Refer to the <a href="http://www.ni.com/cgi-bin/redirect.cgi?dest=infcoprod&src=lvhelp&openagent&code=expecr">National Instruments Web site</a> for an up-to-date list of known issues in the LabVIEW 2009 Database Connectivity Toolkit.</p>
+
+<h2><a name="bugfixes">Bug Fixes</a></h2>
+<table class="Bordered">
+<tr><th class="Bordered">ID</th><th class="Bordered">Legacy ID</th><th class="Bordered">Fixed Issue</th></tr>
+<tr><td class="Bordered">129511</td><td class="Bordered">-</td><td class="Bordered">Error -2146824584 with Fetch Recordset Data VI when a query does not return any data</td></tr>
+<tr><td class="Bordered">139748</td><td class="Bordered">-</td><td class="Bordered">Incoming errors are removed or replaced by Tools Free Object VI</td></tr>
+<tr><td class="Bordered">146185</td><td class="Bordered">-</td><td class="Bordered">Conn objectRepository.vi masks incoming errors with local error</td></tr>
+</table>
+<hr>
+
+<h3>Copyright</h3>
+<p class="Body">&#0169; 2009 National Instruments Corporation. All rights reserved.</p>
+
+<p class="Body">Under the copyright laws, this publication may not be reproduced or transmitted in any form, electronic or mechanical, including photocopying, recording, storing in an information retrieval system, or translating, in whole or in part, without the prior written consent of National Instruments Corporation.</p>
+
+<p class="Body">National Instruments respects the intellectual property of others, and we ask our users to do the same.  NI software is protected by copyright and other intellectual property laws.  Where NI software may be used to reproduce software or other materials belonging to others, you may use NI software only to reproduce materials that you may reproduce in accordance with the terms of any applicable license or other legal restriction.</p>
+
+<h3>Trademarks</h3>
+<p class="Body">National Instruments, NI, <span id="Monospace">ni.com</span>, and LabVIEW are trademarks of National Instruments Corporation. Refer to the <em>Terms of Use</em> section on <a href="http://www.ni.com/legal" target="blank">ni.com/legal</a> for more information about National Instruments trademarks.</p>
+<p class="Body">Other product and company names mentioned herein are trademarks or trade names of their respective companies.</p>
+<h3>Patents</h3>
+<p class="Body">For patents covering the National Instruments products/technology, refer to the appropriate location: <strong>Help&#0187;Patents</strong> in your software, the <span class="Monospace">patents.txt</span> file on your media, or the <a href="http://digital.ni.com/express.nsf/bycode/rdlv17" target="_blank">National Instruments Patent Notice</a> at <span class="Monospace">ni.com/patents</span>.</p>
+
+</body>
+</html>

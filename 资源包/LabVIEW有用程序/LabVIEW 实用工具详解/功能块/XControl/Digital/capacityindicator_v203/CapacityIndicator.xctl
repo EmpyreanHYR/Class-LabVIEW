@@ -1,0 +1,84 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="10008000">
+	<Property Name="NI.Lib.Description" Type="Str">Use capacity indicator to provide information about the level or amount of something that has well defined minimum and maximum values. For example, you might use a capacity indicator to showthe current level of storage-space usage on a server or the charge left in a battery.
+
+Copyright 2007 SAPHIR (Olivier JOURDAN) All Rights Reserved</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!*7!!!*Q(C=T&gt;1R=O*!%)8BB]O"AQV7?Y)N@)3_!F@A#BU\)V6)O'F(TLE#6_AL=!7K^A4;8U-,5SQ&amp;Z1*8??3WU:P2T)=UFN4;C`3MY6&lt;42RN04M]L/HY?@[\XXX8^Z@5`Y&lt;`1PE0`.8LL@TNJ:`@T)@UXVL`&lt;``R@/W[&amp;B`2`N@`V=HN9`ZX_[`UX'G0[GY/_O%GT*K73#MIJ/^S&gt;*%`S*%`S*%`S)!`S)!`S)!^S*X&gt;S*X&gt;S*X&gt;S)T&gt;S)T&gt;S)\@$+W=1O=B&amp;,GM\+VE]73C:.*EA'1R&amp;S;`%EXA34_,B6)EH]33?R*.Y'+,%EXA34_**0&amp;SGR*.Y%E`C34R-V34:$H)]C9@J&amp;8A#4_!*0)'(*26Y!E#Q7$"R-!E-":X"B]!4?!)0(R6Y!E`A#4S"BWY&amp;HM!4?!*0Y/'3&gt;F?C;=;$(!`4S0%Y(M@D?"Q05]PR/"\(YXA=$]P*]4A?"_%M[%Q/1=Z&amp;TA$HR0%Y(P\)]4A?R_.Y(!^&gt;\1FZOT/D:DT)]2A?QW.Y$)`B91I:(M.D?!S0Y7&amp;;'2\$9XA-D_&amp;B+2E?QW.Y$)CR+-P,G-SYU"BE");(H\:&lt;L$WF;"*LR`3PX4;K;A/K.J:KQ[AWAOI"KR[=[I'I&lt;L4K"KJOD/I,K\[)#KB;7$7B;K$W`.Z27WJ$L;E6N;17V*TKREM@0(#`XWOXWWG\X7KTW7C^8GOV7GGZ8'KR7'A_H[PLOO0&lt;[D@(I=WG^V,`IZ`VP[C@^:@TFD0GP.[(Y?]@^&gt;V5Y`F(`N2.&gt;:K@VT48Y&lt;XU(&gt;[.?N*Q]JLH(PU$"`A/M1!!!!!</Property>
+	<Property Name="NI.Lib.Version" Type="Str">2.0.3.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 2</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Properties" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="StandardColor" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">StandardColor</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Color for the "standard" capacity state </Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">StandardColor</Property>
+			<Item Name="CI_StandardColorRead.vi" Type="Property VI" URL="../Properties/CI_StandardColorRead.vi"/>
+			<Item Name="CI_StandardColorWrite.vi" Type="Property VI" URL="../Properties/CI_StandardColorWrite.vi"/>
+		</Item>
+		<Item Name="WarningColor" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">WarningColor</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Color for the "warning" capacity state</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">WarningColor</Property>
+			<Item Name="CI_WarningColorRead.vi" Type="Property VI" URL="../Properties/CI_WarningColorRead.vi"/>
+			<Item Name="CI_WarningColorWrite.vi" Type="Property VI" URL="../Properties/CI_WarningColorWrite.vi"/>
+		</Item>
+		<Item Name="CriticalColor" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">CriticalColor</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Color for the "critical" capacity state</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">CriticalColor</Property>
+			<Item Name="CI_CriticalColorRead.vi" Type="Property VI" URL="../Properties/CI_CriticalColorRead.vi"/>
+			<Item Name="CI_CriticalColorWrite.vi" Type="Property VI" URL="../Properties/CI_CriticalColorWrite.vi"/>
+		</Item>
+		<Item Name="Standard&lt;&gt;Warning Range" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Standard&lt;&gt;WarningLimit</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Threshold between "standard and "warning" state.</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Standard&lt;&gt;Warning Range</Property>
+			<Item Name="CI_StandardWarningRangeRead.vi" Type="Property VI" URL="../Properties/CI_StandardWarningRangeRead.vi"/>
+			<Item Name="CI_StandardWarningRangeWrite.vi" Type="Property VI" URL="../Properties/CI_StandardWarningRangeWrite.vi"/>
+		</Item>
+		<Item Name="Warning&lt;&gt;Critical Range" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Warning&lt;&gt;Critical Range</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Threshold between "standard and "warning" state.</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Warning&lt;&gt;Critical Range</Property>
+			<Item Name="CI_WarningCriticalRangeRead.vi" Type="Property VI" URL="../Properties/CI_WarningCriticalRangeRead.vi"/>
+			<Item Name="CI_WarningCriticalRangeWrite.vi" Type="Property VI" URL="../Properties/CI_WarningCriticalRangeWrite.vi"/>
+		</Item>
+	</Item>
+	<Item Name="Methods" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="CI_CapacityState.vi" Type="Method VI" URL="../Methods/CI_CapacityState.vi"/>
+		<Item Name="CI_AmountOfDiskUsed.vi" Type="Method VI" URL="../Methods/CI_AmountOfDiskUsed.vi"/>
+	</Item>
+	<Item Name="VIs" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="CI_Gnl_SetFillColor.vi" Type="VI" URL="../VIs/CI_Gnl_SetFillColor.vi"/>
+		<Item Name="CI_Dlg_More.vi" Type="VI" URL="../VIs/CI_Dlg_More.vi"/>
+		<Item Name="CI_CapacityStates.ctl" Type="VI" URL="../VIs/CI_CapacityStates.ctl"/>
+	</Item>
+	<Item Name="CI_Data.ctl" Type="Ability VI" URL="../CI_Data.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="CI_State.ctl" Type="Ability VI" URL="../CI_State.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="CI_Facade.vi" Type="Ability VI" URL="../CI_Facade.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="CI_Init.vi" Type="Ability VI" URL="../CI_Init.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="CI_Convert State For Save.vi" Type="Ability VI" URL="../CI_Convert State For Save.vi">
+		<Property Name="NI.XItem.Name" Type="Str">ConvertStateForSave</Property>
+	</Item>
+</XControl>

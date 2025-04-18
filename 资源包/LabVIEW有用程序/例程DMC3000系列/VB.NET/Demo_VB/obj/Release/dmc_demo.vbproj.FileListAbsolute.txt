@@ -1,0 +1,4 @@
+C:\Users\Administrator\Desktop\Demo_VB\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Demo_VB\obj\Release\dmc2410b_demo.Dialog1.resources
+C:\Users\Administrator\Desktop\Demo_VB\obj\Release\dmc2410b_demo.Resources.resources
+C:\Users\Administrator\Desktop\Demo_VB\obj\Release\dmc_demo.vbproj.GenerateResource.Cache

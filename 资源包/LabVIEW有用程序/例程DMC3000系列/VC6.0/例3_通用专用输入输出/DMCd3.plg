@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DMCd3 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/DMCd3.res" /d "NDEBUG" /d "_AFXDLL" "F:\工作\工作交接资料20140915\用户手册（编写）\DMC3000系列\20140820\DMC3000系列控制卡光盘_20140825\例程\VC6.0\例3_通用专用输入输出\DMCd3.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP167E.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/DMCd3.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\工作\工作交接资料20140915\用户手册（编写）\DMC3000系列\20140820\DMC3000系列控制卡光盘_20140825\例程\VC6.0\例3_通用专用输入输出\DMCd3.cpp"
+"F:\工作\工作交接资料20140915\用户手册（编写）\DMC3000系列\20140820\DMC3000系列控制卡光盘_20140825\例程\VC6.0\例3_通用专用输入输出\DMCd3Dlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP167E.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP167F.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/DMCd3.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\工作\工作交接资料20140915\用户手册（编写）\DMC3000系列\20140820\DMC3000系列控制卡光盘_20140825\例程\VC6.0\例3_通用专用输入输出\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP167F.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/DMCd3.pdb" /machine:I386 /out:"Release/DMCd3.exe"  ".\Release\DMCd3.obj" ".\Release\DMCd3Dlg.obj" ".\Release\StdAfx.obj" ".\Release\DMCd3.res" ".\LTDMC.lib" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+DMCd3.cpp
+DMCd3Dlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+DMCd3.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

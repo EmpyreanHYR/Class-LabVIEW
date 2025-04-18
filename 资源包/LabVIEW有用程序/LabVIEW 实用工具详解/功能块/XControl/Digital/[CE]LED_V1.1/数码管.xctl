@@ -1,0 +1,99 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="13008000">
+	<Property Name="NI.Lib.Icon" Type="Bin">%Q#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(]!!!*Q(C=\&gt;7R=2MR%!81N=?"5Q&lt;/07RB7W!,&lt;'&amp;&lt;9+K1,7Q,&lt;)%N&lt;!NMA3X)DW?-RJ(JQ"I\%%Z,(@`BA#==ZB3RN;]28_,V7@PWW`:R`&gt;HV*SU_WE@\N_XF[3:^^TX\+2YP)D7K6;G-RV3P)R`ZS%=_]J'XP/5N&lt;XH,7V\SEJ?]Z#5P?=J4HP+5JTTFWS%0?=B$DD1G(R/.1==!IT.+D)`B':\B'2Z@9XC':XC':XBUC?%:HO%:HO&amp;R7QT0]!T0]!S0I4&lt;*&lt;)?=:XA-(]X40-X40-VDSGC?"GC4N9(&lt;)"D2,L;4ZGG?ZH%;T&gt;-]T&gt;-]T?.S.%`T.%`T.)^&lt;NF8J4@-YZ$S'C?)JHO)JHO)R&gt;"20]220]230[;*YCK=ASI2F=)1I.Z5/Z5PR&amp;)^@54T&amp;5TT&amp;5TQO&lt;5_INJ6Z;"[(H#&gt;ZEC&gt;ZEC&gt;Z$"(*ETT*ETT*9^B)HO2*HO2*(F.&amp;]C20]C2)GN4UE1:,.[:/+5A?0^NOS?UJ^3&lt;*\9B9GT@7JISVW7*NIFC&lt;)^:$D`5Q9TWE7)M@;V&amp;D,6;M29DVR]6#R],%GC47T9_/=@&gt;Z5V&gt;V57&gt;V5E&gt;V5(OV?^T[FTP?\`?YX7ZRP6\D=LH%_8S/U_E5R_-R$I&gt;$\0@\W/VW&lt;[_"\Y[X&amp;],0^^+,]T_J&gt;`J@_B_]'_.T`$KO.@I"XC-_N!!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">318799872</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="方法" Type="Folder"/>
+	<Item Name="控件" Type="Folder">
+		<Item Name="LED_small_white.ctl" Type="VI" URL="../控件/LED_small_white.ctl"/>
+		<Item Name="绿灰管.ctl" Type="VI" URL="../控件/绿灰管.ctl"/>
+	</Item>
+	<Item Name="属性" Type="Folder">
+		<Item Name="显示位数" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">显示位数</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">显示位数</Property>
+			<Item Name="显示位数读取.vi" Type="Property VI" URL="../属性/显示位数读取.vi"/>
+			<Item Name="显示位数写入.vi" Type="Property VI" URL="../属性/显示位数写入.vi"/>
+		</Item>
+		<Item Name="小数位数" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">格式化字符串</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">小数位数</Property>
+			<Item Name="小数位数读取.vi" Type="Property VI" URL="../属性/小数位数读取.vi"/>
+			<Item Name="小数位数写入.vi" Type="Property VI" URL="../属性/小数位数写入.vi"/>
+		</Item>
+	</Item>
+	<Item Name="资源" Type="Folder">
+		<Item Name="LED_small_white" Type="Folder">
+			<Item Name="-.png" Type="Document" URL="../资源/LED_small_white/-.png"/>
+			<Item Name="0.png" Type="Document" URL="../资源/LED_small_white/0.png"/>
+			<Item Name="0d.png" Type="Document" URL="../资源/LED_small_white/0d.png"/>
+			<Item Name="1.png" Type="Document" URL="../资源/LED_small_white/1.png"/>
+			<Item Name="1d.png" Type="Document" URL="../资源/LED_small_white/1d.png"/>
+			<Item Name="2.png" Type="Document" URL="../资源/LED_small_white/2.png"/>
+			<Item Name="2d.png" Type="Document" URL="../资源/LED_small_white/2d.png"/>
+			<Item Name="3.png" Type="Document" URL="../资源/LED_small_white/3.png"/>
+			<Item Name="3d.png" Type="Document" URL="../资源/LED_small_white/3d.png"/>
+			<Item Name="4.png" Type="Document" URL="../资源/LED_small_white/4.png"/>
+			<Item Name="4d.png" Type="Document" URL="../资源/LED_small_white/4d.png"/>
+			<Item Name="5.png" Type="Document" URL="../资源/LED_small_white/5.png"/>
+			<Item Name="5d.png" Type="Document" URL="../资源/LED_small_white/5d.png"/>
+			<Item Name="6.png" Type="Document" URL="../资源/LED_small_white/6.png"/>
+			<Item Name="6d.png" Type="Document" URL="../资源/LED_small_white/6d.png"/>
+			<Item Name="7.png" Type="Document" URL="../资源/LED_small_white/7.png"/>
+			<Item Name="7d.png" Type="Document" URL="../资源/LED_small_white/7d.png"/>
+			<Item Name="8.png" Type="Document" URL="../资源/LED_small_white/8.png"/>
+			<Item Name="8d.png" Type="Document" URL="../资源/LED_small_white/8d.png"/>
+			<Item Name="9.png" Type="Document" URL="../资源/LED_small_white/9.png"/>
+			<Item Name="9d.png" Type="Document" URL="../资源/LED_small_white/9d.png"/>
+			<Item Name="null.png" Type="Document" URL="../资源/LED_small_white/null.png"/>
+		</Item>
+		<Item Name="绿灰管" Type="Folder">
+			<Item Name="-.png" Type="Document" URL="../资源/绿灰管/-.png"/>
+			<Item Name="0.png" Type="Document" URL="../资源/绿灰管/0.png"/>
+			<Item Name="0d.png" Type="Document" URL="../资源/绿灰管/0d.png"/>
+			<Item Name="1.png" Type="Document" URL="../资源/绿灰管/1.png"/>
+			<Item Name="1d.png" Type="Document" URL="../资源/绿灰管/1d.png"/>
+			<Item Name="2.png" Type="Document" URL="../资源/绿灰管/2.png"/>
+			<Item Name="2d.png" Type="Document" URL="../资源/绿灰管/2d.png"/>
+			<Item Name="3.png" Type="Document" URL="../资源/绿灰管/3.png"/>
+			<Item Name="3d.png" Type="Document" URL="../资源/绿灰管/3d.png"/>
+			<Item Name="4.png" Type="Document" URL="../资源/绿灰管/4.png"/>
+			<Item Name="4d.png" Type="Document" URL="../资源/绿灰管/4d.png"/>
+			<Item Name="5.png" Type="Document" URL="../资源/绿灰管/5.png"/>
+			<Item Name="5d.png" Type="Document" URL="../资源/绿灰管/5d.png"/>
+			<Item Name="6.png" Type="Document" URL="../资源/绿灰管/6.png"/>
+			<Item Name="6d.png" Type="Document" URL="../资源/绿灰管/6d.png"/>
+			<Item Name="7.png" Type="Document" URL="../资源/绿灰管/7.png"/>
+			<Item Name="7d.png" Type="Document" URL="../资源/绿灰管/7d.png"/>
+			<Item Name="8.png" Type="Document" URL="../资源/绿灰管/8.png"/>
+			<Item Name="8d.png" Type="Document" URL="../资源/绿灰管/8d.png"/>
+			<Item Name="9.png" Type="Document" URL="../资源/绿灰管/9.png"/>
+			<Item Name="9d.png" Type="Document" URL="../资源/绿灰管/9d.png"/>
+			<Item Name="null.png" Type="Document" URL="../资源/绿灰管/null.png"/>
+		</Item>
+		<Item Name="LED_small.psd" Type="Document" URL="../资源/LED_small.psd"/>
+		<Item Name="数码管.psd" Type="Document" URL="../资源/数码管.psd"/>
+	</Item>
+	<Item Name="子VI" Type="Folder">
+		<Item Name="数值至码管数组转换.vi" Type="VI" URL="../子VI/数值至码管数组转换.vi"/>
+		<Item Name="显示状态更新.vi" Type="VI" URL="../子VI/显示状态更新.vi"/>
+	</Item>
+	<Item Name="初始化.vi" Type="Ability VI" URL="../初始化.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="数据.ctl" Type="Ability VI" URL="../数据.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="数码管.ctl" Type="Ability VI" URL="../数码管.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="外观.vi" Type="Ability VI" URL="../外观.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+</XControl>

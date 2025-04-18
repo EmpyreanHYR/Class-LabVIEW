@@ -1,0 +1,227 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\DMCd2.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\DMCd2.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DMCd2_DIALOG DIALOGEX 0, 0, 293, 252
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "回原点运动(DMC3000系列)"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "负向",IDC_RADIO_POSITIVE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,167,87,34,13
+    CONTROL         "正向",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,124,86,33,
+                    15
+    CONTROL         "一次回零",IDC_RADIO_HOME,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,27,177,45,10
+    CONTROL         "一次回零加反找",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,
+                    27,192,71,16
+    CONTROL         "二次回零",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,27,210,
+                    71,16
+    EDITTEXT        IDC_EDIT_STATUS,58,13,47,13,ES_AUTOHSCROLL
+    GROUPBOX        "回原点方向",IDC_STATIC,114,73,95,32
+    GROUPBOX        "回零方式",IDC_STATIC,11,163,97,69
+    PUSHBUTTON      "回零",IDC_BUTTON1,237,32,37,17
+    LTEXT           "运动状态",IDC_STATIC,17,15,37,12
+    GROUPBOX        "运动参数",IDC_STATIC,11,30,97,89
+    LTEXT           "最大速度",IDC_STATIC,18,61,35,12
+    LTEXT           "加速时间",IDC_STATIC,18,82,35,12
+    EDITTEXT        IDC_EDIT_SPEEDMAX,58,60,43,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ACC,58,79,43,12,ES_AUTOHSCROLL
+    GROUPBOX        "回原点速度设置",IDC_STATIC,11,124,97,33
+    CONTROL         "低速",IDC_RADIO_LOWSPEED,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,139,33,13
+    CONTROL         "高速",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,69,139,33,
+                    13
+    GROUPBOX        "运动轴选择",IDC_STATIC,114,11,95,51
+    CONTROL         "X轴",IDC_RADIO_XAIXS,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,132,26,30,11
+    CONTROL         "Y轴",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,166,26,30,
+                    11
+    CONTROL         "Z轴",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,131,43,30,
+                    11
+    CONTROL         "U轴",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,166,42,30,
+                    11
+    GROUPBOX        "位置显示",IDC_STATIC,116,115,101,100
+    LTEXT           "X轴",IDC_STATIC,123,131,13,12
+    EDITTEXT        IDC_EDIT_XPOSITION,141,129,67,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_YPOSITION,141,151,67,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_ZPOSITION,141,171,67,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_UPOSITION,141,193,67,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Y轴",IDC_STATIC,123,153,13,12
+    LTEXT           "Z轴",IDC_STATIC,123,173,13,12
+    LTEXT           "U轴",IDC_STATIC,123,195,13,12
+    PUSHBUTTON      "减速停",IDC_BUTTON2,237,65,37,17
+    PUSHBUTTON      "急停",IDC_BUTTON3,237,100,37,17
+    PUSHBUTTON      "位置清零",IDC_BUTTON4,237,140,37,17
+    PUSHBUTTON      "退出",IDC_BUTTON5,237,179,37,17
+    LTEXT           "减速时间",IDC_STATIC,18,102,35,12
+    EDITTEXT        IDC_EDIT_DEC,58,100,43,12,ES_AUTOHSCROLL
+    LTEXT           "当前速度",IDC_STATIC,119,228,37,10
+    EDITTEXT        IDC_EDIT_MyNowSpe,157,224,60,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "起始速度",IDC_STATIC,18,45,35,12
+    EDITTEXT        IDC_EDIT_SPEEDMin,58,43,43,12,ES_AUTOHSCROLL
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "DMCd2 Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "DMCd2\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2007\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "DMCd2.EXE\0"
+            VALUE "ProductName", "DMCd2 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DMCd2_DIALOG, DIALOG
+    BEGIN
+        TOPMARGIN, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\DMCd2.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

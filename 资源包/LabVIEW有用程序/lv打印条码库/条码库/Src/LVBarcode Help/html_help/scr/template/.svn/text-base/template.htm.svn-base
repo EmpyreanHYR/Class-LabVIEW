@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>($title$)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link REL="StyleSheet">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="hgrad.gif" style="WIDTH: 100%; HEIGHT: 49px">
+<tr> 
+<td width="5" > </td>
+<td><FONT 
+            color=#ffffff size="5"> <em><strong><IMG alt="" hspace=2 src="../images/LVBarcode.bmp" 
+            align=middle>&nbsp;<FONT 
+            size=4 face=Tahoma 
+           > LVBarcode Help</FONT> </strong></em></FONT></td>
+<td width="60" align="right"></td>
+<td width="12">&nbsp;</td>
+</tr>
+</table>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><FONT face=Tahoma><FONT color=#0000ff size=4>($title$)</FONT> <BR><BR> 
+</FONT><FONT face=Arial><FONT 
+size=2>($content$)<BR></FONT><BR></FONT><FONT face="Times New Roman" color=#808080 size=2><FONT face="Arial" color  =#808080 size=1>&nbsp;</DIV> 
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">
+<HR>
+</DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><A 
+href="http://www.testdevgroup.com" target=_blank><IMG src="Logo.gif" 
+border=0></A></DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">Copyright 
+?2007&nbsp;<A href="http://www.testdevgroup.com" 
+target=_blank>TestDevevelopmentGroup</A> 
+</FONT></FONT></DIV>
+<P 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"></P></body></HTML>

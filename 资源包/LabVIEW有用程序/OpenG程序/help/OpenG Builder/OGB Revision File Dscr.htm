@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>OGB Revision File Description</title>
+</head>
+
+<body style="font-family: Verdana; font-size: 10pt">
+
+<p>OGB Revision File Format <br>
+OGB version&nbsp; 1.0.0<br>
+$Revision: 1.2 $<br>
+$Date: 2004/12/09 04:13:36 $</p>
+<p>This document describes parameters of an OpenG Builder (OGB) Revision File.</p>
+<p>&nbsp;</p>
+<p>A Revision File is an optional file that OGB can use to control build
+versions and save general information on the last build status. A Revision File
+can treat several Build Files. Information relating to each Build File is stored
+in a unique section that has name of the Build File.</p>
+<p><strong>[<em>BuildFileName</em>]</strong><br>
+  <a href="#Version">Version</a><br>
+  <a href="#Build_Number">Build_Number</a><br>
+  <a href="#Build_Date">Build_Date</a><br>
+  <a href="#Status">Status</a><br>
+  <a href="#Warnings">Warnings</a><br>
+  <a href="#Log_File">Log_File</a></p>
+<p>&nbsp;</p>
+<hr>
+<p><b><a name="Version" id="Version"></a><strong>[<em>BuildFileName</em>]</strong></b></p>
+<p><b>Version</b>	= version string</p>
+<p>The <i>Version</i> can accept an arbitrary string to identify a version of a
+target application. The <i>Version</i> is beyond of the OGB control. However,
+OGB can use a value of it to assign a version information to a
+specified control of a VI in a built application as a default value, so the
+application can obtain the <i>Version</i> string, <i><a href="#Build_Number">Build_Number</a></i>
+and <i><a href="#Log_File">Build_Date</a></i> at runtime (see <a href="OGB%20Build%20File%20Dscr.htm" target="_blank">OGB
+Build File Description</a>, <a href="OGB%20Build%20File%20Dscr.htm#General: Version VI/Ctrl Name" target="_blank">Version
+Ctrl Name</a> topic for details).</p>
+<p>If the <i>Version</i> parameter is not specified in a Revision File, OGB adds the parameter with a value of &quot;0.0.0&quot; and assumes the value as a
+current version of an application.<br>
+</p>
+<p><u>Example:</u></p>
+<p> Version = 1.0.0</p>
+
+
+<hr>
+<p><b><a name="Build_Number" id="Version0"></a><strong>[<em>BuildFileName</em>]</strong></b></p>
+<p><b>Build_Number</b> = integer</p>
+<p>OGB increments the <i>Build_Number</i> parameter at the beginning of each
+build. OGB can use a value of it to assign a version information to a
+specified control of a VI in a built application as a default value, so the
+application can obtain the <i><a href="#Version">Version</a></i> string, <i>Build_Number</i>
+and <i><a href="#Log_File">Build_Date</a></i> at runtime (see <a href="OGB%20Build%20File%20Dscr.htm" target="_blank">OGB
+Build File Description</a>, <a href="OGB%20Build%20File%20Dscr.htm#General: Version VI/Ctrl Name" target="_blank">Version
+Ctrl Name</a> topic for details).</p>
+<p>  If the <i>Build_Number</i> is not specified in a Revision File, it assimes
+to be zero.<br>
+</p>
+<hr>
+<p><b><a name="Build_Date" id="Version1"></a><strong>[<em>BuildFileName</em>]</strong></b></p>
+<p><b>Build_Date</b>	= date/time string</p>
+<p>OGB assign a date/time string to the <i>Build_Date</i> parameter at the
+beginning of each build. OGB can use a value of it to assign a version information to a
+specified control of a VI in a built application as a default value, so the
+application can obtain the <i><a href="#Version">Version</a></i> string, <i><a href="#Build_Number">Build_Number</a></i>
+and <i>Build_Date</i> at runtime (see <a href="OGB%20Build%20File%20Dscr.htm" target="_blank">OGB
+Build File Description</a>, <a href="OGB%20Build%20File%20Dscr.htm#General: Version VI/Ctrl Name" target="_blank">Version
+Ctrl Name</a> topic for details).<br>
+</p>
+<hr>
+<p><b><a name="Status" id="Version2"></a><strong>[<em>BuildFileName</em>]</strong></b></p>
+<p><b>Status</b> = OK/ERROR</p>
+<p><i>Status</i> parameter indicates a status of the last build. It equals
+&quot;OK&quot; if a build completed with no fatal-error. A value of
+&quot;ERROR&quot; indicates a fatal-error occurred during a build. Detailed
+information on the error can be found in a <i><a href="#Log_File">Log_File</a></i>.<br>
+</p>
+<hr>
+<p><b><a name="Warnings" id="Version3"></a><strong>[<em>BuildFileName</em>]</strong></b></p>
+<p><b>Warnings</b> = integer</p>
+<p><i>Warnings</i> parameter indicates a total number of non-fatal errors and
+warnings occurred during a build if <i>Status</i> is OK. Detailed information on
+non-fatal errors and warnings can be found in a <i><a href="#Log_File">Log_File</a></i>.<br>
+</p>
+<hr>
+<p><b><a name="Log_File" id="Version4"></a><strong>[<em>BuildFileName</em>]</strong></b></p>
+<p><b>Log_File</b> = file path</p>
+<p><i>Log_File</i> parameter indicates a complete path to a log file written
+during the last build.<br>
+</p>
+
+
+<hr>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

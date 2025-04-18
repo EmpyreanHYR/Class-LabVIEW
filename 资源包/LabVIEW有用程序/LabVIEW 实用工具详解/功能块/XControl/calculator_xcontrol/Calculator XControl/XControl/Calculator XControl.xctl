@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="12008004">
+	<Property Name="NI.Lib.Description" Type="Str">This XControl simulates a calculator. Open each component of the XControl to see the implementation of the control. </Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%A#!"!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!,Q!!!*Q(C=T:1\4BR"%)&lt;`27M*-AC=/&lt;#1/!!K*]\8FEC)W*Q!V26)&gt;SV&lt;8GQZ)#Q@A3M1%4CQ6,%TLE"EE&lt;;`G?U::HE'RJ+\J_&lt;R6V@VV^7NE&gt;KW,IV6HGL\D\;FPSSN(VVO_2&amp;+0_I_`^"8;KY(`-NE:46_E,`=YV`B+_7?`!_P\[FW`7B\,P`.ISL.I^S/,^X6P\6_&lt;K5,O"\?&lt;^23_S$D48TP,3MA@8Q:R,=F[=$+8&lt;\6V&gt;V?`ZWP:[F@HW&gt;FO\L38*&gt;_9=.EA`K7$KWL`87@&lt;$6`._L7&lt;J7&lt;R'6Y'Z;JX[/\@(_X`C=;`Y(:UY@]XT:JJ/:(B#57G'/GRF530&gt;%40&gt;%40&gt;%$0&gt;!$0&gt;!$0&gt;!&gt;X&gt;%&gt;X&gt;%&gt;X&gt;%.X&gt;!.X&gt;!.X&gt;$&lt;DCZUI1O&gt;KC34*R-F3:-%S7"1F.Q3HI1HY5FY_&amp;4#E`!E0!F0QM-1*4Q*4]+4]#1]B#HB38A3HI1HY3&amp;63Z*N2Y=HY3'^!J[!*_!*?!)?JF4!%Q!%EQ7*AS2A+(!',Q&amp;0Q"0Q]+K!*_!*?!+?A!?X!J[!*_!*?!)?1NKK2%P4&gt;(2Y3#/(R_&amp;R?"Q?BY@5=HA=(I@(Y8&amp;YG%Y/D]0D1$A4/MF"E"0E$(!_("[(BY==(I@(Y8&amp;Y("Z=\1ZZ7ZG'JOHI]"A]"I`"9`!90+31Q70Q'$Q'D]&amp;$7BE]"I`"9`!90%QFA]@A-8A-%'.3JJ?2T!AU"BG#Q=06HB:L&gt;SF;%GO\6!_P[K&amp;507SKBUDV=+BOOOJGKG[3;P&amp;6C[J;,.5CK#Z/&amp;6I62H53V?"GI+[Y8W,HW"GWQ)[R+4&lt;"NL'N*P3:"VZ&gt;8?HS]F,HZ_=[/TP49L(1]@'RJN/J*J/*NL?XN&lt;7VJ;[^JC`&lt;K0MPT8D`O$]?@4A&gt;D_;&lt;2R@TT:?]4^(?8$3_&lt;ERH]\8$H\0R[=[XI]VXJQ?(/Z]/ZDNR]0P(&lt;+Q8MT6N&gt;/./0GPX_U2\C`@L&lt;U`GLT;_D.&lt;XPP\3&lt;O&gt;@`J@_BX_DVL2]^D8[!_B`\M=!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">302022660</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Controls" Type="Folder">
+		<Item Name="Format.ctl" Type="VI" URL="../Controls/Format.ctl"/>
+	</Item>
+	<Item Name="subVIs" Type="Folder">
+		<Item Name="Substitute Constants.vi" Type="VI" URL="../subVIs/Substitute Constants.vi"/>
+		<Item Name="Format Number.vi" Type="VI" URL="../subVIs/Format Number.vi"/>
+	</Item>
+	<Item Name="Data 1.ctl" Type="Ability VI" URL="../Data 1.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="State 1.ctl" Type="Ability VI" URL="../State 1.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="外观（Facade).vi" Type="Ability VI" URL="../外观（Facade).vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="初始化（Init).vi" Type="Ability VI" URL="../初始化（Init).vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+</XControl>

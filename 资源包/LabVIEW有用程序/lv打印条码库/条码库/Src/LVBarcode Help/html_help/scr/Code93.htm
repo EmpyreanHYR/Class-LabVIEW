@@ -1,0 +1,292 @@
+<html>
+<head>
+<title>Code93</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link REL="StyleSheet">
+<style type="text/css"> 
+<!-- 
+BODY {
+scrollbar-face-color:#DCDBD6;
+scrollbar-highlight-color:#DFDFDF;
+scrollbar-3dlight-color:#DCDBD6;
+scrollbar-darkshadow-color:#000000;
+scrollbar-shadow-color:#DFDFDF;
+scrollbar-arrow-color:#EFEFEF;
+scrollbar-track-color:#EFEFEF;
+}
+-->
+</style>
+
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="template/hgrad.gif" style="WIDTH: 100%; HEIGHT: 49px">
+<tr> 
+<td width="5" > </td>
+<td><FONT 
+            color=#ffffff size="5"> <em><strong><IMG alt="" hspace=2 src="images/LVBarcode.bmp" 
+            align=middle>&nbsp;<FONT 
+            size=4 face=Tahoma 
+           > LVBarcode Help</FONT> </strong></em></FONT></td>
+<td width="60" align="right"></td>
+<td width="12">&nbsp;</td>
+</tr>
+</table>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><FONT face=Tahoma><FONT color=#0000ff size=4>Code93</FONT> <BR><BR> 
+</FONT><FONT face=Arial><FONT 
+size=2><script language="JavaScript" type="text/JavaScript">
+function syn(){
+ if(parent.nav.loaded){
+  parent.nav.selectNode(6);
+ }else{
+  setTimeout("syn()",500);
+}}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  document.write('<BR><table width="35%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#666666"><tr><td align="center" bgcolor="#FFFFFF">');
+  document.write('<a href="../index.htm#page=Code93.htm">Show Navigation Frame</a>'); 
+  document.write('</td></tr></table><BR>');
+}
+</script> 
+<FONT face=Arial size=2><FONT 
+size=3>根据输入字符串产生相应的<STRONG>Code93</STRONG>条码.</FONT> 
+<BR><IMG src="images/Code93.JPG">&nbsp;<BR><BR>
+<TABLE height=82 width=670 align=left border=0>
+  
+  <TR>
+    <TD vAlign=top align=left width=44><IMG height=16 alt="" 
+      src="images/cstr.gif" width=32></TD>
+    <TD vAlign=top align=left width=157><SPAN class=STYLE2><FONT 
+      face="Times New Roman">Barcode String</FONT></SPAN></TD>
+    <TD width=455>
+      <P><FONT face="Times New Roman">输入条码内容字符<BR><FONT size=2>条码内容长度: 
+      任意<BR>可接受的字符集:</FONT><BR><BR>
+      <TABLE style="WIDTH: 150pt; BORDER-COLLAPSE: collapse" cellSpacing=0 
+      cellPadding=0 width=200 border=0 x:str>
+        <COLGROUP>
+        <COL style="WIDTH: 74pt; mso-width-source: userset; mso-width-alt: 3168" 
+        width=99>
+        <COL style="WIDTH: 76pt; mso-width-source: userset; mso-width-alt: 3232" 
+        width=101>
+        
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl23 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black 0.5pt solid; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: navy" 
+          width=99 height=19><STRONG><FONT face=宋体 color=#ffffff 
+            size=2>CHARACTER</FONT></STRONG></TD>
+          <TD class=xl23 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black 0.5pt solid; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: navy" 
+          width=101><STRONG><FONT face=宋体 color=#ffffff 
+            size=2>CHARACTER</FONT></STRONG></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>0</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>O</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>1</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>P</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>2</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>Q</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>3</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>R</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>4</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>S</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>5</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>T</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>6</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>U</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>7</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>V</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>8</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>W</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19 x:num><FONT face=宋体 size=2>9</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>X</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>A</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>Y</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>B</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>Z</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>C</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>-</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>D</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>.</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>E</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>SPACE</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>F</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>$</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>G</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>/</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>H</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>+</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>I</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>%</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>J</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>　</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>K</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>　</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>L</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>　</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>M</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 size=2>　</FONT></TD></TR>
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black 0.5pt solid; WIDTH: 74pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: transparent" 
+          width=99 height=19><FONT face=宋体 size=2>N</FONT></TD>
+          <TD class=xl22 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black; BORDER-LEFT: black; WIDTH: 76pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=101><FONT face=宋体 
+      size=2>　</FONT></TD></TR></TABLE> </FONT> </P></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG height=16 alt="" src="images/ccclst.gif" width=32></TD>
+    <TD><FONT face="Times New Roman">error in</FONT></TD>
+    <TD><FONT face="Times New Roman">错误信息输入.</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG height=16 alt="" src="images/icclst.gif" width=32></TD>
+    <TD><FONT face="Times New Roman">Barcode refnum </FONT></TD>
+    <TD><FONT face="Times New Roman">输出条码信息,用于传递给DrawCode绘制条码图像.</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG height=16 alt="" src="images/icclst.gif" width=32></TD>
+    <TD><FONT face="Times New Roman">error out</FONT></TD>
+    <TD><FONT 
+face="Times New Roman">错误信息输出.</FONT></TD></TR></TABLE><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR> </FONT><BR></FONT><BR></FONT><FONT face="Times New Roman" color=#808080 size=2><FONT face="Arial" color  =#808080 size=1>&nbsp;</DIV> 
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">
+<HR>
+</DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><A 
+href="http://www.testdevgroup.com" target=_blank><IMG src="template/Logo.gif" 
+border=0></A></DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">Copyright 
+?2007&nbsp;<A href="http://www.testdevgroup.com" 
+target=_blank>TestDevevelopmentGroup</A> 
+</FONT></FONT></DIV>
+<P 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"></P></body></HTML>

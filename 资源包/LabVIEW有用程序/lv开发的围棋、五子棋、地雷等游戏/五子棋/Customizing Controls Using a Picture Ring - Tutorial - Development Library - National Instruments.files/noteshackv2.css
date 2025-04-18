@@ -1,0 +1,388 @@
+@import url( /css/global/us/antiquatedjunk.css );
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 9px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #fff
+}
+P {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+SELECT {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+INPUT {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+UL {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+OL {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+LI {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+TH {
+	TEXT-ALIGN: left
+}
+SUP {
+	FONT-SIZE: 10px
+}
+PRE {
+	FONT-WEIGHT: normal; COLOR: #000; FONT-FAMILY: Courier, fixed-width
+}
+EM {
+	FONT-STYLE: italic
+}
+H1 {
+	FONT-SIZE: 22px; MARGIN: 8px 0px 0px; COLOR: #000; FONT-FAMILY: arial narrow, sans-serif
+}
+H2 {
+	FONT-SIZE: 18px; MARGIN: 6px 0px 0px; COLOR: #000
+}
+H3 {
+	FONT-SIZE: 12px; MARGIN: 4px 0px 0px; COLOR: #000
+}
+H4 {
+	MARGIN: 2px 0px
+}
+CAPTION {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-WEIGHT: bold; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; TEXT-ALIGN: left
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#pagearea UL LI {
+	FONT-SIZE: 11px; MARGIN-BOTTOM: 6px; LINE-HEIGHT: 1.2; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+A:link {
+	COLOR: #3366cc; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #884488; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+.niblue {
+	BACKGROUND-COLOR: #065fa3
+}
+.niblue50 {
+	BACKGROUND-COLOR: #82afd1
+}
+.niblue35 {
+	BACKGROUND-COLOR: #a8c7df
+}
+.niblue25 {
+	BACKGROUND-COLOR: #c1d7e8
+}
+.niblue12 {
+	BACKGROUND-COLOR: #e6eff6
+}
+.niblue10 {
+	BACKGROUND-COLOR: #e6eff6
+}
+.black {
+	BACKGROUND-COLOR: #000
+}
+.black60 {
+	BACKGROUND-COLOR: #666
+}
+.black20 {
+	BACKGROUND-COLOR: #ccc
+}
+.black12 {
+	BACKGROUND-COLOR: #e0e0e0
+}
+.black10 {
+	BACKGROUND-COLOR: #e5e5e5
+}
+.black5 {
+	BACKGROUND-COLOR: #f2f2f2
+}
+.beer {
+	BACKGROUND-COLOR: #ffbb00
+}
+.beer60 {
+	BACKGROUND-COLOR: #ffd666
+}
+.beer55 {
+	BACKGROUND-COLOR: #ffda73
+}
+.beer50 {
+	BACKGROUND-COLOR: #ffdd7f
+}
+.beer25 {
+	BACKGROUND-COLOR: #ffeebf
+}
+.beer12 {
+	BACKGROUND-COLOR: #fff7e0
+}
+#wrapper {
+	
+}
+#logo {
+	FLOAT: left
+}
+#search {
+	FONT-SIZE: 11px; FLOAT: left; MARGIN: 20px 0px 0px; WIDTH: 590px; TEXT-ALIGN: right
+}
+#sitenavigation {
+	CLEAR: left; WIDTH: 752px; HEIGHT: 20px; BACKGROUND-COLOR: #fff
+}
+#linearnavigation {
+	CLEAR: left; FONT-SIZE: 12px; WIDTH: 752px; COLOR: #fff; HEIGHT: 20px; BACKGROUND-COLOR: #065fa3
+}
+#linearcontentcontainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 752px; PADDING-TOP: 5px
+}
+A.linearbarlink {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 11px; FLOAT: right; PADDING-BOTTOM: 3px; COLOR: #fff; PADDING-TOP: 3px
+}
+A.linearbarlink:visited {
+	COLOR: #fff
+}
+.lineartext {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#bodycontainer {
+	CLEAR: left
+}
+#primarycontentcontainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 5px
+}
+#breadcrumbcontainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; PADDING-TOP: 2px
+}
+#breadcrumblabel {
+	FONT-SIZE: 9px; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: 1px
+}
+#breadcrumb {
+	FONT-SIZE: 9px; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: 1px
+}
+#breadcrumblabel {
+	WIDTH: 75px; WHITE-SPACE: nowrap
+}
+#locale {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; WHITE-SPACE: nowrap; TEXT-ALIGN: right
+}
+#pagearea {
+	FONT-SIZE: 11px
+}
+#footer {
+	CLEAR: both; FONT-SIZE: 10px; BACKGROUND: url(/images/global/us/dot_line.gif) #fff repeat-x; MARGIN: 25px 0px; WIDTH: 752px; PADDING-TOP: 10px
+}
+.copyright {
+	COLOR: #959595; LETTER-SPACING: 0px
+}
+.clearfloat {
+	CLEAR: both
+}
+#junktable {
+	WIDTH: 100%
+}
+#tertiarynavigation {
+	TEXT-ALIGN: right
+}
+.tertiarynavigation {
+	BORDER-RIGHT: #82afd1 1px solid; BORDER-TOP: #82afd1 1px solid; MARGIN: 0px 0px 10px 20px; BORDER-LEFT: #82afd1 1px solid; WIDTH: 150px; BORDER-BOTTOM: #82afd1 1px solid
+}
+.tertiarynavigation UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; TEXT-ALIGN: left
+}
+.tertiarynavigation UL UL {
+	MARGIN-TOP: 5px; MARGIN-BOTTOM: 10px
+}
+.tertiarynavigation LI SPAN {
+	PADDING-RIGHT: 14px; DISPLAY: block; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 4px; WIDTH: 126px; COLOR: #82afd1; PADDING-TOP: 5px; BACKGROUND-COLOR: #e6eff6
+}
+.tertiarynavigation LI LI A {
+	PADDING-RIGHT: 3px; DISPLAY: block; PADDING-LEFT: 21px; FONT-SIZE: 11px; BACKGROUND: url(/images/global/us/bullet.gif) #fff no-repeat 11px -1px; PADDING-BOTTOM: 3px; WIDTH: 120px; PADDING-TOP: 3px
+}
+.tertiarynavigation LI LI SPAN {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 3px; DISPLAY: block; PADDING-LEFT: 10px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 3px; COLOR: #000; PADDING-TOP: 3px; BACKGROUND-COLOR: #fff; BORDER-RIGHT-WIDTH: 0px
+}
+.tertiarynavigation A:hover {
+	COLOR: #000; BACKGROUND-COLOR: #ccc; TEXT-DECORATION: none
+}
+.titlebar {
+	PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; MARGIN-TOP: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 3px; COLOR: #000; PADDING-TOP: 3px
+}
+.header6 {
+	PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; MARGIN-TOP: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 3px; COLOR: #000; PADDING-TOP: 3px
+}
+.topalign {
+	VERTICAL-ALIGN: top
+}
+.middlealign {
+	VERTICAL-ALIGN: middle
+}
+.bottomalign {
+	VERTICAL-ALIGN: bottom
+}
+.barstyle {
+	BORDER-RIGHT: #e0e0e0 0px solid; PADDING-RIGHT: 3px; BORDER-TOP: #e0e0e0 1px solid; PADDING-LEFT: 3px; BACKGROUND: #f2f2f2; PADDING-BOTTOM: 3px; BORDER-LEFT: #e0e0e0 0px solid; COLOR: #797979; PADDING-TOP: 3px; BORDER-BOTTOM: #e0e0e0 1px solid
+}
+#callme {
+	PADDING-RIGHT: 11px; PADDING-LEFT: 11px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#globe {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 47px; FONT-SIZE: 11px; BACKGROUND: url(/images/labview/us/globe.gif) no-repeat 11px 0px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 0px; COLOR: #3366cc; PADDING-TOP: 2px; HEIGHT: 40px
+}
+#globe .arrow {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #0066cc
+}
+#globe A {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px
+}
+.fineprint {
+	FONT-SIZE: 11px
+}
+.wayfineprint {
+	FONT-SIZE: 9px; LETTER-SPACING: 1px
+}
+.tableshade {
+	BACKGROUND-COLOR: #f6f6f6
+}
+.clearbg {
+	BACKGROUND-COLOR: #fff
+}
+.required {
+	FONT-WEIGHT: bold; COLOR: #ff0000
+}
+#allencompassingcontactme {
+	WIDTH: 752px
+}
+#warningarea {
+	BORDER-RIGHT: #e5e5e5 4px solid; PADDING-RIGHT: 5px; BORDER-TOP: #e5e5e5 4px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 10px; BORDER-LEFT: #e5e5e5 4px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #e5e5e5 4px solid
+}
+#warningarea H3 {
+	FONT-SIZE: 16px; COLOR: #bb0000
+}
+#warningarea P {
+	FONT-SIZE: 11px; MARGIN: 2px 0px; LINE-HEIGHT: 1.4
+}
+#eventsearch SELECT {
+	FONT-SIZE: 11px; WIDTH: 180px
+}
+.youwillconform TABLE TD {
+	BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #ccc 1px solid; BORDER-BOTTOM: #ccc 1px solid; BORDER-COLLAPSE: collapse
+}
+.youwillconform TABLE {
+	BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; WIDTH: 550px; BORDER-BOTTOM: #ccc 1px solid; border-spacing: 0
+}
+.datatable {
+	BORDER-RIGHT: #ccc 0px solid; BORDER-TOP: #ccc 1px solid; BORDER-LEFT: #ccc 0px solid; BORDER-BOTTOM: #ccc 1px solid
+}
+.datatable CAPTION {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-WEIGHT: bold; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; TEXT-ALIGN: left
+}
+.datatable THEAD TH {
+	FONT-SIZE: 11px; BACKGROUND: #f2f2f2
+}
+.datatable TBODY TD {
+	BORDER-TOP: #ccc 1px solid; FONT-SIZE: 11px
+}
+.datatable TBODY TH {
+	BORDER-TOP: #ccc 1px solid; FONT-SIZE: 11px; COLOR: #555; BACKGROUND-COLOR: #f2f2f2
+}
+.dottedline {
+	BACKGROUND: url(/images/global/us/line.gif) #fff repeat-x
+}
+.top {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11px; PADDING-BOTTOM: 10px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 10px; TEXT-ALIGN: right
+}
+.imgright {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; FLOAT: right; PADDING-BOTTOM: 10px; PADDING-TOP: 0px
+}
+#hierarchynavigation {
+	BACKGROUND: #e0e0e0; PADDING-BOTTOM: 6px; MARGIN: 0px 15px 0px 0px; WIDTH: 180px; BORDER-BOTTOM: #82afd1 1px solid
+}
+#hierarchynavigation UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#hierarchynavigation LI A {
+	PADDING-RIGHT: 25px; DISPLAY: block; PADDING-LEFT: 20px; FONT-WEIGHT: bold; FONT-SIZE: 11px; BACKGROUND: url(/images/global/us/white_down.gif) #000 no-repeat 5px 1px; PADDING-BOTTOM: 3px; WIDTH: 135px; COLOR: #ffbb00; PADDING-TOP: 5px; BORDER-BOTTOM: #82afd1 1px solid; FONT-FAMILY: Arial, sans-serif
+}
+#hierarchynavigation LI LI A {
+	FONT-WEIGHT: normal; BACKGROUND: url(/images/global/us/white_right.gif) #065fa3 no-repeat 7px 1px; COLOR: #fff
+}
+#hierarchynavigation LI LI LI A {
+	BACKGROUND: url(/images/global/us/blue_right.gif) #c1d7e8 no-repeat 7px 1px; COLOR: #000; BORDER-BOTTOM: #fff 1px solid
+}
+#hierarchynavigation LI LI LI LI A {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 35px; BACKGROUND: url(/images/global/us/bullet.gif) #e6eff6 no-repeat 25px 0px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#hierarchynavigation LI#advisor {
+	BACKGROUND-COLOR: #065fa3
+}
+#hierarchynavigation LI#advisor A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: none; PADDING-BOTTOM: 3px; WIDTH: 180px; PADDING-TOP: 5px; BORDER-BOTTOM: #82afd1 1px solid
+}
+#hierarchynavigation LI#advisor A:hover {
+	COLOR: #000; BACKGROUND-COLOR: #065fa3
+}
+#hierarchynavigation LI#advisor A IMG {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#hierarchynavigation LI A:hover {
+	BACKGROUND-COLOR: #666666; TEXT-DECORATION: none
+}
+#hierarchynavigation LI LI A:hover {
+	BACKGROUND-COLOR: #518fbf
+}
+#hierarchynavigation LI LI LI A:hover {
+	BACKGROUND-COLOR: #9dc0db
+}
+#hierarchynavigation LI LI LI LI A:hover {
+	BACKGROUND-COLOR: #b5cfe4
+}
+#hierarchynavigation LI A#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_down.gif)
+}
+#hierarchynavigation LI LI A#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_right.gif)
+}
+#hierarchynavigation LI LI LI A#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_right.gif); BACKGROUND-COLOR: #fff
+}
+#hierarchynavigation LI LI LI LI A#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_bullet.gif); BACKGROUND-COLOR: #fff
+}
+#hierarchynavigation LI LI A#final {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_right.gif); COLOR: #000; BACKGROUND-COLOR: #fff
+}
+#hierarchynavigation LI LI LI A#final {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_right.gif); COLOR: #000; BACKGROUND-COLOR: #fff
+}
+#hierarchynavigation LI LI LI LI A#final {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_bullet.gif); COLOR: #000; BACKGROUND-COLOR: #fff
+}
+#hierarchynavigation LI LI A.haschildren {
+	BACKGROUND-IMAGE: url(/images/global/us/white_down.gif)
+}
+#hierarchynavigation LI LI LI A.haschildren {
+	BACKGROUND-IMAGE: url(/images/global/us/blue_down.gif)
+}
+#hierarchynavigation LI LI A.haschildren#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_down.gif)
+}
+#hierarchynavigation LI LI LI A.haschildren#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_down.gif)
+}
+#hierarchynavigation LI LI LI LI A.haschildren#on {
+	BACKGROUND-IMAGE: url(/images/global/us/orange_down.gif)
+}
+LI#request_support A {
+	PADDING-RIGHT: 5px; BACKGROUND-POSITION: 5px center; PADDING-LEFT: 40px; FONT-WEIGHT: normal; FONT-SIZE: 11px; BACKGROUND-IMAGE: url(/images/support/us/rs_sidebar_icons.gif); BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 3px; COLOR: #000; PADDING-TOP: 5px; BACKGROUND-COLOR: #e0e0e0
+}
+LI#request_support A:hover {
+	COLOR: #000; BACKGROUND-COLOR: #e0e0e0; TEXT-DECORATION: underline
+}
+#holdthenav {
+	WIDTH: 180px
+}

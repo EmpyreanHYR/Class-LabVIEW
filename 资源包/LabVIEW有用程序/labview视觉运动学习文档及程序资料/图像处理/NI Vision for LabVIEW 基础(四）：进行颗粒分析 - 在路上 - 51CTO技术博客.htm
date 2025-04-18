@@ -1,0 +1,661 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type"	content="text/html;	charset=gb2312">
+<title>NI Vision for LabVIEW 基础(四）：进行颗粒分析 - 在路上 - 51CTO技术博客</title>
+<meta name="description" content="本节介绍如果对图像进行颗粒分析。颗粒分析用于获得统计信息，如面积、数量、位置、以及颗粒存在。利用这些信息，可以完成许多机器视觉检测任务，例如硅圆片的裂缝检测，或电路板的焊接缺陷检测。如何进行颗粒分..">
+<meta name="keywords" content="NI Vision for LabVIEW 基础(四）：进行颗粒分析">
+<meta http-equiv="Cache-Control" content="private">
+<base href="http://guosir.blog.51cto.com/"></base>
+<script src="/js/def.js"></script>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/message.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/user_comment.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/base2.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/dialog_utf8.js" type=text/javascript></SCRIPT>
+<link href="/css/skin/1.css" rel="stylesheet" type="text/css">
+<link href="/css/group/group.css" rel="stylesheet" type="text/css">
+<link rel="alternate" href="../rss.php?uid=709336" type="application/rss+xml" title="RSS 2.0">
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=1" />
+<script>
+var myid = "";
+function add_flink(){
+	if(myid){
+		var url='/mod/edit_flink.php?type=addflink&uid=709336&flink=http://guosir.blog.51cto.com';
+		var ajax = InitAjax1();
+		ajax.open("GET", url, true);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				if(ajax.responseText==""){
+					alert("添加成功。");
+				}
+				if(ajax.responseText=="1"){
+				alert("链接指向自己。");
+				}
+				if(ajax.responseText=="2"){
+				alert("友情链接已存在。")
+				}
+			}
+		}
+		ajax.send(null);
+	}else{
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/307508";	
+
+		commentSubmit("",refurlk);
+		return false;
+	}
+	
+}
+function sendmessage(){
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/307508";	
+
+	if(myid){
+		return true;
+	}else{
+		commentSubmit("",refurlk);
+		return false;
+	}
+}
+function copylink(ourl){
+	if(!ourl){
+		var clipBoardContent = "http://guosir.blog.51cto.com";
+	}else{
+		var clipBoardContent = ourl;
+	}
+	window.clipboardData.setData("Text",clipBoardContent);
+	alert("复制成功!");
+	return false;
+}
+function correctPNG() {
+if (document.getElementById('blog_touxian'))
+{
+var img = document.getElementById('blog_touxian');
+      var imgName = img.src.toUpperCase()
+      var imgID = (img.id) ? "id='" + img.id + "' " : ""
+      var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+      var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+      var imgStyle = "display:inline-block;" + img.style.cssText 
+      if (img.align == "left") imgStyle = "float:left;" + imgStyle
+      if (img.align == "right") imgStyle = "float:right;" + imgStyle
+      if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle        
+      var strNewHTML = "<span " + imgID + imgClass + imgTitle
+         + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+         + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+         + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" ;
+      img.outerHTML = strNewHTML;
+} 
+}
+//window.attachEvent("onload", correctPNG);
+window.onload=correctPNG;
+</script>
+<style type="text/css">
+#layout_0{
+	width:;
+	float:left;
+}
+#layout_1{
+	width:;
+	float:left;
+}
+#layout_3{
+	width:;
+	float:left;
+}
+.albumalert{
+	width:250px;
+	height:150px;
+	background:#fff;
+	border:1px solid #777;
+}
+.alerttitle{
+	text-align:left;
+	color:#000;
+	padding:6px;
+	background-image:url("http://img1.51cto.com/images/quickwindow.jpg");
+	background-repeat:repeat-x;
+	font-size:14px;
+	height:22px;
+}
+.alertcentent{
+	line-height:30px;
+}
+.alertcentent p{
+color:#000;
+}
+
+#fixed{position:fixed;top:120px;right:40%;z-index:255;}
+</style>
+<!--[if IE 6]>
+<style type="text/css">
+#fixed{position:absolute;z-index:255;left:40%;top:expression(eval(document.documentElement.scrollTop+100));}
+</style>
+<![endif]-->
+<body>
+
+<div id="fixed" align="center" style="display:none;">
+<form action="/login.php" method="post" >
+<div class="albumalert">
+<div class="alerttitle"><span style="float:left;width:80%;color:#000"><b>博客登录</b></span><span style="float:right;width:5%;"><a href="" onclick="document.getElementById('fixed').style.display='none';return false;"><img src="http://img1.51cto.com/images/pic/alertcolse.gif" border="0"></a></span></div>
+<div class="alertcentent">
+<p>用户名：<input type="text" name="pwuser"><br>密　码：<input type="password" id="password" name="pwpwd"><br><input type='hidden' name='cktime' value='31536000'><input type='hidden' value='http://guosir.blog.51cto.com' name='jumpurl'>
+<input type='hidden' value='2' name='step'><input type="submit" value=" 登 录 " name="submit" > 
+</p>
+</div>
+</div>
+</form>
+</div>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" id="banner51cto" style="border-bottom:1px solid #444;color:#000;">
+<tr>
+	<td id="bloglogo" width="142"><a href="http://blog.51cto.com" title="IT BLOG" target="_blank"><img src="http://img1.51cto.com/image/default/51ctologo_.gif" border="0" alt="网络技术博客"></a></td>
+
+	<td width="150"><a href="http://ucenter.51cto.com/reg_01.php?reback=http://blog.51cto.com" target="_blank" class="ffb">注册</a> | <a href="http://blog.51cto.com/login.php" onclick="document.getElementById('fixed').style.display='';return false;" class="ffb">登录</a> <a href="http://ucenter.51cto.com/getpass.php" target="_blank" class="fft">忘记密码？</a></td>
+	<td width="280" class="top_txt"><a href='http://www.51cto.com' target="_blank" class="fft">51cto首页</a> | <a href='http://blog.51cto.com' target="_blank" class="fft">博客</a> | <a href='http://bbs.51cto.com' target="_blank" class="fft">论坛</a> | <a href='http://down.51cto.com' target="_blank" class="fft">下载</a>
+</td>
+	<td width="250"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="hot_art" width="60" align="center"><b>热点文章</b></td><td id="blogtopart"> <a href="http://chenguang.blog.51cto.com/350944/333803" title="虚拟机技术企业实战" target=_blank>虚拟机技术企业实战</a></td></tr></table></td>
+	<td width="180">
+	<form method=post action="http://blog.51cto.com/search.php" name=searchform target=_blank><div id="blogword">
+	<div id="blogso"><input type=image src="http://img1.51cto.com/image/default/blogso.gif" border="0"></div>
+
+	<div id="blogsotext" align=right>
+	  <input type=hidden name=search_type vfbalue=art>
+	  <input name=step type=hidden value=2>
+	  <input type=text id=keyword name="keyword"></div></div>
+	  </form>
+    </td>
+	<td width="40" aling="right">　<a href="http://51ctoblog.blog.51cto.com/all/26414/4" target="_blank" class="fft">帮助</a></td>
+  </tr>
+</table>
+</center>
+<div id="wrapper">
+	<div id="innerWrapper">
+	<div id="topPadding"></div>
+<div id="header">
+	<div id="innerHeader">
+	<div>
+	<div id="head_right">
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/c" title="察看GuoYJ所有转载文章">转载</a>:1 &nbsp;</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/t" title="察看GuoYJ所有翻译文章">翻译</a>:6</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/o" title="察看GuoYJ所有原创文章">原创</a>:0</div>
+	
+</div>
+	<h1 id="blogTitle">&nbsp;<a href="http://guosir.blog.51cto.com">在路上</a>
+&nbsp;<a href='/rss.php?uid=709336' target='_blank'><img src='http://img1.51cto.com/image/skin/1/rss.gif'></a></h1></div>
+
+<div id="blogDesc">
+<a href="http://guosir.blog.51cto.com">http://guosir.blog.51cto.com</a> > <a href="http://guosir.blog.51cto.com" onClick="return copylink()">复制链接</a> <a href="http://g.51cto.com/addgroup.php?uid=709336">邀请加入技术圈</a></div>			
+
+	<div class="top_bottom_left">
+</div>
+	<div class="top_bottom_right">
+<div class='top_link'><a href='/' onclick='add_flink(709336);return false'>加友情链接</a></div>
+<div class='top_link'><a href='javascript:void(0)'  onclick="pmwin('open','GuoYJ')">发短消息</a></div>
+<div class='top_link'><a href='/pic/'>相册</a></div>
+<div class='top_link'><a href='/mygroup.php'>技术圈</a></div>
+<div class='top_link'><a href='/'>博客</a></div>
+
+	</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<!-- add by cao2xi 2008-11-20 -->
+<div class="wd" id="my_menu" style="display:none;">
+<div class="wd1">
+<div class="wd_tit">
+<div class="wd_l"><a href="http://www.51cto.com" target="_blank">首页</a> | <a href="http://down.51cto.com" target="_blank">下载</a> | <a href="http://bbs.51cto.com" target="_blank">技术论坛</a> | <a href='javascript:void(0)'  onclick="pmwin('open','1')">短消息</a></div>
+<div class="wd_r"><img src="http://img1.51cto.com/images/wd_gb.gif" width="15" height="14" border="0" onclick="dis_menu();return false"/></div>
+</div>
+<div class="wd_list">
+<div class="wd_list_l">
+<div class="wd_list_t"><a href="http://blog.51cto.com" target="_blank">博 客</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com' target="_blank">我的博客</a></li>
+<li><a href='http://.blog.51cto.com/addblog.php' target="_blank">发表文章</a></li>
+<li><a href="http://blog.51cto.com/user_index.php" target="_blank">管理博客</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_m">
+<div class="wd_list_t1"><a href="http://g.51cto.com/" target="_blank">技术圈</a></div>
+<div class="wd_list_li"><ul>
+<li><a href="http://blog.51cto.com/user_index.php?action=creategroup" target="_blank">创建圈子</a></li>
+<li><a href='http://.blog.51cto.com/mygroup.php'  target="_blank">我的圈子</a></li>
+<li><a href='http://g.51cto.com/grouptag.php' target="_blank">寻找圈子</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_r">
+<div class="wd_list_t"><a href='http://.blog.51cto.com/pic/' target="_blank">相 册</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com/pic/' target="_blank">我的相册</a></li>
+<li><a href='http://.blog.51cto.com/pic/uploadphoto.php' target="_blank">上传图片</a></li>
+<li><a href='http://.blog.51cto.com/pic/manage_album.php?uid=709336' target="_blank">管理相册</a></li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<!-- add end -->
+<div id="navBar">
+	<div id="innerNavBar">
+	<div class="userdir">
+		<a href="/">首页</a>
+		| <a href="/709336/d-1">虚拟仪器</a>
+		| <a href="/709336/d-2">MDX</a>
+		| <a href="/709336/d-3">数据分析</a>
+		| <a href="/709336/d-4">数据仓库</a>
+		| <a href="/709336/d-5">商业智能</a>
+		| <a href="/709336/d-6">社会人生</a>
+		| <a href="/709336/d-7">文档收藏</a>
+
+</div>
+</div>
+</div>
+<div id="mainWrapper">
+<div id="innerMainWrapper">
+<div id="append_parent"></div>
+
+
+  <div id="add_sys_type_div" style="width:600px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+  <div id="add_sys_type_divs" style="width:550px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+<script language="JavaScript" src="http://g.51cto.com/js/alert.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://g.51cto.com/js/group.js"></script>
+
+<div class="mod" id="layout_1" style="width:74%;float:right">
+
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width=96% ><tr><td><a href="http://bbs.51cto.com/thread-712054-1.html" target="_blank" style="color:red;text-decoration:underline;">51CTO广东省午饭第二届线下聚会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://timyang.blog.51cto.com" target="_blank" style="color:red;text-decoration:underline;">新浪技术总监杨卫华51CTO开博</a></td>
+	<td align="right"><a href="/all/709336" target="_blank">博主的更多文章>></a></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+	<div class="article" id="article" align="left">
+		<h1 class="subject" style="word-wrap: break-word">
+			<b><img src='http://img1.51cto.com/images/fanyi_1.gif' border=0> NI Vision for LabVIEW 基础(四）：进行颗粒分析  </b>
+		</h1>
+		<hr size=1 align="center" style="border:1px solid #EEEEEE" width="94%">
+		<div>
+		<div class="posttime"><small>2010-04-29 21:57:07</small></div>
+		<div style="width:94%;padding-left:20px;">　标签：<span style="color:#AAAAAA;"><a href="http://blog.51cto.com/tagindex.php?keyword=Vision" target="_blank" class="operlink">Vision</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%BF%C5%C1%A3%B7%D6%CE%F6" target="_blank" class="operlink">颗粒分析</a> <a href="http://blog.51cto.com/tagindex.php?keyword=LabVIEW" target="_blank" class="operlink">LabVIEW</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%BB%F9%B4%A1" target="_blank" class="operlink">基础</a></span>　　　[<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>]
+
+<br><br></div>
+		</div>
+		<div>
+		<table width="650" cellpadding="0" cellspacing="10" border="0" id="content" style="width:650px;table-layout: fixed;word-wrap: break-all;">
+
+		<tr><td><div style="font-size:10pt;position:relative;word-wrap:break-word;word-break:break-all;"><p>本节介绍如果对图像进行颗粒分析。颗粒分析用于获得统计信息，如面积、数量、位置、以及颗粒存在。 利用这些信息，可以完成许多机器视觉检测任务，例如硅圆片的裂缝检测，或电路板的焊接缺陷检测。如何进行颗粒分析的例子有助于实现网络检测任务的实现包括定位木板的结构化缺陷或检查塑料薄模裂缝。</p>  <p>下图列举了实现颗粒分析的步骤。</p>  <table cellspacing="0" cellpadding="0"><tbody>     <tr>       <td "146"></td>     </tr>      <tr>       <td></td>        <td><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272549426vF1I.gif"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="clip_image001" border="0" alt="clip_image001" src="http://img1.51cto.com/attachment/201004/29/709336_1272549426TZlZ.gif" "346" height="250" /></a></td>     </tr>   </tbody></table>  <font color="#000080">创建二值图像</font>  <p>通过阈值将灰度或彩色图像创建一个二值图像。创建的二值图像将物体从需要检测的背景中分割出来。阈值运算将二值图像中的背景像素设置为0，而将物体像素设置成非零值。物体像素的默认值为1，但可以将物体像素设置成任意值。</p>  <p>可以采用不同的技术来阈值化图像。如果灰度图像中关注的物体融合在连续的密度范围内，可以利用IMAQ Threshold模块手动制定与之范围。如果灰度图像中所有的物体比背景更亮或更暗，可以使用NI Vision中的一种自动阈值技术。使用自动阈值技术的完整步骤如下：</p>  <p>1. 使用<b>IMAQ AutoBThreshold 2</b> 模块选择自动确定优化范围的阈值技术。</p>  <p>2. 将<strong>Threshold Data</strong> 输出到<b>IMAQ MultiThreshold</b>模块, 或者使用<strong>Lookup Table</strong> 输出给使用IMAQ UserLookup模块将查找表提供图像。</p>  <p>如果灰度图像包含多个非连续的灰度值的物体，使用<b>IMAQ MultiThreshold </b>模块。</p>  <p>如果灰度图像包含的物体其灰度值由于光线飘移而变化时，使用<b>IMAQ Local Threshold</b> 模块。</p>  <p>如果需要划分阈值的灰度图像光线条件不一致，例如强照明梯度或阴影导致，使用IMAQ Local Threshold 模块。需要定义一个像素窗口指明那些临近像素参与统计计算。默认的窗口大小为32 × 32.。然而，窗口大小可以近似于需要从背景中分离的最小物体的大小。有时可能需要定义一个本地阈值算法。本地阈值算法可以选择Niblack 或 背景修正算法。关于本地阈值的详细内容，参见<i>NI视觉概念手册，第8章，图像分段</i>。</p>  <p>自动阈值技术比基于固定范围的简单阈值提供了更多的灵活性。由于自动阈值技术根据图像直方图确定阈值水平，与固定阈值相比，这种运算受图像整体亮度和对比度变化的影响更小。由于这种技术在两度变化上更稳定，所以被广泛用于自动监测任务。</p>  <p>如果为彩色图像定义阈值，使用<b>IMAQ ColorThreshold </b>模块。必须为每个色面制定阈值范围，不管是红、绿、蓝，或色调、饱和度、流明。来自彩色阈值的二值图像结果是一个8-bit的二值图像。</p>  <font color="#000080">改善二值图像</font>  <p>在阈值图像之后，可能需要使用二值形态函数来改善结果二值图像。可以使用基本的二值形态函数或高级二值形态函数来去除不希望的颗粒，分割连接的颗粒，或改善颗粒的形状。基本形态函数以单个像素为单位处理整个图像。高级形态函数是基于基本形态运算建立的，以一批像素为单位，而不是以单个像素为单位。形态学函数中那些是基本的，那些是高级的列表，参见<i>NI 视觉概念手册，第9章，二值形态学</i>。</p>  <p>高级形态函数要求制定所使用的连通性。连通性告诉NI Vision如何判定两个邻接的像素是否属于同一个颗粒。在需要NI Vision研究一些像素是否是同一颗粒的一部分时，仅当像素是边沿接触时使用<strong>connectivity-4</strong>。当要求NI Vision 研究一些像素是否是同一颗粒的一部分时，即便像素仅仅是在角上邻接时，使用 <strong>connectivity-8</strong> 。关于连通性的更多信息，参见<i>NI 视觉概念手册，第9章，二值形态学</i>。</p>  <p><strong>说明 </strong><strong>整个</strong>应用程序中，要使用同样的连通性。</p>  去掉不希望的颗粒  <p><b>IMAQ RejectBorder</b> 模块用于去掉接触图像边沿的颗粒。当觉得接触到图像边沿颗粒的信息不完整的时候，可以去掉这些颗粒。</p>  <p><b>IMAQ RemoveParticle</b> 模块用于去掉不关心的大、小颗粒。还可以使用<b>IMAQ Morphology</b> 模块中的Erode, Open, 和POpen 函数去除小颗粒。与<b>IMAQ RemoveParticle</b> 模块不同，这三个函数改变剩下的颗粒的大小和形状。</p>  <p><b>IMAQ Morphology</b> 的hit-miss函数用于定位像素的颗粒配置，颗粒配置是利用一个结构化元素定义的。根据结构化元素的配置，hit-miss函数可以定位到单个孤立的像素， 交叉形或长条形，沿着颗粒边缘的右角形，以及其它用户定义的形状。有关结构化元素的详细内容，参见<i>NI Vision概念手册，第9章，二值几何</i>。</p>  <p>如果对需要保留或去除的颗粒的形状特征足够了解，可以使用<b>IMAQ Particle Filter 2</b> 模块来过滤掉不感兴趣的颗粒。</p>  分割接触的颗粒  <p>使用分界线变换和二值几何可以将图像中的接触颗粒分割开。</p>  使用分界线变换  <p><b>IMAQ Danielsson</b> 模块用于奖二值图像变换成一个灰度距离图，其中每个颗粒像素被赋给一个灰度级值。等于它到颗粒边缘的最短欧几里得距离。将<b>IMAQ Watershed Transform</b> 模块应用于这个距离图就可以找到区域分割线。使用<b>IMAQ Mask</b> 模块把分界线重叠在原始图像上。</p>  <p>有关使用分界线变换的详细内容，参见<i>NI Vision概念手册，第8章，图像分割</i>。</p>  使用二值几何  <p>可以使用<b>IMAQ Separation</b> 模块或者使用<b>IMAQ Morphology</b> 模块的erosion 或 open 函数来分割接触的物体。IMAQ Separation模块是一个高级程序它能分割颗粒而不改变其形状。而erosion 和 open 运算则改变所有颗粒的形状。</p>  <p><strong>说明 </strong><strong>与</strong>侵蚀、分界线变换和开放 运算（erosion, watershed transform, or open）相比，<b>IMAQ Separation</b>是一种耗时的运算。如果运算速度是应用程序中的一个考量，可以考虑其他某种方法而不使用分割运算。 </p>  改进颗粒形状  <p><b>IMAQ FillHole</b> 模块用于填补颗粒中的空洞。<b>IMAQ Morphology</b> 模块用于对颗粒进行一系列运算。可以使用Open, Close, POpen, PClose, 和 AutoM 运算来平滑颗粒的边缘。Open 和POpen 通过去掉细小的峡缝来平滑颗粒的边缘，而Close是加宽峡缝。Close 和 PClose 用于填补颗粒中的小孔。AutoM 去掉峡缝并填孔。关于这些运算的详细内容，参见<i>NI Vision概念手册，第9章，二值几何</i>。</p>  <font color="#000080">进行颗粒测量</font>  <p>在生成了二值图像并进行改进之后，就可能对颗粒进行测量。NI Vision 可以返回非校准或校准的真实单位像素测量值。通过这些测量值，可以确定颗粒的位置和它们的形状特征。下面的模块用于颗粒测量：</p>  <ol>   <li><b>IMAQ Particle Analysis Report</b>—该模块返回图像中的颗粒数，和一个报告数据包括11个最常用的测量值，包括颗粒面积，边界矩形，质量中心等。</li>    <li><b>IMAQ Particle Analysis</b>—该模块返回最多80个可选择的颗粒测量值。 IMAQ Particle Analysis 模块测量值的列表，参见<i>NI Vision概念手册，第9章，颗粒测量。</i></li> </ol><a href="http://guosir.blog.51cto.com/709336/307508" class="hidden">本文出自 51CTO.COM技术博客</a></div></td></tr>
+		</table>
+		</div>
+
+			</div>
+		<br><br>
+		<div align="center">上一篇 <a href="/709336/307504" class="operlink" title="NI Vision for LabVIEW 基础(三)：进行灰度和彩色测量">NI Vision for LabVIEW 基础(三)：进行灰度和..</a>　　下一篇 <a href="/709336/307518" class="operlink" title="NI Vision for LabVIEW 基础(五): 完成机器视觉任务">NI Vision for LabVIEW 基础(五): 完成机器视..</a>
+<br><br>
+</div>
+
+		<div align="right">
+		类别：未分类 ┆
+			<a  href="#"  onclick="javascript:joingroups(307508,'guosir');return false;" class="operlink">
+			技术圈(<script src="http://blog.51cto.com/js/joingroup.php?tid=307508"></script>)</a>  ┆ <span class="article_views">阅读(<script src="http://blog.51cto.com/js/header.php?uid=709336&tid=307508"></script>) ┆ 
+			评论(<script>document.write(replies)</script>)</span> 
+			┆<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>
+		┆<a href="/" class="operlink">返回首页</a>&nbsp;&nbsp;
+		</div>
+		<div class="clear"></div>
+		<br><br>
+		</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>相关文章</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c">
+		<div class="side_sinfo">
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/307504" title="NI Vision for LabVIEW 基础(三)：进行灰度和彩色测量" target="_blank">NI Vision for LabVIEW 基础(三)：进行灰度..</a></div>
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/307501" title="NI Vision for LabVIEW 基础(二)：准备测量图像" target="_blank">NI Vision for LabVIEW 基础(二)：准备测量图像</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/62565" title="LabVIEW DSP 1.0 与 2.0" target="_blank">LabVIEW DSP 1.0 与 2.0</a></div>
+
+	<div class="related"><a href="http://87209073.blog.51cto.com/376092/106821" title="基础是最重要的！" target="_blank">基础是最重要的！</a></div>
+
+	<div class="related"><a href="http://sailing.blog.51cto.com/223950/95590" title="计算机基础教案（XP操作系统）" target="_blank">计算机基础教案（XP操作系统）</a></div>
+
+	<div class="related"><a href="http://felixli.blog.51cto.com/244692/289524" title="【转】老菜鸟说给新菜鸟的存储基础知识" target="_blank">【转】老菜鸟说给新菜鸟的存储基础知识</a></div>
+
+	<div class="related"><a href="http://jeffyyko.blog.51cto.com/28563/186026" title="一起学DNS系列（一）基础、概览" target="_blank">一起学DNS系列（一）基础、概览</a></div>
+
+	<div class="related"><a href="http://kelly.blog.51cto.com/422990/97182" title="活动目录基础概念" target="_blank">活动目录基础概念</a></div>
+
+	<div class="related"><a href="http://77237.blog.51cto.com/67237/110057" title="计算机基础知识" target="_blank">计算机基础知识</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63496" title="自定义控件制作" target="_blank">自定义控件制作</a></div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="modFrame">
+	<div class="modTable"></div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>文章评论</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c" id="artcomment"><div>  &nbsp;</div><div>  &nbsp;</div>
+</div><a href="" id="com_top_top"></a>
+	</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+<div class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+		<br>
+		<a name='comment'></a>
+		<form action='/comment.php?' method='post' name='form1' id='form1' onSubmit='return commentSubmit(this,"");'>
+		<input type='hidden' name='action' value='comment'>
+		<input  id='commenttid' type='hidden' name='tid' value='307508'>
+        <input type="hidden" name="com_count_ajax" id="com_count_ajax" value="1" />		
+        <fieldset id="reply_box">
+		<legend class=legend><b>发表评论</b></legend>
+		<div class=sddd>
+		<a name="feedback" id="feedback"></a>	
+        <br>
+		<center>
+		<table border='0' width=100% align='center' cellspacing='1' cellpadding='3'>
+	<tr>
+		<td class=commenttable width="12%">昵&nbsp;&nbsp; 称：</td>
+		<td colspan="2" align="left">
+		<script src="/js/user_com.php"></script>
+	</tr>
+
+<tr id='commentyanzheng'>
+
+		<td class=commenttable>验证码：</td>
+		<td valign=bottom align="left" width="20%"><input id="commentauthnum" name="authnum" type="text" style="height:18px;padding-bottom:2px" onclick="displaysecunum();"></td>
+		<script language="javascript">
+			function refimg(){
+				var randval = Math.random();
+				document.getElementById("secunum").src="/seccode.php?rnum="+randval;
+			}
+			function displaysecunum()
+			{
+				var displaystr = document.getElementById("secunum").style.display;
+				if(displaystr == 'none')
+				{
+					refimg();
+					document.getElementById("clickfont").style.display = 'none';
+					document.getElementById("secunum").style.display = 'inline';
+					document.getElementById("spanfont").style.display = 'inline';
+				}
+			}
+		</script>
+		<td valign=bottom width="60%" align="left"><img border=1 id="secunum" onclick="refimg()" style="display:none;">　<span style="display:none;" id="spanfont">点击图片可刷新验证码</span><span style="display:inline;" id="clickfont">请点击后输入验证码</span>　<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration: underline;">博客过2级，无需填写验证码</a></td>
+	</tr>
+<tr>
+		<td valign=top class=commenttable>内&nbsp;&nbsp; 容：</td>
+		<td colspan="2" align="left"><textarea  id="commentcontent" name='content' rows=10 cols=60></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+
+<input name='submit' type='button' id="commentsubmit" value='提 交' onclick="commentSubmitend2()"></td><td></td>
+
+</tr>
+</table>
+			  </center><br>
+			</div>
+			</fieldset>
+		  </form>
+				<br>
+<iframe id=iframe1 name=iframe1 width=0 height=0></iframe>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="sidebar" id="layout_0" style="width:22%;">
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/face.gif"> <strong>GuoYJ</strong></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;padding:8px 8px 8px 8px;">
+	<div class="side_center" align="center">
+		<br>
+		<script src="http://blog.51cto.com/mod/userface.php?useruid=709336"></script>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="stats" class="nouse"><div class="t"><div class="rt"></div><div class="lt"></div>
+<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/stats.gif"> <strong>博客统计信息</strong></div></div>
+<div class="l"><div class="r"><div class="c"><div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+<div class="side_sinfo"> 用户名：GuoYJ<br>文章数：7<br>评论数：9<br>访问量：5632<br>
+无忧币：70<br>
+<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration:underline">博客积分</a>：64<br>博客等级：1 <br>
+注册日期：2009-03-25<br>
+<a href="http://blog.51cto.com/active/no1/ing.html" target="_blank" class="operlink">距离博客争夺赛结束还有<span style="color:#ff0000">3</span> 天</a></div></div></div></div></div><div class="modFrame"><div class="modTable"></div></div></div>
+
+
+<div id="hotblog" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/hotblog.gif"> <b>热门文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<li><a href="/709336/269094">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269090">NI Vision for LabVIEW基..</a></li>
+<li><a href="/709336/307501">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307518">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307504">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307508">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269059">Analysis Services Perfo..</a></li>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+<div id="search" class="nouse">
+<form method=post action="search.php?">
+<input type="hidden" name="step" value="2">
+<input type="hidden" name="authorid" value="709336">
+<input type="hidden" name="sch_area" value="S">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/search.gif"> <b>搜索本博客内文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo" style="text-align:center">
+	<input	type="text"	name="keyword" style="width:92%"><br><br>
+	<input	type="submit" value="提 交">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</form>
+</div>
+
+
+<script src="http://blog.51cto.com/js/mygroup.php?uid=709336"></script>
+
+
+<script src="http://blog.51cto.com/js/uservisit.php?uid=709336"></script>
+
+
+<div id="comment" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width="86%"><tr><td> <img src="http://img1.51cto.com/image/skin/def/comment.gif"> <b>最新评论</b></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div><b><a href='http://1527239.blog.51cto.com/' class='operlink' target=_blank><b>cxfwlyb</b></a>：</b><a href="/709336/307518" target=_blank>太好的东西啊!!! 支持啊!!!!!!!!!..</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://zhangguanxi.blog.51cto.com/' class='operlink' target=_blank><b>zhangguanxi</b></a>：</b><a href="/709336/307518" target=_blank>楼主，是原创吗？</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://lybice.blog.51cto.com/' class='operlink' target=_blank><b>lybice</b></a>：</b><a href="/709336/307518" target=_blank>很好的文章，非常感谢！</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]51cto游客：</b><a href="/709336/269094" target=_blank>thank you!!!</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]luoys：</b><a href="/709336/269094" target=_blank>看不见</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="com_art" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/com_art.gif"> <a href="http://blog.51cto.com/artcommend" target="_blank"><b>51CTO推荐博文</b></a></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+	<li><a href="http://282761713.blog.51cto.com/1495050/334024" title="C语言编写简单2D游戏" target="_blank">C语言编写简单2D游戏</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/332161" title="导师语录" target="_blank">导师语录</a></li>
+<li><a href="http://shenzhoulong.blog.51cto.com/1191789/333199" title="读取xml文件的方式" target="_blank">读取xml文件的方式</a></li>
+<li><a href="http://21cnbao.blog.51cto.com/109393/333312" title="Linux主机驱动与外设驱动分离思想" target="_blank">Linux主机驱动与外设驱..</a></li>
+<li><a href="http://yunli.blog.51cto.com/831344/333625" title="[设计原则] 防止他人犯错" target="_blank">[设计原则] 防止他人犯错</a></li>
+<li><a href="http://android.blog.51cto.com/268543/333769" title="Android UI学习 - 对话框" target="_blank">Android UI学习 - 对话框</a></li>
+<li><a href="http://zhengweiit.blog.51cto.com/1109863/333834" title="C#学习技巧实战演练" target="_blank">C#学习技巧实战演练</a></li>
+<li><a href="http://haolloyin.blog.51cto.com/1177454/333063" title="Template Method模板方法模式的Java实现" target="_blank">Template Method模板方..</a></li>
+<li><a href="http://leelei.blog.51cto.com/856755/320779" title="Asp.net MVC2 初探" target="_blank">Asp.net MVC2 初探</a></li>
+<li><a href="http://devbean.blog.51cto.com/448512/319479" title="Qt学习之路：创建shared library" target="_blank">Qt学习之路：创建share..</a></li>
+<li><a href="http://lancelot.blog.51cto.com/393579/331636" title="把Swing的Icon转换到SWT的Image" target="_blank">把Swing的Icon转换到SW..</a></li>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="flink" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/flink.gif"> <b>友情链接</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div>&nbsp;&nbsp;<a href="http://51ctoblog.blog.51cto.com" title="51CTO博客开发" target="_blank">51CTO博客开发</a></div>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div id="footer">
+  <div id="innerFooter">
+	<center>
+		<small>
+			Copyright By 51CTO.COM 版权所有<br><br>
+			<a href="http://www.51cto.com" target="_blank"><img src="http://img1.51cto.com/image/skin/1/copyright.jpg"></a>
+	  </small>
+	</center>
+  </div>
+</div>
+<div style="display:none">
+<script src="http://logs.51cto.com/rizhi/count/count.js"></script>
+<iframe frameborder="0" scrolling="no" width="0" height="0" src="http://log.51cto.com/pageview.php?frompos=blog_art"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="12008004">
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%A#!"!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!+5!!!*Q(C=V:4"D2."%%8`)#3Y_M;.R3F5!)$E&amp;*R#J?!D\?8C!QF5#E\"*_[6AC6)Q#)!R0#GX@&lt;/W!O\3)M%X;ZRT[`OKD@6L::K?SE^6`^1[X\&lt;`MR`(8(]6M=85]&lt;$59D_WN_05ZTFOU%X^@&gt;4`SDA:-)D`70AS93H]P^K:[\^UXI^E@`SM]`)D`6@VPVOOSY`@/+?\0_Y\.WV`_\IX(^_,E,=Z\^O`\``A=9^5"[=^*?&lt;V'GYC,$%!H0-.,D[2%`U2%`U2%`U1!`U1!`U1!^U2X&gt;U2X&gt;U2X&gt;U1T&gt;U1T&gt;U1T@UWN'&amp;,H3B5Z5E?:)I#:I%3#;$IO32]#1]#5`#Q[M3HI1HY5FY%B[G+/&amp;*?"+?B#@B9:E3HI1HY5FY%BZ#6:+M(2W?B)@Q#HA#HI!HY!FY3+G!*Q!)EA7"AS"A+(!'AY!HY!FY'#LA#8A#HI!HY-'NA#@A#8A#HI#(*&lt;5K57G'DAY09?4Q/$Q/D]0D]"";$I`$Y`!Y0!Y0[?4Q/$Q/B*01#1[#H%8/"/@&amp;Y8&amp;Y_*0$Y`!Y0![0QY/L\J$8SAQU1U?(R_!R?!Q?A]@A)91-(I0(Y$&amp;Y$"\#SO!R?!Q?A]@A):5-(I0(Y$&amp;!D+3EFR(-7'B--A3$BV]^,6:X+3K*V3[VQ[NW+.5/G^IB5DM=;JOONJFKG[27@,7CKB6,L1BK([='L1;DFE2N]4"2"ZZ\&lt;)&gt;NM1WWQJ&lt;9!JNDMW(J%U]](!\;\`@;\8&lt;;&lt;L@;&lt;$:;L6:;,J&gt;;,";;T_?;T79[N2P[M87H?[EQLP&lt;C3V&gt;?@?`+T9_OP/O\5PLV7PXHQ7\6@TX:RX[Q]O:E[\[]([TU:6U_L,PS^L9LLT]2\VNXDHW0(?_F@_&amp;OV$-&gt;`]]V_AH2[@6C!!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">302022660</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="SubVIs" Type="Folder">
+		<Item Name="GetEvent.vi" Type="VI" URL="../GetEvent.vi"/>
+		<Item Name="TriggerEvent.vi" Type="VI" URL="../TriggerEvent.vi"/>
+		<Item Name="RunGlobalVI.vi" Type="VI" URL="../RunGlobalVI.vi"/>
+		<Item Name="GetSglImage.vi" Type="VI" URL="../GetSglImage.vi"/>
+		<Item Name="GenImgs.vi" Type="VI" URL="../GenImgs.vi"/>
+		<Item Name="Scaling.vi" Type="VI" URL="../Scaling.vi"/>
+		<Item Name="Timing.vi" Type="VI" URL="../Timing.vi"/>
+		<Item Name="GetDelay.vi" Type="VI" URL="../GetDelay.vi"/>
+		<Item Name="Configuration Dialog.vi" Type="VI" URL="../Configuration Dialog.vi"/>
+		<Item Name="AddControl.vi" Type="VI" URL="../AddControl.vi"/>
+		<Item Name="RemoveControl.vi" Type="VI" URL="../RemoveControl.vi"/>
+		<Item Name="UpdateImgs.vi" Type="VI" URL="../UpdateImgs.vi"/>
+		<Item Name="UpdateSpeed.vi" Type="VI" URL="../UpdateSpeed.vi"/>
+		<Item Name="Refresh.vi" Type="VI" URL="../Refresh.vi"/>
+	</Item>
+	<Item Name="TypeDefs" Type="Folder">
+		<Item Name="Command.ctl" Type="VI" URL="../Command.ctl"/>
+		<Item Name="EventData.ctl" Type="VI" URL="../EventData.ctl"/>
+		<Item Name="Attrs.ctl" Type="VI" URL="../Attrs.ctl"/>
+	</Item>
+	<Item Name="Spinner.ctl" Type="VI" URL="../Spinner.ctl"/>
+	<Item Name="Spinner Data.ctl" Type="Ability VI" URL="../Spinner Data.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="Spinner State.ctl" Type="Ability VI" URL="../Spinner State.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="Spinner Facade.vi" Type="Ability VI" URL="../Spinner Facade.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="Spinner Init.vi" Type="Ability VI" URL="../Spinner Init.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="Spinner Uninit.vi" Type="Ability VI" URL="../Spinner Uninit.vi">
+		<Property Name="NI.XItem.Name" Type="Str">UnInit</Property>
+	</Item>
+	<Item Name="Color" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Color</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Color</Property>
+		<Item Name="Color Read.vi" Type="Property VI" URL="../Color Read.vi"/>
+		<Item Name="Color Write.vi" Type="Property VI" URL="../Color Write.vi"/>
+	</Item>
+</XControl>

@@ -1,0 +1,662 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type"	content="text/html;	charset=gb2312">
+<title>NI Vision for LabVIEW 基础(一)：NI Vision 简介  - 在路上 - 51CTO技术博客</title>
+<meta name="description" content="&nbsp;NIVision控件模板Vision控件模板位于LabVIEW控件模板的最顶层，由一下元素组成：IMAQImage.ctl—该控件是一个类型定义，用于声明图象类型的数据。在VI的前面板中使用该控件代表图象类型数据。例如，使用该..">
+<meta name="keywords" content="NI Vision for LabVIEW 基础(一)：NI Vision 简介 ">
+<meta http-equiv="Cache-Control" content="private">
+<base href="http://guosir.blog.51cto.com/"></base>
+<script src="/js/def.js"></script>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/message.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/user_comment.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/base2.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/dialog_utf8.js" type=text/javascript></SCRIPT>
+<link href="/css/skin/1.css" rel="stylesheet" type="text/css">
+<link href="/css/group/group.css" rel="stylesheet" type="text/css">
+<link rel="alternate" href="../rss.php?uid=709336" type="application/rss+xml" title="RSS 2.0">
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=1" />
+<script>
+var myid = "";
+function add_flink(){
+	if(myid){
+		var url='/mod/edit_flink.php?type=addflink&uid=709336&flink=http://guosir.blog.51cto.com';
+		var ajax = InitAjax1();
+		ajax.open("GET", url, true);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				if(ajax.responseText==""){
+					alert("添加成功。");
+				}
+				if(ajax.responseText=="1"){
+				alert("链接指向自己。");
+				}
+				if(ajax.responseText=="2"){
+				alert("友情链接已存在。")
+				}
+			}
+		}
+		ajax.send(null);
+	}else{
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/269094";	
+
+		commentSubmit("",refurlk);
+		return false;
+	}
+	
+}
+function sendmessage(){
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/269094";	
+
+	if(myid){
+		return true;
+	}else{
+		commentSubmit("",refurlk);
+		return false;
+	}
+}
+function copylink(ourl){
+	if(!ourl){
+		var clipBoardContent = "http://guosir.blog.51cto.com";
+	}else{
+		var clipBoardContent = ourl;
+	}
+	window.clipboardData.setData("Text",clipBoardContent);
+	alert("复制成功!");
+	return false;
+}
+function correctPNG() {
+if (document.getElementById('blog_touxian'))
+{
+var img = document.getElementById('blog_touxian');
+      var imgName = img.src.toUpperCase()
+      var imgID = (img.id) ? "id='" + img.id + "' " : ""
+      var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+      var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+      var imgStyle = "display:inline-block;" + img.style.cssText 
+      if (img.align == "left") imgStyle = "float:left;" + imgStyle
+      if (img.align == "right") imgStyle = "float:right;" + imgStyle
+      if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle        
+      var strNewHTML = "<span " + imgID + imgClass + imgTitle
+         + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+         + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+         + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" ;
+      img.outerHTML = strNewHTML;
+} 
+}
+//window.attachEvent("onload", correctPNG);
+window.onload=correctPNG;
+</script>
+<style type="text/css">
+#layout_0{
+	width:;
+	float:left;
+}
+#layout_1{
+	width:;
+	float:left;
+}
+#layout_3{
+	width:;
+	float:left;
+}
+.albumalert{
+	width:250px;
+	height:150px;
+	background:#fff;
+	border:1px solid #777;
+}
+.alerttitle{
+	text-align:left;
+	color:#000;
+	padding:6px;
+	background-image:url("http://img1.51cto.com/images/quickwindow.jpg");
+	background-repeat:repeat-x;
+	font-size:14px;
+	height:22px;
+}
+.alertcentent{
+	line-height:30px;
+}
+.alertcentent p{
+color:#000;
+}
+
+#fixed{position:fixed;top:120px;right:40%;z-index:255;}
+</style>
+<!--[if IE 6]>
+<style type="text/css">
+#fixed{position:absolute;z-index:255;left:40%;top:expression(eval(document.documentElement.scrollTop+100));}
+</style>
+<![endif]-->
+<body>
+
+<div id="fixed" align="center" style="display:none;">
+<form action="/login.php" method="post" >
+<div class="albumalert">
+<div class="alerttitle"><span style="float:left;width:80%;color:#000"><b>博客登录</b></span><span style="float:right;width:5%;"><a href="" onclick="document.getElementById('fixed').style.display='none';return false;"><img src="http://img1.51cto.com/images/pic/alertcolse.gif" border="0"></a></span></div>
+<div class="alertcentent">
+<p>用户名：<input type="text" name="pwuser"><br>密　码：<input type="password" id="password" name="pwpwd"><br><input type='hidden' name='cktime' value='31536000'><input type='hidden' value='http://guosir.blog.51cto.com' name='jumpurl'>
+<input type='hidden' value='2' name='step'><input type="submit" value=" 登 录 " name="submit" > 
+</p>
+</div>
+</div>
+</form>
+</div>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" id="banner51cto" style="border-bottom:1px solid #444;color:#000;">
+<tr>
+	<td id="bloglogo" width="142"><a href="http://blog.51cto.com" title="IT BLOG" target="_blank"><img src="http://img1.51cto.com/image/default/51ctologo_.gif" border="0" alt="网络技术博客"></a></td>
+
+	<td width="150"><a href="http://ucenter.51cto.com/reg_01.php?reback=http://blog.51cto.com" target="_blank" class="ffb">注册</a> | <a href="http://blog.51cto.com/login.php" onclick="document.getElementById('fixed').style.display='';return false;" class="ffb">登录</a> <a href="http://ucenter.51cto.com/getpass.php" target="_blank" class="fft">忘记密码？</a></td>
+	<td width="280" class="top_txt"><a href='http://www.51cto.com' target="_blank" class="fft">51cto首页</a> | <a href='http://blog.51cto.com' target="_blank" class="fft">博客</a> | <a href='http://bbs.51cto.com' target="_blank" class="fft">论坛</a> | <a href='http://down.51cto.com' target="_blank" class="fft">下载</a>
+</td>
+	<td width="250"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="hot_art" width="60" align="center"><b>热点文章</b></td><td id="blogtopart"> <a href="http://chenguang.blog.51cto.com/350944/333803" title="虚拟机技术企业实战" target=_blank>虚拟机技术企业实战</a></td></tr></table></td>
+	<td width="180">
+	<form method=post action="http://blog.51cto.com/search.php" name=searchform target=_blank><div id="blogword">
+	<div id="blogso"><input type=image src="http://img1.51cto.com/image/default/blogso.gif" border="0"></div>
+
+	<div id="blogsotext" align=right>
+	  <input type=hidden name=search_type vfbalue=art>
+	  <input name=step type=hidden value=2>
+	  <input type=text id=keyword name="keyword"></div></div>
+	  </form>
+    </td>
+	<td width="40" aling="right">　<a href="http://51ctoblog.blog.51cto.com/all/26414/4" target="_blank" class="fft">帮助</a></td>
+  </tr>
+</table>
+</center>
+<div id="wrapper">
+	<div id="innerWrapper">
+	<div id="topPadding"></div>
+<div id="header">
+	<div id="innerHeader">
+	<div>
+	<div id="head_right">
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/c" title="察看GuoYJ所有转载文章">转载</a>:1 &nbsp;</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/t" title="察看GuoYJ所有翻译文章">翻译</a>:6</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/o" title="察看GuoYJ所有原创文章">原创</a>:0</div>
+	
+</div>
+	<h1 id="blogTitle">&nbsp;<a href="http://guosir.blog.51cto.com">在路上</a>
+&nbsp;<a href='/rss.php?uid=709336' target='_blank'><img src='http://img1.51cto.com/image/skin/1/rss.gif'></a></h1></div>
+
+<div id="blogDesc">
+<a href="http://guosir.blog.51cto.com">http://guosir.blog.51cto.com</a> > <a href="http://guosir.blog.51cto.com" onClick="return copylink()">复制链接</a> <a href="http://g.51cto.com/addgroup.php?uid=709336">邀请加入技术圈</a></div>			
+
+	<div class="top_bottom_left">
+</div>
+	<div class="top_bottom_right">
+<div class='top_link'><a href='/' onclick='add_flink(709336);return false'>加友情链接</a></div>
+<div class='top_link'><a href='javascript:void(0)'  onclick="pmwin('open','GuoYJ')">发短消息</a></div>
+<div class='top_link'><a href='/pic/'>相册</a></div>
+<div class='top_link'><a href='/mygroup.php'>技术圈</a></div>
+<div class='top_link'><a href='/'>博客</a></div>
+
+	</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<!-- add by cao2xi 2008-11-20 -->
+<div class="wd" id="my_menu" style="display:none;">
+<div class="wd1">
+<div class="wd_tit">
+<div class="wd_l"><a href="http://www.51cto.com" target="_blank">首页</a> | <a href="http://down.51cto.com" target="_blank">下载</a> | <a href="http://bbs.51cto.com" target="_blank">技术论坛</a> | <a href='javascript:void(0)'  onclick="pmwin('open','1')">短消息</a></div>
+<div class="wd_r"><img src="http://img1.51cto.com/images/wd_gb.gif" width="15" height="14" border="0" onclick="dis_menu();return false"/></div>
+</div>
+<div class="wd_list">
+<div class="wd_list_l">
+<div class="wd_list_t"><a href="http://blog.51cto.com" target="_blank">博 客</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com' target="_blank">我的博客</a></li>
+<li><a href='http://.blog.51cto.com/addblog.php' target="_blank">发表文章</a></li>
+<li><a href="http://blog.51cto.com/user_index.php" target="_blank">管理博客</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_m">
+<div class="wd_list_t1"><a href="http://g.51cto.com/" target="_blank">技术圈</a></div>
+<div class="wd_list_li"><ul>
+<li><a href="http://blog.51cto.com/user_index.php?action=creategroup" target="_blank">创建圈子</a></li>
+<li><a href='http://.blog.51cto.com/mygroup.php'  target="_blank">我的圈子</a></li>
+<li><a href='http://g.51cto.com/grouptag.php' target="_blank">寻找圈子</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_r">
+<div class="wd_list_t"><a href='http://.blog.51cto.com/pic/' target="_blank">相 册</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com/pic/' target="_blank">我的相册</a></li>
+<li><a href='http://.blog.51cto.com/pic/uploadphoto.php' target="_blank">上传图片</a></li>
+<li><a href='http://.blog.51cto.com/pic/manage_album.php?uid=709336' target="_blank">管理相册</a></li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<!-- add end -->
+<div id="navBar">
+	<div id="innerNavBar">
+	<div class="userdir">
+		<a href="/">首页</a>
+		| <a href="/709336/d-1">虚拟仪器</a>
+		| <a href="/709336/d-2">MDX</a>
+		| <a href="/709336/d-3">数据分析</a>
+		| <a href="/709336/d-4">数据仓库</a>
+		| <a href="/709336/d-5">商业智能</a>
+		| <a href="/709336/d-6">社会人生</a>
+		| <a href="/709336/d-7">文档收藏</a>
+
+</div>
+</div>
+</div>
+<div id="mainWrapper">
+<div id="innerMainWrapper">
+<div id="append_parent"></div>
+
+
+  <div id="add_sys_type_div" style="width:600px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+  <div id="add_sys_type_divs" style="width:550px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+<script language="JavaScript" src="http://g.51cto.com/js/alert.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://g.51cto.com/js/group.js"></script>
+
+<div class="mod" id="layout_1" style="width:74%;float:right">
+
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width=96% ><tr><td><a href="http://bbs.51cto.com/thread-712054-1.html" target="_blank" style="color:red;text-decoration:underline;">51CTO广东省午饭第二届线下聚会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://timyang.blog.51cto.com" target="_blank" style="color:red;text-decoration:underline;">新浪技术总监杨卫华51CTO开博</a></td>
+	<td align="right"><a href="/all/709336" target="_blank">博主的更多文章>></a></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+	<div class="article" id="article" align="left">
+		<h1 class="subject" style="word-wrap: break-word">
+			<b><img src='http://img1.51cto.com/images/fanyi_1.gif' border=0> NI Vision for LabVIEW 基础(一)：NI Vision 简介   </b>
+		</h1>
+		<hr size=1 align="center" style="border:1px solid #EEEEEE" width="94%">
+		<div>
+		<div class="posttime"><small>2010-01-21 16:57:08</small></div>
+		<div style="width:94%;padding-left:20px;">　标签：<span style="color:#AAAAAA;"><a href="http://blog.51cto.com/tagindex.php?keyword=LabView" target="_blank" class="operlink">LabView</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%BB%FA%C6%F7%CA%D3%BE%F5" target="_blank" class="operlink">机器视觉</a></span>　　　[<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>]
+
+<br><br></div>
+		</div>
+		<div>
+		<table width="650" cellpadding="0" cellspacing="10" border="0" id="content" style="width:650px;table-layout: fixed;word-wrap: break-all;">
+		<tr><td><div class="copy"><strong>版权声明：</strong>原创作品，允许转载，转载时请务必以超链接形式标明文章 <a href="/709336/269094" target="_blank" style="text-decoration:underline">原始出处</a> 、作者信息和本声明。否则将追究法律责任。<a href="/709336/269094">http://guosir.blog.51cto.com/709336/269094</a></div></td></tr>
+
+		<tr><td><div style="font-size:10pt;position:relative;word-wrap:break-word;word-break:break-all;"><h1 style="margin: 6pt 0cm"><font size="1">&nbsp;</h1></font><div style="border-bottom: windowtext 1pt solid; border-left: medium none; padding-bottom: 1pt; padding-left: 0cm; padding-right: 0cm; border-top: medium none; border-right: medium none; padding-top: 0cm; mso-element: para-border-div; mso-border-bottom-alt: solid windowtext .5pt"><h2 style="border-bottom: medium none; border-left: medium none; padding-bottom: 0cm; text-indent: 0cm; margin: 6pt 0cm; padding-left: 0cm; padding-right: 0cm; border-top: medium none; border-right: medium none; padding-top: 0cm; mso-border-bottom-alt: solid windowtext .5pt; mso-char-indent-count: 0; mso-padding-alt: 0cm 0cm 1.0pt 0cm"><a name="_Toc248655589"><span lang=EN-US><font face=Cambria>NI Vision </font></span></a><span style="mso-bookmark: _toc248655589"><span style="font-family: 宋体; mso-ascii-font-family: cambria; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: major-fareast; mso-hansi-font-family: cambria; mso-hansi-theme-font: major-latin">控件模板</span></span></h2></div><div style="margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><span lang=EN-US>Vision</span>控件模板位于<span lang=EN-US>LabVIEW</span>控件模板的最顶层，由一下元素组成：</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b><span style="mso-font-kerning: 0pt" lang=EN-US>IMAQ Image.ctl</span></b><span style="mso-font-kerning: 0pt" lang=EN-US>—</span><span style="mso-font-kerning: 0pt">该控件是一个类型定义，用于声明图象类型的数据。在<span lang=EN-US>VI</span>的前面板中使用该控件代表图象类型数据。例如，使用该控件作为一个子程序的输入或输出，使调用成成可以将一幅图像传送给子程序。 <span lang=EN-US><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p></o:p></span></span></font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font size="3"><strong><span style="font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi">图像显示<span lang=EN-US>(Image Display)</span></span></strong><font face=宋体><span style="mso-font-kerning: 0pt" lang=EN-US>—</span><span style="mso-font-kerning: 0pt">该控件用于在<span lang=EN-US>LabVIEW </span>中直接显示图像。也可以利用该控件创建关注区域<span lang=EN-US> (ROIs)</span>。 图像显示控件提供标准和<span lang=EN-US>3D</span>版两种外观。 <span lang=EN-US><o:p></o:p></span></span></font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b><span style="mso-font-kerning: 0pt" lang=EN-US>IMAQ </span><span style="mso-font-kerning: 0pt">视觉控件<span lang=EN-US>(<strong><span style="font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi">IMAQ Vision controls</span></strong>)</span></span></b><span style="mso-font-kerning: 0pt" lang=EN-US>—</span><span style="mso-font-kerning: 0pt">这里的控件用于将<span lang=EN-US>NI Vision</span>的程序控件直接加入入用户自己的程序中获得相应的功能。<span lang=EN-US><o:p></o:p></span></span></font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font size="3"><font face=宋体><b><span style="mso-font-kerning: 0pt">机器视觉控件<span lang=EN-US>(<strong><span style="font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi">Machine Vision controls</span></strong>)</span></span></b><span style="mso-font-kerning: 0pt" lang=EN-US>—</span><span style="mso-font-kerning: 0pt">这里的控件用于将<span lang=EN-US>NI Vision</span>的机器视觉控件直接加入到用户自己的程序中以获得相应的功能。<span lang=EN-US><o:p></o:p></span></span></font></font></div><div style="border-bottom: windowtext 1pt solid; border-left: medium none; padding-bottom: 1pt; padding-left: 0cm; padding-right: 0cm; border-top: medium none; border-right: medium none; padding-top: 0cm; mso-element: para-border-div; mso-border-bottom-alt: solid windowtext .5pt"><h2 style="border-bottom: medium none; border-left: medium none; padding-bottom: 0cm; text-indent: 0cm; margin: 6pt 0cm; padding-left: 0cm; padding-right: 0cm; border-top: medium none; border-right: medium none; padding-top: 0cm; mso-border-bottom-alt: solid windowtext .5pt; mso-char-indent-count: 0; mso-padding-alt: 0cm 0cm 1.0pt 0cm"><a name="_Toc248655590"><span lang=EN-US><font face=Cambria>NI Vision </font></span></a><span style="mso-bookmark: _toc248655590"><span style="font-family: 宋体; mso-ascii-font-family: cambria; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: major-fareast; mso-hansi-font-family: cambria; mso-hansi-theme-font: major-latin">函数模板</span></span></h2></div><div style="margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><span lang=EN-US>NI Vision for LabVIEW </span>由三个主要的函数模板组成：常用视觉程序（<span lang=EN-US><a href="mk:@MSITStore:E:\软件仓库\LabView\LabView%20资料\Vision%20Documentation\NIVisionLVBasics.chm::/NI_Vision_Function_Palettes.html#Vision_Utilities"><span style="color: windowtext; text-decoration: none; text-underline: none">Vision Utilities</span></a></span>）<span lang=EN-US>, </span>图像处理（<span lang=EN-US><a href="mk:@MSITStore:E:\软件仓库\LabView\LabView%20资料\Vision%20Documentation\NIVisionLVBasics.chm::/NI_Vision_Function_Palettes.html#Image_Processing"><span style="color: windowtext; text-decoration: none; text-underline: none">Image Processing</span></a></span>）<span lang=EN-US>, </span>和机器视觉（<span lang=EN-US><a href="mk:@MSITStore:E:\软件仓库\LabView\LabView%20资料\Vision%20Documentation\NIVisionLVBasics.chm::/NI_Vision_Function_Palettes.html#Machine_Vision"><span style="color: windowtext; text-decoration: none; text-underline: none">Machine Vision</span></a></span>）。 本节介绍这些模板以及它们的子模板。</font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3">常用视觉程序<span lang=EN-US>(Vision Utilities)<b style="mso-bidi-font-weight: normal"><o:p></o:p></b></span></font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>常用视觉函数用于在<span lang=EN-US>NI Vision</span>中处理和显示图像。</font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Image Management</span></b><span lang=EN-US>—</span>管理图像程序组。利用这些程序可以建立和释放图像，设置和读取图像的属性例如尺寸和偏移量，复制图象。也可以使用一些高级的<span lang=EN-US>Vis</span>来定义图像的边框区域以及访问图像数据的指针。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Files</span></b><span lang=EN-US>—</span>一组使用不同格式读、写图像文件，并从文件中获得所包含的图像的信息的程序模块。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>External Display</span></b><span lang=EN-US>—</span>用于在外部窗口显示图像的程序模块组。使用这些程序模块可以完成以下任务： </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>读取和设置窗口属性，如尺寸、位置、缩放系数 </font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>为图像窗口设置调色板 </font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>建立及使用图像浏览器 </font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>在图像窗口上为选中的关注区域建立和使用不同的交互式绘图工具。 </font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>检测画图事件</font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>获得图像窗口上有关关注区域的信息。 </font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Region of Interest</span></b><span lang=EN-US>—</span>管理关注区域的程序组。使用这些程序可以通过编程来定义关注区，以及定义关注区和图像掩码和关注区之间的相互转换。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Image Manipulation</span></b><span lang=EN-US>—</span>修改图像颗粒内容的程序模块组。利用这些程序模块可以实现图像的重新采样、提取部分图像，以及图像的旋转、平移、打包。该子模板还包括了图像与剪贴板之间相互拷贝的程序模块。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Pixel Manipulation</span></b><span lang=EN-US>—</span>读取和修改图像中单独像素的程序模块组。利用这些程序模块可以读取和设置图像中的像素，或者图像中的一行或一列；向图像中的地像素填充特定的值；实现图像和<span lang=EN-US>2</span>维<span lang=EN-US>LabView</span>矩阵之间的相互转换。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Overlay</span></b><span lang=EN-US>—</span>一组不改变图像的像素值的情况将图形覆盖在在图像显示环境上的程序模块。利用这些程序模块可以使检测程序将检测结果覆盖在被检测图像上。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Calibration</span></b><span lang=EN-US>—</span>空间校准图像的程序模块组，用于排除相机景深和镜头畸变，以获得精确的真实的测量结果。利用这些程序建立简单的校准，或者让<span lang=EN-US>NI Vision</span>从网格图像中自动学习校准数据。还可以利用这些程序模块将像素坐标转换成真实坐标以便于测量。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Color Utilities</span></b><span lang=EN-US>—</span>访问彩色图像数据的程序模块组。利用这些程序可以从图像中提取调色板，用新的数据替换彩色图像的调色板，在彩色图像与<span lang=EN-US>2D</span>矩阵之间转换，读取和设置彩色图像的像素值，将像素值从一个彩色颗粒转换到另外一个彩色颗粒。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Vision RT</span></b><span lang=EN-US>—</span>为<span lang=EN-US>LabVIEW</span>实时模块使用<span lang=EN-US>NIVision</span>提供的函数组。利用这些程序模块可以在实时系统中将图像显示到视频输出中；控制发送到网络上的图像的压缩设置，以及实时系统中处理程序的时间区段。 </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><a name="Image_Processing"></a><font face=宋体><font size="3">图像处理<span lang=EN-US>(Image Processing)</span></font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><span lang=EN-US>NI Vision </span>中的分析、滤波和图像处理函数。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Processing</span></b><span lang=EN-US>—</span>处理灰度和二值图像的程序模块。利用这些函数可以使用不同的阈值将灰度图像转换成二值图像。也可以利用这些程序使用预定义或自定义的查找表变换图像，进行分界变换，修改图像的对比度，图像反向。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Filters</span></b><span lang=EN-US>—</span>滤波器，用于增强图像中的信息。利用这些程序可以实现虚像平滑、去除噪声、高光或强化图像中的边沿。可以利用预定义的卷积内核，也可以使用自定义的卷积内核。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Morphology</span></b><span lang=EN-US>—</span>形态学组，进行图像形态学运算的程序模块。其中一部分程序完成基本的形态学运算，如灰度和二值图像上的膨胀和腐蚀。另一部分程序用于改进二值图像的质量，微粒补孔、去除边框颗粒、去除小颗粒、基于颗粒的形状特征去除不希望的颗粒。该子模板中的其它组用于分割接触颗粒、查找颗粒轮廓、检测圆形颗粒。 </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><span lang=EN-US><a href="imaqvision.chm::/Analysis_pal.html"><b style="mso-bidi-font-weight: normal"><span style="color: windowtext; text-decoration: none; text-underline: none"><font size="3" face=宋体>Analysis</font></span></b></a><font size="3" face=宋体>—</font></span><font size="3" face=宋体>分子组，用于分析灰度和二值图像内容的程序模块。这些程序用于计算灰度图象的直方图和灰度统计信息，提取图像中任意维度上的像素信息和统计信息，以及检测和测量二值图像中的颗粒。 </font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Color Processing</span></b><span lang=EN-US>—</span>彩色处理组，分析和处理彩色图像的程序分组。这些程序用于计算彩色图像的直方图；为彩色图像应用查找表；改变彩色图像的亮度、对比度、伽马信息，以及阈值。其中的一部分使用彩色匹配处理比较不同图像或不同区域的彩色信息。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Operators</span></b><span lang=EN-US>—</span>图像基本算数和逻辑运算程序模块组。其中一部分用于图像与图像或常数的加、减、乘、除。该子模板的另一部分进行逻辑运算<span lang=EN-US>-</span>如<span lang=EN-US>AND/NAND, OR/NOR, XOR/XNOR—</span>以及图像之间或常数的像素比较。另外，这个子模板中的一个程序允许利用掩码操作选择图像中的一个区域。 </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><span lang=EN-US><a href="imaqvision.chm::/Frequency_Domain_pal.html"><b style="mso-bidi-font-weight: normal"><span style="color: windowtext; text-decoration: none; text-underline: none"><font size="3" face=宋体>Frequency Domain</font></span></b></a><font size="3" face=宋体>—</font></span><font size="3" face=宋体>图像频域分析处理程序模块组。使用这些程序可以使用二维快速付利叶变换（<span lang=EN-US>FFT</span>）将图像从空域转换到频域，以及利用反<span lang=EN-US>FFT</span>将频域变换到空域。这些程序模块还可以提取复数图像的幅度，相位，实部和虚部。另外，这些程序模块还可以将复数图像变换成复数二维矩阵，或相反。该子模板中的程序模块也可以进行一些基本复数图像间以及复数图像与常数间的算术运算<span lang=EN-US>-</span>如加、减、乘、除 运算。最后，其中的一些程序模块可以进行频域的滤波。 </font></div><div style="margin: 6pt 0cm" class=MsoNormal><a name="Machine_Vision"></a><font face=宋体><font size="3">机器视觉<span lang=EN-US>(Machine Vision)</span></font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>机器视觉函数是一些高级程序模块，用于简化常用的机器视觉任务。</font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Select Region of Interest</span></b><span lang=EN-US>—</span>选择关注区程序模块组，用于选择关注区、在图像窗口上画特殊的关注区，以及使用非常少的编程返回关注区信息。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Coordinate System</span></b><span lang=EN-US>—</span>坐标系统分组，用于发现与图像中物体相关的坐标系统。利用这些程序模块发现坐标系统，即可以用于边沿检测也可以用于模式匹配。还可以利用这个坐标系统从其他机器视觉程序中进行测量。 </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><span lang=EN-US><a href="imaqvision.chm::/Count_and_Measure_Objects_pal.html"><b style="mso-bidi-font-weight: normal"><span style="color: windowtext; text-decoration: none; text-underline: none"><font size="3" face=宋体>Count and Measure Objects</font></span></b></a><font size="3" face=宋体>—</font></span><font size="3" face=宋体>计数和测量物体组，该程序模块可以通过阈值将图像分割成孤立的对象，然后查找并测量这些对象的特性。该程序模块还可以在测量时忽略未知的对象。 </font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Measure Intensities</span></b><span lang=EN-US>—</span>测量强度程序模块组，用于测量一个点上的像素密度或者一个线或一个矩形区域内的像素密度统计。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Measure Distances</span></b><span lang=EN-US>—</span>测量距离程序组，两条纵向边沿之间的最小和最大水平距离，或者两条横向边沿之间的最大和最小垂直距离。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Locate Edges</span></b><span lang=EN-US>—</span>边沿查找程序组，查找垂直、水平、和圆形边沿。 </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><span lang=EN-US><a href="imaqvision.chm::/Find_Patterns_pal.html"><b style="mso-bidi-font-weight: normal"><span style="color: windowtext; text-decoration: none; text-underline: none"><font size="3" face=宋体>Find Patterns</font></span></b></a><font size="3" face=宋体>—A VI that learns and searches for a pattern in an image. </font></span></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Searching and Matching</span></b><span lang=EN-US>—</span>搜索和匹配程序组。用于在灰度和彩色图像中建立和搜索模式。该子模板包括一个可以在二值图像中搜索制定形状对象的程序。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Caliper</span></b><span lang=EN-US>—</span>卡尺，一组用于在图像的不同断面查找边沿的程序模块。使用这些程序可以沿着一条线、矩形区域（耙子）中的一组平行线、圆形区域（同心耙）中的一组平行同心线，或者圆形区域（轮子）中的一组辐射线查找边沿。还可以适用这里的程序查找图像中满足一定条件的对边。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Analytic Geometry</span></b><span lang=EN-US>—</span>分析几何程序组，用于对在图像中一个点集中做分析几何运算。这些程序适用于图像中线、圆、椭圆的点集；计算一个点集代表的多边形的面积；测量点之间的距离；计算点所代表的线之间的夹角。该子模板中的程序还可以实现诸如查找两条线的交点以及查找两条线夹角的等分线等运算。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>OCR</span></b><span lang=EN-US>—</span>光学字符识别程序组，用于光学字符识别和图像的区域检验。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Classification</span></b><span lang=EN-US>—</span>分类程序组。根据形状或用户定义的特征向量对二值对象进行分类。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Instrument Readers</span></b><span lang=EN-US>—</span>设备读取程序组。用于快速开发需要从<span lang=EN-US>7</span>段代码显示、计量仪表、指针、一维条码、二维条码中读取信息的程序开发。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Inspection</span></b><span lang=EN-US>—</span>检测程序组。将图像与一个标准模板对比。 </font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><a name="Vision_Express"></a><font face=宋体><font size="3">快速视觉<span lang=EN-US>(Vision Express)</span></font></font></div><div style="margin: 6pt 0cm" class=MsoNormal><font face=宋体><font size="3"><span lang=EN-US>Vision Express Vis</span>用于快速开发常用的图像采集和处理应用。</font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font size="3"><strong><span style="font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi" lang=EN-US>Vision Acquisition</span></strong><font face=宋体><span lang=EN-US>—</span>视觉获取，是一个<span lang=EN-US>Express VI</span>，可以方便的配置用于获取来自模拟、数字、相机连线、<span lang=EN-US>IEEE 1394</span>以及<span lang=EN-US>GigE</span>版本相机的图像。 </font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font size="3"><strong><span style="font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi">说明：必须安装</span></strong><font face=宋体><span lang=EN-US>NI Vision Acquisition Software</span>才能访问<span lang=EN-US>Vision Acquisition Express VI</span>。<span style="mso-ascii-font-family: 宋体; mso-fareast-font-family: 宋体; mso-hansi-font-family: 宋体; mso-bidi-font-family: 宋体" lang=EN-US><o:p></o:p></span></font></font></div><div style="text-indent: 24.35pt; margin: 6pt 0cm" class=MsoNormal><font size="3"><font face=宋体><b style="mso-bidi-font-weight: normal"><span lang=EN-US>Vision Assistant</span></b><span lang=EN-US>—</span>视觉助手。利用<span lang=EN-US>NI Vision Assistant</span>可以在<span lang=EN-US>LabVIEW </span>环境中完成一些常用的图像处理任务。</font></font></div><div style="border-bottom: windowtext 1pt solid; border-left: medium none; padding-bottom: 1pt; padding-left: 0cm; padding-right: 0cm; border-top: medium none; border-right: medium none; padding-top: 0cm; mso-element: para-border-div; mso-border-bottom-alt: solid windowtext .5pt"><h2 style="border-bottom: medium none; border-left: medium none; padding-bottom: 0cm; text-indent: 0cm; margin: 6pt 0cm; padding-left: 0cm; padding-right: 0cm; border-top: medium none; border-right: medium none; padding-top: 0cm; mso-border-bottom-alt: solid windowtext .5pt; mso-char-indent-count: 0; mso-padding-alt: 0cm 0cm 1.0pt 0cm"><a name="_Toc248655591"><span style="font-family: 宋体; mso-ascii-font-family: cambria; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: major-fareast; mso-hansi-font-family: cambria; mso-hansi-theme-font: major-latin">如何创建</span><span lang=EN-US><font face=Cambria>NI Vision</font></span></a><span style="mso-bookmark: _toc248655591"><span style="font-family: 宋体; mso-ascii-font-family: cambria; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: major-fareast; mso-hansi-font-family: cambria; mso-hansi-theme-font: major-latin">应用</span></span></h2></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>下面的图说明了利用<span lang=EN-US>NI Vision</span>建立应用程序的步骤。第一个图描述设计<span lang=EN-US>NI Vision</span>程序的一般步骤。第一个图中最后一步的第<span lang=EN-US>2</span>，<span lang=EN-US>3</span>项，在第二个图中扩充。可以使用最后一步的项目组合来建立<span lang=EN-US>NI Vision</span>应用。</font></div><div style="margin: 6pt 0cm" class=MsoNormal><font size="3" face=宋体>关于每个项目的详细内容，参阅图中项目相应的章节。</font></div><div style="margin: 6pt 0cm" class=MsoNormal><span lang=EN-US><o:p><font size="3" face=宋体>&nbsp;</font></o:p></span></div><div style="margin: 6pt 0cm" class=MsoNormal><span lang=EN-US><o:p></o:p></span><strong><span style="font-family: 宋体; font-size: 10.5pt; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi">说明</span></strong><font face=宋体><span style="font-size: 10.5pt" lang=EN-US>&nbsp;&nbsp; </span><span style="font-size: 10.5pt">虚线中的项目是可选步骤。 <span lang=EN-US><o:p></o:p></span></span></font></div><div style="margin: 6pt 0cm" class=MsoNormal><?xml:namespace prefix = v ns = "urn:schemas-microsoft-com:vml" /><v:shape style="z-index: 2; position: absolute; text-align: left; margin-top: 35.35pt; width: 415.3pt; height: 170.25pt; visibility: visible; margin-left: 12pt; left: 0px; mso-wrap-style: square; mso-wrap-distance-left: 9pt; mso-wrap-distance-top: 0; mso-wrap-distance-right: 9pt; mso-wrap-distance-bottom: 0; mso-position-horizontal: absolute; mso-position-horizontal-relative: text; mso-position-vertical: absolute; mso-position-vertical-relative: text" id=图片_x0020_32 type="#_x0000_t75" o:spid="_x0000_s1026"><font face=宋体><v:imagedata o:title="" src="file:///C:\Users\ADMINI~1\AppData\Local\Temp\msohtmlclip1\01\clip_image002.png"></v:imagedata><?xml:namespace prefix = w ns = "urn:schemas-microsoft-com:office:word" /><w:wrap type="square"></w:wrap></font></v:shape><span style="font-size: 10.5pt" lang=EN-US><o:p></o:p></span></div><div><strong><span style="font-family: 宋体; font-size: 9pt; mso-ascii-theme-font: minor-fareast; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA" lang=EN-US><span style="mso-spacerun: yes"></span></span></strong>&nbsp;</div><div><strong><span style="font-family: 宋体; font-size: 9pt; mso-ascii-theme-font: minor-fareast; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA" lang=EN-US><span style="mso-spacerun: yes">&nbsp;</span></span></strong><strong><span style="font-family: 宋体; font-size: 9pt; mso-ascii-theme-font: minor-fareast; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">说明</span></strong><span style="font-family: 宋体; font-size: 9pt; mso-ascii-theme-font: minor-fareast; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA" lang=EN-US>&nbsp;&nbsp; </span><span style="font-family: 宋体; font-size: 9pt; mso-ascii-theme-font: minor-fareast; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast; mso-bidi-font-family: "Times New Roman'; mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">虚线中的项目是可选步骤。</span></div><a href="http://guosir.blog.51cto.com/709336/269094" class="hidden">本文出自 51CTO.COM技术博客</a></div></td></tr>
+		</table>
+		</div>
+
+			</div>
+		<br><br>
+		<div align="center">上一篇 <a href="/709336/269090" class="operlink" title="NI Vision for LabVIEW基础(目录)">NI Vision for LabVIEW基础(目录)</a>　　下一篇 <a href="/709336/307501" class="operlink" title="NI Vision for LabVIEW 基础(二)：准备测量图像">NI Vision for LabVIEW 基础(二)：准备测量图像</a>
+<br><br>
+</div>
+
+		<div align="right">
+		<a href="/709336/d-1" class="operlink">类别：虚拟仪器</a> ┆
+			<a  href="#"  onclick="javascript:joingroups(269094,'guosir');return false;" class="operlink">
+			技术圈(<script src="http://blog.51cto.com/js/joingroup.php?tid=269094"></script>)</a>  ┆ <span class="article_views">阅读(<script src="http://blog.51cto.com/js/header.php?uid=709336&tid=269094"></script>) ┆ 
+			评论(<script>document.write(replies)</script>)</span> 
+			┆<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>
+		┆<a href="/" class="operlink">返回首页</a>&nbsp;&nbsp;
+		</div>
+		<div class="clear"></div>
+		<br><br>
+		</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>相关文章</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c">
+		<div class="side_sinfo">
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/269090" title="NI Vision for LabVIEW基础(目录)" target="_blank">NI Vision for LabVIEW基础(目录)</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63083" title="Labview初学者常见问题以及解答(上）" target="_blank">Labview初学者常见问题以及解答(上）</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63084" title="LabVIEW初学者常见问题以及解答(下）" target="_blank">LabVIEW初学者常见问题以及解答(下）</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/62565" title="LabVIEW DSP 1.0 与 2.0" target="_blank">LabVIEW DSP 1.0 与 2.0</a></div>
+
+	<div class="related"><a href="http://fangz.blog.51cto.com/206163/41659" title="机器视觉技术" target="_blank">机器视觉技术</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/62875" title="事件结构触发的问题" target="_blank">事件结构触发的问题</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/200129" title="Ⅰ. 学一点数据结构学一点C" target="_blank">Ⅰ. 学一点数据结构学一点C</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63496" title="自定义控件制作" target="_blank">自定义控件制作</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63299" title="数字键盘与数值显示示控件" target="_blank">数字键盘与数值显示示控件</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/206457" title="LabVIEW设计模型&mdash;&mdash;状态机 Ⅱ" target="_blank">LabVIEW设计模型&mdash;&mdash;状态机 Ⅱ</a></div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="modFrame">
+	<div class="modTable"></div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>文章评论</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c" id="artcomment"><div>  &nbsp;</div><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid0'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[1楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;<a target='_blank' href='http://tristaneding.blog.51cto.com' class='operlink' ref='nofollow'><b>tristaneding</b></a></label><label style='float:right'></label></div></div><div align=right>2010-02-04 11:22:20</div><div class='commentcontent'>很想看看你写的LABVIEW VISION 的内容啊，怎么看不到你我？</div><div id='recommentid0' style='display:none'><div><textarea  id='recommentcontentid0' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid0","270194","recommentcontentid0","recomment_resultid0","bozhumessageid0","1")' value='回 复' /><input type='button' onclick='display_recomment("recommentid0",0)' value='取 消'/><input type='checkbox' id='bozhumessageid0' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid0' class='commentcontent'></div></div><br><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid1'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[2楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;<a target='_blank' href='http://1325022.blog.51cto.com' class='operlink' ref='nofollow'><b>121786404</b></a></label><label style='float:right'></label></div></div><div align=right>2010-03-05 22:45:39</div><div class='commentcontent'>为什么不让看啊 </div><div id='recommentid1' style='display:none'><div><textarea  id='recommentcontentid1' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid1","274596","recommentcontentid1","recomment_resultid1","bozhumessageid1","2")' value='回 复' /><input type='button' onclick='display_recomment("recommentid1",0)' value='取 消'/><input type='checkbox' id='bozhumessageid1' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid1' class='commentcontent'></div></div><br><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid2'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[3楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;[匿名]luoys</label><label style='float:right'></label></div></div><div align=right>2010-04-13 21:56:49</div><div class='commentcontent'>看不见</div><div id='recommentid2' style='display:none'><div><textarea  id='recommentcontentid2' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid2","287505","recommentcontentid2","recomment_resultid2","bozhumessageid2","3")' value='回 复' /><input type='button' onclick='display_recomment("recommentid2",0)' value='取 消'/><input type='checkbox' id='bozhumessageid2' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid2' class='commentcontent'></div></div><br><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid3'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[4楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;[匿名]51CTO游客</label><label style='float:right'></label></div></div><div align=right>2010-05-14 21:03:23</div><div class='commentcontent'>thank you!!!</div><div id='recommentid3' style='display:none'><div><textarea  id='recommentcontentid3' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid3","297592","recommentcontentid3","recomment_resultid3","bozhumessageid3","4")' value='回 复' /><input type='button' onclick='display_recomment("recommentid3",0)' value='取 消'/><input type='checkbox' id='bozhumessageid3' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid3' class='commentcontent'></div></div><br><div>  &nbsp;</div>
+</div><a href="" id="com_top_top"></a>
+	</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+<div class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+		<br>
+		<a name='comment'></a>
+		<form action='/comment.php?' method='post' name='form1' id='form1' onSubmit='return commentSubmit(this,"");'>
+		<input type='hidden' name='action' value='comment'>
+		<input  id='commenttid' type='hidden' name='tid' value='269094'>
+        <input type="hidden" name="com_count_ajax" id="com_count_ajax" value="1" />		
+        <fieldset id="reply_box">
+		<legend class=legend><b>发表评论</b></legend>
+		<div class=sddd>
+		<a name="feedback" id="feedback"></a>	
+        <br>
+		<center>
+		<table border='0' width=100% align='center' cellspacing='1' cellpadding='3'>
+	<tr>
+		<td class=commenttable width="12%">昵&nbsp;&nbsp; 称：</td>
+		<td colspan="2" align="left">
+		<script src="/js/user_com.php"></script>
+	</tr>
+
+<tr id='commentyanzheng'>
+
+		<td class=commenttable>验证码：</td>
+		<td valign=bottom align="left" width="20%"><input id="commentauthnum" name="authnum" type="text" style="height:18px;padding-bottom:2px" onclick="displaysecunum();"></td>
+		<script language="javascript">
+			function refimg(){
+				var randval = Math.random();
+				document.getElementById("secunum").src="/seccode.php?rnum="+randval;
+			}
+			function displaysecunum()
+			{
+				var displaystr = document.getElementById("secunum").style.display;
+				if(displaystr == 'none')
+				{
+					refimg();
+					document.getElementById("clickfont").style.display = 'none';
+					document.getElementById("secunum").style.display = 'inline';
+					document.getElementById("spanfont").style.display = 'inline';
+				}
+			}
+		</script>
+		<td valign=bottom width="60%" align="left"><img border=1 id="secunum" onclick="refimg()" style="display:none;">　<span style="display:none;" id="spanfont">点击图片可刷新验证码</span><span style="display:inline;" id="clickfont">请点击后输入验证码</span>　<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration: underline;">博客过2级，无需填写验证码</a></td>
+	</tr>
+<tr>
+		<td valign=top class=commenttable>内&nbsp;&nbsp; 容：</td>
+		<td colspan="2" align="left"><textarea  id="commentcontent" name='content' rows=10 cols=60></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+
+<input name='submit' type='button' id="commentsubmit" value='提 交' onclick="commentSubmitend2()"></td><td></td>
+
+</tr>
+</table>
+			  </center><br>
+			</div>
+			</fieldset>
+		  </form>
+				<br>
+<iframe id=iframe1 name=iframe1 width=0 height=0></iframe>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="sidebar" id="layout_0" style="width:22%;">
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/face.gif"> <strong>GuoYJ</strong></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;padding:8px 8px 8px 8px;">
+	<div class="side_center" align="center">
+		<br>
+		<script src="http://blog.51cto.com/mod/userface.php?useruid=709336"></script>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="stats" class="nouse"><div class="t"><div class="rt"></div><div class="lt"></div>
+<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/stats.gif"> <strong>博客统计信息</strong></div></div>
+<div class="l"><div class="r"><div class="c"><div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+<div class="side_sinfo"> 用户名：GuoYJ<br>文章数：7<br>评论数：9<br>访问量：5533<br>
+无忧币：70<br>
+<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration:underline">博客积分</a>：64<br>博客等级：1 <br>
+注册日期：2009-03-25<br>
+<a href="http://blog.51cto.com/active/no1/ing.html" target="_blank" class="operlink">距离博客争夺赛结束还有<span style="color:#ff0000">3</span> 天</a></div></div></div></div></div><div class="modFrame"><div class="modTable"></div></div></div>
+
+
+<div id="hotblog" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/hotblog.gif"> <b>热门文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<li><a href="/709336/269094">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269090">NI Vision for LabVIEW基..</a></li>
+<li><a href="/709336/307501">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307518">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307504">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307508">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269059">Analysis Services Perfo..</a></li>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+<div id="search" class="nouse">
+<form method=post action="search.php?">
+<input type="hidden" name="step" value="2">
+<input type="hidden" name="authorid" value="709336">
+<input type="hidden" name="sch_area" value="S">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/search.gif"> <b>搜索本博客内文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo" style="text-align:center">
+	<input	type="text"	name="keyword" style="width:92%"><br><br>
+	<input	type="submit" value="提 交">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</form>
+</div>
+
+
+<script src="http://blog.51cto.com/js/mygroup.php?uid=709336"></script>
+
+
+<script src="http://blog.51cto.com/js/uservisit.php?uid=709336"></script>
+
+
+<div id="comment" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width="86%"><tr><td> <img src="http://img1.51cto.com/image/skin/def/comment.gif"> <b>最新评论</b></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div><b><a href='http://1527239.blog.51cto.com/' class='operlink' target=_blank><b>cxfwlyb</b></a>：</b><a href="/709336/307518" target=_blank>太好的东西啊!!! 支持啊!!!!!!!!!..</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://zhangguanxi.blog.51cto.com/' class='operlink' target=_blank><b>zhangguanxi</b></a>：</b><a href="/709336/307518" target=_blank>楼主，是原创吗？</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://lybice.blog.51cto.com/' class='operlink' target=_blank><b>lybice</b></a>：</b><a href="/709336/307518" target=_blank>很好的文章，非常感谢！</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]51cto游客：</b><a href="/709336/269094" target=_blank>thank you!!!</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]luoys：</b><a href="/709336/269094" target=_blank>看不见</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="com_art" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/com_art.gif"> <a href="http://blog.51cto.com/artcommend" target="_blank"><b>51CTO推荐博文</b></a></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+	<li><a href="http://leelei.blog.51cto.com/856755/320779" title="Asp.net MVC2 初探" target="_blank">Asp.net MVC2 初探</a></li>
+<li><a href="http://devbean.blog.51cto.com/448512/319479" title="Qt学习之路：创建shared library" target="_blank">Qt学习之路：创建share..</a></li>
+<li><a href="http://lancelot.blog.51cto.com/393579/331636" title="把Swing的Icon转换到SWT的Image" target="_blank">把Swing的Icon转换到SW..</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/330932" title="像说话一样写代码" target="_blank">像说话一样写代码</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/331095" title="Java处理带BOM的文本" target="_blank">Java处理带BOM的文本</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/322932" title="亲手制作山寨版Log4J " target="_blank">亲手制作山寨版Log4J </a></li>
+<li><a href="http://fuhj02.blog.51cto.com/274616/330412" title="解读AzureAppFabric架构:云发挥到极致" target="_blank">解读AzureAppFabric架..</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/328884" title="给软件工程师的12条单体测试的建议" target="_blank">给软件工程师的12条单..</a></li>
+<li><a href="http://beniao.blog.51cto.com/389148/330852" title="Silverlight & Blend动画设计系列文章" target="_blank">Silverlight & Blend动..</a></li>
+<li><a href="http://linuxguest.blog.51cto.com/195664/312020" title="多主对一从的Mysql复制的巧实现" target="_blank">多主对一从的Mysql复制..</a></li>
+<li><a href="http://frankxulei.blog.51cto.com/1596834/320328" title="WCF4.0新特性预览及学习资源推荐" target="_blank">WCF4.0新特性预览及学..</a></li>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="flink" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/flink.gif"> <b>友情链接</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div>&nbsp;&nbsp;<a href="http://51ctoblog.blog.51cto.com" title="51CTO博客开发" target="_blank">51CTO博客开发</a></div>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div id="footer">
+  <div id="innerFooter">
+	<center>
+		<small>
+			Copyright By 51CTO.COM 版权所有<br><br>
+			<a href="http://www.51cto.com" target="_blank"><img src="http://img1.51cto.com/image/skin/1/copyright.jpg"></a>
+	  </small>
+	</center>
+  </div>
+</div>
+<div style="display:none">
+<script src="http://logs.51cto.com/rizhi/count/count.js"></script>
+<iframe frameborder="0" scrolling="no" width="0" height="0" src="http://log.51cto.com/pageview.php?frompos=blog_art"></iframe>
+</div>
+</body>
+</html>

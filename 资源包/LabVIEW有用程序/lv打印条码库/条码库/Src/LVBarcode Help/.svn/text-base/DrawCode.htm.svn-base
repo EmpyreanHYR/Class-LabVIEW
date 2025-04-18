@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>DrawCode</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+</head>
+
+<body>
+<P><FONT face=Arial size=2> 根据输入的条码信息和文字规格信息绘制条码图片.<BR><IMG 
+src="images/DrawCode.JPG"><BR>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#ffffff cellSpacing=0 
+cellPadding=2 width="100%" border=0></TABLE>
+  
+<TABLE height=82 width=670 align=left border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left width=44><IMG 
+      src="images/ccclst.gif"></TD>
+    <TD vAlign=top align=left width=157>&nbsp;Barcode 
+    refnum</TD>
+    <TD width=455>&nbsp;输入条码信息.</TD>
+  </TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG src="images/c1du32.gif"></TD>
+    <TD>Bar width</TD>
+    <TD>&nbsp;条码中单条的宽度.单位:像素</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG src="images/c1du32.gif"></TD>
+    <TD>&nbsp;Bar Height</TD>
+    <TD>&nbsp;条码中单条的高度.单位:像素</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG src="images/ccclst.gif"></TD>
+    <TD>&nbsp;Text Specification</TD>
+    <TD>&nbsp;指定条码图片中文字的字体.</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD><IMG src="images/cpicture.gif"></TD>
+    <TD>&nbsp;Barcode Picture</TD>
+    <TD>&nbsp;输出的条码图片.</TD>
+  </TR>
+<TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG src="images/cnclst.gif"></TD>
+    <TD>&nbsp;Barcode Picture Rect</TD>
+    <TD>&nbsp;条码图片的大小尺寸.</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+   </TBODY></TABLE>
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></FONT></P></body></HTML>

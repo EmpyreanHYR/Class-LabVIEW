@@ -1,0 +1,142 @@
+LIN_description_file;
+LIN_protocol_version = "2.1";
+LIN_language_version = "2.1";
+LIN_speed = 19.2 kbps;
+Nodes
+{
+  Master: LIN_Master, 1 ms, 0.1 ms;
+  Slaves: ECU;
+}
+Signals
+{
+  MCPC_AimSpeed: 16, 0, LIN_Master, ECU;
+  MCPC_BusCurrent: 16, 0, ECU, LIN_Master;
+  MCPC_OilTemperature: 16, 200, ECU, LIN_Master;
+  MCPC_Speed: 16, 0, ECU, LIN_Master;
+  MCPC_SystemVoltage: 16, 0, ECU, LIN_Master;
+  MCPC_T0OilTemperature: 16, 200, LIN_Master, ECU;
+  MCPC_T0OilTemperaturevld: 1, 0, LIN_Master, ECU;
+}
+Diagnostic_signals
+{
+  MasterReqB0: 8, 0; 
+  MasterReqB1: 8, 0; 
+  MasterReqB2: 8, 0; 
+  MasterReqB3: 8, 0; 
+  MasterReqB4: 8, 0; 
+  MasterReqB5: 8, 0; 
+  MasterReqB6: 8, 0; 
+  MasterReqB7: 8, 0; 
+  SlaveRespB0: 8, 0; 
+  SlaveRespB1: 8, 0; 
+  SlaveRespB2: 8, 0; 
+  SlaveRespB3: 8, 0; 
+  SlaveRespB4: 8, 0; 
+  SlaveRespB5: 8, 0; 
+  SlaveRespB6: 8, 0; 
+  SlaveRespB7: 8, 0; 
+}
+Frames
+{
+  HCU1h: 33, LIN_Master, 8 {
+    MCPC_AimSpeed, 0;
+    MCPC_T0OilTemperature, 16;
+    MCPC_T0OilTemperaturevld, 32;
+  }
+  MCPC2h: 34, ECU, 8 {
+    MCPC_OilTemperature, 0;
+    MCPC_Speed, 16;
+    MCPC_SystemVoltage, 32;
+    MCPC_BusCurrent, 48;
+  }
+}
+Diagnostic_frames
+{
+  MasterReq: 0x3C
+  {
+    MasterReqB0, 0;
+    MasterReqB1, 8;
+    MasterReqB2, 16;
+    MasterReqB3, 24;
+    MasterReqB4, 32;
+    MasterReqB5, 40;
+    MasterReqB6, 48;
+    MasterReqB7, 56;
+  }
+  SlaveResp: 0x3D
+  {
+    SlaveRespB0, 0;
+    SlaveRespB1, 8;
+    SlaveRespB2, 16;
+    SlaveRespB3, 24;
+    SlaveRespB4, 32;
+    SlaveRespB5, 40;
+    SlaveRespB6, 48;
+    SlaveRespB7, 56;
+  }
+}
+Node_attributes
+{
+  ECU
+  {
+    LIN_protocol = "2.1";
+    configured_NAD = 1;
+    initial_NAD = 1;
+    product_id = 0x124, 0x50;
+    P2_min = 50 ms;
+    ST_min = 0 ms;
+  }
+}
+Schedule_tables {
+  ScheduleTable
+  {
+    HCU1h delay 20 ms;
+    MCPC2h delay 20 ms;
+  }
+  sch_mreq
+  {
+    MasterReq delay 50 ms;
+  }
+  sch_sresp
+  {
+    SlaveResp delay 50 ms;
+  }
+}
+Signal_encoding_types
+{
+  scaling_xnet_0
+  {
+    physical_value, 0, 65535, 0.698, 0, "";
+  }
+  scaling_xnet_1
+  {
+    physical_value, 0, 65535, 0.1, 0, "";
+  }
+  scaling_xnet_2
+  {
+    physical_value, 0, 65535, 0.25, -50, "";
+  }
+  scaling_xnet_3
+  {
+    physical_value, 0, 65535, 1, 0, "";
+  }
+  scaling_xnet_4
+  {
+    physical_value, 0, 1, 1, 0, "";
+  }
+}
+Signal_representations
+{
+  scaling_xnet_0:
+    MCPC_AimSpeed,
+    MCPC_Speed;
+  scaling_xnet_1:
+    MCPC_BusCurrent;
+  scaling_xnet_2:
+    MCPC_OilTemperature,
+    MCPC_T0OilTemperature;
+  scaling_xnet_3:
+    MCPC_SystemVoltage;
+  scaling_xnet_4:
+    MCPC_T0OilTemperaturevld;
+}

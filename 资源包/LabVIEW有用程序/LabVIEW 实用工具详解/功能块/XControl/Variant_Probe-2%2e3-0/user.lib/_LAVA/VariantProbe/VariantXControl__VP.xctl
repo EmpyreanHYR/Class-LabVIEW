@@ -1,0 +1,93 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="11008008">
+	<Property Name="NI.Lib.Description" Type="Str">A tree control for displaying variant data.
+Used by the Variant (Array) Probe</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%1#!#!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!-"!!!*Q(C=T:1R4FN"%)&lt;`R*&amp;)[Q;*#E34QO7E*Q6(C(W%O1+3'ST3U(#!O1(S&amp;&gt;TE!(-&amp;3SECJ;.]CC,%S`@7C`U-"I2%J-R[\,@`\MR]OW_^5L'0UA?^:*/&gt;VBP@'&gt;2`X"(^KPAX':^M[&lt;UV&lt;)_06I"`JN0J&lt;$LN,X7S7EMT[OTXSHBK8BA@L6(+KLN?5T\&amp;_[DL]&gt;%43ZHI_8&amp;NRA]0$L&lt;(L[L.GK9"\0$?$A\ORV8;J&amp;%T;IA`B+^L^@V&gt;48LRT=:[_@PV]`J[88^3YV=&lt;3U\C'&lt;]X09Y@D;YX]86=7`E@W90[_`P\T]&lt;P&lt;WRH`=`0R?_S&gt;8T&gt;F_ZEL+RO@)U@0@YPV*W`?DJTT@$0&lt;.:^N?XN%^Z_&lt;\@MZZ?W`;'6`V)6&lt;YP@H&gt;!`&lt;Q=8*RJ=(/'@/K^^;@#.7@AZ&amp;&gt;N:(_&amp;&gt;"^$CC1@OO/(IC:\IC:\IC:\IA2\IA2\IA2\IDO\IDO\IDO\IBG\IBG\IBG\IJ;%,8?B#"SEJHB2+EC9*EMGA+0F+?"+?B#@BI;O%*_&amp;*?"+?B)=J3HA3HI1HY5FY#&amp;0#E`!E0!F0QE/K1J+FI=/4]*"?!5`!%`!%0!%0*28Q"!""M3"RE!1-"90"1]!4]!1]0#LA#8A#HI!HY'&amp;9!5`!%`!%0!%0)768IN"U$2U?UMDB=8A=(I@(Y3'V("[(R_&amp;R?"Q?SMHB=8A=#+?AERQ%/5(/"+@D]$A]`-DB=8A=(I@(Y7'IP#%P/^02&gt;!U&gt;(I0(Y$&amp;Y$"[$BR1S?!Q?A]@A-8B)+Y0(Y$&amp;Y$"[$BV)S?!Q?A]=!-9J38E9S)^#9:!A'$Z^S7KS]J3AE6FLZ2[E?6.5$K(KQ6!_-[E&amp;1@='K,U\VB;BON/I'KG[-[I*6&amp;[)+K&amp;J9.;(K2.XQP=18_"S`R-`Q-8[+(_0$,P3.*^\=X'CZ8'KR7'A_H_PS]F*H:W=;D]=[04X6]@'RBM0B_BIYIKUP"'X&gt;%+_T01VO^^L"VTW^P_8?G@%\IV^_&gt;`7F/XQ]?XAP`1^XI^[8O\'X2X]"PFCZL1!!!!!</Property>
+	<Property Name="NI.Lib.LocalName" Type="Str">Variant Tree</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.3.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Methods" Type="Folder">
+		<Item Name="Reset.vi" Type="Method VI" URL="../Reset.vi"/>
+	</Item>
+	<Item Name="Properties" Type="Folder">
+		<Item Name="IsProbe" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">VXCTL:IsProbe</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Sets the memory status of the XControl</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Memory:HasMemory</Property>
+			<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+			<Item Name="IsProbeSet.vi" Type="Property VI" URL="../IsProbeSet.vi"/>
+		</Item>
+		<Item Name="Length" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">VXCTL:Length</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Sets the length of the Variant memory</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Memory:Length</Property>
+			<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+			<Item Name="LengthSet.vi" Type="Property VI" URL="../LengthSet.vi"/>
+		</Item>
+		<Item Name="Changed?" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">VXCTL:Changed?</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Returns the Changed status of the last memory run</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Memory:Changed?</Property>
+			<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+			<Item Name="ChangedGet.vi" Type="Property VI" URL="../ChangedGet.vi"/>
+		</Item>
+		<Item Name="Traverse Attributes" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">VXCTL:Traverse Attributes</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Traverse variant attribute children.</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Traverse Attributes</Property>
+			<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+			<Item Name="TraverseAttributesGet.vi" Type="Property VI" URL="../TraverseAttributesGet.vi"/>
+			<Item Name="TraverseAttributesSet.vi" Type="Property VI" URL="../TraverseAttributesSet.vi"/>
+		</Item>
+		<Item Name="Colorize" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">VXCTL:Colorize</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Colorize the text of the variant text based on datatypes</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Colorize</Property>
+			<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+			<Item Name="ColorizeGet.vi" Type="Property VI" URL="../ColorizeGet.vi"/>
+			<Item Name="ColorizeSet.vi" Type="Property VI" URL="../ColorizeSet.vi"/>
+		</Item>
+		<Item Name="Permissions" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">VXCTL:Permissions</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Change the end-user permissions.
+</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Permissions</Property>
+			<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+			<Item Name="PermissionsGet.vi" Type="Property VI" URL="../PermissionsGet.vi"/>
+			<Item Name="PermissionsSet.vi" Type="Property VI" URL="../PermissionsSet.vi"/>
+		</Item>
+	</Item>
+	<Item Name="Tools" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="SettingsDialog.vi" Type="VI" URL="../SettingsDialog.vi"/>
+		<Item Name="AddValue.vi" Type="VI" URL="../AddValue.vi"/>
+		<Item Name="ManageShortcutMenu.vi" Type="VI" URL="../ManageShortcutMenu.vi"/>
+		<Item Name="TreeSettings.ctl" Type="VI" URL="../TreeSettings.ctl"/>
+		<Item Name="Permissions.ctl" Type="VI" URL="../Permissions.ctl"/>
+		<Item Name="Resize Tree.vi" Type="VI" URL="../Resize Tree.vi"/>
+	</Item>
+	<Item Name="VariantData.ctl" Type="Ability VI" URL="../VariantData.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="VariantState.ctl" Type="Ability VI" URL="../VariantState.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="VariantFacade.vi" Type="Ability VI" URL="../VariantFacade.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="VariantInit.vi" Type="Ability VI" URL="../VariantInit.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+</XControl>

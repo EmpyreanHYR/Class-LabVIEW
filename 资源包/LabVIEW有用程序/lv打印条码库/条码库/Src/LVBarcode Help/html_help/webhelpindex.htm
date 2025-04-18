@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>LVBarcode Help</title>
+<meta http-equiv="Content-Type" content="text/html; charset= Windows-1252">
+<style type="text/css"> 
+<!-- 
+div,body { font-family: Tahoma, Verdana; font-size: 11px; }
+
+-->
+</style>
+<script>
+function writepage(list){
+if(list.length==1){
+	parent.content.document.location.href = list[0][1];	
+}else{
+	parent.content.document.write('<html><head><meta http-equiv="Content-Type" content="text/html; charset= Windows-1252"><style type="text/css"><!--div,body { font-family: Tahoma, Verdana; font-size: 12px; }--></style></h' + 'ead><bo' + 'dy>');
+	for(i=0;i<=list.length-1;i++){
+		parent.content.document.write((i + 1) + '. ' +'<a href="' + list[i][1] + '">' +  list[i][0] + '</a><p>');
+	}
+	parent.content.document.write('</body></html>');
+
+	parent.content.document.close();
+}
+return false;
+}
+</script>
+
+<style type="text/css"> 
+<!-- 
+BODY {
+scrollbar-face-color:#DCDBD6;
+scrollbar-highlight-color:#DFDFDF;
+scrollbar-3dlight-color:#DCDBD6;
+scrollbar-darkshadow-color:#000000;
+scrollbar-shadow-color:#DFDFDF;
+scrollbar-arrow-color:#EFEFEF;
+scrollbar-track-color:#EFEFEF;
+}
+-->
+</style>
+
+
+</head>
+
+<body bgcolor="#ffffff" leftmargin="5" topmargin="5" marginwidth="5" marginheight="5">
+<!--BEGINBAR-->
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+<tr align="center" bgcolor="#E1E1E1"> 
+<td width="50%"><font size="2"><a href="webhelpleft.htm">Contents</a></font></td>
+<td width="50%"><font size="2"><strong>Index</strong></font></td>
+</tr>
+</table>
+<!--ENDBAR-->
+<UL><LI><a href="#" target="content" onclick="return writepage([['Appendix B','scr/Appendix B.htm']]);">ASCII Code to Code128</a></li><LI><a href="#" target="content" onclick="return writepage([['Codabar','scr/Codabar_vi.htm']]);">Codabar</a></li><LI><a href="#" target="content" onclick="return writepage([['Code128','scr/Code128.htm']]);">Code128</a></li><LI><a href="#" target="content" onclick="return writepage([['Code39','scr/Code39.htm']]);">Code39</a></li><LI><a href="#" target="content" onclick="return writepage([['Code93','scr/Code93.htm']]);">Code93</a></li><LI><a href="#" target="content" onclick="return writepage([['CodeI2of5','scr/CodeI2of5.html']]);">CodeI2of5</a></li><LI><a href="#" target="content" onclick="return writepage([['DrawCode','scr/DrawCode.htm']]);">DrawCode</a></li><LI><a href="#" target="content" onclick="return writepage([['EAN-13','scr/EAN-13.htm']]);">EAN-13</a></li><LI><a href="#" target="content" onclick="return writepage([['EAN-8','scr/EAN-8.htm']]);">EAN-8</a></li><LI><a href="#" target="content" onclick="return writepage([['Express VI','scr/Express VI.htm']]);">Express VI</a></li><LI><a href="#" target="content" onclick="return writepage([['Extended Code39','scr/Extended Code39.htm']]);">Extended Code39</a></li><LI><a href="#" target="content" onclick="return writepage([['Extended Code93','scr/Extended Code93.htm']]);">Extended Code93</a></li><LI><a href="#" target="content" onclick="return writepage([['Appendix A','scr/Appendix A.htm']]);">Full ASCII Code Table</a></li><LI><a href="#" target="content" onclick="return writepage([['LVBarcode','scr/All VI.htm']]);">LVBarcode</a></li><LI><a href="#" target="content" onclick="return writepage([['MSI','scr/MSI.htm']]);">MSI</a></li><LI><a href="#" target="content" onclick="return writepage([['Print Barcode','scr/Print Barcode.htm']]);">Print Barcode</a></li><LI><a href="#" target="content" onclick="return writepage([['UPC-A','scr/UPC-A.htm']]);">UPC-A</a></li><LI><a href="#" target="content" onclick="return writepage([['UPC-A to UPC-E','scr/UPC-A2UPC-E.htm']]);">UPC-A to UPC-E</a></li><LI><a href="#" target="content" onclick="return writepage([['UPC-E','scr/UPC-E.htm']]);">UPC-E</a></li><LI><a href="#" target="content" onclick="return writepage([['UPC-E to UPC-A','scr/UPC-E2UPC-A.htm']]);">UPC-E to UPC-A</a></li></UL> 
+</body>
+</html>

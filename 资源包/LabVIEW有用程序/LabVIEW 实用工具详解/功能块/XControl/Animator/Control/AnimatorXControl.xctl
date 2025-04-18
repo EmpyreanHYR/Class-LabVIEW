@@ -1,0 +1,62 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="13008000">
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%Q#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!.3!!!*Q(C=T:1`&lt;O5W%)&gt;`7K=)MJ74,J6BJ"/1:CZA9(U&amp;KT91A!D3JH!&lt;*9WP-&amp;=QXAX=_!"T"1-*EC+63U%1"#E@*4ZF^`XJ!G1JDU8_BBR_(-[4N,1PJ3]UV%O&lt;_W'O_XWLZ['@6U?TTJVXU\T&lt;4&gt;/5&lt;&gt;L.`+W/P6^&gt;%&gt;:BJQ0`S)+WW`S\]=$0`BK;T=`_"`(LO2OH=?_P$_04V/^[@41]ZGP0]\5!&gt;=/W@GQ0`!X#I+H&lt;4W^/R._/&gt;S,_=4M[H`ZNR_&gt;L#F!^H.[`820;V?.J`P6__G&lt;MT`,R;M?J0J/`=C($/OQ0V^=L5&amp;@]48XC`P0S&gt;8R]`[6_[PJ-`H,^Z=J&lt;WX(^&gt;=X=V6WOW+\OO\HJ$PX^FF^3.0?(`GH;_\N_V,1.D_K\[8@$G@J?7NN/T:H[,KU^5^]@_U`5^V3]9^.L/FX@O@7KO`0ZST`A4`*(_S8@&gt;DP0,`_83&gt;6S1CQQRR*GSI?=!TX1!TX1!TX1(&gt;X2(&gt;X2(&gt;X2%XJ#4_A*0;%H&gt;%-X&gt;%-X&gt;%/XH,H]I!N&gt;[,)F&gt;](GQ5:"U#"!-"E5"@]#HI!HY!FY'#LA#8A#HI!HY''+!J[!*_!*?!)?FCHA#8A#HI!HY#(51B,,AQZ0Q%.Y/4Q/D]0D]$A]&lt;#G(RQ&amp;Q.H-#/U(!E/.U/A[0Q_0QU*8$Y`!Y0![0QY.&lt;$I`$Y`!Y0!Y03Z;M_%+4(X2Y#+-%4Y)HQ:0A3@!17AG?"%_#*]'4Y'%\*8A30!G)R);*Y#!IM3AR)4&amp;)]#2Y?#H"E_"*]#2Y%DSYFBN+3W9S48\1Y4&amp;Y$"[$R_!R?!ABA]@A-8A-(I/(M$*Y$"[$R_!R?.B+"I`"9`!9)-;G&lt;#]DG,(1G'1)"A^`3\89=EO_E.DS,$^:F5*6+5#6QF)J'*6#5,FAF9N4O2#62+ME5#5R+A&gt;7/9A+I-L'+A&amp;6*OK.`[`9-`;%07)0W"VWCVVDFXHJ@TTR\?V.L[_P?HZ_VN04ERY@(`8Q]+#\OTP&gt;XN\K_PJ;FZ?8WZ@ICG&gt;N6@YON@=8.R8@B_LKX5XV^]6,^30D\_H`2@_\]PY*,@PX]_Y`X&amp;3`@[$`[UXVZW`L/^M@&amp;S_@T,P[CHHP[8`,__?8[PY&lt;N+`J`\$._TS_D8KH\7O`ZOA@KM_C#A!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">318799872</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="TypeDefs" Type="Folder">
+		<Item Name="AnimatorSettings.ctl" Type="VI" URL="../AnimatorSettings.ctl"/>
+		<Item Name="AnimatorCommand.ctl" Type="VI" URL="../AnimatorCommand.ctl"/>
+		<Item Name="QueueElement.ctl" Type="VI" URL="../QueueElement.ctl"/>
+	</Item>
+	<Item Name="SubVIs" Type="Folder">
+		<Item Name="AnimatorCoordinator.vi" Type="VI" URL="../AnimatorCoordinator.vi"/>
+		<Item Name="GetQueue.vi" Type="VI" URL="../GetQueue.vi"/>
+		<Item Name="EnqueueElement.vi" Type="VI" URL="../EnqueueElement.vi"/>
+		<Item Name="CoordinatorTrigger.vi" Type="VI" URL="../CoordinatorTrigger.vi"/>
+		<Item Name="AnimatorConfig.vi" Type="VI" URL="../AnimatorConfig.vi"/>
+		<Item Name="LoadImageData.vi" Type="VI" URL="../LoadImageData.vi"/>
+		<Item Name="MCListManager.vi" Type="VI" URL="../MCListManager.vi"/>
+		<Item Name="CalcZoomFactor.vi" Type="VI" URL="../CalcZoomFactor.vi"/>
+		<Item Name="CalcZoomedPic.vi" Type="VI" URL="../CalcZoomedPic.vi"/>
+		<Item Name="ReCalcAnimator.vi" Type="VI" URL="../ReCalcAnimator.vi"/>
+		<Item Name="ReCalcConfig.vi" Type="VI" URL="../ReCalcConfig.vi"/>
+		<Item Name="FrameRateAdjustment.vi" Type="VI" URL="../FrameRateAdjustment.vi"/>
+	</Item>
+	<Item Name="GlobalVariables" Type="Folder">
+		<Item Name="DefaultImageData.vi" Type="VI" URL="../DefaultImageData.vi"/>
+	</Item>
+	<Item Name="AnimatorData.ctl" Type="Ability VI" URL="../AnimatorData.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="AnimatorState.ctl" Type="Ability VI" URL="../AnimatorState.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="AnimatorFacade.vi" Type="Ability VI" URL="../AnimatorFacade.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="AnimatorInit.vi" Type="Ability VI" URL="../AnimatorInit.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="AnimatorUninit.vi" Type="Ability VI" URL="../AnimatorUninit.vi">
+		<Property Name="NI.XItem.Name" Type="Str">UnInit</Property>
+	</Item>
+	<Item Name="Frame rate" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Frame rate</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Frame rate</Property>
+		<Item Name="FrameRateRead.vi" Type="Property VI" URL="../FrameRateRead.vi"/>
+		<Item Name="FrameRateWrite.vi" Type="Property VI" URL="../FrameRateWrite.vi"/>
+	</Item>
+	<Item Name="Reverse" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Reverse</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Reverse</Property>
+		<Item Name="ReverseRead.vi" Type="Property VI" URL="../ReverseRead.vi"/>
+		<Item Name="ReverseWrite.vi" Type="Property VI" URL="../ReverseWrite.vi"/>
+	</Item>
+</XControl>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+ <style type="text/css">
+/* <![CDATA[ */ 
+@import "css/readyset.css"; 
+@import "css/inst.css";
+/*  ]]> */
+ </style>
+
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>User Guide</title>
+</head>
+
+<body>
+<h2><img src="images/OGB_logo.png" width="326" height="108" /><br />
+v3.0.0: <a href="userguide.html">User Guide</a> &gt; Introduction</h2>
+<div class="app"><div class="readyset">
+     <div id="projectinfo">
+ <h3>Product Release Information</h3>
+ <div class="axial">
+ <table border="1" cellpadding="3" cellspacing="2">
+  <tr>
+   <th>Product:</th> 
+   <td><a href="http://builder.openg.org" target="_top">OpenG Builder </a></td> 
+  </tr>
+  <tr>
+    <th>Release Number:</th>
+    <td> 3.0.0 Build:8 </td>
+  </tr>
+  <tr>
+    <th>Release Date:</th>
+    <td> 11/23/2009 10:31:01 PM</td>
+  </tr>
+  <tr>
+   <th>User Support:</th> 
+   <td>For more information or support, please visit <a href="http://builder.openg.org" target="_top">http://builder.openg.org</a></td> 
+  </tr>
+ </table>
+ </div>
+ </div> <!-- /projectinfo -->
+
+ <div id="toc">
+   <hr />
+ <h3><a name="Introduction" id="Introduction"></a>Introduction</h3>
+ <ul>
+   <li><a href="userguide-introduction.html#What_is_the_OpenG_Builder">What is the OpenG Builder?</a></li>
+   <li><a href="userguide-introduction.html#Key_Features">Key Features</a></li>
+ </ul>
+ <h4><a name="What_is_the_OpenG_Builder" id="What_is_the_OpenG_Builder"></a>What is the OpenG Builder? </h4>
+ <p>The OpenG Builder is a general purpose build tool for creating software products written in G within the LabVIEW Development Environment. OpenG developers and other LabVIEW users have many software engineering needs that require a build tool that is open, extensible, and flexible. While the OpenG Builder looks and feels similar to the LabVIEW Application Builder, it provides many additional features. Like the LabVIEW Application Builder, it allows building stand-alone executable applications*, but it also allows building reuse libraries and LabVIEW IDE extensions. At its core, the OpenG Builder is a tool for re-linking VI hierarchies. It takes VIs located in a source location and makes a copy of the VI hierarchy in a new build target location, making sure that all of the VIs in the new location are properly linked. It adds to this basic capability, many other useful features needed for building LabVIEW software products.</p>
+ <p>*The LabVIEW Application Builder must be installed, in order to build stand-alone executables with the OpenG Builder.</p>
+ <h4><a name="Key_Features" id="Key_Features"></a>Key Features</h4>
+ <ul>
+   <li>build LLB and EXE files*</li>
+   <li>define groups of files with unique build settings for each group which override global build settings </li>
+   <li> excluding certain directories from the build, for preserving external dependencies on library and resource VIs</li>
+   <li>preserve source directory structure (similar to LabVIEW's &quot;Save with Options&quot; &quot;preserve hierarchy&quot; feature) </li>
+   <li> add a name suffix (&quot;namespace&quot;) to VIs in the built software product to ensure that they are unique from the source files (&quot;name mangling&quot;)</li>
+   <li>apply password to VIs at build time, allowing LV platform/version recompilation without allowing end-user access to VI diagrams</li>
+   <li>randomly generate password at build-time for optimal security</li>
+   <li>remove diagrams from the built software product VIs</li>
+   <li>well-documented programattic API, allowing custom 3rd party tools and GUIs</li>
+   <li>well-documented plain-text INI file format used for build file and other files</li>
+   <li>store software product version and build number in a <a href="OGB%20Glossary.htm#Revision_File">Revision File</a></li>
+   <li>auto-increment the build number stored in the <a href="OGB%20Glossary.htm#Revision_File">Revision File</a>, each time a build occurs </li>
+   <li>write version and build number information as default value to a cluster control on a VI's Front Panel during the build, allowing programmatic access to version information in the built software product</li>
+   <li>specify a <a href="OGB%20Glossary.htm#Log_File">Log File</a> to store information on build stages completed, errors, warnings, and another information that can be useful to analyze build errors</li>
+   <li>automatically include help file, shared library, and external subroutine dependency files in the target build</li>
+   <li>disconnect type definitions and polymorphic VIs, and not include them into the target build</li>
+   <li>specify plug-in VIs that will execute before, after, and during the build to perform automated tasks and extend the builder's functionality</li>
+   <li>add support files to the build</li>
+   <li>use wildcards for specifying groups of files (for example &lt;./SupportFiles/*&gt; selects all files beneath the SupportFiles directory) s </li>
+   <li>span VIs accross multiple LLBs when EXE or LLB size on disk reaches a user configurable value, dramatically reducing build time for large applications.</li>
+   </ul>
+ <p>*The LabVIEW Application Builder must be installed, in order to build stand-alone executables with the OpenG Builder.</p>
+ </div> </div>
+
+
+<div class="legal1">Company Proprietary</div>
+
+<div class="footnote">
+ Copyright &#169; 2004 Konstantin Shifershteyn and James Kring. <a href="gfdl.html">Distributed under the terms of the GNU Free Documentation License</a>.</div>
+
+</div>
+</body>
+</html>

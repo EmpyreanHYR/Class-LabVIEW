@@ -1,0 +1,109 @@
+object Demo_Form: TDemo_Form
+  Left = 533
+  Top = 253
+  Width = 656
+  Height = 439
+  Caption = 'IOTest'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object CheckOut1: TCheckBox
+    Left = 71
+    Top = 80
+    Width = 225
+    Height = 49
+    Caption = 'OUT1'#65306#39640#30005#24179
+    Checked = True
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = #23435#20307
+    Font.Style = [fsBold]
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 0
+    OnClick = CheckOut1Click
+  end
+  object CheckOut2: TCheckBox
+    Left = 346
+    Top = 80
+    Width = 225
+    Height = 49
+    Caption = 'OUT2'#65306#39640#30005#24179
+    Checked = True
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = #23435#20307
+    Font.Style = [fsBold]
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 1
+    OnClick = CheckOut2Click
+  end
+  object CheckOut3: TCheckBox
+    Left = 69
+    Top = 168
+    Width = 225
+    Height = 49
+    Caption = 'OUT3'#65306#39640#30005#24179
+    Checked = True
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = #23435#20307
+    Font.Style = [fsBold]
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 2
+    OnClick = CheckOut3Click
+  end
+  object CheckOut4: TCheckBox
+    Left = 345
+    Top = 166
+    Width = 225
+    Height = 51
+    Caption = 'OUT4'#65306#39640#30005#24179
+    Checked = True
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = #23435#20307
+    Font.Style = [fsBold]
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 3
+    OnClick = CheckOut4Click
+  end
+  object StaticText_Input: TStaticText
+    Left = 48
+    Top = 288
+    Width = 553
+    Height = 41
+    Alignment = taCenter
+    AutoSize = False
+    BorderStyle = sbsSunken
+    Caption = 'Check Input'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object Timer1: TTimer
+    Interval = 100
+    OnTimer = Timer1Timer
+    Left = 8
+    Top = 296
+  end
+end

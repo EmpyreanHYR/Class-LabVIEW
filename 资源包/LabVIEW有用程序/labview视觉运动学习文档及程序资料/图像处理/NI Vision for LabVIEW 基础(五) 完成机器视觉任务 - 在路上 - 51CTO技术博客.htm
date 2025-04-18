@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type"	content="text/html;	charset=gb2312">
+<title>NI Vision for LabVIEW 基础(五): 完成机器视觉任务 - 在路上 - 51CTO技术博客</title>
+<meta name="description" content="这一节介绍如何完成常用的机器视觉任务。最常用的检测任务是测试图像中有还是没有某个部件，并测量部件的大小以确定是否满足标准。测量是基于图像中物体所表现出来特征。图像处理算法通常利用图像中包含的信息进..">
+<meta name="keywords" content="NI Vision for LabVIEW 基础(五): 完成机器视觉任务">
+<meta http-equiv="Cache-Control" content="private">
+<base href="http://guosir.blog.51cto.com/"></base>
+<script src="/js/def.js"></script>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/message.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/user_comment.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/base2.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/dialog_utf8.js" type=text/javascript></SCRIPT>
+<link href="/css/skin/1.css" rel="stylesheet" type="text/css">
+<link href="/css/group/group.css" rel="stylesheet" type="text/css">
+<link rel="alternate" href="../rss.php?uid=709336" type="application/rss+xml" title="RSS 2.0">
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=1" />
+<script>
+var myid = "";
+function add_flink(){
+	if(myid){
+		var url='/mod/edit_flink.php?type=addflink&uid=709336&flink=http://guosir.blog.51cto.com';
+		var ajax = InitAjax1();
+		ajax.open("GET", url, true);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				if(ajax.responseText==""){
+					alert("添加成功。");
+				}
+				if(ajax.responseText=="1"){
+				alert("链接指向自己。");
+				}
+				if(ajax.responseText=="2"){
+				alert("友情链接已存在。")
+				}
+			}
+		}
+		ajax.send(null);
+	}else{
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/307518";	
+
+		commentSubmit("",refurlk);
+		return false;
+	}
+	
+}
+function sendmessage(){
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/307518";	
+
+	if(myid){
+		return true;
+	}else{
+		commentSubmit("",refurlk);
+		return false;
+	}
+}
+function copylink(ourl){
+	if(!ourl){
+		var clipBoardContent = "http://guosir.blog.51cto.com";
+	}else{
+		var clipBoardContent = ourl;
+	}
+	window.clipboardData.setData("Text",clipBoardContent);
+	alert("复制成功!");
+	return false;
+}
+function correctPNG() {
+if (document.getElementById('blog_touxian'))
+{
+var img = document.getElementById('blog_touxian');
+      var imgName = img.src.toUpperCase()
+      var imgID = (img.id) ? "id='" + img.id + "' " : ""
+      var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+      var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+      var imgStyle = "display:inline-block;" + img.style.cssText 
+      if (img.align == "left") imgStyle = "float:left;" + imgStyle
+      if (img.align == "right") imgStyle = "float:right;" + imgStyle
+      if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle        
+      var strNewHTML = "<span " + imgID + imgClass + imgTitle
+         + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+         + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+         + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" ;
+      img.outerHTML = strNewHTML;
+} 
+}
+//window.attachEvent("onload", correctPNG);
+window.onload=correctPNG;
+</script>
+<style type="text/css">
+#layout_0{
+	width:;
+	float:left;
+}
+#layout_1{
+	width:;
+	float:left;
+}
+#layout_3{
+	width:;
+	float:left;
+}
+.albumalert{
+	width:250px;
+	height:150px;
+	background:#fff;
+	border:1px solid #777;
+}
+.alerttitle{
+	text-align:left;
+	color:#000;
+	padding:6px;
+	background-image:url("http://img1.51cto.com/images/quickwindow.jpg");
+	background-repeat:repeat-x;
+	font-size:14px;
+	height:22px;
+}
+.alertcentent{
+	line-height:30px;
+}
+.alertcentent p{
+color:#000;
+}
+
+#fixed{position:fixed;top:120px;right:40%;z-index:255;}
+</style>
+<!--[if IE 6]>
+<style type="text/css">
+#fixed{position:absolute;z-index:255;left:40%;top:expression(eval(document.documentElement.scrollTop+100));}
+</style>
+<![endif]-->
+<body>
+
+<div id="fixed" align="center" style="display:none;">
+<form action="/login.php" method="post" >
+<div class="albumalert">
+<div class="alerttitle"><span style="float:left;width:80%;color:#000"><b>博客登录</b></span><span style="float:right;width:5%;"><a href="" onclick="document.getElementById('fixed').style.display='none';return false;"><img src="http://img1.51cto.com/images/pic/alertcolse.gif" border="0"></a></span></div>
+<div class="alertcentent">
+<p>用户名：<input type="text" name="pwuser"><br>密　码：<input type="password" id="password" name="pwpwd"><br><input type='hidden' name='cktime' value='31536000'><input type='hidden' value='http://guosir.blog.51cto.com' name='jumpurl'>
+<input type='hidden' value='2' name='step'><input type="submit" value=" 登 录 " name="submit" > 
+</p>
+</div>
+</div>
+</form>
+</div>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" id="banner51cto" style="border-bottom:1px solid #444;color:#000;">
+<tr>
+	<td id="bloglogo" width="142"><a href="http://blog.51cto.com" title="IT BLOG" target="_blank"><img src="http://img1.51cto.com/image/default/51ctologo_.gif" border="0" alt="网络技术博客"></a></td>
+
+	<td width="150"><a href="http://ucenter.51cto.com/reg_01.php?reback=http://blog.51cto.com" target="_blank" class="ffb">注册</a> | <a href="http://blog.51cto.com/login.php" onclick="document.getElementById('fixed').style.display='';return false;" class="ffb">登录</a> <a href="http://ucenter.51cto.com/getpass.php" target="_blank" class="fft">忘记密码？</a></td>
+	<td width="280" class="top_txt"><a href='http://www.51cto.com' target="_blank" class="fft">51cto首页</a> | <a href='http://blog.51cto.com' target="_blank" class="fft">博客</a> | <a href='http://bbs.51cto.com' target="_blank" class="fft">论坛</a> | <a href='http://down.51cto.com' target="_blank" class="fft">下载</a>
+</td>
+	<td width="250"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="hot_art" width="60" align="center"><b>热点文章</b></td><td id="blogtopart"> <a href="http://loguis.blog.51cto.com/635994/333525" title="VeryCD easyMule彻底去除eD2k服务器和Kad网络搜索" target=_blank>VeryCD easyMule彻底去..</a></td></tr></table></td>
+	<td width="180">
+	<form method=post action="http://blog.51cto.com/search.php" name=searchform target=_blank><div id="blogword">
+	<div id="blogso"><input type=image src="http://img1.51cto.com/image/default/blogso.gif" border="0"></div>
+
+	<div id="blogsotext" align=right>
+	  <input type=hidden name=search_type vfbalue=art>
+	  <input name=step type=hidden value=2>
+	  <input type=text id=keyword name="keyword"></div></div>
+	  </form>
+    </td>
+	<td width="40" aling="right">　<a href="http://51ctoblog.blog.51cto.com/all/26414/4" target="_blank" class="fft">帮助</a></td>
+  </tr>
+</table>
+</center>
+<div id="wrapper">
+	<div id="innerWrapper">
+	<div id="topPadding"></div>
+<div id="header">
+	<div id="innerHeader">
+	<div>
+	<div id="head_right">
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/c" title="察看GuoYJ所有转载文章">转载</a>:1 &nbsp;</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/t" title="察看GuoYJ所有翻译文章">翻译</a>:6</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/o" title="察看GuoYJ所有原创文章">原创</a>:0</div>
+	
+</div>
+	<h1 id="blogTitle">&nbsp;<a href="http://guosir.blog.51cto.com">在路上</a>
+&nbsp;<a href='/rss.php?uid=709336' target='_blank'><img src='http://img1.51cto.com/image/skin/1/rss.gif'></a></h1></div>
+
+<div id="blogDesc">
+<a href="http://guosir.blog.51cto.com">http://guosir.blog.51cto.com</a> > <a href="http://guosir.blog.51cto.com" onClick="return copylink()">复制链接</a> <a href="http://g.51cto.com/addgroup.php?uid=709336">邀请加入技术圈</a></div>			
+
+	<div class="top_bottom_left">
+</div>
+	<div class="top_bottom_right">
+<div class='top_link'><a href='/' onclick='add_flink(709336);return false'>加友情链接</a></div>
+<div class='top_link'><a href='javascript:void(0)'  onclick="pmwin('open','GuoYJ')">发短消息</a></div>
+<div class='top_link'><a href='/pic/'>相册</a></div>
+<div class='top_link'><a href='/mygroup.php'>技术圈</a></div>
+<div class='top_link'><a href='/'>博客</a></div>
+
+	</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<!-- add by cao2xi 2008-11-20 -->
+<div class="wd" id="my_menu" style="display:none;">
+<div class="wd1">
+<div class="wd_tit">
+<div class="wd_l"><a href="http://www.51cto.com" target="_blank">首页</a> | <a href="http://down.51cto.com" target="_blank">下载</a> | <a href="http://bbs.51cto.com" target="_blank">技术论坛</a> | <a href='javascript:void(0)'  onclick="pmwin('open','1')">短消息</a></div>
+<div class="wd_r"><img src="http://img1.51cto.com/images/wd_gb.gif" width="15" height="14" border="0" onclick="dis_menu();return false"/></div>
+</div>
+<div class="wd_list">
+<div class="wd_list_l">
+<div class="wd_list_t"><a href="http://blog.51cto.com" target="_blank">博 客</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com' target="_blank">我的博客</a></li>
+<li><a href='http://.blog.51cto.com/addblog.php' target="_blank">发表文章</a></li>
+<li><a href="http://blog.51cto.com/user_index.php" target="_blank">管理博客</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_m">
+<div class="wd_list_t1"><a href="http://g.51cto.com/" target="_blank">技术圈</a></div>
+<div class="wd_list_li"><ul>
+<li><a href="http://blog.51cto.com/user_index.php?action=creategroup" target="_blank">创建圈子</a></li>
+<li><a href='http://.blog.51cto.com/mygroup.php'  target="_blank">我的圈子</a></li>
+<li><a href='http://g.51cto.com/grouptag.php' target="_blank">寻找圈子</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_r">
+<div class="wd_list_t"><a href='http://.blog.51cto.com/pic/' target="_blank">相 册</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com/pic/' target="_blank">我的相册</a></li>
+<li><a href='http://.blog.51cto.com/pic/uploadphoto.php' target="_blank">上传图片</a></li>
+<li><a href='http://.blog.51cto.com/pic/manage_album.php?uid=709336' target="_blank">管理相册</a></li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<!-- add end -->
+<div id="navBar">
+	<div id="innerNavBar">
+	<div class="userdir">
+		<a href="/">首页</a>
+		| <a href="/709336/d-1">虚拟仪器</a>
+		| <a href="/709336/d-2">MDX</a>
+		| <a href="/709336/d-3">数据分析</a>
+		| <a href="/709336/d-4">数据仓库</a>
+		| <a href="/709336/d-5">商业智能</a>
+		| <a href="/709336/d-6">社会人生</a>
+		| <a href="/709336/d-7">文档收藏</a>
+
+</div>
+</div>
+</div>
+<div id="mainWrapper">
+<div id="innerMainWrapper">
+<div id="append_parent"></div>
+
+
+  <div id="add_sys_type_div" style="width:600px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+  <div id="add_sys_type_divs" style="width:550px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+<script language="JavaScript" src="http://g.51cto.com/js/alert.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://g.51cto.com/js/group.js"></script>
+
+<div class="mod" id="layout_1" style="width:74%;float:right">
+
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width=96% ><tr><td><a href="http://bbs.51cto.com/thread-712054-1.html" target="_blank" style="color:red;text-decoration:underline;">51CTO广东省午饭第二届线下聚会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://timyang.blog.51cto.com" target="_blank" style="color:red;text-decoration:underline;">新浪技术总监杨卫华51CTO开博</a></td>
+	<td align="right"><a href="/all/709336" target="_blank">博主的更多文章>></a></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+	<div class="article" id="article" align="left">
+		<h1 class="subject" style="word-wrap: break-word">
+			<b><img src='http://img1.51cto.com/images/fanyi_1.gif' border=0> NI Vision for LabVIEW 基础(五): 完成机器视觉任务  </b>
+		</h1>
+		<hr size=1 align="center" style="border:1px solid #EEEEEE" width="94%">
+		<div>
+		<div class="posttime"><small>2010-04-29 22:33:17</small></div>
+		<div style="width:94%;padding-left:20px;">　标签：<span style="color:#AAAAAA;"><a href="http://blog.51cto.com/tagindex.php?keyword=%BB%F9%B4%A1" target="_blank" class="operlink">基础</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%C8%CE%CE%F1" target="_blank" class="operlink">任务</a> <a href="http://blog.51cto.com/tagindex.php?keyword=Vision" target="_blank" class="operlink">Vision</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%BB%FA%C6%F7%CA%D3%BE%F5" target="_blank" class="operlink">机器视觉</a> <a href="http://blog.51cto.com/tagindex.php?keyword=LabVIEW" target="_blank" class="operlink">LabVIEW</a></span>　　　[<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>]
+
+<br><br></div>
+		</div>
+		<div>
+		<table width="650" cellpadding="0" cellspacing="10" border="0" id="content" style="width:650px;table-layout: fixed;word-wrap: break-all;">
+
+		<tr><td><div style="font-size:10pt;position:relative;word-wrap:break-word;word-break:break-all;"><p>这一节介绍如何完成常用的机器视觉任务。最常用的检测任务是测试图像中有还是没有某个部件，并测量部件的大小以确定是否满足标准。</p>
+<p>测量是基于图像中物体所表现出来特征。图像处理算法通常利用图像中包含的信息进行分类，如边、面或形状。不同类型的机器视觉算法，影响并提取一种或多种信息。</p>
+<p>边缘检测及其衍生技术，如耙子，同心耙，和辐条（rakes, concentric rakes, and spokes）用于图像中所表现出了边。他们可以精确地定位物体边缘的位置。可以使用边缘检测来进行部件宽度一类的测量， 这一技术被称为卡尺。也可以综合多条边来计算交点、投射、适合的园或椭圆。</p>
+<p>模式匹配算法使用边和样板。模式匹配可以精确的定位所检测部件的基准位置或特性。可以综合使用这些位置来计算长度、角度和其它的测量指标。</p>
+<p>测量指标的健壮性以来与图像采集条件的稳定性。传感器分辨率、光照、光学、震动控制、 工件夹具，以及一般环境都是图像建立的关键因素。 图像采集环节的所有元素直接影响测量的精度。</p>
+<p>下图介绍了机器视觉过程中的基本步骤。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551549t3mA.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="437" src="http://img1.51cto.com/attachment/201004/29/709336_1272551550N8CW.png" /></a></p>
+<p><strong>说明</strong> 图中虚线框起来的内容是可选步骤。</p>
+<p><font color="#000080">检测物体定位</font></p>
+<p>典型的机器视觉应用中，是从关注区中提取测量指标而不是从整个图像中。要使用这种技术，关注物体的各个部分都要出现在所定义的关注区中。</p>
+<p>如果需要处理的图像中被测物体始终保持在相同的位置和方向，那么直接定义关注区就可以了。参见本文中关于选择ROI一章。</p>
+<p>通常，被测物体会在需要处理的图像中发生相对位移或旋转。 发生这种情况时，那么关注区就需要跟所关注的物体的所有部分一起移动或旋转。对于要随物体一起移动的关注区，需要定义一个相对于参考图像中物体的参考坐标系统。在测量处理期间，当需要处理的图像中的物体出现移动和旋转时,坐标系统也随物体一起移动。这个坐标系统称为测量坐标系统。测量模块利用相对于参考坐标系统的测量位置自动地将关注区移动到正确的位置。关于坐标系统，参见参见<i>NI Vision概念手册，第14章，维度测量。</i></p>
+<p>可以利用边缘检测或模式匹配建立一个坐标变换。建立坐标变换的边缘检测和模式匹配模块的输出结果是原点、角度，和坐标系统的轴向。某些 机器视觉模块采用这一输出结果并自动调整检测区域。也可以通过编程利用这些输出结果来移动做相对于物体的检测区域。</p>
+<p>利用边缘检测创建坐标变换</p>
+<p>可以采用两种边缘检测技术创建一个坐标变换。<b>IMAQ Find CoordSys (Rect) 2</b> 模块利用一个矩形区域定义一个参考坐标系。<b>IMAQ Find CoordSys (2 Rects) 2</b> 模块使用两个独立的矩形区域定义一个坐标系。使用边沿检测构建一个坐标变换的完整步骤如下。</p>
+<p><b>1. </b><b>指定一个或恋歌矩形区域。 </b></p>
+<p>a) 如果使用<b>IMAQ Find CoordSys (Rect) 2</b> 模块，指定一个包含两个正直部分的关注区，如下图所示。这个矩形区域必须足够大以包含全部图像中所要检测的边缘。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551551ONlJ.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="173" src="http://img1.51cto.com/attachment/201004/29/709336_12725515530AS8.png" /></a></p>
+<p>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="top">
+            <p>1 坐标系搜索区域</p>
+            </td>
+            <td valign="top">
+            <p>3 坐标系原点</p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+            <p>2 物体边缘</p>
+            </td>
+            <td valign="top">
+            <p>4 测量区域</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p>b) 如果使用IMAQ Find CoordSys (2 Rects) 2 模块，指定两个矩形关注区，每个区域包含一个分开的、正直物体边缘，如下图所示。这两个边不能平行。这两个矩形区域必须足够大以包含全部图像中所要检测的边缘。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551554zE4f.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="235" src="http://img1.51cto.com/attachment/201004/29/709336_1272551555AIqV.png" /></a></p>
+<p>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="top">
+            <p>1 第一搜索区域</p>
+            </td>
+            <td valign="top">
+            <p>3 坐标原点</p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+            <p>2 第二搜索区域</p>
+            </td>
+            <td valign="top">
+            <p>4 测量区域</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p><b>2. </b><b>选择用于定位物体上边缘的参数。 </b></p>
+<p><b>3. </b><b>选择坐标轴方向。 </b></p>
+<p><b>4. </b><b>选择希望覆盖在图像上的结果。</b></p>
+<p><b>5. </b><b>为模块选择模式。第一次建立坐标变化，将模式设置为</b>Find Reference<b>。 要为其后的图像更新坐标变换，将该模式设置为</b>Update CoordSys<b>。 </b></p>
+<p>使用模式匹配构建一个坐标变换</p>
+<p>使用模式匹配可以构建一个坐标变换。<b>IMAQ Find CoordSys (Pattern) 2</b> 基于参考属性的位置定义一个参考坐标系。该技术用于检测物体没有正直边，或不连续边的情况。使用模式匹配构建一个坐标变换的完整步骤如下:</p>
+<p><strong>说明</strong> 如果使用旋转-不变模式匹配，使用该技术可以使物体在图像中旋转 360&deg; 。</p>
+<p>1. 定义代表用作参考属性的物体的一部分的模板，。</p>
+<p>2. 定义一个期望查找模板的矩形搜索区</p>
+<p>3. 选择匹配模式。当检测图像中所要的样板发生旋转时，选择<strong>Rotation Invariant</strong> ，否则，选择<strong>Shift Invariant</strong>。</p>
+<p><b>4. </b>选择需要覆盖在图像上的结果<b>。 </b></p>
+<p>5. 为模块选择模式。第一次建立坐标变化，将模式设置为Find Reference。 要为其后的图像更新坐标变换，将该模式设置为Update CoordSys。</p>
+<p>选择构建坐标变换的方法</p>
+<p>下图所示的流程图引导在应用程序中选择最佳的建立坐标变换的方法。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551557qID3.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="379" src="http://img1.51cto.com/attachment/201004/29/709336_12725515582D2h.png" /></a></p>
+<p><font color="#000080">设置搜索区域</font></p>
+<p>在图像中选择关注区,以限制处理和检测的区域。可以通过交互式或编程来定义关注区。</p>
+<p>交互式定义区域</p>
+<p>下面的表列出了特定的测量模块所 使用的关注区。
+<table border="1" cellpadding="1">
+    <tbody>
+        <tr>
+            <td>
+            <p><strong>关注区</strong></p>
+            </td>
+            <td>
+            <p><strong>测量模块</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p>旋转矩形</p>
+            </td>
+            <td>
+            <p>IMAQ Find Pattern 2 <br />
+            IMAQ Clamp Horizontal Max <br />
+            IMAQ Clamp Horizontal Min <br />
+            IMAQ Clamp Vertical Max <br />
+            IMAQ Clamp Vertical Min <br />
+            IMAQ Find Edge <br />
+            IMAQ Find Straight Edges</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p>环形</p>
+            </td>
+            <td>
+            <p>IMAQ Find Circular Edge <br />
+            IMAQ Find Concentric Edge</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p>程序化定义区域</p>
+<p>当设计一个自动化应用程序是，需要程序化定义关注区。可以有两种方法：</p>
+<p>l 制定ROI描述元素。</p>
+<p>l 提供描述要定义的区域的基本参数来制定区域。可以通过提供左上角坐标，右下角，和旋转角度来指定一个旋转矩形。可以通过提供中心坐标，内径，外径，起始角，结束角来指定一个环形。可以通过设置x-和y-坐标来指定一个点。可以设置起点和终点来指定一条线。</p>
+<p><font color="#000080">查找测量点</font></p>
+<p>在设置了检测区域之后，就能够定位基本测量的点。可以使用边缘检测、模式匹配、彩色模式匹配和色彩定位来定位测量点。</p>
+<p>使用边缘检测获得特征</p>
+<p>图像的非连续性通常表现为像素明暗度的突然改变。使用边缘检测工具可以识别和定位图像中剧烈的不连续处。</p>
+<p>查找线和圆</p>
+<p>如果想沿着物体的边沿查找点并找到描绘这条边的线，使用<b>IMAQ Find Edge</b>, <b>IMAQ Find Straight Edges</b>,和<b>IMAQ Find Concentric Edge</b>模块。<b>IMAQ Find Edge</b> 和<b>IMAQ Find Straight Edges</b> 模块基于矩形搜索区域查找边缘，如下图所示。 <b>IMAQ Find Concentric Edge</b> 模块基于环形搜索区域查找边缘。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551559DJWL.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="320" src="http://img1.51cto.com/attachment/201004/29/709336_1272551561csjL.png" /></a></p>
+<p>
+<table style="height: 56px; 562px: " border="1" cellpadding="0">
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+            <p>1 搜索区域</p>
+            </td>
+            <td>
+            <p>3 检测到的边缘点</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p>2 搜索线</p>
+            </td>
+            <td>
+            <p>4 与边缘点所对应的线</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p>如果想要沿着圆形边缘查找点并找到最适合边缘的圆，如下图所示，使用<b>IMAQ Find Circular Edge</b> 模块。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551563hpbs.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="299" src="http://img1.51cto.com/attachment/201004/29/709336_1272551565jGVl.png" /></a></p>
+<p>
+<table border="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+            <p>1 环形搜索区域</p>
+            </td>
+            <td>
+            <p>3 检测到的边缘的点</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p>2 搜索线</p>
+            </td>
+            <td>
+            <p>4 与边缘点所对应的圆</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p>IMAQ Find Edge 和 IMAQ Find Concentric Edge 模块查找物体边缘和一组搜索区域中的搜索线之间的交叉点。为模块指定用于检测边缘的线的间隔。检测模块基于他们对比度、宽度和倾斜度来确定交叉点。软件计算出紧贴外缘的最适合的线，或者通过所找到点的最适合的圆。检测模块返回所找到的边的坐标。</p>
+<p>沿一个搜索轮廓线查找边缘点</p>
+<p>IMAQ Simple Edge 模块和IMAQ Edge Tool 2 模块用于沿着一个轮廓查找边缘点。可以沿着轮廓查找 第一个边缘，最后一个边缘，或所有的边缘。当图像中包含很少的噪声并且物体和背景明显不同时，使用IMAQ Simple Edge模块。否则，使用IMAQ Edge Tool 2模块</p>
+<p>IMAQ Simple Edge 模块要求输入沿着搜索轮廓的点的坐标。使用IMAQ ROIProfile 模块可以从轮廓的RO描述中获得坐标。如果有了一条直线，使用IMAQ GetPointsOnLine模块来获得线上的点，而不使用ROI描述。</p>
+<p>IMAQ ROIProfile和IMAQ GetPointsOnLine基于对比度和斜度确定边缘点。如果需要可以指定查找边缘点的子像素精度。</p>
+<p>沿着多个搜索轮廓查找边缘点</p>
+<p>IMAQ Rake 2, IMAQ Spoke 2, 和IMAQ Concentric Rake 2 模块用于沿着多个搜索轮廓查找边缘点。这些模块需要传入一个ROI描述用于定义搜索区域。</p>
+<p>IMAQ Rake 作用于一个矩形搜索区域。搜索线被画在与矩形平行的方向。通过指定区域中每条线之间以像素为单位的距离来控制搜索线的数量。对于水平方向的矩形指定从左到右或从右到左的搜索方向。对垂直方向的矩形指定从上到下或从下到上的搜索方向。</p>
+<p>IMAQ Spoke 2 作用于一个环形搜索区域，扫描每一条从区域的中心到外缘并落在搜索区域中的线。通过指定每条线之间以度数为单位的角度来控制线的数量。搜索方向指定为从中心向外或者从外沿向中心。</p>
+<p>IMAQ Concentric Rake 2 作用于一个环形搜索区域。中心扫描耙（rake）是一个环形区域耙的适配器。边缘检测是沿着搜索区域中出现的与外层圆形边缘同心的扫描线完成。通过以像素为单位指定同心线的径向距离可以控制用于边缘检测的同心搜索线的数量。搜索方向指定为顺时针或反时针。</p>
+<p>使用模式匹配查找点</p>
+<p>NI Vision中的模式匹配算法用于测量理想化的特征表现，成为模板，与图像中的可能表现之间的相似度。特征是图像中像素的一个特定的模式。模式匹配返回模板和模板方位的中心位置。利用模式匹配查找图像特征通常需要以下步骤：</p>
+<p>1. 定义一个参考或基准样本作为模板图像。</p>
+<p>2. 使用IMAQ Learn Pattern 2模块利用参考样本训练模式匹配算法。</p>
+<p>3. 定义一个图像或图像的一个区域作为搜索区域。较小的搜索区域能减少查找特征的时间。</p>
+<p>4. 使用IMAQ Setup Match Pattern 2设置容限和参数以指定算法在运行时如何工作。</p>
+<p>5. 使用IMAQ Match Pattern 2模块在测试图像上测试搜索算法。</p>
+<p>6. 使用一种排序方法验证结果。</p>
+<p>定义并创建有效的模板图像</p>
+<p>一个有效的模板图像是获得最佳结果的关键部分。由于模板代表了所要查找的样本，要确保样本的所有特征和唯一特性都要在图像中定义。</p>
+<p>在建立模板图像的过程中有几个因数是最关键的。这些关键因素包括均匀度，细节特征，位置信息，以及背景信息。</p>
+<p>均匀度</p>
+<p>一个旋转均匀的模板，如图A所示，与一个不均匀的模板相比队旋转的时候有很少的敏感度。一个旋转均匀的模板提供了很好的位置信息，而没有方向信息 。图B 显示了一个旋转非均匀模板。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551565Fuzq.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" height="149" src="http://img1.51cto.com/attachment/201004/29/709336_1272551566QGJ9.png" /></a></p>
+<p>细节特征</p>
+<p>具有相对粗糙特征的模板，如图B所示，与图A所示的具有精细特征的模板相比，对尺寸和旋转变化有很少的敏感度。然而，模型必须包含足够的细节以确定特征。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551566FDP2.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" height="154" src="http://img1.51cto.com/attachment/201004/29/709336_1272551567Oew0.png" /></a></p>
+<p>位置信息</p>
+<p>一个x-和y-方向具有明显边缘的模板便于定位。图A 显示了一个x-和y-方向都有边缘的模板例子。图B 显示了一个仅在x-方向有边缘的模板例子。</p>
+<p>背景信息</p>
+<p>模板中单一的背景信息有利于改善搜索效率和精度。图A所示的模板包含很少的背景信息。图B 所示的模板包含了 大量的背景信息可以用于将模板从其它可能的匹配中分离出来。</p>
+<p>训练模式匹配算法</p>
+<p>在建立了良好的模板图像之后，模式识别算法必须要学习模板的重要特征。 IMAQ Learn Pattern 2 模块用于学习模板。学习的过程依赖于所要完成的匹配类型。如果不期望图像中的模板实例发生旋转或改变大小，模式匹配算法必须学习的仅仅是对位移匹配相关的模板信息。然而，如果希望匹配任意方向的模板，学习过程必须考虑任意方向的可能性。IMAQ Setup Learn Pattern 2用于指定要使用哪种学习模式。可以为IMAQ Learn Pattern 2提供一个遮罩，代表学习算法需要在图像中忽略的像素区域。可以将被测图像中变化的模板区域遮起来，以使匹配过程中忽略这个区域，使整个模式匹配过程更加有效（Robust）。遮罩必须与模板图像大小相同。如果为IMAQ Learn Pattern 2提供一个遮罩，该模块仅学习模板中与遮罩中对应像素值为0像素。遮罩像素不为0的被忽略。如果需要学习整个模板，就不要使用遮罩。</p>
+<p>学习过程通常是很耗时的，因为算法试图查找模板的每个特征以便快速、准确地匹配。所选择的学习模式也影响学习过程的速度。学习位移不变的匹配比学习旋转不变得模板要快。为了节省时间，也可以使用离线方式训练匹配算法，然后使用IMAQ Write File 2的实例IMAQ Write Image and Vision Info File 2将模板图像保存起来。</p>
+<p>定义搜索区域</p>
+<p>有两个重要因素决定了模式匹配算法的成功与否：精度与速。可以定义一个搜索区域以减少搜索过程中的不确定性。例如，如果图像中有多个样板实例，而其中只有一个是用于检测任务的，额外的样板实例的出现可能产生不正确的结果。为了避免发生这种情况，减少搜索区域以使仅仅所需要的样板出现在搜索区中。</p>
+<p>在图像中定位一个样板所需要的时间，即取决于模板的尺寸，也取决于搜索区域。减少搜索区域，可以减少所需的搜索时间。增加模板尺寸能改善搜索时间，但如果这样做，如果较大的模板包含的过多的背景信息将较少匹配的精度。</p>
+<p>在许多检测应用中，已经拥有基准位置的一般信息，可以利用这一信息定义一个搜索区域。例如，在一个标准的元器件安置应用中，每个要检测的印刷电路板可能不是以相同的方向放在相同的位置。在各种图像中的印刷电路板位置可能在已知的范围内移动和旋转。图A所示的模板用于定位图像中的PCB。图B所示的图象包含一个想要定位的带有基准的PCB 。注意，搜索区域是围绕着基准的。如果在匹配过程开始之前就知道PCB 图象可能在一个固定的范围内移动或选装，分别如图C和D所示，就可以将基准的搜索区域限制在图象的一个很小的区域内。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551568PdRP.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="265" src="http://img1.51cto.com/attachment/201004/29/709336_1272551569EArT.png" /></a></p>
+<p>设置匹配参数和容限</p>
+<p>每个模式匹配算法都对图象和机器视觉应用中所使用模式匹配参数做出一些假设。这些假设适用于大多数应用。然而，也有一些应用中这些假设并不是最优的。了解特定应用和所要处理的图象在选择模式匹配参数时是非常有有用的。 IMAQ Setup Match Pattern 2 模块用于设置以下影响NI Vision模式匹配算法的参数：<b>匹配模式</b>、<b>最小对比度</b>和 <strong>旋转角度范围</strong>。</p>
+<p>匹配模式</p>
+<p>设置匹配模式用于控制模式匹配算法如何处理不同的方向。如果希望有效的匹配相对于模版的方向变化小于&plusmn;5&deg;，可以将<strong>Match Mode</strong><strong>设置</strong>为<strong>Shift Invariant</strong><strong>（位移不变）</strong>。否则，将<strong>Match Mode</strong><strong>设置为</strong> <strong>Rotation Invariant</strong>。 位移不变匹配比旋转不变更快。</p>
+<p>最小对比度</p>
+<p>模式匹配算法忽略所有对比度值低于所设置的最小对比度的图象区域。对比度是一个区域中最小和最大像素值的差异。将<strong>Minimum Contrast</strong> 设置为稍低于最低对比度搜索区域的对比度值。</p>
+<p>设置最小对比度可以潜在地增加模式匹配算法的速度。如果搜索图像整体对比度较高但包含一些低对比度区域，设置一个较高的最小对比度值可以排除所有的低对比度图像区域。排除这些区域可以明显地减少模式匹配算法必须搜索的面积。然而，如果搜索的图像整体上对比度较低，那么就应设置一个较低的最小对比度以确保模式匹配算法能在图像的所有区域中搜索模板。</p>
+<p>旋转角度范围</p>
+<p>如果已经知道模板旋转限制在一定的范围内，例如，在&ndash;15&deg;和15&deg;之间，可为该限制信息在<strong>Rotation Angle Ranges</strong><strong>空间</strong>中提供给模式匹配算法。该信息可以改善搜索时间，因为模式匹配算法可以在较小的角度内搜索。有关模式匹配的详细内容，参见NI Vision 概念手册，第12章，模式匹配。</p>
+<p>在测试图像上测试搜索算法</p>
+<p>要验证所选择的模板或参考样板是否适合自己的机器视觉应用，可以使用 IMAQ Match Pattern 2模块在少量图像上测试模板。这些测试图像会反映出机器视觉应用在真实运行条件下所生成的图像。如果模式匹配算法能够在所有情况下都能定位到参考样板，说明所选择的是一个好的模板。否则，就要改善当前的模板，或者选择一个更好的模板知道训练和测试都是成功的。</p>
+<p>使用分级方法验证结果</p>
+<p>解读IMAQ Match Pattern 2模块结果的方法取决于应用程序。对于标准的校准应用，例如查找晶片基准，最重要的信息是位置和最佳匹配部位。使用<strong>Matches</strong><strong>指标</strong>的<strong>Position</strong> 和<strong>Bounding Box</strong> 元素获得位置和匹配部位。</p>
+<p>在检测应用中，例如光学字符检验(OCV)，最匹配分值是比较有用的。模式匹配算法返回的匹配分值是原样板与图像中找到的内容匹配紧密度的指标。高分代表一个非常紧密的匹配，而低分代表匹配的比较差。分值可以作为一个评判标准以确定打印的字符是否是可以接受的。使用<strong>Matches</strong> 指标的<strong>Score</strong> 元素来获得对应的匹配分值。</p>
+<p>使用几何匹配查找点</p>
+<p>NI Vision中的几何匹配算法用于在灰度图像中寻找与一个参考样板匹配的模型，或模板。几何匹配专门用于寻找具备离散化几何或形状信息的模板。几何匹配查找模板匹配能够忽略光的变化，模糊，噪声，咬合，以及几何变换，如模板的位移、旋转，或比例。几何匹配返回模板的中心位置，模板的方向，和模板的比例。</p>
+<p>使用几何匹配查找图像中的特征通常要完成以下步骤。</p>
+<p>1. 使用一个模板图像定义一个参考或基准的样板。</p>
+<p>2. 使用NI Vision模板编辑器利用参考样板训练几何匹配算法。选择 <strong>Start?All Programs?National Instruments?Vision?Template Editor</strong> 打开NI Vision模板编辑器。</p>
+<p>3. 定义一个图像或图像的一个区域作为搜索区域。小的搜索区域可以减少查找特征的时间。</p>
+<p>4. 使用IMAQ Setup Match Geometric Pattern模块设置容限和参数以指定运行时算法如何工作。</p>
+<p>5. 使用IMAQ Match Geometric Pattern模块在测试图像上测试搜索算法。</p>
+<p>定义和创建有效的模板图像</p>
+<p>选择一个有效的模板图像是获得好的结果的决定性的部分。由于模板图像代表所要查找的样板，要确保所有重要和独特的特征都被很好的定义在图像中。</p>
+<p>几何匹配算法是为定位具有良好几何信息的物体而优化的。下面的图线是了具有良好几何或形状信息的模板图像的例子。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551570oI8D.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="116" src="http://img1.51cto.com/attachment/201004/29/709336_1272551571IGX4.png" /></a></p>
+<p>几何匹配不适合于主要是灰度或纹理信息的模板图像。下面的图显示了没有良好几何信息的模板图像。图A中的模板图像的主要特征是图像中的灰度或纹理信息。图B包含了太多的边缘，会急剧地增加几何匹配在图像中定位模板的时间。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551572U698.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="240" src="http://img1.51cto.com/attachment/201004/29/709336_1272551574JQxI.png" /></a></p>
+<p>训练几何匹配算法</p>
+<p>在建立了一个好的模板图像之后，几何匹配算法必须学习模板的重要特征。使用NI Vision模板编辑器选择模板中的重要特征。几何匹配使用在图像中查找到的曲线作为用于匹配的基本特征。使用NI Vision模板编辑器可以去除模板中的噪声或不重要的曲线并仅保存图像中对定位模板重要的曲线。</p>
+<p>图A显示了一个面具的图像模板。图B显示了在图像模板中发现的所有曲线。这些图像由若干很适合匹配的曲线构成，例如沿着面具边缘的线，噪声或不重要的曲线，以及编码周围的线和图像中反光区域的线。如果带着不重要的曲线学习模板，几何匹配算法会把这些曲线作为必须在有效匹配区中必须查找的重要特征。为了使匹配过程更加可靠，应在学习模板之前去掉这些曲线。图C 显示了利用NI Vision模板编辑器去掉了不重要的曲线之后的用于学习模板的曲线。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551575wjom.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="190" src="http://img1.51cto.com/attachment/201004/29/709336_1272551576fK1F.png" /></a></p>
+<p>一旦训练了了模板图像，就可以从NI Vision模板编辑器中将模板保存到文件中。使用IMAQ Read Image and Vision Info 模块可以在程序中读取模板文件。</p>
+<p>关于训练几何匹配算法的详细内容，参见<em>NI Vision </em><em>模板编辑器帮助。</em></p>
+<p>设置匹配参数和容限</p>
+<p>几何匹配算法对机器视觉应用中使用的图像和几何匹配参数作了一定的假设。这些假设适用于绝大多数应用。然而，也有一些应用中这些假设并不是最优的。了解特定应用和所要处理的图象在选择模式匹配参数时是非常有有用的。 IMAQ Setup Match Geometric Pattern模块用于设置以下影响NI Vision模式匹配算法的参数：<b>匹配模式</b>、<strong>转角度范围，咬合范围</strong>。<a target="\&quot;_blank\&quot;" name="Match_Mode_GeoMatch"></a></p>
+<p>匹配模式</p>
+<p>通过设置控制模式来控制几何匹配算法查找模板的条件。如果希望有效的匹配与模板间的方向变化大于&plusmn;5&deg;，将<strong>Match Mode</strong><strong>中的</strong><strong>Rotation</strong> 选项设置为有效。如果希望尺寸变化范围大于5%, 将<strong>Match Mode</strong><strong>中的</strong><strong>Scale</strong>选项设置为有效。如果期望有效的匹配可以部分覆盖或缺失，将<strong>Match Mode</strong><strong>中的</strong><strong>Occlusion</strong>选项设置为有效。任何一个选项设置为无效或限制它们的范围将减少搜索时间。</p>
+<p>旋转角度范围</p>
+<p>如果已知样板限制在一定的范围内，例如,在&ndash;15&deg;和15&deg;之间。设置<strong>Range Settings</strong><strong>控件中的</strong><strong>Rotation Angle(</strong><strong>度)</strong> 将这些限制信息提供给几何匹配算法。该信息改善了搜索时间，因为几何匹配算法能在更小的角度内搜索样板。</p>
+<p>比例因子范围</p>
+<p>当<strong>Match Mode</strong> 的<strong>Scale</strong><strong>选项有效时，</strong>几何匹配仅搜索图像中模板出现与否而忽略有效的匹配是否是不同的大小。默认的比例范围是75%到125%。如果已知有效匹配的比例范围限制在一定的范围内，例如，在90%和110%之间，通过设置<strong>Range Settings</strong> 控件中的<strong>Scale Factor (%)</strong><strong>选项</strong>，将这一限制信息提供给几何匹配算法。</p>
+<p>咬合范围</p>
+<p>当<strong>Match Mode</strong> 中的<strong>Occlusion</strong><strong>选项有效时，</strong>几何匹配搜索图像中模板的有无，允许模板的一定比例被遮挡。默认的遮挡范围是0% 到25%。如果已知有效匹配的遮挡范围限制在一定范围内，例如，在0%和10%之间。通过设置<strong>Range Settings</strong> 控件中的<strong>Occlusion (%)</strong><strong>选项，</strong>将这一限制信息提供给几何匹配算法。</p>
+<p>有关几何匹配的更多信息，参见<i>NI Vision概念手册，第13章，几何匹配</i>。</p>
+<p>在测试图像上测试搜索算法</p>
+<p>为了验证所选择的模板或参考样板是否满足机器视觉程序的要求,可以使用IMAQ Match Geometric Pattern 模块在少量测试图像上对模板进行测试。这些测试图像应该反映出机器视觉程序在实际运行条件下生成的图像。如果几何匹配算法在所有情况下都能找到参考样板,就说明已经选择了一个很好的模板。 否则， 就需要优化当前的模板，或者选择一个更好的模板直到训练和测试都成功为止。</p>
+<p>使用多模板图像</p>
+<p>如果应用程序需要在目标图像中查找多个模板图像，按下列步骤进行。</p>
+<p>1. 使用<b>定义和创建有效模板图像</b>和<b>训练几何匹配算法</b>所介绍的方法建立和训练每个模板图像。</p>
+<p>2. 使用<b>IMAQ Learn Multiple Geometric Patterns</b> 模块将上面的步骤中训练的模板合并到多几何模板中。</p>
+<p>如果想要离线完成学习过程，使用<b>IMAQ Write Multiple Geometric Template</b> 模块将所生成的多几何模板保存到文件中。使用<b>IMAQ Read Multiple Geometric Template</b> 模块可以使应用程序在匹配处理期间读取多几何模板文件。</p>
+<p>1. 使用<b>设置破配参数和容限</b>一节介绍的方法定义每个模板如何与目标图像匹配。</p>
+<p><strong>说明</strong> 尽管本步骤生成的参数仅用于匹配期间，仍然可以在学习阶段将这些参数传递给IMAQ Learn Multiple Geometric Patterns模块。将这些参数存储在多几何模板中，当保存多几何模板时它们就会存放到文件中。程序读取多几何模板文件时，它们将作为多几何模板的一部分在匹配处理期间使用。如果想在匹配处理期间覆盖某些参数，可以将要覆盖的参数传递给IMAQ Match Multiple Geometric Patterns 模块。</p>
+<p>2. 使用IMAQ Match Multiple Geometric Patterns 模块在测试图像上测试多模板搜索算法以匹配所有模板。该步骤的重要性与在测试图像上策测试搜索算法中解释的相同。</p>
+<p>使用彩色模式匹配查找点</p>
+<p>彩色模式匹配算法为在出现彩色的时候提供了一种快速的查找物体的方法。如果图像具有下列质量，就可以适用彩色模式匹配：</p>
+<ol>
+    <li>1. 要查找的物体的彩色信息与背景非常不同，并且希望在找到图像中物体的精确位置。</li>
+    <li>2. 要查找的物体的灰度特性非常难以鉴别，或者与搜索图像中的其它物体非常相像。这种情况下，灰度模式匹配可能得出不精确的结果。如果物体具有的彩色信息不同于屏幕中的其它物体，那么色彩就为机器视觉软件提供了定位物体的额外信息。</li>
+</ol>
+<p>彩色模式匹配返回模板的中心位置和模板的方向。适用彩色模式匹配查找图像中的特征采用以下步骤:</p>
+<p>1. 以模板图像的形式定义一个参考或基准样板。</p>
+<p>2. 使用IMAQ Setup Learn Color Pattern 模块利用参考样板训练彩色模式匹配算法。</p>
+<p>3. 定义一个图像或图像区域作为搜索区域。较小的搜索区域可以减少查找特征的时间。</p>
+<p>4. 将<strong>Feature Mode</strong> 控件设置为<strong>Color and Shape</strong>。</p>
+<p>5. 使用IMAQ Setup Match Color Pattern模块设置容限和参数，以制定算法在运行时如何工作。</p>
+<p>6. IMAQ Match Color Pattern 模块在测试图像上测试搜索工具。</p>
+<p>7. 使用分级方法验证结果</p>
+<p>定义和建立好的彩色模板图像</p>
+<p>选择一个好的模板图像在使用彩色匹配算法获得精确结果的过程中是关键的一步。因为模板图像代表着想要查找的彩色和样本，应确保所有的重要和唯一的特征都被定义在图像中。</p>
+<p>有几个因素是建立模板图像的关键。这些关键因素包括彩色信息、均匀度细节、位置信息，和背景信息。有关这些因素的更多信息，参见<i>定义和建立有效的模板图像</i>。</p>
+<p>彩色信息</p>
+<p>单色的模板比包含许多颜色的模板能为样板提供更好的结果，特别是背景或图像中的其它物体。</p>
+<p>均匀度</p>
+<p>在两度平面上一个旋转均匀的模板比旋转不均匀的模板对旋转变化的敏感度低。</p>
+<p>细节特征</p>
+<p>相对粗糙特征的模板对尺寸变化的敏感度比具有细致特征模型要低。然而，模型必须要把包含足够辨认它的细节。</p>
+<p>位置信息</p>
+<p>彩色模板的亮度平面包含的x-和y-方向的明显的边沿,便于定位。</p>
+<p>背景信息</p>
+<p>在灰度模式匹配期间，单一的背景信息可以改进搜索的性能和精度。这一要求对于彩色模式匹配的彩色信息要求是冲突的，因为背景色可能在彩色定位阶段产生干扰。解决这一问题的方法是为灰度模式匹配选择一个具有充分背景信息的模板，同时指定在彩色定位阶段要排除的背景色。有关如何忽略色彩的更多信息，参见<i>训练彩色模板匹配算法</i>。</p>
+<p>训练彩色模式匹配算法</p>
+<p>在建立了一个好的模板图像之后，彩色模式匹配算法需要学习模板的重要信息。学习的过程取决于所期望完成的匹配类型。默认情况下，彩色模式匹配算法仅从模板中学习与位移不变匹配所必需的信息。然而，如果希望让模板在任意方向上匹配，学习过程必须考虑任意方向的可能性。</p>
+<p>使用<b>IMAQ Setup Learn Color Pattern</b>模块指定使用哪种学习模式。然后使用<b>IMAQ Learn Color Pattern </b>模块学习模板。</p>
+<p>排除模板中在搜索阶段不感兴趣的色彩。忽略模板中难于定位的色彩。模板与搜索图像的部分区域仅仅是主色不同，可以考虑忽略掉主要的共同色彩以改善性能。通常，主色是彩色模板的背景色。</p>
+<p><b>IMAQ Setup Learn Color Pattern</b> 模块用于忽略颜色。可以使用<strong>Ignore Black and White</strong> 控件忽略特定的预定颜色。要忽略其他颜色， 首先使用<b>IMAQ ColorLearn </b>学习要忽略的颜色。然后，将IMAQ Setup Learn Color Pattern 模块的<strong>Ignore Color Spectra</strong> 控件设置成结果的色谱。</p>
+<p>学习算法是很耗时的，因为算法要试图找到模板的位移特性，以便快速、精确的匹配。但是，可以离线训练模式匹配算法，并使用<b>IMAQ Write File 2</b>模块的实例<b>IMAQ Write Image and Vision Info File 2</b>保存模板图像。</p>
+<p>定义搜索区域</p>
+<p>有两个同等重要的因素决定了彩色模式匹配算法是否成功，精度和速度。可以定义一个搜索区域以减少无为的搜索过程。例如，如果图像中有多个样板的实例，且检测任务仅需要一个实例，样板其他实例的出现可能产生不正确的结果。为了避免出现这个问题，减少搜索区域以使仅将需要的样板留在搜索区内。比如，在保险箱检测的例子中，使用要检测的保险丝的位置定义搜索区。因为所要检测的保险箱可能不是处于精确的位置或者在图像中的方向与上一个相同，所定义的搜索区域应该足够大以适应箱子的位置变化。下图显示了如何为不同的物体选择搜索区域。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_1272551586o2Jl.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" height="364" src="http://img1.51cto.com/attachment/201004/29/709336_1272551594WfMM.png" /></a></p>
+<p>
+<table border="1" cellpadding="0">
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+            <p>1 20 Amp保险丝搜索区</p>
+            </td>
+            <td>
+            <p>2&nbsp; 25 Amp 保险丝</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p>在图像中定位样板所需的时间既取决于样板大小，也取决于搜索面积。减少搜索面积，可以减少所需的搜索时间。增加模板大小可以改善搜索时间，但这样做的话，如果更大的模板包含的多余的背景信息会降低匹配的精度。</p>
+<p>设置匹配参数和容限</p>
+<p>每个彩色模式匹配算法都会对图像和机器视觉程序中使用的彩色模式匹配参数做出一些假设。这些假设对绝大多数应用是有效的。但是，有些应用中算法所使用的假设可能不是最优的。这时就必须修改彩色模式匹配参数。了解应用以及所有处理的图像对选择模式匹配参数是非常有必要的。使用<b>IMAQ Setup Match Color Pattern</b> 模块设置下列影响彩色模式匹配的参数：色彩感光度、搜索策略、色彩分值权重、忽略颜色、最小对比度，以及旋转角度范围。</p>
+<p>色彩感光度</p>
+<p>色彩感光度用于控制模板图像中彩色信息的颗粒度。如果背景和图像中的物体包含的色彩与模板图像中的色彩非常相近的话,应适用更高的色彩感光度设置。 较高的感光度设置利用非常接近的色调来区分色彩。NI Vision中有三个色彩感光度设置: 低、中、和高。如果模板中的颜色与背景或不感兴趣的物体的颜色非常不同，那么就使用低设置。随着差异的降低，应增加色彩感光度。<b>IMAQ Setup Match Color Pattern</b>模块的<strong>Color Sensitivity</strong>控件用于设置色彩感光度。有关色彩感光度的更多信息，参见<i>NI Vision概念手册，第15章，彩色检测</i>。</p>
+<p>搜索策略</p>
+<p>使用搜索策略可以优化彩色模式匹配算法的速度。搜索策略控制用于模板的步长、子采样因子、以及彩色信息比例。</p>
+<p>可选择的策略如下:</p>
+<ol>
+    <li><strong>Conservative</strong>&mdash;使用一个非常小的步长，最小的子采样量，和模板中出现的所有彩色信息。保守策略对于在可能降低速度的情况下搜索一个模板是最可靠的方法。</li>
+</ol>
+<p><strong>说明 </strong><strong>如果图像中有挨得特别近的多个目标时，适用保守策略。</strong></p>
+<ol>
+    <li><strong>Balanced</strong>&mdash;使用挑战型和保守型之间的值。</li>
+    <li><strong>Aggressive</strong>&mdash;使用一个较大的步长，许多子采样，以及模板中全部的色谱信息。</li>
+    <li><strong>Very Aggressive</strong>&mdash;使用最大的步长，最多的子采样，以及仅使用模板中主要的色彩来搜索模板。当模板中的色彩非常一致，模板与背景有明显的对比，而且图像中出现的模板很容易区分时使用该策略。该策略是在图像中查找模板的俄最快速的方法。</li>
+</ol>
+<p>通过不同的选项试验来确定最好的策略。使用<strong>Search Strategy</strong><strong>控件</strong>选择搜索策略。</p>
+<p>色彩分值权重</p>
+<p>当同时使用色彩和形状信息搜索模板时，匹配处理期间产生的色彩和形状分值合并后生成最后的彩色模式匹配分值。色彩分值权重决定色彩分值对于最终彩色模式匹配分值的贡献度。如果模板的色彩信息优于模板的形状信息，就将权重设高。例如，如果使用1000的权重，算法同时使用色彩和形状信息查找每个匹配，然后完全基于它们的色彩分值对匹配进行分类。 如果权重是0，匹配仍然使用色彩和形状信息， 但他们完全被基于其形状分值分类。使用<strong>Color Score Weight</strong> 控件来设置色彩分值权重。</p>
+<p>最小对比度</p>
+<p>使用最小对比度可以增加彩色模式匹配算法的速度。彩色模式匹配算法忽略所有灰度对比度值低于最小对比度值得图像区域。使用<strong>Minimum Contrast</strong> 控件设置最小对比度。有关最小对比度的内容，参见<i>设置匹配参数及容限</i>。</p>
+<p>旋转角度范围</p>
+<p>有关旋转角度范围的内容，参见 <i>设置匹配参数及容限。</i></p>
+<p>在测试图像上测试搜索算法</p>
+<p>有关测试搜索算法的信息，参见<i>在测试图像上测试搜索算法</i>。</p>
+<p>使用彩色定位查找点</p>
+<p>彩色定位算法为在带有特定颜色的图像中定位一个区域提供了一种快速的方法。在应用程序中使用彩色定位有以下特点：</p>
+<ol>
+    <li>需要带有特定彩色信息图像中区域的位置和数量</li>
+    <li>依赖于区域中的累积的彩色信息，而不是彩色的分布信息</li>
+    <li>不要求区域的方向</li>
+    <li>不要求子像素精度的位置</li>
+    <li>不要求区域的形状信息</li>
+</ol>
+<p>使用彩色定位在图像中查找特征，需要完成下列步骤：</p>
+<p>1. 以模板图像的形式定义一个参考样板。</p>
+<p>2. 使用IMAQ Learn Color Pattern模块，利用参考样板训练彩色定位算法。</p>
+<p>3. 定义一个图像或图像区域作为搜索区。小的搜索区可以减少发现特征的时间。</p>
+<p>4. 将IMAQ Setup Learn Color Pattern 模块的<strong>Feature Mode</strong> 控件设置为<strong>Color</strong>。</p>
+<p>5. 使用IMAQ Setup Match Color Pattern模块设置容限和参数，以指定运行时算法如何工作。</p>
+<p>6. 使用IMAQ Match Color Pattern 模块在测试图像上彩色定位算法。</p>
+<p>7. 使用分类算法验证结果。</p>
+<p>可以使用<b>IMAQ Write File 2</b>模块的<b>IMAQ Write Image and Vision Info File 2</b>实例保存模板图像。</p>
+<p><font color="#000080">将像素坐标转换成现实坐标</font></p>
+<p>通过边缘检测和模式识别得到的测量点是以像素为坐标的。如果需要以现实单位进行测量，需要使用IMAQ Convert Pixel to Real World 模块将像素坐标转换成像素坐标。</p>
+<p><font color="#000080">进行测量</font></p>
+<p>可以从图像或在图像中检测到的点中进行不同类型的测量。</p>
+<p><a target="\&quot;_blank\&quot;" name="Making_Distance_Measurements"></a><b>进行距离测量</b></p>
+<p><b>Measure Distances</b>模块用于测量搜索区中一个矩形中的两个边之间的间距。为监测边和搜索区内要查找边的搜索线之间的间隔指定参数。</p>
+<p><strong>说明 </strong><strong>使用</strong><b>IMAQ Select Rectangle</b> 模块为卡尺模块生成一个有效的输入搜索区。</p>
+<p>第一个模块使用排队函数监测所测物体边缘的点。其它的模块计算沿着取景框（rake）的每条搜索线上的各个测到的边上的点之间的距离。这些模块返回垂直或水平方向上的最大或最小距离，并输出它们找到的所有边缘点的坐标。</p>
+<p>下面的列表介绍可用的卡尺模块:</p>
+<p>IMAQ Clamp Horizontal Max&mdash;测量一个矩形搜索区域内两条边之间的最大水平间距。</p>
+<p>IMAQ Clamp Horizontal Min&mdash;查找两条垂直边之间的最小水平间距。</p>
+<p>IMAQ Clamp Vertical Max&mdash;查找两条水平边之间的最大间距。</p>
+<p>IMAQ Clamp Vertical Min&mdash;查找两条水平边之间的最小间距。</p>
+<p>IMAQ Point Distances模块用于计算一个点矩阵中连续点对之间的距离。可以使用<i>查找测量点</i>中介绍的任何一种特征检测方法从图象中获得这样的点。</p>
+<p><a target="\&quot;_blank\&quot;" name="Making_Analytic_Geometry_Measurements"></a><b>进行分析几何测量</b></p>
+<p>使用以下模块可以对在图像中检测到的点进行几何测量：</p>
+<p>IMAQ Fit Line&mdash;将点集拟合成一条线并计算出线的等式。</p>
+<p>IMAQ Fit Circle 2&mdash;将至少有三个点的点集拟合成一个圆，并计算其面积，周长和半径。</p>
+<p>IMAQ Fit Ellipse 2&mdash;将至少六个点的点集拟合成一个椭圆，并计算其面积、周长，及长轴和短轴的长度。</p>
+<p>IMAQ Lines Intersection&mdash;计算用起点和终点表示的两条线的夹角和交叉点。</p>
+<p>IMAQ Perpendicular Line&mdash;查找一个点到一条线之间的正交线和距离。</p>
+<p>IMAQ Bisecting Line&mdash;查找两条线之间的夹角等分线。</p>
+<p>IMAQ Mid Line&mdash;查找一点与一条线之间的平行中线。</p>
+<p>IMAQ Polygon Area&mdash;计算顶点表示的一个多边形的面积。</p>
+<p><a target="\&quot;_blank\&quot;" name="Making_Instrument_Reader_Measurements"></a><b>进行仪表阅读测量</b></p>
+<p>下列模块用于针对从仪表和LCD获得的数值进行测量:</p>
+<p>IMAQ Get Meter和IMAQ Get Meter 2 模块用于校准需要阅读的仪表或量器。</p>
+<p>IMAQ Get Meter利用指针的起始位置和满量程位置校准仪表。该模块计算指针的基点位置和针尖轨迹的弧。</p>
+<p>IMAQ Get Meter 2 利用仪表上的三个点校准仪表：指针的基点，出于起始位置的针尖，和处于满量程位置的针尖。该模块计算出针尖覆盖的弧上点的位置。</p>
+<p>IMAQ Read Meter模块利用基点和针尖轨迹的弧上的点矩阵读取指针的位置。</p>
+<p>IMAQ Get LCD ROI模块计算LCD或LED中包围每个数字的关注区。为了找到每个数字区域，显示器的每个段都必须显示。</p>
+<p>IMAQ Read Single Digit模块用于读取LCD或LED的一个数字。IMAQ Read LCD模块用于读取LCD或LED的多个数字。</p>
+<p><font color="#000080">辨别被测部件</font></p>
+<p>这设置了检测区域之后除了进行测量，还可以使用分类来辨认部件、 光学字符识别，以及条形码阅读。</p>
+<p><a target="\&quot;_blank\&quot;" name="Classifying_Samples"></a><b>分类样本</b></p>
+<p>使用分类通过将未知物体的明显特征与已知物体类型的概念化表征相比较来辨别物体。与分类有关的标准应用如下：</p>
+<p><strong>Sorting</strong>&mdash;各种形状物体的分选。例如，将传送带上的不同机械零件分选到不同的箱子中。</p>
+<p><strong>Inspection</strong>&mdash;通过给每个物体赋予一个辨认分值来检测物体，并剔除不能与训练集中的成员紧密匹配的物体。</p>
+<p>在进行物体分类之前，必须使用NI分类训练界面，通过物体样本的训练分类器。选择<strong>Start?All Programs?National Instruments?Vision?Classification Training</strong> 登录NI 分类训练接口。</p>
+<p>在训练了需要分类的物体样本以后，适用以下模块对物体进行分类：</p>
+<p>在代码的初始化部分，适用IMAQ Read Classifier File 木块读取一个使用NI 分类训练接口创建的分类器会话。</p>
+<p>IMAQ Classify模块用于将被检测图像的关注区内的物体分类成NINI 分类训练接口建立的类别的一种。</p>
+<p>IMAQ Dispose Classifier模块用于释放分类器会话所使用的资源。</p>
+<p>下图显示一种标准分类模块的LabVIEW 伪代码。</p>
+<p><a target="\&quot;_blank\&quot;" href="http://img1.51cto.com/attachment/201004/29/709336_12725515956ARM.png"><img onclick='window.open("http://blog.51cto.com/viewpic.php?refimg=" + this.src)' style="display: block; float: none; margin-left: auto; margin-right: auto" title="image" alt="image" height="217" src="http://img1.51cto.com/attachment/201004/29/709336_1272551596CYV6.png" /></a></p>
+<p>
+<table border="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+            <p>1 读取一个分类器文件</p>
+            </td>
+            <td>
+            <p>4 分类样本</p>
+            </td>
+            <td>
+            <p>7 类别</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p>2 获取和预处里图像</p>
+            </td>
+            <td>
+            <p>5 释放分类器</p>
+            </td>
+            <td>
+            <p>8 停止</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <p>3 定位要分类的样本</p>
+            </td>
+            <td>
+            <p>6 转到训练分类器文件</p>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p><a target="\&quot;_blank\&quot;" name="Reading_Characters"></a></p>
+<p>读取字符</p>
+<p>OCR用于读取图像中的文字或字符。检测应用中OCR通常用于鉴别或分类零部件。</p>
+<p>在读取图像中的文字或字符之前，必须使用NI OCR训练接口利用字符样本训练OCR会话。选择<strong>Start?All Programs?National Instruments?Vision?OCR Training</strong><strong>登录</strong>NI OCR训练接口。</p>
+<p>在训练了所要读取的样本之后，利用以下模块读取字符：</p>
+<p>在代码的初始化部分，使用IMAQ OCR Read Character Set File 模块读取利用NI OCR训练接口创建的一个会话。</p>
+<p>IMAQ OCR Read Text 3 模块用于读取被测图像关注区内的字符。</p>
+<p>IMAQ OCR Dispose Session模块用于释放OCR会话所适用的资源。</p>
+<p>读取条码</p>
+<p>使用条码阅读模块可以读取一维条码，数据阵列码，QR码和PDF417码中编码的值。</p>
+<p>读取一维条码</p>
+<p>IMAQ Read Barcode模块读取一维条码中的编码值。使用<i>定位要检测的物体</i>和<i>设置搜索区域</i>两节中介绍的一种方法，定位图像中的条码，然后将位置的关注区描述传递给IMAQ Read Barcode模块。使用<strong>Barcode Type</strong><strong>控件</strong>指定一种条码类型。</p>
+<p>NI Vision 支持下列一维条码类型：Codabar, Code 39, Code 93, Code 128, EAN 8, EAN 13, Interleaved 2 of 5, MSI, UPCA, Pharmacode,和RSS Limited。</p>
+<p>读取数据阵列码</p>
+<p>IMAQ Read Data Matrix Barcode 2 模块用于读取数据阵列码中的编码值。该模块能自动地为程序确定合适的搜索参数。但是，也可以通过为程序指定特定的控件值来改进程序的性能。</p>
+<p>IMAQ Read Data Matrix Barcode 2模块能自动定位图像中的数据阵列码。但是，也可以通过定位来改进检测性能。使用<i>定位要检测的物体</i>一节中介绍的一种技术，然后将位置的关注区描述传递给IMAQ Read Data Matrix Barcode 2模块。</p>
+<p>读取QR码</p>
+<p>IMAQ Read QR Code模块用于读取QR或micro-QR码中的编码值。该模能自动为程序确定搜索参数。也可以通过为控件指定特定的值来改善应用性能。</p>
+<p>IMAQ Read QR Code模块能自动定位图像中的QR码。也可以通过指定条码的位置来改善程序的性能。用<i>定位要检测的物体</i>一节中介绍的一种技术，然后将位置的关注区描述传递给IMAQ Read QR Code模块。</p>
+<p>读取PDF417码</p>
+<p>IMAQ Read PDF417 Barcode 模块用于读取PDF417码中的编码值。</p>
+<p>IMAQ Read PDF417 Barcode模块能自动定位图像中的一个或多个PDF417码。也可以指定代码位置来改进检测性能。用<i>定位要检测的物体</i>一节中介绍的一种技术，然后将位置的关注区描述传递给IMAQ Read PDF417 Barcode模块。</p>
+<p><strong>提示 </strong><strong>如果每个图像中只读取一个PDF417码，那么将</strong><strong>Search Mode</strong><strong> </strong><strong>设置为</strong><strong>Single Barcode, Conservative</strong> 以加快模块的速度。</p>
+<p><font color="#000080">检查图像的缺陷</font></p>
+<p>可以通过将被测图像与一个黄金模板相比较并验证图像中的特征来检测图像的缺陷。</p>
+<p>与黄金模板比较</p>
+<p>IMAQ Compare Golden Template模块基于灰度差检测图像。使用NI Vision 模板编辑器学习所要检测的黄金模板。选择<strong>Start?All Programs?National Instruments?Vision?Template Editor </strong>登录 NI Vision模板编辑器。使用进行颗粒分析一节中介绍的方法，分析结果的二值图像。</p>
+<p>验证字符</p>
+<p>使用字符验证函数验证图像中的字符。</p>
+<p>在验证文字之前，必须使用NI OCR训练接口利用字符样板训练OCR会话。选择<strong>Start?All Programs?National Instruments?Vision?OCR Training </strong>登陆NI OCR训练接口。然后必须为字符集中的每个字符指定对应字符。需要验证的字符与这些参考字符相比较，并基于这个比较付给一个分值。</p>
+<p>当训练了字符样板并赋予相应字符之后，使用下列函数来验证字符。</p>
+<p>在代码的初始化部分，使用IMAQ OCR Read Character Set File 模块读取使用NI OCR训练接口创建的一个会话。</p>
+<p>IMAQ OCR Verify Text 用于验证被测图像关注区域中的字符。</p>
+<p>IMAQ OCR Dispose Session模块用于释放OCR会话使用的资源。</p>
+<p>显示结果</p>
+<p>可以将检测阶段得到的结果覆盖在检测图像上。NI Vision将所要覆盖的信息附加到图像上，而不修改图像。也可以将相似的覆盖信息分成组以将多个覆盖信息作为一个来起作用。每次显示图像时都会出现覆盖信息。</p>
+<p>使用下列模块设置或查看图像覆盖的属性。</p>
+<p>IMAQ Set Overlay Properties&mdash;为一幅图像设置覆盖属性。</p>
+<p>IMAQ Get Overlay Properties&mdash;从一幅图像中获取覆盖属性。</p>
+<p>使用下列模块覆盖搜索区域、检测结果，以及其它信息，如文字和位图。</p>
+<p>IMAQ Overlay Points&mdash;将点覆盖在图像上。用x-，y-坐标表示一个点。</p>
+<p>IMAQ Overlay Line&mdash;将一条直线覆盖在图像上，用起点和终点表示一条线。</p>
+<p>IMAQ Overlay Multiple Lines&mdash;在图像上覆盖多条线。</p>
+<p>IMAQ Overlay Rectangle&mdash;将矩形覆盖在图像上。</p>
+<p>IMAQ Overlay Oval&mdash;将椭圆或圆覆盖在图像上。</p>
+<p>IMAQ Overlay Arc&mdash;将弧覆盖在图像上。</p>
+<p>IMAQ Overlay Bitmap&mdash;将位图覆盖在图像上。</p>
+<p>IMAQ Overlay Text&mdash;将文字覆盖在图像上。</p>
+<p>IMAQ Overlay ROI&mdash;将一个有关注区描述符指定的关注区覆盖在图像上。</p>
+<p>要使用这些模块，需要传入所要覆盖的图像和需要覆盖的信息。</p>
+<p><strong>提示</strong> 使用前面的模块时，可以选择覆盖的颜色。</p>
+<p>可以为下列处理模块配置不同的图像覆盖信息类型：</p>
+<p>IMAQ Edge</p>
+<p>IMAQ Find Circular Edge</p>
+<p>IMAQ Find Straight Edges</p>
+<p>IMAQ Find Concentric Edge</p>
+<p>IMAQ Clamp Horizontal Max</p>
+<p>IMAQ Clamp Horizontal Min</p>
+<p>IMAQ Clamp Vertical Max</p>
+<p>IMAQ Clamp Vertical Min</p>
+<p>IMAQ Find Pattern 2</p>
+<p>IMAQ Count Objects 2</p>
+<p>IMAQ Find CoordSys (Rect) 2</p>
+<p>IMAQ Find CoordSys (2 Rects) 2</p>
+<p>IMAQ Find CoordSys (Pattern) 2</p>
+<p>下面的列表包含了各种可以在上述模块上覆盖的信息类型：:</p>
+<p>Search area input into the VI（搜索区域输入到模块）</p>
+<p>Search lines used for edge detection（用于边缘检测的搜索线）</p>
+<p>Edges detected along the search lines（沿着搜索线检测到的边）</p>
+<p>Bounding rectangle of particles（颗粒的包罗矩形）</p>
+<p>Center of particles （颗粒的中心）</p>
+<p>Result of the VI （模块的结果）</p>
+<p>将模块对应的布尔控件设置为允许，来选择覆盖信息。</p>
+<p>IMAQ Clear Overlay模块用于从图像中清除任何事先覆盖信息。IMAQ Write File 2 模块的IMAQ Write Image and Vision Info File 2实例可以将覆盖信息保存到文件中。 也可以使用IMAQ Read Image and Vision Info 模块从文件中将信息读取到图像中。</p>
+<p><strong>注意</strong> 当图像大小或方向改变时，使用IMAQ Set Overlay Properties 模块制定覆盖信息的行为。默认情况下，如果图像大小或方向改变，校准和覆盖信息会被从图像中移除。</p><a href="http://guosir.blog.51cto.com/709336/307518" class="hidden">本文出自 51CTO.COM技术博客</a></div></td></tr>
+		</table>
+		</div>
+
+			</div>
+		<br><br>
+		<div align="center">上一篇 <a href="/709336/307508" class="operlink" title="NI Vision for LabVIEW 基础(四）：进行颗粒分析">NI Vision for LabVIEW 基础(四）：进行颗粒分析</a>　
+<br><br>
+</div>
+
+		<div align="right">
+		类别：未分类 ┆
+			<a  href="#"  onclick="javascript:joingroups(307518,'guosir');return false;" class="operlink">
+			技术圈(<script src="http://blog.51cto.com/js/joingroup.php?tid=307518"></script>)</a>  ┆ <span class="article_views">阅读(<script src="http://blog.51cto.com/js/header.php?uid=709336&tid=307518"></script>) ┆ 
+			评论(<script>document.write(replies)</script>)</span> 
+			┆<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>
+		┆<a href="/" class="operlink">返回首页</a>&nbsp;&nbsp;
+		</div>
+		<div class="clear"></div>
+		<br><br>
+		</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>相关文章</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c">
+		<div class="side_sinfo">
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/307504" title="NI Vision for LabVIEW 基础(三)：进行灰度和彩色测量" target="_blank">NI Vision for LabVIEW 基础(三)：进行灰度..</a></div>
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/307508" title="NI Vision for LabVIEW 基础(四）：进行颗粒分析" target="_blank">NI Vision for LabVIEW 基础(四）：进行颗粒..</a></div>
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/307501" title="NI Vision for LabVIEW 基础(二)：准备测量图像" target="_blank">NI Vision for LabVIEW 基础(二)：准备测量图像</a></div>
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/269090" title="NI Vision for LabVIEW基础(目录)" target="_blank">NI Vision for LabVIEW基础(目录)</a></div>
+
+	<div class="related"><a href="http://guosir.blog.51cto.com/709336/269094" title="NI Vision for LabVIEW 基础(一)：NI Vision 简介 " target="_blank">NI Vision for LabVIEW 基础(一)：NI Vision..</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63084" title="LabVIEW初学者常见问题以及解答(下）" target="_blank">LabVIEW初学者常见问题以及解答(下）</a></div>
+
+	<div class="related"><a href="http://wooyo.blog.51cto.com/928626/200375" title="计划任务又丢了" target="_blank">计划任务又丢了</a></div>
+
+	<div class="related"><a href="http://momoqia.blog.51cto.com/154819/113702" title="BGP基础-community属性试验" target="_blank">BGP基础-community属性试验</a></div>
+
+	<div class="related"><a href="http://xianyu.blog.51cto.com/59895/93754" title="项目管理基础" target="_blank">项目管理基础</a></div>
+
+	<div class="related"><a href="http://replication.blog.51cto.com/222909/165455" title="UIT存储基础培训（3）" target="_blank">UIT存储基础培训（3）</a></div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="modFrame">
+	<div class="modTable"></div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>文章评论</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c" id="artcomment"><div>  &nbsp;</div><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid0'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[1楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;<a target='_blank' href='http://lybice.blog.51cto.com' class='operlink' ref='nofollow'><b>lybice</b></a></label><label style='float:right'></label></div></div><div align=right>2010-06-02 21:57:16</div><div class='commentcontent'>很好的文章，非常感谢！</div><div id='recommentid0' style='display:none'><div><textarea  id='recommentcontentid0' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid0","303619","recommentcontentid0","recomment_resultid0","bozhumessageid0","1")' value='回 复' /><input type='button' onclick='display_recomment("recommentid0",0)' value='取 消'/><input type='checkbox' id='bozhumessageid0' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid0' class='commentcontent'></div></div><br><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid1'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[2楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;<a target='_blank' href='http://zhangguanxi.blog.51cto.com' class='operlink' ref='nofollow'><b>zhangguanxi</b></a></label><label style='float:right'></label></div></div><div align=right>2010-06-09 19:11:34</div><div class='commentcontent'>楼主，是原创吗？</div><div id='recommentid1' style='display:none'><div><textarea  id='recommentcontentid1' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid1","306039","recommentcontentid1","recomment_resultid1","bozhumessageid1","2")' value='回 复' /><input type='button' onclick='display_recomment("recommentid1",0)' value='取 消'/><input type='checkbox' id='bozhumessageid1' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid1' class='commentcontent'></div></div><br><div class='itcomment' style='table-layout: fixed;word-wrap: break-word' id='itcommentid2'><div><div style='width:100%;border-bottom:1px solid #A0A0A0;height:20px'><label style='float:left'>[3楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://img1.51cto.com/image/skin/reply.gif'>&nbsp;&nbsp;<a target='_blank' href='http://1527239.blog.51cto.com' class='operlink' ref='nofollow'><b>cxfwlyb</b></a></label><label style='float:right'></label></div></div><div align=right>2010-06-17 02:44:00</div><div class='commentcontent'>太好的东西啊!!!<br>支持啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</div><div id='recommentid2' style='display:none'><div><textarea  id='recommentcontentid2' name='content' rows=6 cols=68></textarea></div><div style='float:left'><input type='button' onclick='recommentsubmit("recommentid2","307880","recommentcontentid2","recomment_resultid2","bozhumessageid2","3")' value='回 复' /><input type='button' onclick='display_recomment("recommentid2",0)' value='取 消'/><input type='checkbox' id='bozhumessageid2' name='bozhumessage' value='on' checked/>短消息通知评论者</div></div><div id='recomment_resultid2' class='commentcontent'></div></div><br><div>  &nbsp;</div>
+</div><a href="" id="com_top_top"></a>
+	</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+<div class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+		<br>
+		<a name='comment'></a>
+		<form action='/comment.php?' method='post' name='form1' id='form1' onSubmit='return commentSubmit(this,"");'>
+		<input type='hidden' name='action' value='comment'>
+		<input  id='commenttid' type='hidden' name='tid' value='307518'>
+        <input type="hidden" name="com_count_ajax" id="com_count_ajax" value="1" />		
+        <fieldset id="reply_box">
+		<legend class=legend><b>发表评论</b></legend>
+		<div class=sddd>
+		<a name="feedback" id="feedback"></a>	
+        <br>
+		<center>
+		<table border='0' width=100% align='center' cellspacing='1' cellpadding='3'>
+	<tr>
+		<td class=commenttable width="12%">昵&nbsp;&nbsp; 称：</td>
+		<td colspan="2" align="left">
+		<script src="/js/user_com.php"></script>
+	</tr>
+
+<tr id='commentyanzheng'>
+
+		<td class=commenttable>验证码：</td>
+		<td valign=bottom align="left" width="20%"><input id="commentauthnum" name="authnum" type="text" style="height:18px;padding-bottom:2px" onclick="displaysecunum();"></td>
+		<script language="javascript">
+			function refimg(){
+				var randval = Math.random();
+				document.getElementById("secunum").src="/seccode.php?rnum="+randval;
+			}
+			function displaysecunum()
+			{
+				var displaystr = document.getElementById("secunum").style.display;
+				if(displaystr == 'none')
+				{
+					refimg();
+					document.getElementById("clickfont").style.display = 'none';
+					document.getElementById("secunum").style.display = 'inline';
+					document.getElementById("spanfont").style.display = 'inline';
+				}
+			}
+		</script>
+		<td valign=bottom width="60%" align="left"><img border=1 id="secunum" onclick="refimg()" style="display:none;">　<span style="display:none;" id="spanfont">点击图片可刷新验证码</span><span style="display:inline;" id="clickfont">请点击后输入验证码</span>　<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration: underline;">博客过2级，无需填写验证码</a></td>
+	</tr>
+<tr>
+		<td valign=top class=commenttable>内&nbsp;&nbsp; 容：</td>
+		<td colspan="2" align="left"><textarea  id="commentcontent" name='content' rows=10 cols=60></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+
+<input name='submit' type='button' id="commentsubmit" value='提 交' onclick="commentSubmitend2()"></td><td></td>
+
+</tr>
+</table>
+			  </center><br>
+			</div>
+			</fieldset>
+		  </form>
+				<br>
+<iframe id=iframe1 name=iframe1 width=0 height=0></iframe>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="sidebar" id="layout_0" style="width:22%;">
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/face.gif"> <strong>GuoYJ</strong></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;padding:8px 8px 8px 8px;">
+	<div class="side_center" align="center">
+		<br>
+		<script src="http://blog.51cto.com/mod/userface.php?useruid=709336"></script>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="stats" class="nouse"><div class="t"><div class="rt"></div><div class="lt"></div>
+<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/stats.gif"> <strong>博客统计信息</strong></div></div>
+<div class="l"><div class="r"><div class="c"><div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+<div class="side_sinfo"> 用户名：GuoYJ<br>文章数：7<br>评论数：9<br>访问量：5512<br>
+无忧币：70<br>
+<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration:underline">博客积分</a>：64<br>博客等级：1 <br>
+注册日期：2009-03-25<br>
+<a href="http://blog.51cto.com/active/no1/ing.html" target="_blank" class="operlink">距离博客争夺赛结束还有<span style="color:#ff0000">3</span> 天</a></div></div></div></div></div><div class="modFrame"><div class="modTable"></div></div></div>
+
+
+<div id="hotblog" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/hotblog.gif"> <b>热门文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<li><a href="/709336/269094">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269090">NI Vision for LabVIEW基..</a></li>
+<li><a href="/709336/307501">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307518">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307504">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307508">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269059">Analysis Services Perfo..</a></li>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+<div id="search" class="nouse">
+<form method=post action="search.php?">
+<input type="hidden" name="step" value="2">
+<input type="hidden" name="authorid" value="709336">
+<input type="hidden" name="sch_area" value="S">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/search.gif"> <b>搜索本博客内文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo" style="text-align:center">
+	<input	type="text"	name="keyword" style="width:92%"><br><br>
+	<input	type="submit" value="提 交">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</form>
+</div>
+
+
+<script src="http://blog.51cto.com/js/mygroup.php?uid=709336"></script>
+
+
+<script src="http://blog.51cto.com/js/uservisit.php?uid=709336"></script>
+
+
+<div id="comment" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width="86%"><tr><td> <img src="http://img1.51cto.com/image/skin/def/comment.gif"> <b>最新评论</b></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div><b><a href='http://1527239.blog.51cto.com/' class='operlink' target=_blank><b>cxfwlyb</b></a>：</b><a href="/709336/307518" target=_blank>太好的东西啊!!! 支持啊!!!!!!!!!..</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://zhangguanxi.blog.51cto.com/' class='operlink' target=_blank><b>zhangguanxi</b></a>：</b><a href="/709336/307518" target=_blank>楼主，是原创吗？</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://lybice.blog.51cto.com/' class='operlink' target=_blank><b>lybice</b></a>：</b><a href="/709336/307518" target=_blank>很好的文章，非常感谢！</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]51cto游客：</b><a href="/709336/269094" target=_blank>thank you!!!</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]luoys：</b><a href="/709336/269094" target=_blank>看不见</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="com_art" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/com_art.gif"> <a href="http://blog.51cto.com/artcommend" target="_blank"><b>51CTO推荐博文</b></a></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+	<li><a href="http://leelei.blog.51cto.com/856755/320779" title="Asp.net MVC2 初探" target="_blank">Asp.net MVC2 初探</a></li>
+<li><a href="http://devbean.blog.51cto.com/448512/319479" title="Qt学习之路：创建shared library" target="_blank">Qt学习之路：创建share..</a></li>
+<li><a href="http://lancelot.blog.51cto.com/393579/331636" title="把Swing的Icon转换到SWT的Image" target="_blank">把Swing的Icon转换到SW..</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/330932" title="像说话一样写代码" target="_blank">像说话一样写代码</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/331095" title="Java处理带BOM的文本" target="_blank">Java处理带BOM的文本</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/322932" title="亲手制作山寨版Log4J " target="_blank">亲手制作山寨版Log4J </a></li>
+<li><a href="http://fuhj02.blog.51cto.com/274616/330412" title="解读AzureAppFabric架构:云发挥到极致" target="_blank">解读AzureAppFabric架..</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/328884" title="给软件工程师的12条单体测试的建议" target="_blank">给软件工程师的12条单..</a></li>
+<li><a href="http://beniao.blog.51cto.com/389148/330852" title="Silverlight & Blend动画设计系列文章" target="_blank">Silverlight & Blend动..</a></li>
+<li><a href="http://linuxguest.blog.51cto.com/195664/312020" title="多主对一从的Mysql复制的巧实现" target="_blank">多主对一从的Mysql复制..</a></li>
+<li><a href="http://frankxulei.blog.51cto.com/1596834/320328" title="WCF4.0新特性预览及学习资源推荐" target="_blank">WCF4.0新特性预览及学..</a></li>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="flink" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/flink.gif"> <b>友情链接</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div>&nbsp;&nbsp;<a href="http://51ctoblog.blog.51cto.com" title="51CTO博客开发" target="_blank">51CTO博客开发</a></div>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div id="footer">
+  <div id="innerFooter">
+	<center>
+		<small>
+			Copyright By 51CTO.COM 版权所有<br><br>
+			<a href="http://www.51cto.com" target="_blank"><img src="http://img1.51cto.com/image/skin/1/copyright.jpg"></a>
+	  </small>
+	</center>
+  </div>
+</div>
+<div style="display:none">
+<script src="http://logs.51cto.com/rizhi/count/count.js"></script>
+<iframe frameborder="0" scrolling="no" width="0" height="0" src="http://log.51cto.com/pageview.php?frompos=blog_art"></iframe>
+</div>
+</body>
+</html>

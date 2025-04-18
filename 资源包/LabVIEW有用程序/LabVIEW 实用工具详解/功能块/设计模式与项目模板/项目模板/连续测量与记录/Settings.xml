@@ -1,0 +1,35 @@
+<?xml version='1.0' standalone='yes' ?>
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>13.0f1</Version>
+<Cluster>
+<Name>设置输入</Name>
+<NumElts>2</NumElts>
+<Cluster>
+<Name>硬件配置</Name>
+<NumElts>2</NumElts>
+<String>
+<Name>硬件引用句柄&lt;替换此项&gt;</Name>
+<Val></Val>
+</String>
+<EW>
+<Name>信号类型&lt;替换该项&gt;</Name>
+<Choice>Sine Wave</Choice>
+<Choice>Square with Noise</Choice>
+<Val>0</Val>
+</EW>
+</Cluster>
+<Cluster>
+<Name>记录配置</Name>
+<NumElts>2</NumElts>
+<Path>
+<Name>记录文件基路径</Name>
+<Val>C:\Users\CSX_366\Documents\LabVIEW Data\Logged Data.tdms</Val>
+</Path>
+<Refnum>
+<Name>TDMS文件引用</Name>
+<RefKind>TDMS File</RefKind>
+<Val>0x00000000</Val>
+</Refnum>
+</Cluster>
+</Cluster>
+</LVData>

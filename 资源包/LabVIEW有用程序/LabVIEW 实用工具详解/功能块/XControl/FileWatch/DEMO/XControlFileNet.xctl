@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<XControl LVVersion="8008005">
+   <Property Name="NI.Lib.Description" Type="Str">The Xcontrol  Monitor Any Changes at the Select Directory 
+Writen by Eran Herman
+emai eranh@ehe-lab.com
+web http://www.ehe-lab.com</Property>
+   <Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+   <Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+   <Property Name="NI.XClass.Flags" Type="Int">0</Property>
+   <Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+   <Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+   <Item Name="FileSizeNet.vi" Type="Method VI" URL="/&lt;userlib&gt;/DEMO/FileSizeNet.vi"/>
+   <Item Name="DataFileNet" Type="Ability VI" URL="/&lt;userlib&gt;/DEMO/DataFileNet">
+      <Property Name="NI.XItem.Name" Type="Str">Data</Property>
+   </Item>
+   <Item Name="StateFileNet.ctl" Type="Ability VI" URL="/&lt;userlib&gt;/DEMO/StateFileNet.ctl">
+      <Property Name="NI.XItem.Name" Type="Str">State</Property>
+   </Item>
+   <Item Name="FacadeFileNet.vi" Type="Ability VI" URL="/&lt;userlib&gt;/DEMO/FacadeFileNet.vi">
+      <Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+   </Item>
+   <Item Name="InitFileNet.vi" Type="Ability VI" URL="/&lt;userlib&gt;/DEMO/InitFileNet.vi">
+      <Property Name="NI.XItem.Name" Type="Str">Init</Property>
+   </Item>
+   <Item Name="fileEvent" Type="Property Folder">
+      <Property Name="NI.LibItem.Prop.Identifier" Type="Str">fileEvent</Property>
+      <Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">fileEvent</Property>
+      <Item Name="FileEventWrite.vi" Type="Property VI" URL="/&lt;userlib&gt;/DEMO/FileEventWrite.vi"/>
+   </Item>
+</XControl>

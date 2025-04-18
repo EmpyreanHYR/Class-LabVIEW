@@ -1,0 +1,643 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+
+<title>反馈式蒸发冷却器</title>
+<style>
+
+<!--
+
+/***************************************************/
+
+/* MINIMAL STYLES */
+
+/* The following section defines styles that every HTML Help project should need. */
+
+
+
+/* Specifies White Background color */
+
+body {background-color:#FFFFFF; font-family:Verdana, sans-serif; font-size:8pt; color: #000000;}
+
+
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+
+P { margin-top:6.00pt; margin-bottom:6.00pt;}
+
+
+
+BR { font-size:4.00pt; }
+
+
+
+/* Use H1 for all topic headings. */
+
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-size:150%; font-weight:bold;  }
+
+
+
+/* Use H2 for second-level headings. */
+
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-size:125%; font-weight:bold;  }
+
+
+
+/* Use H3 for third-level headings. */
+
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use H4 for fourth-level headings. */
+
+H4 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+
+H5 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+H6 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use the Body style class for normal paragraphs. */
+
+P.Body {  }
+
+
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+
+P.Anchor { font-size:125%;  }
+
+
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+
+P.Indent1 { margin-left:12.00pt; margin-bottom:3.00pt;  }
+
+P.Indent2 { margin-left:24.00pt; margin-bottom:3.00pt;  }
+
+P.Indent3 { margin-left:36.00pt; margin-bottom:3.00pt;  }
+
+P.Indent4 { margin-left:48.00pt; margin-bottom:3.00pt;  }
+
+P.Indent5 { margin-left:60.00pt; margin-bottom:3.00pt;  }
+
+
+
+/* Use the LI style for all list items. */
+
+LI { margin-top:3.00pt; margin-bottom:3.00pt; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+
+OL { margin-left:22.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+
+ol ol {list-style-type:lower-alpha}
+
+ol ol ol {list-style-type:decimal}
+
+ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+
+OL.EquationNum { margin-left:36.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+
+OL.List-abc { margin-left:22.00pt; text-indent:0pt; list-style-type:lower-alpha; }
+
+
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+
+UL { margin-left:22.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; list-style-type: disc; }
+
+
+
+/* Use the UL style for bulleted lists. Nested lists will use the bullet types according to the nesting scheme below. */
+
+ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul ul ul ul{list-style-image: none;list-style-type: circle}
+
+
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+
+UL.List-Box { list-style-image: none;list-style-type: square}
+
+
+
+Table { font-size:100%; }
+
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+
+Table.Borderless { border:none; }
+
+
+
+/* Use the Bordered style class for tables that need borders. */
+
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+
+TD { vertical-align:top; padding:3px; }
+
+
+
+/* Use the Bordered style class for table headings and cells in Bordered or Bordered-Wide tables. */
+
+.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; }
+
+
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+
+TD.Icon { width:40px; }
+
+
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+
+TH { font-weight:bold; padding:3px; }
+
+
+
+/* Use the Left-Align style class for table headings and cells that you want to left align instead of center align. */
+
+.Left-Align { text-align:left; }
+
+
+
+/***************************************************/
+
+/* CHARACTER FORMATS */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* CHARACTER FORMATS Updated to conform with the CSE HTML Validator Pro */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* Use the Dark-Red format for warnings or cautions. */
+
+.Dark-Red { color: #800000 }
+
+
+
+/* Use the Monospace format for code or syntax examples. */
+
+.Monospace { font-family: Courier New; font-size: 100%; }
+
+
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+
+.Monospace-Bold { font-family: Courier New; font-weight: bold; font-size: 100%; }
+
+
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+
+.Monospace-Italic { font-family: Courier New; font-style: italic; font-size: 100%; }
+
+
+
+/* small class */
+
+.smallFont { font-size:87.5%; }
+
+
+
+/* Bold class */
+
+.Bold { font-weight: bold; }
+
+
+
+/* Italic class */
+
+.Italic { font-style: italic; }
+
+
+
+/* Use the Platform format to denote a specific platform. */
+
+.Platform { color: #0000FF; font-weight: bold; }
+
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+
+.Symbol { font-family: Symbol; }
+
+
+
+/* Use the Red-text format to call attention to text that needs  information added or edited by techcomm */
+
+.Red-text {color: #FF0000;}
+
+
+
+/* Use the Green-Underline format for the green defintion in the conventions topic */
+
+.Green-Underline {color: #007700; text-decoration : underline;}
+
+
+
+/* Use the glossButton format for the glossary buttons used in the glossary topic */
+
+.glossButton { font-size:12px; color:black; }
+
+
+
+/* Use for text sections and hyphenated words that should not break at line wraps */
+
+.nobreak{white-space:nowrap}
+
+
+
+/* Use for template instructions. */
+
+.instructions{color:red; font-style:italic}
+
+
+
+/*Use for words and text sections that do not need to be localized */
+
+.DNL { }
+
+
+
+/* The following styles define the color of links. */
+
+a:link { color: #007700 }
+
+a:visited { color: #7F007F }
+
+a:link:hover { color: #FF0000 }
+
+a:link:active { color: #FF0000 }
+
+
+
+/***************************************************
+
+** Forms */
+
+
+
+form { margin-top:0pt; margin-bottom:3pt; color:black; }
+
+select { font-size:100%; color:black; }
+
+
+
+/*******************************************************
+
+** Margins **
+
+** Use these styles for block-level elements inside tables cells or list items where you do not want extra padding at the top or bottom of a cell. */
+
+.noTopMargin { margin-top:0pt;}
+
+.noBottomMargin { margin-bottom:0pt;}
+
+
+
+/***************************************************
+
+** CODE STYLES **
+
+** The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+-->
+</style>
+
+<script type="text/javascript"> // define hyperlinks and function for launching a URL in a browser
+
+var L_abstract = "http://digital.ni.com/express.nsf/bycode/exdarczhs";
+var NO_LOC_AF_Community = "http://digital.ni.com/express.nsf/bycode/exwhyc";
+var NO_LOC_MAL_MVC = "http://digital.ni.com/express.nsf/bycode/exr345";
+var NO_LOC_Large_Apps = "http://digital.ni.com/express.nsf/bycode/exaed9";
+var L_calling_convention = "http://digital.ni.com/express.nsf/bycode/exgs3xzhs";
+var L_evap_coolers = "http://digital.ni.com/express.nsf/bycode/ex25qezhs";
+var L_hot_swapping = "http://digital.ni.com/express.nsf/bycode/exbyn6zhs";
+var L_mvc = "http://digital.ni.com/express.nsf/bycode/excxhjzhs";
+var L_HAL = "http://digital.ni.com/express.nsf/bycode/exs8dn";
+var L_Adv_Arch = "http://digital.ni.com/express.nsf/bycode/exq58ezhs";
+var L_Core_3 = "http://digital.ni.com/express.nsf/bycode/exnnfyzhs";
+var L_OO_Design = "http://digital.ni.com/express.nsf/bycode/exs545zhs";
+var L_trademarks = "http://digital.ni.com/express.nsf/bycode/rdtrad";
+var L_patents = "http://digital.ni.com/express.nsf/bycode/rdlv17";
+var L_walkthrough = "http://digital.ni.com/express.nsf/bycode/DW_Afzhs";
+
+function WWW(url) 
+	{
+	var urlWindow;
+	urlWindow = window.open(url, "New", "directories=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes");
+	}
+</script>
+
+
+</head>
+<body>
+
+<h1>反馈式蒸发冷却器</h1>
+
+<p class="Body">&#8220;反馈式蒸发冷却器&#8221;范例项目实现一个带有热交换硬件、控制器，以及用户界面的蒸发冷却器。本范例项目由多个独立运行的VI（称为<em>操作者</em>）构成，这些VI分别表示用户界面、冷却器，以及冷却器的风扇和水位。每个操作者可以向相关操作者传递类似命令的消息，也可以接收来自相关操作者的此类消息。这种架构可以扩展为静态或动态包含更多操作者。</p>
+
+<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp; 本模板大量使用LabVIEW类。使用&#8220;操作者框架&#8221;设计应用程序要求熟悉LabVIEW面向对象编程原理。文档提供了理解和修改&#8220;反馈式蒸发冷却器&#8221;范例项目所需的相关信息。关于使用&#8220;操作者框架&#8221;设计应用程序的详细信息，见<strong>项目浏览器</strong>窗口中Project Documentation文件夹下的Actor Framework Whitepaper。</td></tr></table>
+
+<h2>系统要求</h2>
+<p class="body">LabVIEW基础版、完整版或专业版开发系统</p>
+
+<h2>运行本范例项目</h2>
+<ol>
+	<li>在<strong>项目浏览器</strong>窗口，打开并运行<strong>Application&raquo;Application Launcher.lvlib&raquo;Splash Screen.vi</strong>。</li>
+	<li>修改<strong>待维持的温度</strong>并观察风扇和水泵处于活动状态的变化，控制<strong>实际温度</strong>。控制器有5度的死区，即如果将<strong>待维持的温度</strong>设置在75度，则<strong>实际温度</strong>在冷却进程开始前将上升至80度。</li>
+	<li>控制仿真：
+		<ol>
+			<li>在<strong>项目浏览器</strong>窗口，打开<strong>Model&raquo;Simulated Hardware&raquo;Simulated Evaporative Cooler.lvclass&raquo;Simulated Data_Global.vi</strong>。</li>
+			<li>调整<strong>仿真输入</strong>并观察应用程序响应。</li>
+		</ol>
+	</li>
+	<li>单击用户界面的<strong>UI选项2</strong>，切换至编程接口。应用程序加载编程控制器和用户界面至内存。该控制器执行待维持的温度的一个<strong>程序序列</strong>，该序列用户无法修改。单击<strong>UI选项1</strong>可重新控制待维持的温度。</li>
+	<li>单击<strong>停止全部</strong>可关闭应用程序。</li>
+</ol>
+
+<h2>概述</h2>
+
+<p class="Body">顶层操作者加载一个仿真或真实的蒸发冷却器并启动冷却器。本范例项目包含两个控制器接口，一个用户可进行控制，另一个已被预先编程，用户可在两者之间动态切换。由于每个蒸发冷却器和控制器都是一个操作者，用户可添加冷却器和控制器，而不必对范例项目做较大改动。</p>
+
+<p class="Body">下文列出了本范例项目的继承树并说明了每个操作者的功能：</p>
+
+<ul>
+	<li>操作者(<span class="DNL">Actor.lvclass</span>)－LabVIEW所有操作者的祖先类。
+	<ul>
+		<li><strong>应用程序操作者</strong>(<span class="DNL">Air Cooler Application.lvclass</span>)－表示应用程序本身的操作者。该操作者启动&#8220;实时用户控制器&#8221;操作者和&#8220;蒸发冷却器&#8221;操作者。具体启动的&#8220;蒸发冷却器&#8221;操作者取决于<span id="Monospace">Air Cooler App.ini</span>配置文件的内容。</li>
+		<li><strong>定时循环操作者</strong>(<span class="DNL">Timed Loop Actor.lvclass</span>)－每<em>n</em>毫秒重复一个过程。
+			<ul>
+				<li><strong>水位控制器操作者</strong>(<span class="DNL">Level Controller.lvclass</span>)－监控变量。当变量超过或者低于阈值时，该操作者执行不同的操作。
+					<ul>
+						<li><strong>冷却器操作者</strong>(<span class="DNL">Cooler.lvclass</span>)－监控室内空气温度并启动冷却过程，使温度保持在一定范围内。
+							<ul>
+								<li><strong>蒸发冷却器操作者</strong>(<span class="DNL">Evaporative Cooler.lvclass</span>)－定义一个蒸发冷却过程，该冷却过程可报告控制水泵/双风扇系统的信息。
+									<ul>
+										<li><strong>仿真蒸发冷却器操作者</strong>(<span class="DNL">Simulated Evaporative Cooler.lvclass</span>)－定义一个仿真蒸发冷却器，该蒸发冷却器与一个仿真风扇和一个仿真水泵通信。</li>
+										<li><strong>硬件蒸发冷却器操作者</strong>(<span class="DNL">HW Evaporative Cooler.lvclass</span>)－定义一个真实的蒸发冷却器，该蒸发冷却器与一个真实的风扇和一个真实的水泵通信。</li>
+									</ul>							
+								</li>
+							</ul>
+						</li>
+						<li><strong>水位操作者</strong>(<span class="DNL">Water Level.lvclass</span>)－表示一个水泵。
+							<ul>
+								<li><strong>仿真水位操作者</strong>(<span class="DNL">Simulated Water Level.lvclass</span>)－仿真一个水泵。</li>
+								<li><strong>硬件水位操作者</strong>(<span class="DNL">HW Water Level.lvclass</span>)－与一个真实的水泵通信。</li>
+							</ul>
+						</li>				
+					</ul>			
+				</li>
+				<li><strong>双风扇操作者</strong>(<span class="DNL">Dual Fan.lvclass</span>)－表示一个双风扇系统。
+					<ul>
+						<li><strong>仿真双风扇操作者</strong>(<span class="DNL">Simulated Dual Fan.lvclass</span>)－仿真一个双风扇系统。</li>
+						<li><strong>硬件双风扇操作者</strong>(<span class="DNL">HW Dual Fan.lvclass</span>)－与一个真实的双风扇系统通信。</li>
+					</ul>
+				</li>		
+			</ul>	
+		</li>
+		<li><strong>冷却器控制器操作者</strong>(<span class="DNL">Cooler Controller.lvclass</span>)－控制一个&#8220;冷却器&#8221;操作者。
+			<ul>
+				<li><strong>蒸发冷却器控制器操作者</strong>(<span class="DNL">Evaporative Cooler Controller.lvclass</span>)－控制一个&#8220;蒸发冷却器&#8221;操作者。
+					<ul>
+						<li><strong>实时用户控制器操作者</strong>(<span class="DNL">Live User Controller.lvclass</span>)－显示控制&#8220;蒸发冷却器&#8221;操作者的用户界面。</li>
+					</ul>
+				</li>
+				<li><strong>编程控制器操作者</strong>(<span class="DNL">Programmatic Controller.lvclass</span>)－通过执行待维持的温度的预编程序列，控制一个操作者。</li>
+			</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+
+<p class="Body">本范例项目使用上述操作者实现下列功能：</p>
+<ul>
+	<li><strong>硬件抽象层</strong>(HAL)－HAL是一个软件层，可以让用户写入能在多种特定终端上执行的常用指令。用户将常用指令发送至HAL，该软件层被编程为将常用指令解释为终端需要的具体指令。如需添加终端，只要提供常用指令的必要解释即可。<br><br>例如，GPIB和DAQ设备执行相同的常用操作（打开任务、写入数据等等）；但是，它们使用的API各不相同。用户可设计一个应用程序将常用指令发送至HAL，然后HAL将设备特定的指令发送至选择的终端。<br><br>为演示HAL，本范例项目包含表示两个蒸发冷却器的操作者。每个操作者执行相同的任务，但方式各不相同。仿真蒸发冷却器从VI读取一个仿真风扇状态，而硬件蒸发冷却器则从真实的硬件设备读取一个真实的风扇状态。HAL是这两个操作者和编程接口之间的软件层。如需添加一个蒸发冷却器，可定义一个操作者，该操作者重写HAL中定义的方法并为待添加的蒸发冷却器提供必要的指令。</li>
+	<li><strong>热交换用户界面</strong>－本范例项目带有两个用户界面－一个可控制的实时用户界面和一个无法控制的预编程控制器。每个用户界面都被定义为一个操作者。每个操作者接收的消息相同，但显示方式各不相同。由于LabVIEW可动态启动和停止操作者，本范例项目可停止一个用户界面并启动另一个用户界面，每次都会改变显示消息的方式。</li>
+
+</ul>
+
+<h2>设计注释</h2>
+
+<h3>热交换用户界面</h3>
+<p class="Body">&#8220;气冷系统应用程序&#8221;类的&#8220;切换控制器&#8221;方法可在各控制器之间切换，但不会关闭应用程序。每个控制器的用户界面各不相同。该方法执行下列步骤：</p>
+
+<ol>
+	<li>为控制器和冷却器提供无效消息待入队列，中断当前控制器和冷却器之间的通信。冷却器继续运行，原因是它被设计为控制器不存在的情况下继续运行。</li>
+	<li>启动新控制器。</li>
+	<li>将新控制器的当前类待入队列提供给冷却器，通知冷却器关于新控制器的信息。</li>
+	<li>将冷却器的当前类待入队列提供给新控制器，通知新控制器关于冷却器的信息。</li>
+	<li>停止旧控制器。</li>
+</ol>
+
+<p class="Body">应用程序运行时，可单击<strong>UI选项1</strong>或<strong>UI选项2</strong>，发送&#8220;切换控制器&#8221;消息至&#8220;气冷系统应用程序&#8221;操作者。</p>
+
+<h3>绕开任务树</h3>
+<p class="Body">本范例项目特意在一个位置中断了任务树。&#8220;冷却器&#8221;和&#8220;冷却器控制器&#8221;操作者处于任务树的不同分支，但本范例项目将两者的当前类待入队列发送给对方，从而使得它们能够直接互相通信。该代码包含在&#8220;气冷系统应用程序&#8221;类的&#8220;操作者核心&#8221;方法中。</p>
+
+<p class="Body">直接进行通信的原因是，根据本范例项目的设计方式，控制器和冷却器操作者互相高度耦合。冷却器和控制器需配合使用。不必通过&#8220;应用程序&#8221;操作者发送消息。</p>
+
+<h3>本地化用户可见的字符串</h3>
+<p class="Body">将用户面对的字符串集中到一个VI，减少了必须翻译或编辑用户可见字符串的VI数量。应用程序的许多操作者定义了一个&#8220;本地化&#8221;VI，该VI相当于一个查找表，有助于字符串的翻译。</p>
+
+<h3>加载配置信息至应用程序</h3>
+<p class="Body">本范例项目设计用于从文件中读取配置数据，但由于无法保证文件一定存在，文件不存在时需提供默认值。&#8220;气冷系统应用程序&#8221;类的&#8220;读取配置文件&#8221;方法读取<span id="Monospace">Air Cooler App.ini</span>，确定待使用的仿真或真实的蒸发冷却器。如该文件不存在，则默认冷却器由&#8220;气冷系统应用程序&#8221;类的私有数据定义。</p>
+
+<h3>启动顶层操作者但释放消息队列</h3>
+<p class="Body">根据本范例项目的设计方式，&#8220;应用程序&#8221;操作者仅尝试将标准的&#8220;最近一次确认&#8221;消息发送至调用方（&#8220;加载应用程序&#8221;VI）。在这种情况下，本范例项目的&#8220;应用程序&#8221;操作者无需对该消息进行处理。因此，&#8220;加载应用程序&#8221;VI获取消息队列并将其用来启动&#8220;应用程序&#8221;操作者后，立即释放消息队列。该操作阻止了&#8220;应用程序&#8221;操作者与其调用方进行通信。</p>
+
+<h3>发送消息时忽略接收方类型</h3>
+<p class="Body">本范例项目中有一些消息并不会检查接收方的类型正确与否。例如，&#8220;更新泵状态消息&#8221;类的&#8220;执行&#8221;VI命令&#8220;蒸发冷却器&#8221;操作者调用其&#8220;更新风扇状态&#8221;方法。如消息接收方不是&#8220;蒸发冷却器&#8221;，则仍然发送消息，但接收方操作者不会报告错误。这种设计符合要求，因为发送的消息是一个状态消息，因而可以忽略。</p>
+<p class="Body">由于大多数消息设计为被一个特定类型的操作者接收，这种设计与典型的&#8220;执行&#8221;VI设计不同，&#8220;执行&#8221;VI首先检查接收方的类型是否正确。如检查失败，则&#8220;执行&#8221;方法从&#8220;转换为特定的类&#8221;函数返回错误，从而将错误报告至操作者的&#8220;处理错误&#8221;方法。大多数消息类采用此设计方式，避免命令发送至不正确的操作者。例如，DAQ命令被发送至仅能理解GPIB命令的操作者。</p>
+
+<h3>启动操作者前获取操作者资源</h3>
+<p class="Body">本范例项目分配一个唯一的数值ID至每个&#8220;定时循环&#8221;操作者，其方式满足下列要求：</p>
+<ul>
+	<li>启动时保证所有&#8220;定时循环&#8221;操作者执行分配</li>
+	<li>操作者的方法执行前保证进行分配，这样方法都能够处理发生的分配</li>
+	<li>如因为某种原因无法进行分配，则操作者关闭</li>
+</ul>
+
+<p class="Body">&#8220;操作者&#8221;类的&#8220;启动前初始化&#8221;方法满足以上所有条件；因此，唯一的分配将发生在该方法中。</p>
+
+<h3>设计重复使用的操作者</h3>
+<p class="Body">&#8220;双风扇&#8221;操作者专门设计用于和任一类型的调用方重复使用，不只局限于本范例项目中定义的调用方。例如，本范例项目中&#8220;双风扇&#8221;类被蒸发冷却器使用，但也可以被需要冷却的汽车电机、硬盘驱动器或类似设备调用。</p>
+
+<p class="Body">为达到这种重复使用的水平，&#8220;双风扇&#8221;操作者专门设计用于将消息发送至调用方，但并不了解调用方的类型。在&#8220;操作者框架&#8221;中，这种关系叫做&#8220;零耦合模式&#8221;。该模式通过使用所谓的<em>抽象消息</em>（而不是典型消息）得以实现。抽象消息是一个包含基本设置的消息，但没有收到消息时调用方执行何操作的指令。相反，每个类型的调用方为操作者提供该调用方的一组指令。</p>
+
+<p class="Body">下列步骤使用&#8220;双风扇&#8221;操作者及其抽象消息和调用方作为&#8220;零耦合模式&#8221;的一个范例：</p>
+
+<table class="Bordered">
+<tr>
+	<th class="Bordered">步骤</th>
+	<th class="Bordered">本范例项目中</th>
+</tr>
+<tr>
+	<td class="Bordered">1. 创建一个抽象消息。这是操作者发送至调用方的消息类型。</td>
+	<td class="Bordered">抽象消息就是&#8220;更新风扇状态消息&#8221;类。它的&#8220;发送更新风扇状态&#8221;方法包含一个<strong>更新消息对象</strong>输入。
+	
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp;在<strong>项目浏览器</strong>窗口，注意该类不包含一个&#8220;执行&#8221;方法。一般来说，所有消息都有一个&#8220;执行&#8221;方法，因为它们都是从祖先&#8220;消息&#8221;类继承的，该类规定了子孙类都必须重写其&#8220;执行&#8221;方法。但是，&#8220;更新风扇状态消息&#8221;类将该要求传递至<em>其</em>子孙类。如需查看该设置，右击该类，选择<strong>属性</strong>，然后选择<strong>继承</strong>页。该页面的<strong>将全部必须重写要求传递至子孙类</strong>复选框已勾选。</td></tr></table>
+	
+	</td>
+</tr>
+<tr>
+	<td class="Bordered">2. 设计一个带有占位符的操作者，该占位符包含调用方的指令。</td>
+	<td class="Bordered">操作者就是&#8220;双风扇&#8221;类。占位符就是<strong>更新消息</strong>元素，该元素在&#8220;双风扇&#8221;类的私有数据簇中定义。</td>
+</tr>
+<tr>
+	<td class="Bordered">3. 设计一个带有方法的操作者，调用该方法时填充占位符。</td>
+	<td class="Bordered">&#8220;双风扇&#8221;操作者包含一个&#8220;写入更新风扇状态消息&#8221;方法。</td>
+</tr>
+
+<tr>
+	<td class="Bordered">4. 创建一个抽象消息的子类。子类包含一个调用方特有的&#8220;执行&#8221;方法。</td>
+	<td class="Bordered">子类就是&#8220;冷却器更新风扇状态消息&#8221;类。包含接收消息时执行的&#8220;执行&#8221;方法。调用方是&#8220;蒸发冷却器&#8221;类；因此，该&#8220;执行&#8221;方法为&#8220;蒸发冷却器&#8221;类型的一个操作者所特有。</td>
+</tr>
+<tr>
+	<td class="Bordered">5. 调用方调用填充操作者占位符的方法。</td>
+	<td class="Bordered">调用方就是&#8220;蒸发冷却器&#8221;类。它的&#8220;操作者核心&#8221;方法调用&#8220;写入更新风扇状态消息&#8221;方法。该调用使用&#8220;冷却器更新风扇状态消息&#8221;类的一个对象填充<strong>更新消息</strong>。</td>
+</tr>
+<tr>
+	<td class="Bordered">6. 调用方启动操作者。</td>
+	<td class="Bordered">调用方就是&#8220;蒸发冷却器&#8221;类。它的&#8220;操作者核心&#8221;方法启动&#8220;双风扇&#8221;操作者。</td>
+</tr>
+<tr>
+	<td class="Bordered">7. 操作者将抽象消息发送至调用方。调用方收到消息时，执行消息的&#8220;执行&#8221;方法。&#8220;执行&#8221;方法在步骤4中创建，并在步骤5中传递给操作者。</td>
+	<td class="Bordered">&#8220;双风扇&#8221;类的&#8220;更新调用方&#8221;方法将&#8220;更新风扇状态消息&#8221;类发送至&#8220;蒸发冷却器&#8221;操作者。该消息携带&#8220;冷却器更新风扇状态消息&#8221;类，该类包含命令&#8220;蒸发冷却器&#8221;操作者如何处理消息的指令。</td>
+</tr>
+</table>
+
+<p class="body">设计重复使用的操作者会增加一定的编程复杂度。然而，这种设计的好处在于用户可以将操作者和任何类型的调用方重复使用。由于操作者带有一个被调用方填充的占位符，所以用户将为每个类型的调用方创建一个抽象消息类的子孙类。每个类型的调用方使用调用方能够理解的消息填充占用符。</p>
+
+<a name="rel_info">
+<h2>相关信息</h2></a>
+
+<p class="Body">关于本模板使用的LabVIEW概念或对象的详细信息，请在LabVIEW中单击<strong>帮助&raquo;LabVIEW帮助</strong>，查看<em>LabVIEW帮助</em>。当光标移动到各个LabVIEW对象上时，<strong>即时帮助</strong>窗口中显示对象的基本信息。选择<strong>帮助&raquo;显示即时帮助</strong>，打开<strong>即时帮助</strong>窗口。</p>
+
+<p class="Body">关于&#8220;操作者框架&#8221;模板开发者走查的详细信息见<a href="javascript:WWW(L_walkthrough)">ni.com</a>。</p>
+
+<p class="Body">本范例项目在&#8220;操作者框架&#8221;模板的基础上创建。关于该模板如何运行的详细信息，见<strong>创建项目</strong>对话框中的&#8220;操作者框架&#8221;模板及相关文档。</p>
+
+<h3>延伸阅读</h3>
+<ul>
+	<li><a href="javascript:WWW(L_abstract)">抽象数据类型</a></li>
+	<li><a href="javascript:WWW(NO_LOC_AF_Community)">操作者框架社区论坛</a></li>
+	<li><a href="javascript:WWW(L_calling_convention)">调用规范</a></li>
+	<li><a href="javascript:WWW(L_evap_coolers)">蒸发冷却器</a></li>
+	<li><a href="javascript:WWW(L_HAL)">LabVIEW中的硬件抽象层：如何缓解下一代测试系统的硬件过时问题</a></li>
+	<li><a href="javascript:WWW(L_hot_swapping)">热交换</a></li>
+	<li><a href="javascript:WWW(NO_LOC_Large_Apps)">大型LabVIEW应用程序开发社区论坛</a></li>
+	<li><a href="javascript:WWW(NO_LOC_MAL_MVC)">LabVIEW操作者框架下的测量抽象和模型视图控制器(MVC)项目</a></li>
+	<li><a href="javascript:WWW(L_mvc)">模型-视图-控制器模式</a></li>
+</ul>
+
+<h3>NI培训和认证</h3>
+<ul>
+	<li><a href="javascript:WWW(L_Adv_Arch)">LabVIEW高级架构</a></li>
+	<li><a href="javascript:WWW(L_Core_3)">LabVIEW核心教程（三）</a></li>
+	<li><a href="javascript:WWW(L_OO_Design)">LabVIEW面向对象设计和编程</a></li>
+</ul>
+
+<hr>
+<h2>法律信息</h2>
+<!--Copyright-->
+<p class="Body"><strong>版权</strong></p>
+<p class="Body">&copy; 2014 National Instruments. 版权所有</p>
+
+<p class="Body">根据版权法，未经National Instruments公司事先书面同意，本发行物不得以任何形式（包括电子或机械形式）进行全部或部分复制或传播，包括影印、录制、储存于任何信息检索系统中，以及翻译。</p>
+
+<p class="Body">National Instruments公司尊重他方的知识产权，也恳请用户能给予我们同样的尊重。NI软件受版权法及其他知识产权法的保护。在将NI软件用于复制为他方所有的软件或其他资料的任何场合，NI软件仅可用于在符合许可证或其他法律限制的情况下复制上述资料。</p>
+
+<p class="Body"><strong>最终用户许可协议和第三方法律声明</strong></p>
+<p class="Body">可在下列位置找到最终用户许可协议(EULA)和第三方法律声明：</p>
+<ul>
+<li>法律声明位于<span class="Monospace">&lt;National Instruments&gt;\_Legal Information</span>和<span class="Monospace">&lt;National Instruments&gt;</span>目录下。</li> 
+<li>EULA位于<span class="Monospace">&lt;National Instruments&gt;\Shared\MDF\Legal\license</span>目录下。</li>
+<li>如需使NI产品生成的安装程序中包含法律相关信息，请查阅<span class="Monospace">&lt;National Instruments&gt;\_Legal Information.txt</span>。</li>
+</ul>
+
+<p><strong>美国政府的有限权利</strong></p>
+<p>如果客户隶属于美国政府的一个机构、部门、或其他单位，则本手册所涵盖的技术信息的使用、拷贝、复制、发布、修改、披露或传递应当受到适用于民间机构的联邦采购条例52.227-14和适用于军用机构的联邦国防采购条例补充规定252.227-7014中有限权利条款的约束。</p>
+
+<p><strong>IVI Foundation版权声明</strong></p>
+
+<p><span class="DNL">Content from the IVI specifications reproduced with permission from the IVI Foundation.</span></p>
+
+<p><span class="DNL">The IVI Foundation and its member companies make no warranty of any kind with regard to this material, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The IVI Foundation and its member companies shall not be liable for errors contained herein or for incidental or consequential damages in connection with the furnishing, performance, or use of this material.</span></p>
+
+<!--Trademarks-->
+<p class="Body"><strong>商标</strong></p>
+
+<p>关于<span class="DNL">National Instruments</span>商标的更多信息，请访问<a href="javascript:WWW(WWW_Trademark)">ni.com/trademarks</a>，参考<em><span class="DNL">NI Trademarks and Logo Guidelines</span></em>。</p>
+
+<p class="Body">此处提及的其他产品和公司名称均为其各自公司的商标或商业名称。</p>
+
+<!--Patents-->
+<p class="Body"><strong>专利权</strong></p>
+<p>关于NI产品和技术的专利权，请查看软件中的<strong>帮助&raquo;专利信息</strong>、光盘中的<span class="Monospace">patents.txt</span>文件或<a href="javascript:WWW(WWW_Patents)">ni.com/patents</a>上的<em>National Instruments Patent Notice</em>。</p>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Code39</title>
+<meta name="GENERATOR" content="WinCHM">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+</head>
+
+<body>
+<P><FONT face=Arial >&nbsp;&nbsp; 
+根据输入字符串产生相应的<STRONG>Code39</STRONG>条码.&nbsp;  </FONT><FONT face=Arial><BR><STRONG><IMG src="images/Code39.JPG"></STRONG></FONT></P>
+<P><FONT face=Arial><STRONG><BR>&nbsp; 
+<BR></P>
+
+<TABLE height=82 width=670 align=left border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left width=44>&nbsp;<IMG 
+      height=16 alt="" src="images/cstr.gif" width=32></TD>
+    <TD vAlign=top align=left width=157>&nbsp;<SPAN 
+      class=STYLE2><FONT face="Times New Roman">Barcode String</FONT></SPAN></TD>
+    <TD width=455>&nbsp;<FONT 
+      face="Times New Roman">输入条码内容字符<BR><FONT size=2>条码内容长度: 任意</FONT><FONT 
+      size=2> </FONT><BR><FONT size=2>可接受的字符集:
+      <P>
+      <TABLE style="WIDTH: 152pt; BORDER-COLLAPSE: collapse" cellSpacing=0 
+      cellPadding=0 width=202 border=0 x:str>
+        <COLGROUP>
+        <COL style="WIDTH: 83pt; mso-width-source: userset; mso-width-alt: 3520" 
+        width=110>
+        <COL style="WIDTH: 69pt; mso-width-source: userset; mso-width-alt: 2944" 
+        width=92>
+        
+        <TR style="HEIGHT: 14.25pt" height=19>
+          <TD class=xl24 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black 0.5pt solid; BORDER-LEFT: black 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: black 0.5pt solid; HEIGHT: 14.25pt; BACKGROUND-COLOR: navy" 
+          width=110 height=19><STRONG><FONT face=宋体 color=#ffffff 
+            size=2>Character</FONT></STRONG></TD>
+          <TD class=xl24 
+          style="BORDER-RIGHT: black 0.5pt solid; BORDER-TOP: black 0.5pt solid; BORDER-LEFT: black; WIDTH: 69pt; BORDER-BOTTOM: black 0.5pt solid; BACKGROUND-COLOR: navy" 
+          width=92><STRONG><FONT face=宋体 color=#ffffff 
+            size=2>Character</FONT></STRONG></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366 0.5pt solid; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>0</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366 0.5pt solid; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>M</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>1</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>N</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>2</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>O</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>3</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>P</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>4</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>Q</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>5</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>R</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>6</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>S</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>7</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>T</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>8</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>U</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20 x:num>9</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>V</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>A</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>W</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>B</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>X</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>C</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>Y</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>D</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>Z</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>E</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>-</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>F</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>.</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>G</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92><FONT face=宋体 size=2><STRONG>SPACE</STRONG></FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>H</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>$</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>I</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>/</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>J</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>+</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>K</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>%</TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366 0.5pt solid; WIDTH: 83pt; BORDER-BOTTOM: #003366 0.5pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: transparent" 
+          width=110 height=20>L</TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #003366 0.5pt solid; BORDER-TOP: #003366; BORDER-LEFT: #003366; WIDTH: 69pt; BORDER-BOTTOM: #003366 0.5pt solid; BACKGROUND-COLOR: transparent" 
+          width=92>　</TD></TR></TABLE></P></FONT></FONT></TD>
+  </TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;<IMG src="images/cbool.gif"></TD>
+    <TD><FONT face="Times New Roman">&nbsp;Check 
+      Code</FONT></TD>
+    <TD>&nbsp;用于指定条码是否需要包含校验码.</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;<IMG height=16 alt="" 
+      src="images/ccclst.gif" width=32></TD>
+    <TD>&nbsp;<FONT face="Times New Roman">error 
+    in</FONT></TD>
+    <TD>&nbsp;<FONT 
+    face="Times New Roman">错误信息输入.</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;<IMG height=16 alt="" 
+      src="images/icclst.gif" width=32></TD>
+    <TD>&nbsp;<FONT face="Times New Roman">Barcode refnum 
+      </FONT></TD>
+    <TD>&nbsp;<FONT 
+      face="Times New Roman">输出条码信息,用于传递给DrawCode绘制条码图像.</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD>&nbsp;<IMG height=16 alt="" 
+      src="images/icclst.gif" width=32></TD>
+    <TD>&nbsp;<FONT face="Times New Roman">error 
+      out</FONT></TD>
+    <TD>&nbsp;<FONT 
+    face="Times New Roman">错误信息输出.</FONT></TD>
+  </TR>
+  </TBODY></TABLE>
+
+<P>&nbsp;</P>
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>&nbsp;</P>
+<P><BR>&nbsp;</P></STRONG></FONT></body>
+</html>

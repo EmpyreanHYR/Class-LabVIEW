@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>UPC-E to UPC-A</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link REL="StyleSheet">
+<style type="text/css"> 
+<!-- 
+BODY {
+scrollbar-face-color:#DCDBD6;
+scrollbar-highlight-color:#DFDFDF;
+scrollbar-3dlight-color:#DCDBD6;
+scrollbar-darkshadow-color:#000000;
+scrollbar-shadow-color:#DFDFDF;
+scrollbar-arrow-color:#EFEFEF;
+scrollbar-track-color:#EFEFEF;
+}
+-->
+</style>
+
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="template/hgrad.gif" style="WIDTH: 100%; HEIGHT: 49px">
+<tr> 
+<td width="5" > </td>
+<td><FONT 
+            color=#ffffff size="5"> <em><strong><IMG alt="" hspace=2 src="images/LVBarcode.bmp" 
+            align=middle>&nbsp;<FONT 
+            size=4 face=Tahoma 
+           > LVBarcode Help</FONT> </strong></em></FONT></td>
+<td width="60" align="right"></td>
+<td width="12">&nbsp;</td>
+</tr>
+</table>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><FONT face=Tahoma><FONT color=#0000ff size=4>UPC-E to UPC-A</FONT> <BR><BR> 
+</FONT><FONT face=Arial><FONT 
+size=2><script language="JavaScript" type="text/JavaScript">
+function syn(){
+ if(parent.nav.loaded){
+  parent.nav.selectNode(18);
+ }else{
+  setTimeout("syn()",500);
+}}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  document.write('<BR><table width="35%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#666666"><tr><td align="center" bgcolor="#FFFFFF">');
+  document.write('<a href="../index.htm#page=UPC-E2UPC-A.htm">Show Navigation Frame</a>'); 
+  document.write('</td></tr></table><BR>');
+}
+</script> 
+
+<P><FONT face=Arial size=2> 用于将输入UPC-E条码字符串转换为UPC-A条码字符串<BR><BR><IMG 
+src="images/UPC-E2UPC-A.JPG"><BR>  </FONT></P><BR></FONT><BR></FONT><FONT face="Times New Roman" color=#808080 size=2><FONT face="Arial" color  =#808080 size=1>&nbsp;</DIV> 
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">
+<HR>
+</DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><A 
+href="http://www.testdevgroup.com" target=_blank><IMG src="template/Logo.gif" 
+border=0></A></DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">Copyright 
+?2007&nbsp;<A href="http://www.testdevgroup.com" 
+target=_blank>TestDevevelopmentGroup</A> 
+</FONT></FONT></DIV>
+<P 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"></P></body></HTML>

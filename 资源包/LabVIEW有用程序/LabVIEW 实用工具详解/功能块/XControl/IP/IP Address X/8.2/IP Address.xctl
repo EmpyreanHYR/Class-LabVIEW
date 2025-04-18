@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<XControl LVVersion="8208000">
+   <Property Name="NI.Lib.Description" Type="Str">- Exists as a string control / indicator for IP addresses
+- Provides a convenient way to enter an IP address
+- Filters all but number keys
+- Advances through the four bytes of an IP address automatically
+
+License:
+This code is distributed under the BSD License
+
+Copyright © 2007, PrimeTest Automation, Inc.
+All rights reserved.
+
+Author:
+Dan Press
+&lt;email: dan.press@primetest.com&gt;
+&lt;alternate email: press@ieee.org&gt;
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of PrimeTest Automation nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</Property>
+   <Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+   <Property Name="NI.Lib.Icon" Type="Bin">###!!!!!!!Y!%%!$#GFN97&gt;F)(2Z='5!!""!!QNJ&lt;7&amp;H:3"E:8"U;!!%!!5!%E"!!!(`````!!)&amp;;7VB:W5!%E"!!!(`````!!)%&lt;7&amp;T;Q!!"!!(!"2!1!!"`````Q!&amp;"G.P&lt;'^S=Q!!#E!#"'RF:H1!!!B!!A.U&lt;X!!#E!#"8*J:WBU!!R!!A:C&lt;X2U&lt;WU!!"B!5!!%!!=!#!!*!!I*5G6D&gt;'&amp;O:WRF!$A!]1!!!!!!!!!"$7FN97&gt;F:'&amp;U93ZD&gt;'Q!)E"1!!9!!!!"!!-!"!!'!!M+37VB:W5A:'&amp;U91!!#A"1!!)!$!!-!!%!$1!!!!!!!!!)!!!%!0\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!0\_!0]!````!!!!!0``!!$```]!!0```Q!!````!!!!`PY!`Q$`!!$`!!!!``]!!0]!!0]!`Q!!`Q$`!!$`!!$_`A$`!0```Q!!!0]!!0]!`Q!!`Q$`!!$`!0```Q!!!0\_!0]!`Q!!!!!!`````Q$`!!$`!0]!!0]!`Q!!`Q!!`PY!`Q$`!!!!!!$`!!$`!0```Q!!````!!$`!!$`!!$_`A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!0\_`````````````````````````````````````````PY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$_`A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!0\_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`PY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$_`A!!!!!!!!"&gt;86V86F:&gt;86V&gt;!!!!!!!!!!!!!!!!!0\_!!!!!!!!!&amp;V[4U^0+SML_&amp;U!!!!!!!!!!!!!!!!!`PY!!!!!!!!!88FS=EZ/*#1L81!!!!!!!!!!!!!!!!$_`A!!!!!!!!"&gt;?::S=EZ/*#N&gt;_PL[_PA!!!!!!!!!!0\_!!!!!!!!!&amp;VZOJ:S=EZ/4VU!!!!!_PA!!!!!!!!!`PY!!!!!!!!!6XK[OJ:S=H*081!!!!!!_A!!!!!!!!$_`A!!!!!!!!"8?LK[OLK7=E^05(6/!!$[!!!!!!!!!0\_!!!!!!!!!&amp;@[OLK7FX.0&gt;#6*&gt;M"Z!0I!!!!!!!!!`PY!!!!!!!!!6PJ&gt;6D)S+JJW3377Q=F\_!!!!!!!!!$_`A!!!!!!!!!!86V86V9KQJJW=M$#S[9!!!!!!!!!!0\_!!!!!!!!!&amp;:8-D)S6E\(Q](!Q-L,S1!!!!!!!!!!`PY!!!!!!!!!-PAS+`9S4M@(S=4(S-KF!!!!!!!!!!$_`A!!!!!!!!"7-CMS_$,WTM\)S]\/J)!!!!!!!!!!!0\_!!!!!!!!!!!S-D)S-D*0TM\/TK/!!!!!!!!!!!!!`PY!!!!!!!!!!!!!+`IL!!"0J+3!A!!!!!!!!!!!!!$_`A!!!!!!!!!!!!!!_0L[_PLY!!!!!!!!!!!!!!!!!0\_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`PY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`P\_`PY!!!#!``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````]!!!%!!0```Q$``]Q!``_:!0``:A$``T-!``]!!0`-`Q$`T-Q!`]S:!0`-:A$`T$-!`]Q!!0_:`Q$`G=Q!`ZG:!0_::A$`G4-!`ZE!!0^G`Q$`:MQ!`W;:!0^G:A$`:D-!`W9!!0]T`Q$`-]Q!`T/:!0]T:A$`-T-!`T-!!0]!`Q$`!-Q!`Q#:!0]!:A$`!$-!`Q!!!-T``Q$-`]Q!T0_:!-T`:A$-`T-!T0]!!-T-`Q$-T-Q!T-S:!-T-:A$-T$-!T-Q!!-S:`Q$-G=Q!T*G:!-S::A$-G4-!T*E!!-RG`Q$-:MQ!T';:!-RG:A$-:D-!T'9!!-QT`Q$--]Q!T$/:!-QT:A$--T-!T$-!!-Q!`Q$-!-Q!T!#:!-Q!:A$-!$-!T!!!!*H``Q#:`]Q!G@_:!*H`:A#:`T-!G@]!!*H-`Q#:T-Q!G=S:!*H-:A#:T$-!G=Q!!*G:`Q#:G=Q!G:G:!*G::A#:G4-!G:E!!*FG`Q#::MQ!G7;:!*FG:A#::D-!G79!!*ET`Q#:-]Q!G4/:!*ET:A#:-T-!G4-!!*E!`Q#:!-Q!G1#:!*E!:A#:!$-!G1!!!'&lt;``Q"G`]Q!:P_:!'&lt;`:A"G`T-!:P]!!'&lt;-`Q"GT-Q!:MS:!'&lt;-:A"GT$-!:MQ!!';:`Q"GG=Q!:JG:!';::A"GG4-!:JE!!':G`Q"G:MQ!:G;:!':G:A"G:D-!:G9!!'9T`Q"G-]Q!:D/:!'9T:A"G-T-!:D-!!'9!`Q"G!-Q!:A#:!'9!:A"G!$-!:A!!!$0``Q!T`]Q!-`_:!$0`:A!T`T-!-`]!!$0-`Q!TT-Q!-]S:!$0-:A!TT$-!-]Q!!$/:`Q!TG=Q!-ZG:!$/::A!TG4-!-ZE!!$.G`Q!T:MQ!-W;:!$.G:A!T:D-!-W9!!$-T`Q!T-]Q!-T/:!$-T:A!T-T-!-T-!!$-!`Q!T!-Q!-Q#:!$-!:A!T!$-!-Q!!!!$``Q!!`]Q!!0_:!!$`:A!!`T-!!0]!!!$-`Q!!T-Q!!-S:!!$-:A!!T$-!!-Q!!!#:`Q!!G=Q!!*G:!!#::A!!G4-!!*E!!!"G`Q!!:MQ!!';:!!"G:A!!:D-!!'9!!!!T`Q!!-]Q!!$/:!!!T:A!!-T-!!$-!!!!!`Q!!!-Q!!!#:!!!!:A!!!$-!\A!!!.U!!!#\!!!!KA!!!)A!!!"X!!!!61!!!%1!!!!C!!!!%1!!!!$O!!!!X1!!!,M!!!#K!!!!C!!!!(=!!!"6!!!!2!!!!#)!!!!2!!!!!/Y!!!$&gt;!!!!OQ!!!+I!!!#)!!!!&gt;Q!!!&amp;5!!!"%!!!!)A!!!"%!\O\O!.X&gt;X1#\O\M!KKKK!)C)C!"X&gt;X=!6666!%2%2!!C)C)!%2%2!!!!!!!!!!!!)!!A!!!!!!!!!!%!!!#!`````Y!!!!'O'=ZRK2EJ3;YF+8'I03F*K#8/39!!!!(`````A!!!!9!!!!'!!!!"A!!!!9$`Q!'!A%!"A)"!!9#!@!'!A%)"A)""!9$`U1'!1!E"A'%/!9"`HA'!!@Y"A"(_!9!2`A'!%0Q"A!BY!9!(A!'!!!!"A!!!!@````]!!!#!``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````]!!!!#!0```Q!!!!!!!!!!!#!!)!!!!!!</Property>
+   <Property Name="NI.Lib.Version" Type="Str">1.0.1.0</Property>
+   <Property Name="NI.XClass.Flags" Type="Int">0</Property>
+   <Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+   <Property Name="NI.XItem.Express" Type="Bool">false</Property>
+   <Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+   <Item Name="IP Address Data.ctl" Type="Ability VI" URL="IP Address Data.ctl">
+      <Property Name="NI.XItem.Name" Type="Str">Data</Property>
+   </Item>
+   <Item Name="IP Address State.ctl" Type="Ability VI" URL="IP Address State.ctl">
+      <Property Name="NI.XItem.Name" Type="Str">State</Property>
+   </Item>
+   <Item Name="IP Address Facade.vi" Type="Ability VI" URL="IP Address Facade.vi">
+      <Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+   </Item>
+   <Item Name="IP Address Init.vi" Type="Ability VI" URL="IP Address Init.vi">
+      <Property Name="NI.XItem.Name" Type="Str">Init</Property>
+   </Item>
+</XControl>

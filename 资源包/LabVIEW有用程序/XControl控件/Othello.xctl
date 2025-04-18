@@ -1,0 +1,68 @@
+<?xml version='1.0'?>
+<XControl LVVersion="8508002">
+	<Property Name="NI.Lib.Description" Type="Str">查看程序详细说明请访问：http://ruanqizhen.spaces.live.com/blog/cns!5852D4F797C53FB6!3382.entry</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">#&amp;#!!A!!!!Y!%%!$#GFN97&gt;F)(2Z='5!!""!!QNJ&lt;7&amp;H:3"E:8"U;!!%!!5!%E"!!!(`````!!)&amp;;7VB:W5!%E"!!!(`````!!)%&lt;7&amp;T;Q!!"!!(!"2!1!!"`````Q!&amp;"G.P&lt;'^S=Q!!#E!#"'RF:H1!!!B!!A.U&lt;X!!#E!#"8*J:WBU!!R!!A:C&lt;X2U&lt;WU!!"B!5!!%!!=!#!!*!!I*5G6D&gt;'&amp;O:WRF!$A!]1!!!!!!!!!"$7FN97&gt;F:'&amp;U93ZD&gt;'Q!)E"1!!9!!!!"!!-!"!!'!!M+37VB:W5A:'&amp;U91!!#A"1!!)!$!!-!!%!$1!!!!!!!!!)!!!%!0````````````````]!!!!!!!!!!!!!!!!!!!!!!!!!`ZO&lt;GZP`GZO&lt;G`_&lt;GQ!!!!!!!!!!!!!!!!!!!!!!!!$`GQ!!G`_&lt;GZO&lt;`ZO&lt;!!!!!!!!!!!!!!!!!!!!!!!!!0_&lt;!!#&lt;`ZO&lt;GZP`GZM!!!!!!!!!!!!!!!!!!!!!!!!!`ZO&lt;GZP`GZO&lt;G`_&lt;GQ!!!!!!!!!!!!!!!!!!!!!!!!$`````````````````!!!!!!!!!!!!!!!!!!!!!!!!!0_&lt;GZO&lt;`ZO&lt;GZP`GZM!!!!!!!!!!!!!!!!!!!!!!!!!`ZO&lt;GZP`G```G`_&lt;GQ!!!!!!!!!!!!!!!!!!!!!!!!$`GZO&lt;G`_&lt;``_&lt;`ZO&lt;!!!!!!!!!!!!!!!!!!!!!!!!!0_&lt;GZO&lt;`ZO&lt;GZP`GZM!!!!!!!!!!!!!!!!!!!!!!!!!`````````````````Q!!!!!!!!!!!!!!!!!!!!!!!!$`GZO&lt;G`_&lt;GZO&lt;`ZO&lt;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#!``A!!0`Y!!$`_!!!``A!!0`Y!!$`_!!!``A!!0`Y!!$`_!!!``A!!0`Y!!$`_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%!!0```Q$``]Q!``_:!0``:A$``T-!``]!!0`-`Q$`T-Q!`]S:!0`-:A$`T$-!`]Q!!0_:`Q$`G=Q!`ZG:!0_::A$`G4-!`ZE!!0^G`Q$`:MQ!`W;:!0^G:A$`:D-!`W9!!0]T`Q$`-]Q!`T/:!0]T:A$`-T-!`T-!!0]!`Q$`!-Q!`Q#:!0]!:A$`!$-!`Q!!!-T``Q$-`]Q!T0_:!-T`:A$-`T-!T0]!!-T-`Q$-T-Q!T-S:!-T-:A$-T$-!T-Q!!-S:`Q$-G=Q!T*G:!-S::A$-G4-!T*E!!-RG`Q$-:MQ!T';:!-RG:A$-:D-!T'9!!-QT`Q$--]Q!T$/:!-QT:A$--T-!T$-!!-Q!`Q$-!-Q!T!#:!-Q!:A$-!$-!T!!!!*H``Q#:`]Q!G@_:!*H`:A#:`T-!G@]!!*H-`Q#:T-Q!G=S:!*H-:A#:T$-!G=Q!!*G:`Q#:G=Q!G:G:!*G::A#:G4-!G:E!!*FG`Q#::MQ!G7;:!*FG:A#::D-!G79!!*ET`Q#:-]Q!G4/:!*ET:A#:-T-!G4-!!*E!`Q#:!-Q!G1#:!*E!:A#:!$-!G1!!!'&lt;``Q"G`]Q!:P_:!'&lt;`:A"G`T-!:P]!!'&lt;-`Q"GT-Q!:MS:!'&lt;-:A"GT$-!:MQ!!';:`Q"GG=Q!:JG:!';::A"GG4-!:JE!!':G`Q"G:MQ!:G;:!':G:A"G:D-!:G9!!'9T`Q"G-]Q!:D/:!'9T:A"G-T-!:D-!!'9!`Q"G!-Q!:A#:!'9!:A"G!$-!:A!!!$0``Q!T`]Q!-`_:!$0`:A!T`T-!-`]!!$0-`Q!TT-Q!-]S:!$0-:A!TT$-!-]Q!!$/:`Q!TG=Q!-ZG:!$/::A!TG4-!-ZE!!$.G`Q!T:MQ!-W;:!$.G:A!T:D-!-W9!!$-T`Q!T-]Q!-T/:!$-T:A!T-T-!-T-!!$-!`Q!T!-Q!-Q#:!$-!:A!T!$-!-Q!!!!$``Q!!`]Q!!0_:!!$`:A!!`T-!!0]!!!$-`Q!!T-Q!!-S:!!$-:A!!T$-!!-Q!!!#:`Q!!G=Q!!*G:!!#::A!!G4-!!*E!!!"G`Q!!:MQ!!';:!!"G:A!!:D-!!'9!!!!T`Q!!-]Q!!$/:!!!T:A!!-T-!!$-!!!!!`Q!!!-Q!!!#:!!!!:A!!!$-!\A!!!.U!!!#\!!!!KA!!!)A!!!"X!!!!61!!!%1!!!!C!!!!%1!!!!$O!!!!X1!!!,M!!!#K!!!!C!!!!(=!!!"6!!!!2!!!!#)!!!!2!!!!!/Y!!!$&gt;!!!!OQ!!!+I!!!#)!!!!&gt;Q!!!&amp;5!!!"%!!!!)A!!!"%!\O\O!.X&gt;X1#\O\M!KKKK!)C)C!"X&gt;X=!6666!%2%2!!C)C)!%2%2!!!!!!!!!!!!)!!A!!!!!!!!!!%!!!#!``A!!)1A!!#U)!!!N#!!!)1A!!$`_!!!B#!!!)7A!!#&amp;I!!!B#!!!0`Y!!#%)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#!``A!!0`Y!!$`_!!!``A!!0`Y!!$`_!!!``A!!0`Y!!$`_!!!``A!!0`Y!!$`_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#!0```Q!!!!!!!!!!!#!!)!!!!!!</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 2</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Ability" Type="Folder">
+		<Item Name="Data.ctl" Type="Ability VI" URL="Ability/Data.ctl">
+			<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+		</Item>
+		<Item Name="State.ctl" Type="Ability VI" URL="Ability/State.ctl">
+			<Property Name="NI.XItem.Name" Type="Str">State</Property>
+		</Item>
+		<Item Name="Facade.vi" Type="Ability VI" URL="Ability/Facade.vi">
+			<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+		</Item>
+		<Item Name="Init.vi" Type="Ability VI" URL="Ability/Init.vi">
+			<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+		</Item>
+		<Item Name="Uninit.vi" Type="Ability VI" URL="Ability/Uninit.vi">
+			<Property Name="NI.XItem.Name" Type="Str">UnInit</Property>
+		</Item>
+		<Item Name="Convert State for Save.vi" Type="Ability VI" URL="Ability/Convert State for Save.vi">
+			<Property Name="NI.XItem.Name" Type="Str">ConvertStateForSave</Property>
+		</Item>
+	</Item>
+	<Item Name="Property" Type="Folder">
+		<Item Name="Current Color" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Current Color</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Current Color</Property>
+			<Item Name="Current Color Read.vi" Type="Property VI" URL="Property/Current Color Read.vi"/>
+		</Item>
+		<Item Name="Interactive Action Event" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Interactive Action Event</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Interactive Action Event</Property>
+			<Item Name="Interactive Action Event Read.vi" Type="Property VI" URL="Property/Interactive Action Event Read.vi"/>
+		</Item>
+		<Item Name="Available White Position" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Available White Position</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Available White Position</Property>
+			<Item Name="Available White Position Read.vi" Type="Property VI" URL="Property/Available White Position Read.vi"/>
+		</Item>
+	</Item>
+	<Item Name="Method" Type="Folder">
+		<Item Name="Play One Step.vi" Type="Method VI" URL="Method/Play One Step.vi"/>
+		<Item Name="New Game.vi" Type="Method VI" URL="Method/New Game.vi"/>
+	</Item>
+	<Item Name="SubVI" Type="Folder">
+		<Item Name="Check All Position.vi" Type="VI" URL="SubVI/Check All Position.vi"/>
+		<Item Name="Mouse Coords to Chess Position.vi" Type="VI" URL="SubVI/Mouse Coords to Chess Position.vi"/>
+		<Item Name="If The Position is in List.vi" Type="VI" URL="SubVI/If The Position is in List.vi"/>
+		<Item Name="If Position Available.vi" Type="VI" URL="SubVI/If Position Available.vi"/>
+		<Item Name="Put One Chese.vi" Type="VI" URL="SubVI/Put One Chese.vi"/>
+		<Item Name="Positions Should Turn.vi" Type="VI" URL="SubVI/Positions Should Turn.vi"/>
+		<Item Name="Get New Chess Color.vi" Type="VI" URL="SubVI/Get New Chess Color.vi"/>
+	</Item>
+	<Item Name="Control" Type="Folder">
+		<Item Name="Method Call.ctl" Type="VI" URL="Control/Method Call.ctl"/>
+		<Item Name="Pict Ring Chess.ctl" Type="VI" URL="Control/Pict Ring Chess.ctl"/>
+		<Item Name="Chess Position.ctl" Type="VI" URL="Control/Chess Position.ctl"/>
+		<Item Name="Interactive Action.ctl" Type="VI" URL="Control/Interactive Action.ctl"/>
+	</Item>
+</XControl>

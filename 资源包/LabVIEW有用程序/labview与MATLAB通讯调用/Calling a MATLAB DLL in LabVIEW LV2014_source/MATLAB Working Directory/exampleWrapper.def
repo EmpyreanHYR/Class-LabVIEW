@@ -1,0 +1,5 @@
+LIBRARY exampleWrapper
+EXPORTS
+loadExampleScript
+unloadExampleScript
+wmlfExampleScript

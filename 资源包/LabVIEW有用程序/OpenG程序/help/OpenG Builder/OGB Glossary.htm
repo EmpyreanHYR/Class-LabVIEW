@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>OGB Glossary</title>
+</head>
+
+<body style="font-family: Verdana; font-size: 10pt">
+
+<h3> OpenG Builder Glossary</h3>
+<ul>
+  <li><a href="#Ambiguous_VI">Ambiguous VI</a></li>
+  <li><a href="#Build_File">Build File</a></li>
+  <li><a href="#Build_Root">Build Root</a></li>
+  <li><a href="#EXE">EXE</a></li>
+  <li><a href="#External_Subroutine">External Subroutine</a></li>
+  <li><a href="#Help_File">Help File</a></li>
+  <li><a href="#Hidden_VI">Hidden VI</a></li>
+  <li><a href="#Icon_File">Icon File</a></li>
+  <li><a href="#Log_Dir">Log Dir</a></li>
+  <li><a href="#Log_File">Log File</a></li>
+  <li><a href="#Log_File_Suffix">Log File Suffix</a></li>
+  <li><a href="#Name_Mangle">Name Mangle</a></li>
+  <li><a href="#Namespace">Namespace</a></li>
+  <li><a href="#OGB">OGB</a></li>
+  <li><a href="#Project_Root">Project Root</a></li>
+  <li><a href="#Resource">Resource File</a></li>
+  <li><a href="#Revision_File">Revision File</a></li>
+  <li><a href="#Shared_Library">Shared Library</a></li>
+  <li><a href="#Source_Root">Source Root</a></li>
+  <li><a href="#Support_File">Support File</a></li>
+</ul>
+<hr>
+<p><a name="Ambiguous_VI"></a><b>Ambiguous VI</b> - 
+a VI which has at least one caller that expected it to have been loaded from different location on disk. This can be caused by having two instances of the Ambiguous VI on disk, but usually is caused by an application hierarchy that was reorganized (folder structures changed) on disk and was not re-saved.</p>
+<p><a name="Build_File"></a><b>Build File</b> - A file containing instructions
+and definitions how to build a target application.</p>
+<p><a name="Build_Root" id="Build_Root"></a><b>Build Root</b> - The (configurable) path where the built software product is to be created all destination locations are specified relative to the build root.</p>
+<p><a name="EXE" id="EXE"></a><b>EXE</b> - An executable program. On windows this usually has an *.exe file extension. On Linux, executables will probably not have any file extension. On Macintosh, they will probably have a *.app extension.</p>
+<p><a name="External_Subroutine" id="External_Subroutine"></a><b>External Subroutine</b> -
+A binary file containing common code to be called from several CINs. Typically
+an external subroutine file has .lsb extension. NI does not support development
+of external subroutines since LabVIEW 7.0.</p>
+<p><a name="Help_File" id="Help_File"></a><b>Help File</b> - A file specified by
+Document Path property of a VI, and opened when you select <b><font size="1">Help&gt;&gt;Help
+for This VI</font></b> menu. Denending on a target platform, LabVIEW can support the
+following file types: .hlp, .chm, .htm.&nbsp;</p>
+<p><a name="Hidden_VI" id="Hidden_VI"></a><b>Hidden VI</b> - A VI whose name is
+not returned by "Application: All VIs In Memory" property when the VI is loaded
+in memory. There are hidden VIs in LV DSC, GOOP and perhaps other
+add-ons. More, as soon some LV DSC hidden VIs are loaded, they are staying in memory (and
+running) until LV finishes (even if no
+ordinary VIs opened).
+</p>
+<p><a name="Icon_File" id="Icon_File"></a><b>Icon File</b> - In windows an icon file contains several icon images. Icon files in windows have an *.ico file extension. </p>
+<p><a name="Log_Dir" id="Log_Dir"></a><b>Log Dir</b> - A directory, to which OGB
+writes a log file.</p>
+<p><a name="Log_File" id="Log_File"></a><b>Log File</b> - A file, to which OGB writes information on build stages completed, error description, warnings and
+some another information that can be useful to analyze errors and warnings.</p>
+<p><a name="Log_File_Suffix" id="Log_File_Suffix"></a><b>Log File Suffix</b> -
+An optional string appended to a log file name. It is possible to specify a
+suffix pattern that will generate a unique suffix containing date/time of a
+build, so each build will write new log file.</p>
+<p><a name="Name_Mangle" id="Name_Mangle"></a><b>Name Mangle</b> - Name mangling is the process of renaming a file according to some convention. The
+OGB uses the convention <em>OriginalFilePrefix</em>.vi --&gt; <em>OriginalFilePrefix</em>__<em>NameSpace</em>.vi, where a double-underscore (&quot;_&quot;) character seperates the original file name prefix and the namespace. This is done to create a unique <a href="#Namespace">namespace</a> for the application. </p>
+<p><a name="Namespace" id="Namespace"></a><b>Namespace</b> - In LabVIEW, no VIs in memory can share the same name. This is referred to as a global namespace. By <a href="#Name_Mangle">Name Mangling</a>, we can create unique namespaces for applications. This allows two built applications to be in memory, which share source VIs having the same name.</p>
+<p><b><a name="OGB"></a>OGB</b> - Abbreviation for OpenG Builder.</p>
+<p><a name="Project_Root" id="Project_Root"></a><b>Project Root</b> - The (configurable) path where the software product is located. Relative paths such as the <a href="#Source_Root">Source Root</a> and <a href="#Build_Root">Build Root</a> are specified relative to the Project Root.</p>
+<p><a name="Resource"></a><b>Resource File</b> - General term used to designate
+non-VI files to which a VI can be linked. Typically, resource file is <a href="#Help_File">Help File</a>,
+Run-Time menu, <a href="#Shared_Library">Shared Library</a>, etc. </p>
+<p><a name="Revision_File"></a><b>Revision File</b> - A text file storing
+version information and a status of the last build. The version information includes a version string, the last build number and
+date/time of the last build.
+The build status information includes fatal and non-fatal errors status, and a
+name of <a href="#Log_File">Log File</a> written. A single revision file can be used to serve several
+Build Files independently. See <a href="OGB%20Revision%20File%20Dscr.htm" target="_blank">OGB
+Revision File Description</a> for more information. </p>
+<p><a name="Shared_Library" id="Shared_Library"></a><b>Shared Library</b> - <font size="-1">A file that contains routines that can be dynamically loaded and shared by applications. In LabVIEW, shared libraries are called using the Call Library Function primitive.</font> In Windows shared libary files are called Dynamic Linked Libraries and have a *.dll file extension. In Linux, shared libraries have a *.so file extension. In Mac OS 9 shared libraries have a .shlb file extension and in Mac OS X, they have a *.framework file extension. </p>
+<p><a name="Source_Root" id="Source_Root"></a><b>Source Root</b> -The (configurable) path where the software product source files are kept. Source file paths are specified relative to the Source Root. </p>
+<p><a name="Support_File" id="Support_File"></a><b>Support File</b> -A support file is a file which is part of the built software product, but is not a VI, CTL, or other file that LabVIEW has knowledge of. Since this file can not be located using LabVIEW it must be explicitly specified as a Support File. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

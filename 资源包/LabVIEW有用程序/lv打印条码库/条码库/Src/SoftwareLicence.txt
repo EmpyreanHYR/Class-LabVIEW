@@ -1,0 +1,5 @@
+LVBarcode is a free LabVIEW add-on toolkit.
+You can use LVBarcode to generator a barcode image.
+
+luqiang1983@gmail.com
+Project Home: http://code.google.com/p/lvbarcode

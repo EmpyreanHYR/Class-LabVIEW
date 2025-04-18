@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities
+END
+BX.Data__LCR.ctl
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities/BX.Data__LCR.ctl
+END
+BX.Facade__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities/BX.Facade__LCR.vi
+END
+BX.Init__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities/BX.Init__LCR.vi
+END
+BX.State__LCR.ctl
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities/BX.State__LCR.ctl
+END
+BX.Uninit__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities/BX.Uninit__LCR.vi
+END
+BX.ConvertStateForSAve__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/Abilities/BX.ConvertStateForSAve__LCR.vi
+END

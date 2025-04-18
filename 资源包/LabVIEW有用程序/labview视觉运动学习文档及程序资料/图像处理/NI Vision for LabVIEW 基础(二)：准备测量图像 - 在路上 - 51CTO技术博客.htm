@@ -1,0 +1,661 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type"	content="text/html;	charset=gb2312">
+<title>NI Vision for LabVIEW 基础(二)：准备测量图像 - 在路上 - 51CTO技术博客</title>
+<meta name="description" content="本节介绍如何建立图像系统，采集和显示图像，分析图像，以及为进一步处理准备图像。建立图像系统在开始获取、分析、处理图像之前，必须先建立图像系统。建立图像系统的方法取决于图像环境以及分析和处理的需要。..">
+<meta name="keywords" content="NI Vision for LabVIEW 基础(二)：准备测量图像">
+<meta http-equiv="Cache-Control" content="private">
+<base href="http://guosir.blog.51cto.com/"></base>
+<script src="/js/def.js"></script>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/message.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/user_comment.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/base2.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javascript src="http://blog.51cto.com/js/dialog_utf8.js" type=text/javascript></SCRIPT>
+<link href="/css/skin/1.css" rel="stylesheet" type="text/css">
+<link href="/css/group/group.css" rel="stylesheet" type="text/css">
+<link rel="alternate" href="../rss.php?uid=709336" type="application/rss+xml" title="RSS 2.0">
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="xmlrpc.php?rsd=1" />
+<script>
+var myid = "";
+function add_flink(){
+	if(myid){
+		var url='/mod/edit_flink.php?type=addflink&uid=709336&flink=http://guosir.blog.51cto.com';
+		var ajax = InitAjax1();
+		ajax.open("GET", url, true);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				if(ajax.responseText==""){
+					alert("添加成功。");
+				}
+				if(ajax.responseText=="1"){
+				alert("链接指向自己。");
+				}
+				if(ajax.responseText=="2"){
+				alert("友情链接已存在。")
+				}
+			}
+		}
+		ajax.send(null);
+	}else{
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/307501";	
+
+		commentSubmit("",refurlk);
+		return false;
+	}
+	
+}
+function sendmessage(){
+
+	var refurlk = "http://guosir.blog.51cto.com/709336/307501";	
+
+	if(myid){
+		return true;
+	}else{
+		commentSubmit("",refurlk);
+		return false;
+	}
+}
+function copylink(ourl){
+	if(!ourl){
+		var clipBoardContent = "http://guosir.blog.51cto.com";
+	}else{
+		var clipBoardContent = ourl;
+	}
+	window.clipboardData.setData("Text",clipBoardContent);
+	alert("复制成功!");
+	return false;
+}
+function correctPNG() {
+if (document.getElementById('blog_touxian'))
+{
+var img = document.getElementById('blog_touxian');
+      var imgName = img.src.toUpperCase()
+      var imgID = (img.id) ? "id='" + img.id + "' " : ""
+      var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+      var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+      var imgStyle = "display:inline-block;" + img.style.cssText 
+      if (img.align == "left") imgStyle = "float:left;" + imgStyle
+      if (img.align == "right") imgStyle = "float:right;" + imgStyle
+      if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle        
+      var strNewHTML = "<span " + imgID + imgClass + imgTitle
+         + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+         + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+         + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" ;
+      img.outerHTML = strNewHTML;
+} 
+}
+//window.attachEvent("onload", correctPNG);
+window.onload=correctPNG;
+</script>
+<style type="text/css">
+#layout_0{
+	width:;
+	float:left;
+}
+#layout_1{
+	width:;
+	float:left;
+}
+#layout_3{
+	width:;
+	float:left;
+}
+.albumalert{
+	width:250px;
+	height:150px;
+	background:#fff;
+	border:1px solid #777;
+}
+.alerttitle{
+	text-align:left;
+	color:#000;
+	padding:6px;
+	background-image:url("http://img1.51cto.com/images/quickwindow.jpg");
+	background-repeat:repeat-x;
+	font-size:14px;
+	height:22px;
+}
+.alertcentent{
+	line-height:30px;
+}
+.alertcentent p{
+color:#000;
+}
+
+#fixed{position:fixed;top:120px;right:40%;z-index:255;}
+</style>
+<!--[if IE 6]>
+<style type="text/css">
+#fixed{position:absolute;z-index:255;left:40%;top:expression(eval(document.documentElement.scrollTop+100));}
+</style>
+<![endif]-->
+<body>
+
+<div id="fixed" align="center" style="display:none;">
+<form action="/login.php" method="post" >
+<div class="albumalert">
+<div class="alerttitle"><span style="float:left;width:80%;color:#000"><b>博客登录</b></span><span style="float:right;width:5%;"><a href="" onclick="document.getElementById('fixed').style.display='none';return false;"><img src="http://img1.51cto.com/images/pic/alertcolse.gif" border="0"></a></span></div>
+<div class="alertcentent">
+<p>用户名：<input type="text" name="pwuser"><br>密　码：<input type="password" id="password" name="pwpwd"><br><input type='hidden' name='cktime' value='31536000'><input type='hidden' value='http://guosir.blog.51cto.com' name='jumpurl'>
+<input type='hidden' value='2' name='step'><input type="submit" value=" 登 录 " name="submit" > 
+</p>
+</div>
+</div>
+</form>
+</div>
+<center>
+<table cellpadding="0" cellspacing="0" border="0" id="banner51cto" style="border-bottom:1px solid #444;color:#000;">
+<tr>
+	<td id="bloglogo" width="142"><a href="http://blog.51cto.com" title="IT BLOG" target="_blank"><img src="http://img1.51cto.com/image/default/51ctologo_.gif" border="0" alt="网络技术博客"></a></td>
+
+	<td width="150"><a href="http://ucenter.51cto.com/reg_01.php?reback=http://blog.51cto.com" target="_blank" class="ffb">注册</a> | <a href="http://blog.51cto.com/login.php" onclick="document.getElementById('fixed').style.display='';return false;" class="ffb">登录</a> <a href="http://ucenter.51cto.com/getpass.php" target="_blank" class="fft">忘记密码？</a></td>
+	<td width="280" class="top_txt"><a href='http://www.51cto.com' target="_blank" class="fft">51cto首页</a> | <a href='http://blog.51cto.com' target="_blank" class="fft">博客</a> | <a href='http://bbs.51cto.com' target="_blank" class="fft">论坛</a> | <a href='http://down.51cto.com' target="_blank" class="fft">下载</a>
+</td>
+	<td width="250"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="hot_art" width="60" align="center"><b>热点文章</b></td><td id="blogtopart"> <a href="http://chenguang.blog.51cto.com/350944/333803" title="虚拟机技术企业实战" target=_blank>虚拟机技术企业实战</a></td></tr></table></td>
+	<td width="180">
+	<form method=post action="http://blog.51cto.com/search.php" name=searchform target=_blank><div id="blogword">
+	<div id="blogso"><input type=image src="http://img1.51cto.com/image/default/blogso.gif" border="0"></div>
+
+	<div id="blogsotext" align=right>
+	  <input type=hidden name=search_type vfbalue=art>
+	  <input name=step type=hidden value=2>
+	  <input type=text id=keyword name="keyword"></div></div>
+	  </form>
+    </td>
+	<td width="40" aling="right">　<a href="http://51ctoblog.blog.51cto.com/all/26414/4" target="_blank" class="fft">帮助</a></td>
+  </tr>
+</table>
+</center>
+<div id="wrapper">
+	<div id="innerWrapper">
+	<div id="topPadding"></div>
+<div id="header">
+	<div id="innerHeader">
+	<div>
+	<div id="head_right">
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/c" title="察看GuoYJ所有转载文章">转载</a>:1 &nbsp;</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/t" title="察看GuoYJ所有翻译文章">翻译</a>:6</div>
+	<div class="sign"><a href="http://guosir.blog.51cto.com/709336/o" title="察看GuoYJ所有原创文章">原创</a>:0</div>
+	
+</div>
+	<h1 id="blogTitle">&nbsp;<a href="http://guosir.blog.51cto.com">在路上</a>
+&nbsp;<a href='/rss.php?uid=709336' target='_blank'><img src='http://img1.51cto.com/image/skin/1/rss.gif'></a></h1></div>
+
+<div id="blogDesc">
+<a href="http://guosir.blog.51cto.com">http://guosir.blog.51cto.com</a> > <a href="http://guosir.blog.51cto.com" onClick="return copylink()">复制链接</a> <a href="http://g.51cto.com/addgroup.php?uid=709336">邀请加入技术圈</a></div>			
+
+	<div class="top_bottom_left">
+</div>
+	<div class="top_bottom_right">
+<div class='top_link'><a href='/' onclick='add_flink(709336);return false'>加友情链接</a></div>
+<div class='top_link'><a href='javascript:void(0)'  onclick="pmwin('open','GuoYJ')">发短消息</a></div>
+<div class='top_link'><a href='/pic/'>相册</a></div>
+<div class='top_link'><a href='/mygroup.php'>技术圈</a></div>
+<div class='top_link'><a href='/'>博客</a></div>
+
+	</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<!-- add by cao2xi 2008-11-20 -->
+<div class="wd" id="my_menu" style="display:none;">
+<div class="wd1">
+<div class="wd_tit">
+<div class="wd_l"><a href="http://www.51cto.com" target="_blank">首页</a> | <a href="http://down.51cto.com" target="_blank">下载</a> | <a href="http://bbs.51cto.com" target="_blank">技术论坛</a> | <a href='javascript:void(0)'  onclick="pmwin('open','1')">短消息</a></div>
+<div class="wd_r"><img src="http://img1.51cto.com/images/wd_gb.gif" width="15" height="14" border="0" onclick="dis_menu();return false"/></div>
+</div>
+<div class="wd_list">
+<div class="wd_list_l">
+<div class="wd_list_t"><a href="http://blog.51cto.com" target="_blank">博 客</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com' target="_blank">我的博客</a></li>
+<li><a href='http://.blog.51cto.com/addblog.php' target="_blank">发表文章</a></li>
+<li><a href="http://blog.51cto.com/user_index.php" target="_blank">管理博客</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_m">
+<div class="wd_list_t1"><a href="http://g.51cto.com/" target="_blank">技术圈</a></div>
+<div class="wd_list_li"><ul>
+<li><a href="http://blog.51cto.com/user_index.php?action=creategroup" target="_blank">创建圈子</a></li>
+<li><a href='http://.blog.51cto.com/mygroup.php'  target="_blank">我的圈子</a></li>
+<li><a href='http://g.51cto.com/grouptag.php' target="_blank">寻找圈子</a></li>
+</ul>
+</div>
+</div>
+<div class="wd_list_r">
+<div class="wd_list_t"><a href='http://.blog.51cto.com/pic/' target="_blank">相 册</a></div>
+<div class="wd_list_li"><ul>
+<li><a href='http://.blog.51cto.com/pic/' target="_blank">我的相册</a></li>
+<li><a href='http://.blog.51cto.com/pic/uploadphoto.php' target="_blank">上传图片</a></li>
+<li><a href='http://.blog.51cto.com/pic/manage_album.php?uid=709336' target="_blank">管理相册</a></li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<!-- add end -->
+<div id="navBar">
+	<div id="innerNavBar">
+	<div class="userdir">
+		<a href="/">首页</a>
+		| <a href="/709336/d-1">虚拟仪器</a>
+		| <a href="/709336/d-2">MDX</a>
+		| <a href="/709336/d-3">数据分析</a>
+		| <a href="/709336/d-4">数据仓库</a>
+		| <a href="/709336/d-5">商业智能</a>
+		| <a href="/709336/d-6">社会人生</a>
+		| <a href="/709336/d-7">文档收藏</a>
+
+</div>
+</div>
+</div>
+<div id="mainWrapper">
+<div id="innerMainWrapper">
+<div id="append_parent"></div>
+
+
+  <div id="add_sys_type_div" style="width:600px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+  <div id="add_sys_type_divs" style="width:550px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:20%;display:none;z-index:255">
+  </div>
+<script language="JavaScript" src="http://g.51cto.com/js/alert.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://g.51cto.com/js/group.js"></script>
+
+<div class="mod" id="layout_1" style="width:74%;float:right">
+
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width=96% ><tr><td><a href="http://bbs.51cto.com/thread-712054-1.html" target="_blank" style="color:red;text-decoration:underline;">51CTO广东省午饭第二届线下聚会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://timyang.blog.51cto.com" target="_blank" style="color:red;text-decoration:underline;">新浪技术总监杨卫华51CTO开博</a></td>
+	<td align="right"><a href="/all/709336" target="_blank">博主的更多文章>></a></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+	<div class="article" id="article" align="left">
+		<h1 class="subject" style="word-wrap: break-word">
+			<b><img src='http://img1.51cto.com/images/fanyi_1.gif' border=0> NI Vision for LabVIEW 基础(二)：准备测量图像  </b>
+		</h1>
+		<hr size=1 align="center" style="border:1px solid #EEEEEE" width="94%">
+		<div>
+		<div class="posttime"><small>2010-04-29 21:21:55</small></div>
+		<div style="width:94%;padding-left:20px;">　标签：<span style="color:#AAAAAA;"><a href="http://blog.51cto.com/tagindex.php?keyword=Vision" target="_blank" class="operlink">Vision</a> <a href="http://blog.51cto.com/tagindex.php?keyword=LabVIEW" target="_blank" class="operlink">LabVIEW</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%CD%BC%CF%F1" target="_blank" class="operlink">图像</a> <a href="http://blog.51cto.com/tagindex.php?keyword=%BB%F9%B4%A1" target="_blank" class="operlink">基础</a></span>　　　[<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>]
+
+<br><br></div>
+		</div>
+		<div>
+		<table width="650" cellpadding="0" cellspacing="10" border="0" id="content" style="width:650px;table-layout: fixed;word-wrap: break-all;">
+
+		<tr><td><div style="font-size:10pt;position:relative;word-wrap:break-word;word-break:break-all;"><p>本节介绍如何建立图像系统，采集和显示图像，分析图像，以及为进一步处理准备图像。</p>  <font color="#000080">建立图像系统</font>  <p>在开始获取、分析、处理图像之前，必须先建立图像系统。建立图像系统的方法取决于图像环境以及分析和处理的需要。图像系统应该产生足够高的质量以能够从图像中获取信息。</p>  <p>搭建图像系统的完整步骤如下。</p>  <p>根据给定的颗粒限制以及被检测物体的尺寸，确定设备类型。参考<em>NI Vision</em><em>概念手册中第三章，系统设置与校准</em> 。</p>  <p>确保相机传感器足够大以满足对最低分辨率的要求。 </p>  <p>确保镜头景深足够高以保证焦点内的所有物体都不会因为镜头而畸变。还要确保镜头的焦距满足需要。 </p>  <p>确保光照能够提供被检测物体与背景之间有足够的对比度，一便从图像中获取信息。 </p>  <p>将相机摆放在与被测物体垂直的位置。如果相机获取的物体的图像带有角度，就会产生透视误差。即便可以通过软件补偿这些误差，National Instruments 还是建议采用垂直的角度以获得最精确的结果。 </p>  <p>选择一个满足需要的图像采集设备。National Instruments 提供了许多图像获取设备，例如模拟的彩色和单色设备以及数字设备。更多有关NI图像采集设备的详细信息，请访问：ni.com/vision 。 </p>  <p>为图像采集设备配置驱动程序软件。如果拥有一台NI图像采集设备，可以通过Measurement&amp; Automation Explorer (MAX)配置NI-IMAQ 或NI-IMAQdx驱动程序。 在桌面上双击Measurement &amp; Automation 图标打开MAX 。详细信息参见<em>Measurement &amp; Automation Explorer Help</em><em>。</em></p>  <font color="#000080">校准图像系统</font>  <p>建立图像系统后，可以校准系统，为像素坐标指定实际的坐标，补偿图像系统中固有的角度和非线性误差。</p>  <p>像机与被测物体不垂直发生透视误差。非线性失真可能来自像机镜头畸变。透视误差和镜头畸变导致出现扭曲的图像。这种失真替代了图像中的信息，但并不一定是破坏映像中的信息。 </p>  <p>如果仅仅希望为像素坐标指定实际的坐标使用简单校准。如果需要补偿透视误差和非线性镜头扭曲使用透视和非线性扭曲校准。</p>  <font color="#000080">创建图像</font>  <p>使用IMAQ Create程序建立一个引用图像。建立图像时，要制订下列图像数据类型之一：</p>  <p>Grayscale (U8, default)—8-位无符号 </p>  <p>Grayscale (U16)—16-位无符号</p>  <p>Grayscale (I16)—16-位有符号</p>  <p>Grayscale (SGL)—浮点 </p>  <p>Complex (CSG)—64-位复数 </p>  <p>RGB (U32)—32-位 RGB </p>  <p>HSL (U32)—32-位HSL </p>  <p>RGB (U64)—64-位RGB </p>  <p>如果需要可以多次执行IMAQ Create建立多个图像，但所创建的每个图像都需要唯一的名称。通过分析预期的应用程序确定所需的图像个数。依据是程序的不同的处理阶段及是否需要为每个处理阶段后保持原始图像。</p>  <p><strong>说明 </strong>如果打算在图像上使用滤波或颗粒分析程序，必须保证图像有合适的边沿尺寸。默认的边沿尺寸为三个像素。</p>  <p>当创建图像时，NI Vision建立了一个内部的图像结构以保存图像的属性，如名称和边沿尺寸。然而，此时没有为图像像素分配内存。NI Vision程序在图像尺寸修改时自动分配一定量的内存。例如，采集和重取样程序改变图像尺寸所以它们会为图像像素分配适当的内存。IMAQ Create的输出是一个图像结构的引用。 可将该引用作为输入提供给所有NI Vison函数的子程序。</p>  <p>开发期间，可能需要在运行时验证图像的内容。使用LabVIEW图像探针可以在运行期间察看图像的内容。要建立探针，右击图像连接线，选择<b>Probe</b>即可。</p>  <p>许多属于NI Vision库的程序都需要一个或多个图像引用。所需的图像引用的数量取决图像处理函数和希望使用图像的类型。</p>  <p>分析图象的NI Vision模块不修改只需要一个图像引用输入的内容。处理图像内容的模块可能要求一个引用作为源图像和一个目标图像，或者模块有一个可选的目标图像。如果不能提供源图像，模块会修改源图像。</p>  <p>在应用程序的最后，利用IMAQ Dispose模块释放所创建的图像。 </p>  输入输出合并  <p>根据模块完成的功能类型的不同，输入输出可能会产生不同的合并。可以利用这种灵活性决定要处理那个图像以及在哪里保存结果图像。如果没有膜表图像连线，那么使用源图像并传递给目的输出。</p>  <p>下面的图描述了NI Vision中一些模块的接线板。 </p>  图象分析  <p>下面的连线板仅用于分析图像的模块，所以既不改变图像尺寸也不改变内容。 这种操作的例子包括颗粒分析和直方图计算。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547284ExNZ.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547285v8UX.png" width="226" height="74" /></a> </p>  图像遮罩  <p>下面的连线板介绍了图像遮罩。 </p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547285t9RR.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547286x7VD.png" width="232" height="74" /></a> </p>  <p><b>Image Mask</b> 输入端表明处理和分析是依赖与另外一个图像的内容：<b>Image Mask</b>。仅当<b>Image Mask</b>中对应的像素不为空时<b>Image</b>中的像素才被处理。如果一个<b>Image Mask</b>的像素是0, 对应的<b>Image</b> 像素不会被改变。</p>  <p><b>说明 </b>除了IMAQ定量模块之外，所有的NI Vision程序的图像遮罩都必须是8-bit的图像，IMAQ定量模块支持8-bit和16-bit的图像遮罩。</p>  <p>如果要对整幅图像进行处理或分析，就不要连接<b>Image Mask</b>输入端。 将同一个图象既连接到<b>Image</b> 的输入也连接到<b>Image Mask</b> 的输入，与将<b>Image Mask </b>的输入端开放不连的效果是一样的，除非是<b>Image</b> 必须是一个8-bit的图像情况下。</p>  图像填充  <p>下面的连线板用于完成图像填充的程序。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547286rK62.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547286DjUi.png" width="241" height="79" /></a> </p>  <p>这类操作的例子包括读取文件，从NI图像采集设备采集图像，或者将一个二维矩阵转换成图像。这类模块可能修改图像的尺寸。</p>  图像处理  <p>下面的连线板用于处理图像的模块。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547287MvI7.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_12725472871tM6.png" width="244" height="73" /></a> </p>  <p>这种连接器是NI Vision中最常见的。<b>Image Src</b>输入端接收要处理的图像。<b>Image Dst </b>输入端可以接收另一个图像或者是源图象，取决于使用的目标。如果两个不同的图像连接到两个输入端，那么源<b>Image Src</b> 图像不被修改。如下图所示，如果<b>Image Dst</b> 和 <b>Image Src</b> 输入端接收同一个图像，或者<b>Image Dst</b>不连接，处理过的图像被放到源图像，而原图像数据丢失。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547287cSBP.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547288lub4.png" width="244" height="61" /></a> </p>  <p><b>Image Dst</b> 输入端是接收处理结果的图像。根据模块功能的不同，即可能与源图像相同，也可能不同。各个模块的介绍都包括可以连接到<b>Image</b> 输入端的图像类型。连接到<b>Image Dst</b> 的图像根据源图像调整大小。 </p>  算术与逻辑运算  <p>下面的连线板用于在两个图像间进行算术或逻辑运算的模块。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547288EUYF.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547289RAtE.png" width="244" height="76" /></a> </p>  <p>目标图像需要两个源图像存在。可以在两个图像A 和B之间完成一个运算，然后把结果存放到另一个图像或者是<b>Image Dst</b>中，或者存放到两个源图像之一A 或B中。在后一种情况下，可以认为源数据在处理发生之后就没用了。 下面的合并在这种接线板中是可能的。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547289ZtkN.png"><img style="border-right- 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547289Ah9G.png" width="244" height="51" /></a> </p>  <p>左面的接线板中，三个图像都不同。<strong>Image Src A</strong> 和 <strong>Image Src B</strong> 在处理后原封不动，运算的结果存放到<strong>Image Dst</strong>中。</p>  <p>中间的连线板中，<strong>Image Src</strong> <strong>A</strong> 也接到了<strong>Image Dst</strong>, 所以接收到了运算的结果。在这种运算中，<strong>Image Src A</strong> 的原数据被覆盖。</p>  <p>右边的接线板中，<strong>Image Src B</strong> 接收运算的结果，其原数据被覆盖。</p>  <p>许多两个图像之间的运算要求具有相同的类型和大小。然而，算术运算可以在两个不同类型的图像间进行。 </p>  <font color="#000080">采集或读取图像</font>  <ul>   <li>创建了图像引用之后,可以通过三种途径将图像采集到图像系统中。通过图像采集系统中的相机采集图像，从计算机中存储的文件装载图像，或者将存放在二维矩阵中的数据转换为图像。采集图像、从文件装载图像或从二维矩阵转换图像的程序模块自动地为图像数据分配适当的内存空间。 </li> </ul>  <p>利用National Instruments 图像采集设备可以采用以下方法之一采集图像：</p>  <ol>   <ul>     <li>       <p>1.使用IMAQ Snap（块照） 程序采集单幅图像。调用该程序时，将初始化图像采集设备，并采集下一个视频帧。该模块用于单一的采集程序，主要是编程方便。 </p>     </li>   </ul>    <li>2.通过抓拍连续采集图像。抓拍功能实现了在一个缓冲区上连续循环采集。抓拍功能用于采集高速图像。IMAQ Grab Setup用于启动采集，IMAQ Grab Acquire用于返回当前图像的一个拷贝，IMAQ Stop用于停止采集。</li>    <li></li>    <li>3.IMAQ Sequence用于采集固定数量的图像。IMAQ Sequence一张接一张的采集图像直到达到要求的数量。 如果只采集某些特定的图像，可以为IMAQ Sequence提供一张表，描述在采集到每帧后跳过的帧数。 </li> </ol>  <p><strong>说明</strong> 在完成图像采集后，必须使用IMAQ Close 或者IMAQdx Close Camera 释放分配给图像采集设备的资源。</p>  <p><b>IMAQ ReadFile</b>用于打开并读取计算机中存储的文件数据到图像引用中。 可以读取以标准格式存储的图像，如BMP, TIFF, JPEG, JPEG2000, PNG, 和AIPD，或则制定的非标准格式。通常，软件会自动将像素转换成所传递的图像类型。</p>  <p><b>IMAQ Read Image and Vision Info</b>用于打开图像文件所包含的附加信息， 如校准信息，用于模式匹配的模板信息，或者蒙板信息。有关模式匹配模板和蒙板的内容，参见<i>完成机器视觉任务</i> 。</p>  <p>也可以使用<b>IMAQ GetFileInfo</b>读取图像属性-图像尺寸，像素深度 ，推荐的图像类型，以及校准单位，而不用实际读取全部图像数据。</p>  <p><b>IMAQ AVI Open</b> 和<b>IMAQ AVI Read Frame</b> 用于打开和读取存放在计算机中的AVI文件，并传送到图像引用中。NI Vision自动将像素转换成所传递的图像类型。</p>  <p><strong>说明 完成AVI读操作后，必须使用</strong><b>IMAQ AVI Close</b> 释放分配给AVI文件的资源。</p>  <p><b>IMAQ ArrayToImage</b> 用于将二维矩阵转换成图像。也可以是用<b>IMAQ ImageToArray</b> 将图像转换成LabVIEW 的二维矩阵。</p>  <font color="#000080">显示图像</font>  <p>LabVIEW 中有两种显示图像的方法。可以利用外部现实函数模版中的外部显示程序模块在外部窗口中显示图像，也可以Vision控件模板中的<b>Image Display</b> 控件将图像直接显示在前面板上。</p>  外部窗口显示  <p>在外部窗口显示图像示，使用<b>IMAQ WindDraw</b> 。最多可以在16个外部窗口中显示图像。<b>IMAQ WindSetup</b> 用于配置每个外部窗口的外观。例如，可以决定窗口是否需要滚动条，是否可变化大小，或者是否有标题栏。也可以使用<b>IMAQ WindMove</b> 将尾部图像窗口定位在监视器的一个特定位置。</p>  <p><strong>说明 外部图像窗口不属</strong>LabVIEW 面板。他们直接由NI Vision管理。</p>  <p>通过将调色板应用给窗口，可以将调色板用于显示灰度图像。<b>IMAQ GetPalette</b>用于获得预先定义的调色板 。例如，如果要显示二值图像（一种含有特殊像素值得图像，内容像素值为1，背景的像素值为0），可以使用预先定义的二值模版。关于调色板的内容，参见<em>NI</em><em>视觉概念手册。</em></p>  <p><strong>说明</strong> 在程序的最后，必须使用<b>IMAQ WindClose</b>关闭所有打开的外部窗口。 </p>  图像显示控件  <p><b>Image Display </b>控件用于在LabVIEW前面板中显示图像。如下图所示。在前面板上点右键并选择<strong>Vision</strong> ，可以找到Image Display 控件。 </p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547290NCgu.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547292aPbC.png" "450" height="402" /></a> </p>  <table border="1" cellspacing="1" cellpadding="0"><tbody>     <tr>       <td valign="top" "568"></td>     </tr>      <tr>       <td "284">         <p>1 显示区域</p>       </td>        <td "284">         <p>3 关注区工具选项板</p>       </td>     </tr>      <tr>       <td "284">         <p>2 图像信息显示器</p>       </td>        <td "284">         <p>4 滚动条</p>       </td>     </tr>   </tbody></table>  <p>要想显示图像，在后面板中将NI Vision模块的图像输出连接好，如下图所示。</p>  <p><a target=\"_blank\" href="http://img1.51cto.com/attachment/201004/29/709336_1272547292kNzd.png"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="image" border="0" alt="image" src="http://img1.51cto.com/attachment/201004/29/709336_1272547293Xnxf.png" "244" height="83" /></a> </p>  <p><b>Image Display</b>控件包含以下元素：</p>  <p><strong>显示区域</strong>—显示图像。 </p>  <p><strong>图像信息显示器</strong>—显示图像的相关信息以及当前所画的关注区的信息。 </p>  <p><strong>关注区工具选项板</strong>—包括绘制关注区工具、移动、缩放工具。与外部显示窗口不同，每个图像显示控件都有自己的工具集。 </p>  <p><strong>滚动条</strong>—允许移动显示区中的图像。 </p>  <p>设计期间，可以重新安排控件元素的布局可以定制控件的外观，通过快捷菜单，或者选择控件并点击<strong>Edit?Customize Control</strong> 可以配置属性。</p>  <p>运行期间，可以通过属性节点定制控件的许多部分。 </p>  <p><strong>说明 不是所有的设计期间的功能都在运行时可用。</strong></p>  <p>要想建立属性节点，在控件上右击鼠标并选择<strong>Create?Property Node</strong>。 单击属性节点就可以看到可以设置的属性。图像显示控件特有的属性出现在列表的尾部。</p>  <p>下面的列表介绍部分图像显示控件可用的属性：</p>  <p><strong>快照模式(Snapshot Mode)</strong>—决定控件建立一个图像的拷贝还是使用图像的引用。当允许快照模式时， 如果检测图像在应用程序中后来变化了，图像显示控件仍然显示图像显示控件连接成功时所提供的图像。 </p>  <p>允许快照模式可能会降低程序的运行速度，因为控件要为图像产生拷贝。当需要每次都要显示图像的快照是，允许该属性。 如果需要快速显示结果时，禁用该属性，例如在抓拍采集期间。快照模式属性默认是禁止的。 </p>  <p><strong>说明 为了使图像显示控件直接刷新图像，可以使用Refresh Image 方法。</strong> 要创建方法，右击控件，并选择 <strong>Create?Invoke Node</strong><strong>。</strong> 点击Invoke Node可以看到可用的方法。 图像显示控件特殊的方法出现在快捷菜单的底部。</p>  <p><strong>调色板(Palette)</strong>—决定图像显示控件使用哪个调色板显示图像。可以为控件配置预定义调色板或自定义调色板。使用<strong>User Palette</strong><strong>属性节点</strong>设置自定义调色板。 也可以在运行时右击图像控件改变控件的调色板或图像探针。</p>  <p><strong>最大轮廓数(Maximum Contour Count)</strong>—设置图像显示控件上用户可以绘制关注区轮廓的最大数目。 </p>  <p>图像显示控件还包括如下方法：</p>  <p><strong>Get Last Event</strong>—返回最后的用户事件，从图像控件上返回鼠标移动和点击的结果。该方法与外部显示窗口中的IMAQ WindLastEvent 作用相同。 </p>  <p><strong>Clear ROI</strong>—清除图像显示控件中的关注区。 </p>  <p><strong>Refresh Image</strong>—刷新显示，以显示最新的图像。在禁用快照控件时使用该方法，但是图像显示控件只能显示图像的最后变化。 </p>  <font color="#000080">加入校准信息</font>  <p>如果期望将当前设置的校准信息赋给每个采集的图像，使用<b>IMAQ Set Calibration Info</b>模块。 该模块接受带有校准信息的源图像和需要校准的目的图像。输出图像是带有附加了校准信息的检测图像。详细内容参见校准图像一节。</p>  <p><strong>说明</strong> 由于校准信息是图像的一部分，它将被传播到图像的处理和分析中。更改图像大小的函数，如几何变换，使校准信息作废。<b>IMAQ Write File 2</b>的实例<b>IMAQ Write Image and Vision Info File 2</b> 可以将图像和所有附加的校准信息保存到文件中。</p>  <font color="#000080">分析图像</font>  <p>获得并显示图像后，基于以下原因可能需要分析一下图像的内容：</p>  <ol>   <li>1.确定图像质量是否足以达到检测任务的要求 </li>    <li>2. 获得检测处理期间需要使用的参数值 </li> </ol>  <p>直方图和线框工具有助于分析图像的质量。</p>  <p><b>IMAQ Histograph</b> 和 <b>IMAQ Histogram</b> 模块用于分析图像的整体灰度分布。使用直方图可以分析决定图像质量的两个重要指标，饱和度和对比度。如果在没有充分照明的环境下采集的图像曝光不足，那么大多数像素的密度值低，表现为峰值集中在直方图左边。如果在光照过强的环境下采集的图像曝光过度，那么大部分像素的密度值高，表现为峰值集中在直方图右边。如果图像具有合适的对比度，直方图像素集中区域会分开。利用直方图信息可以确定图像质量是否足以能将关注物体从背景中分离出来。</p>  <p>如果图像质量满足需要，可以使用直方图确定图像中与物体对应的像素范围。 可以在处理函数中使用这个范围，例如在颗粒分析中确定阈值范围。</p>  <p>如果图像质量不满足要求，应该尝试改进图像条件以获得必要的图像质量。需要重新评价及修改各项要素：照明设备与设置，镜头调节，相机工作模式，以及采集参数。如果各项设置都达到了最大可能的条件而图像质量还是不能满足要求，可以尝试采用有下节中介绍的图像处理技术来改善图像质量。</p>  <p><b>IMAQ LineProfile</b> 模块用于获得图像中沿着一条线的像素分布, I<b>MAQ ROIProfile</b>模块用于获得图像中沿着一个一维路径的像素分布。要使用线形轮廓分析图像，在图像中沿着物体的边沿画一条线，或指定一条线。 <b>IMAQ LineProfile</b> 用于检测沿着这条线的像素值。观察沿着这条线的像素分布情况，可以判定图像质量是否能在物体的外围提供锐利的边沿。同时可以确定图像是否有噪声，以及识别噪声的特征。</p>  <p>如果图像满足要求，就可以使用像素分布信息来确定一些检测函数中需要用到的参数。例如，适用来自线形轮廓的信息来确定物体周围的边沿强度。可以讲这个信息输入到<b>IMAQ Edge Tool 2</b> 模块中，以便查找沿着这条线的边沿。</p>  <font color="#000080">改善图像</font>  <p>根据分析图像收集到的信息，可能需要改善图像的质量以便于检测。可以通过查找表、滤波器、灰度几何，以及快速弗里埃变换改善图像。</p>  查找表  <p>应用查找表(LUT)变换提高其它区域中损失了的包含重要信息区域的亮度。 查找表变换将源图像中的输入灰度值转换成变换后图像中的其它灰度值。NI Vision提供了四个模块可以直接或间接的江查找表用于图像。:</p>  <ol>   <li><b>1、IMAQ MathLookup</b>—用预定义的查找表替换图像的像素值。NI Vision有七个基于算数变换的预定义查找表。有关这些查找表的详细信息参见<i>NI视觉概念手册，第五章，图像处理</i>。 </li>    <li><b>2、IMAQ UserLookup</b>—用自定义的查找表替换图像的像素值。 </li>    <li>3、<strong>IMAQ Equalize</strong>—将灰度值平坦的分布在给定的灰度区间内。 IMAQ Equalize用于为包含较少灰度值的图像增强对比度。 </li>    <li><b>4、IMAQ Inverse</b>—反向图像的像素密度，获得图像的负片。例如，如果背景像素比物体像素还亮得话，在为图像进行自动阈值处理之前适用IMAQ Inverse。 </li> </ol>  滤波器  <p>滤波器用于改善图像中过渡区域的锐度或者增强图像的整体信噪比。 根据需要既可以选择低通滤波，也可以选择高通滤波。</p>  <p>低通滤波器通过平滑图像去掉不必要的细节，去掉锐利的细节，以及平滑物体与背景之间的边沿。可以使用<b>MAQ LowPass</b>模块，或者使用<b>IMAQ Convolute</b> 或 <b>IMAQ NthOrder</b>定义自己的低通滤波器。</p>  <p>高通滤波器强化细节，例如边沿，物体边缘，或裂缝。这些细节表现为密度值的强烈过渡。使用<b>IMAQ Convolute</b> 或 <b>IMAQ NthOrder</b>模块可以定义自己的高通滤波器，或者使用<b>IMAQ EdgeDetection</b> 或 <b>IMAQ CannyEdgeDetection</b> 模块。<b>IMAQ EdgeDetection</b> 使用预定义的边沿检测内核查找边沿，例如Sobel, Prewitt, 和 Roberts内核。</p>  卷积滤波  <p><b>IMAQ Convolute</b>模块使用一个预定义的低通和高通滤波器集合。每个滤波器由系数的内核定义。<b>IMAQ GetKernel</b> 模块用于提取预定义的内核。如果预定义的内核不能满足需要，可以适用浮点数的LabVIEW二维矩阵定义自己得滤波器。</p>  N序滤波器  <p><b>IMAQ NthOrder</b> 根据选择的N的值，定义一个低通或高通滤波器。一个特定的N序滤波器，中值滤波器，可以滤除看起来像小黑点和白点的斑纹。详见<i>NI视觉概念手册，第五章，图像处理</i>。</p>  灰度几何  <p>在需要滤掉图像的灰度特征是使用灰度几何。灰度几个有助于去掉或加强孤立特征，例如黑色背景上的亮点。在准备进行颗粒分析分割图象之前，在灰度图象上使用这种变换以增强非离散性。</p>  <p>灰度几何变换将一个像素与它周围的像素进行比较。这种变换在进行腐蚀运算时保留最小值，而在进行扩散运算时保留最大值。</p>  <p>详见<i>NI视觉概念手册，第五章，图像处理</i>。</p>  <p><b>IMAQ GrayMorphology</b> 模块用于实现以下七种变换：</p>  <ol>   <li><strong>Erosion</strong><strong>（侵蚀）</strong>—减少被低密度邻居包围的像素的亮度。邻近像素是通过结构化元素定义的。详见<i>NI视觉概念手册，第九章，二值几何</i>。 </li>    <li><strong>Dilation</strong><strong>（扩散）</strong>—增加被高密度邻居包围的像素亮度。一个扩散必然有一个对应的侵蚀效果。 </li>    <li><strong>Opening</strong><strong>（开放）</strong>—去除暗区和光滑边框中的孤立的亮点。 </li>    <li><strong>Closing</strong><strong>（闭合）</strong>—去除亮区和光滑边框中的孤立的暗点。 </li>    <li><strong>Proper-opening</strong><strong>（适当开放）</strong>—去除暗区中的孤立亮点，平滑区域的边缘。 </li>    <li><strong>Proper-closing(</strong><strong>适当闭合)</strong>—去除亮区中孤立的暗点，平滑区域边缘。 </li>    <li><strong>Auto-median</strong><strong>（自动中值）</strong>—产生很少细节的简单颗粒。 </li> </ol>  快速傅里叶变换  <p>快速傅里叶变换(FFT)用于将图象变换到复频域。一幅图像中，细节和锐利的边沿是与颗粒频率从中到高在很短的距离内明显的导致灰度级别变化有关。缓慢变化的模式与较低的颗粒频率有关。</p>  <p>一幅图像可能有外部噪声，例如数值化过程中导致的周期性条纹。在复频域，周期图案被简化成一个高颗粒频率的有限集合。另外，图象系统设置可能导致视场亮度的不均匀，会在要分析的信息上面产生轻微的漂移。在复频域，这种轻微的漂移表现为图象平均密度旁边的一个低频有限集。成为直流（DC）成分。</p>  <p>利用工作在复频域的算法可以从图象中孤立或去除这些不期望的频率。完成以下步骤，就可以获得去掉不期望的图案么日保留整体特征的图像。</p>  <p>1. 使用<b>IMAQ FFT</b>模块将图像从空域转换到复频域。该模块计算图像的FFT，结果形成了代表图像的频率信息的复数图像。 </p>  <p>2. 使用低通或高通频域滤波器在频域改善图像。<b>IMAQ ComplexAttenuate</b> 或 <b>IMAQ ComplexTruncateSpecify</b> 用于指定使用哪种滤波器。低通滤波器平滑图像中的噪声、细节、纹理，以及锐利的边沿。高通滤波器强化图像中的细节、纹理和锐利的边沿，但也强化噪声。 </p>  <ol>   <li><strong>Lowpass attenuation</strong><strong>（低通衰减）</strong>—衰减量是与频率信息呈正比。在低频段，只有很小的衰减，随着频率的增加，衰减也增加。该运算保留所有零频率的信息。零频率信息对应于图像的直流成份或者说是空域图像的平均密度。 </li>    <li><strong>Highpass attenuation</strong><strong>（高通衰减）</strong>—衰减量与频率信息成反比。高频段，只有很小的衰减，随着频率的降低，衰减增加。 零频率成份被完全剔除。 </li>    <li><strong>Lowpass truncation</strong><strong>（低通截断）</strong>—高于理想截止频率的成份被去除，低于的保持不变。 </li>    <li><strong>Highpass truncation</strong><strong>（高通截断）</strong>—高于理想截止频率的成份保持不变，低于得被去除。 </li> </ol>  <p>要将图像变换会空余，使用<b>IMAQ InverseFFT</b>模块。</p>  高级运算  <p><b>IMAQ ImageToComplexPlane</b> 和 <b>IMAQ ComplexPlaneToImage</b> 模块用于任意访问、处理、以及更新振幅、相位、和复数图像的虚部。也可以通过<b>IMAQ ComplexImageToArray</b> 将复数图像变换为矩阵，或者使用<b>IMAQ ArrayToComplexImage</b> 进行反变换。</p><a href="http://guosir.blog.51cto.com/709336/307501" class="hidden">本文出自 51CTO.COM技术博客</a></div></td></tr>
+		</table>
+		</div>
+
+			</div>
+		<br><br>
+		<div align="center">上一篇 <a href="/709336/269094" class="operlink" title="NI Vision for LabVIEW 基础(一)：NI Vision 简介 ">NI Vision for LabVIEW 基础(一)：NI Vision ..</a>　　下一篇 <a href="/709336/307504" class="operlink" title="NI Vision for LabVIEW 基础(三)：进行灰度和彩色测量">NI Vision for LabVIEW 基础(三)：进行灰度和..</a>
+<br><br>
+</div>
+
+		<div align="right">
+		类别：未分类 ┆
+			<a  href="#"  onclick="javascript:joingroups(307501,'guosir');return false;" class="operlink">
+			技术圈(<script src="http://blog.51cto.com/js/joingroup.php?tid=307501"></script>)</a>  ┆ <span class="article_views">阅读(<script src="http://blog.51cto.com/js/header.php?uid=709336&tid=307501"></script>) ┆ 
+			评论(<script>document.write(replies)</script>)</span> 
+			┆<a  href="#"  onclick="javascript:dfanologin();return false;" class="operlink">推送到技术圈</a>
+		┆<a href="/" class="operlink">返回首页</a>&nbsp;&nbsp;
+		</div>
+		<div class="clear"></div>
+		<br><br>
+		</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>相关文章</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c">
+		<div class="side_sinfo">
+
+	<div class="related"><a href="http://lingchuan.blog.51cto.com/933741/306086" title="最近数字图像基础布置了作业~~~" target="_blank">最近数字图像基础布置了作业~~~</a></div>
+
+	<div class="related"><a href="http://1433444.blog.51cto.com/1423444/292483" title=" 第一部分 绘画基础—文本、图形、图像、动画" target="_blank"> 第一部分 绘画基础—文本、图形、图像、动画</a></div>
+
+	<div class="related"><a href="http://genreeze.blog.51cto.com/323199/63084" title="LabVIEW初学者常见问题以及解答(下）" target="_blank">LabVIEW初学者常见问题以及解答(下）</a></div>
+
+	<div class="related"><a href="http://zhangliang.blog.51cto.com/496387/103721" title="网络基础知识 快速计算子网掩码的2种方法" target="_blank">网络基础知识 快速计算子网掩码的2种方法</a></div>
+
+	<div class="related"><a href="http://linkboy.blog.51cto.com/821152/297467" title="2.1 基础：建立你的网站" target="_blank">2.1 基础：建立你的网站</a></div>
+
+	<div class="related"><a href="http://gearfox.blog.51cto.com/719180/200681" title="[BSCI]基础ISIS" target="_blank">[BSCI]基础ISIS</a></div>
+
+	<div class="related"><a href="http://sailing.blog.51cto.com/223950/95590" title="计算机基础教案（XP操作系统）" target="_blank">计算机基础教案（XP操作系统）</a></div>
+
+	<div class="related"><a href="http://moment.blog.51cto.com/1125796/296464" title="基础程序-1" target="_blank">基础程序-1</a></div>
+
+	<div class="related"><a href="http://654321.blog.51cto.com/334551/65573" title="我的java笔记（4）" target="_blank">我的java笔记（4）</a></div>
+
+	<div class="related"><a href="http://bigpower.blog.51cto.com/209892/81240" title="delphi语法基础--集合类型" target="_blank">delphi语法基础--集合类型</a></div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="modFrame">
+	<div class="modTable"></div>
+	</div>
+	</div>
+
+	<div class="nouse">
+	<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <div class="commenttitle">&nbsp;&nbsp;&nbsp;&nbsp;<b>文章评论</b></div></div>
+	</div>
+	<div class="l">
+	<div class="r">
+	<div class="c" id="artcomment"><div>  &nbsp;</div><div>  &nbsp;</div>
+</div><a href="" id="com_top_top"></a>
+	</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+<div class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+		<br>
+		<a name='comment'></a>
+		<form action='/comment.php?' method='post' name='form1' id='form1' onSubmit='return commentSubmit(this,"");'>
+		<input type='hidden' name='action' value='comment'>
+		<input  id='commenttid' type='hidden' name='tid' value='307501'>
+        <input type="hidden" name="com_count_ajax" id="com_count_ajax" value="1" />		
+        <fieldset id="reply_box">
+		<legend class=legend><b>发表评论</b></legend>
+		<div class=sddd>
+		<a name="feedback" id="feedback"></a>	
+        <br>
+		<center>
+		<table border='0' width=100% align='center' cellspacing='1' cellpadding='3'>
+	<tr>
+		<td class=commenttable width="12%">昵&nbsp;&nbsp; 称：</td>
+		<td colspan="2" align="left">
+		<script src="/js/user_com.php"></script>
+	</tr>
+
+<tr id='commentyanzheng'>
+
+		<td class=commenttable>验证码：</td>
+		<td valign=bottom align="left" width="20%"><input id="commentauthnum" name="authnum" type="text" style="height:18px;padding-bottom:2px" onclick="displaysecunum();"></td>
+		<script language="javascript">
+			function refimg(){
+				var randval = Math.random();
+				document.getElementById("secunum").src="/seccode.php?rnum="+randval;
+			}
+			function displaysecunum()
+			{
+				var displaystr = document.getElementById("secunum").style.display;
+				if(displaystr == 'none')
+				{
+					refimg();
+					document.getElementById("clickfont").style.display = 'none';
+					document.getElementById("secunum").style.display = 'inline';
+					document.getElementById("spanfont").style.display = 'inline';
+				}
+			}
+		</script>
+		<td valign=bottom width="60%" align="left"><img border=1 id="secunum" onclick="refimg()" style="display:none;">　<span style="display:none;" id="spanfont">点击图片可刷新验证码</span><span style="display:inline;" id="clickfont">请点击后输入验证码</span>　<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration: underline;">博客过2级，无需填写验证码</a></td>
+	</tr>
+<tr>
+		<td valign=top class=commenttable>内&nbsp;&nbsp; 容：</td>
+		<td colspan="2" align="left"><textarea  id="commentcontent" name='content' rows=10 cols=60></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+
+<input name='submit' type='button' id="commentsubmit" value='提 交' onclick="commentSubmitend2()"></td><td></td>
+
+</tr>
+</table>
+			  </center><br>
+			</div>
+			</fieldset>
+		  </form>
+				<br>
+<iframe id=iframe1 name=iframe1 width=0 height=0></iframe>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="sidebar" id="layout_0" style="width:22%;">
+<div id="face" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/face.gif"> <strong>GuoYJ</strong></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;padding:8px 8px 8px 8px;">
+	<div class="side_center" align="center">
+		<br>
+		<script src="http://blog.51cto.com/mod/userface.php?useruid=709336"></script>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="stats" class="nouse"><div class="t"><div class="rt"></div><div class="lt"></div>
+<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/stats.gif"> <strong>博客统计信息</strong></div></div>
+<div class="l"><div class="r"><div class="c"><div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+<div class="side_sinfo"> 用户名：GuoYJ<br>文章数：7<br>评论数：9<br>访问量：5565<br>
+无忧币：70<br>
+<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration:underline">博客积分</a>：64<br>博客等级：1 <br>
+注册日期：2009-03-25<br>
+<a href="http://blog.51cto.com/active/no1/ing.html" target="_blank" class="operlink">距离博客争夺赛结束还有<span style="color:#ff0000">3</span> 天</a></div></div></div></div></div><div class="modFrame"><div class="modTable"></div></div></div>
+
+
+<div id="hotblog" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/hotblog.gif"> <b>热门文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<li><a href="/709336/269094">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269090">NI Vision for LabVIEW基..</a></li>
+<li><a href="/709336/307501">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307518">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307504">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/307508">NI Vision for LabVIEW ..</a></li>
+<li><a href="/709336/269059">Analysis Services Perfo..</a></li>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+<div id="search" class="nouse">
+<form method=post action="search.php?">
+<input type="hidden" name="step" value="2">
+<input type="hidden" name="authorid" value="709336">
+<input type="hidden" name="sch_area" value="S">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/search.gif"> <b>搜索本博客内文章</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo" style="text-align:center">
+	<input	type="text"	name="keyword" style="width:92%"><br><br>
+	<input	type="submit" value="提 交">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</form>
+</div>
+
+
+<script src="http://blog.51cto.com/js/mygroup.php?uid=709336"></script>
+
+
+<script src="http://blog.51cto.com/js/uservisit.php?uid=709336"></script>
+
+
+<div id="comment" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+	<div class="modHeader"><table cellpadding="0" cellspacing="0" border=0 width="86%"><tr><td> <img src="http://img1.51cto.com/image/skin/def/comment.gif"> <b>最新评论</b></td></tr></table></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div><b><a href='http://1527239.blog.51cto.com/' class='operlink' target=_blank><b>cxfwlyb</b></a>：</b><a href="/709336/307518" target=_blank>太好的东西啊!!! 支持啊!!!!!!!!!..</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://zhangguanxi.blog.51cto.com/' class='operlink' target=_blank><b>zhangguanxi</b></a>：</b><a href="/709336/307518" target=_blank>楼主，是原创吗？</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b><a href='http://lybice.blog.51cto.com/' class='operlink' target=_blank><b>lybice</b></a>：</b><a href="/709336/307518" target=_blank>很好的文章，非常感谢！</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]51cto游客：</b><a href="/709336/269094" target=_blank>thank you!!!</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+<div><b>[匿名]luoys：</b><a href="/709336/269094" target=_blank>看不见</a></div>
+<hr size=1 width=98% style="border:1px dotted #C0C0C0;" align=center>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="com_art" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/com_art.gif"> <a href="http://blog.51cto.com/artcommend" target="_blank"><b>51CTO推荐博文</b></a></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+	<li><a href="http://leelei.blog.51cto.com/856755/320779" title="Asp.net MVC2 初探" target="_blank">Asp.net MVC2 初探</a></li>
+<li><a href="http://devbean.blog.51cto.com/448512/319479" title="Qt学习之路：创建shared library" target="_blank">Qt学习之路：创建share..</a></li>
+<li><a href="http://lancelot.blog.51cto.com/393579/331636" title="把Swing的Icon转换到SWT的Image" target="_blank">把Swing的Icon转换到SW..</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/330932" title="像说话一样写代码" target="_blank">像说话一样写代码</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/331095" title="Java处理带BOM的文本" target="_blank">Java处理带BOM的文本</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/322932" title="亲手制作山寨版Log4J " target="_blank">亲手制作山寨版Log4J </a></li>
+<li><a href="http://fuhj02.blog.51cto.com/274616/330412" title="解读AzureAppFabric架构:云发挥到极致" target="_blank">解读AzureAppFabric架..</a></li>
+<li><a href="http://bj007.blog.51cto.com/1701577/328884" title="给软件工程师的12条单体测试的建议" target="_blank">给软件工程师的12条单..</a></li>
+<li><a href="http://beniao.blog.51cto.com/389148/330852" title="Silverlight & Blend动画设计系列文章" target="_blank">Silverlight & Blend动..</a></li>
+<li><a href="http://linuxguest.blog.51cto.com/195664/312020" title="多主对一从的Mysql复制的巧实现" target="_blank">多主对一从的Mysql复制..</a></li>
+<li><a href="http://frankxulei.blog.51cto.com/1596834/320328" title="WCF4.0新特性预览及学习资源推荐" target="_blank">WCF4.0新特性预览及学..</a></li>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+
+<div id="flink" class="nouse">
+<div class="t">
+	<div class="rt"></div>
+	<div class="lt"></div>
+		<div class="modHeader"> <img src="http://img1.51cto.com/image/skin/def/flink.gif"> <b>友情链接</b></div>
+</div>
+<div class="l">
+<div class="r">
+<div class="c">
+<div class="side" style="table-layout: fixed;word-wrap:	break-word;">
+	<div class="side_sinfo">
+<div>&nbsp;&nbsp;<a href="http://51ctoblog.blog.51cto.com" title="51CTO博客开发" target="_blank">51CTO博客开发</a></div>
+
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modFrame">
+<div class="modTable"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div id="footer">
+  <div id="innerFooter">
+	<center>
+		<small>
+			Copyright By 51CTO.COM 版权所有<br><br>
+			<a href="http://www.51cto.com" target="_blank"><img src="http://img1.51cto.com/image/skin/1/copyright.jpg"></a>
+	  </small>
+	</center>
+  </div>
+</div>
+<div style="display:none">
+<script src="http://logs.51cto.com/rizhi/count/count.js"></script>
+<iframe frameborder="0" scrolling="no" width="0" height="0" src="http://log.51cto.com/pageview.php?frompos=blog_art"></iframe>
+</div>
+</body>
+</html>

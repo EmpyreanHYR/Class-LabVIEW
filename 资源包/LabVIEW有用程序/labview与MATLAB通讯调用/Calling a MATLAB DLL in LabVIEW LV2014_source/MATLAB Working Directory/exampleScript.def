@@ -1,0 +1,9 @@
+LIBRARY exampleScript
+EXPORTS
+exampleScriptInitialize
+exampleScriptInitializeWithHandlers
+exampleScriptTerminate
+exampleScriptPrintStackTrace
+mlxExampleScript
+mlfExampleScript
+

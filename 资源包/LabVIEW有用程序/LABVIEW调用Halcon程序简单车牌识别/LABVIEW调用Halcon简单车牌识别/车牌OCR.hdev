@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="711165872">
+<procedure name="main">
+<interface/>
+<body>
+<l>dev_update_off ( )</l>
+<l>dev_close_window ( )</l>
+<l>dev_open_window (0, 0, 512, 512, 'black', WindowHandle)</l>
+<c></c>
+<c></c>
+<l>read_image (Timg, 'D:/Halcon/车牌识别/timg.jpg')</l>
+<l>decompose3 (Timg, Image1, Image2, Image3)</l>
+<l>trans_from_rgb (Image1, Image2, Image3, ImageResult1, ImageResult2, ImageResult3, 'hsv')</l>
+<l>threshold (ImageResult2, Regions, 170, 255)</l>
+<l>opening_rectangle1 (Regions, RegionOpening, 6, 6)</l>
+<l>fill_up (RegionOpening, RegionFillUp)</l>
+<l>connection (RegionFillUp, ConnectedRegions)</l>
+<l>shape_trans (ConnectedRegions, RegionTrans, 'convex')</l>
+<c></c>
+<l>select_shape (RegionTrans, SelectedRegions, 'area', 'and', 64792.1, 193810)</l>
+<c></c>
+<l>orientation_region (SelectedRegions, Phi)</l>
+<l>area_center (SelectedRegions, Area, Row, Column)</l>
+<l>vector_angle_to_rigid (Row, Column, Phi, Row, Column, 0, HomMat2D)</l>
+<l>affine_trans_image (Timg, ImageAffinTrans, HomMat2D, 'constant', 'false')</l>
+<l>affine_trans_region (SelectedRegions, RegionAffineTrans, HomMat2D, 'false')</l>
+<l>reduce_domain (ImageAffinTrans, RegionAffineTrans, ImageReduced)</l>
+<l>rgb1_to_gray (ImageReduced, GrayImage)</l>
+<l>invert_image (GrayImage, ImageInvert)</l>
+<l>threshold (GrayImage, Regions1, 142, 255)</l>
+<l>connection (Regions1, ConnectedRegions1)</l>
+<c></c>
+<l>select_shape (ConnectedRegions1, SelectedRegions1, ['area','column'], 'and', [3524.76,578.36], [5041,1183.25])</l>
+<c></c>
+<l>sort_region (SelectedRegions1, SortedRegions, 'character' , 'true', 'column')</l>
+<l>read_ocr_class_mlp ('Industrial_0-9A-Z.omc', OCRHandle)</l>
+<l>do_ocr_multi_class_mlp (SortedRegions, ImageInvert, OCRHandle, Class, Confidence)</l>
+<l>dev_update_off ( )</l>
+<l>dev_display (Timg)</l>
+<l>dev_display (SortedRegions)</l>
+<l>dev_set_color ('red')</l>
+<c></c>
+<l>*disp_message (3600, '当前车牌为：', 'image', (Row+500), Column-300, 'black', 'true')</l>
+<l>for Index := 1 to 6 by 1</l>
+<l>*disp_message (3600, Class[Index-1], 'image', (Row+500), (Column+(Index*60)), 'black', 'true')</l>
+<l>endfor</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

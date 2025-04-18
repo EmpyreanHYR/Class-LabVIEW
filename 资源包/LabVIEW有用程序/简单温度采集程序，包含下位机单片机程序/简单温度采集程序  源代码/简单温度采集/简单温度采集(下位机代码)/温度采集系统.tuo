@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<TKStudioOptions Version="3.00" Author="YinHandong[Òüº®¶¬]">
+    <Projects OPTPES="98,96,0,96,0,0,0,0,">
+        <Project ProjectGUID="{2ADF219A-6A20-4171-88DC-F379997DC65C}" Name="ÎÂ¶È²É¼¯ÏµÍ³" ACTCFG="DebugRel">
+            <TARGOPT Name="DebugRel" OPTDF="1">
+                <OPTFFF VAL="&lt;.\inc\ds18b20\ds18b20.c&gt; {2,3,-1,-1,200,200,1221,672,12,1490}" />
+                <OPTFFF VAL="&lt;.\source\main.c&gt; {0,1,-1,-1,200,200,1221,672,30,548}" />
+                <OPTFFF VAL="&lt;.\inc\ds18b20\ds18b20.h&gt; {0,1,-1,-1,200,200,1221,672,0,142}" />
+                <OPTFFF VAL="&lt;.\inc\uart\serial.c&gt; {0,1,-1,-1,200,200,1221,672,29,327}" />
+                <OPTWA VAL="0,1,(receive)" />
+            </TARGOPT>
+        </Project>
+    </Projects>
+</TKStudioOptions>

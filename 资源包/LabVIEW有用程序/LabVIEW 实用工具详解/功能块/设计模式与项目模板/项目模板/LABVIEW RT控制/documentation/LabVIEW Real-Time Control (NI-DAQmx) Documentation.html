@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=GB2312">
+<title>LabVIEW实时控制(NI-DAQmx)</title>
+<style>
+
+<!--
+
+/***************************************************/
+
+/* MINIMAL STYLES */
+
+/* The following section defines styles that every HTML Help project should need. */
+
+
+
+/* Specifies White Background color */
+
+body {background-color:#FFFFFF; font-family:Verdana, sans-serif; font-size:8pt; color: #000000;}
+
+
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+
+P { margin-top:6.00pt; margin-bottom:6.00pt;}
+
+
+
+BR { font-size:4.00pt; }
+
+
+
+/* Use H1 for all topic headings. */
+
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-size:150%; font-weight:bold;  }
+
+
+
+/* Use H2 for second-level headings. */
+
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-size:125%; font-weight:bold;  }
+
+
+
+/* Use H3 for third-level headings. */
+
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use H4 for fourth-level headings. */
+
+H4 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+
+H5 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+H6 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use the Body style class for normal paragraphs. */
+
+P.Body {  }
+
+
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+
+P.Anchor { font-size:125%;  }
+
+
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+
+P.Indent1 { margin-left:12.00pt; margin-bottom:3.00pt;  }
+
+P.Indent2 { margin-left:24.00pt; margin-bottom:3.00pt;  }
+
+P.Indent3 { margin-left:36.00pt; margin-bottom:3.00pt;  }
+
+P.Indent4 { margin-left:48.00pt; margin-bottom:3.00pt;  }
+
+P.Indent5 { margin-left:60.00pt; margin-bottom:3.00pt;  }
+
+
+
+/* Use the LI style for all list items. */
+
+LI { margin-top:3.00pt; margin-bottom:3.00pt; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+
+OL { margin-left:22.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+
+ol ol {list-style-type:lower-alpha}
+
+ol ol ol {list-style-type:decimal}
+
+ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+
+OL.EquationNum { margin-left:36.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+
+OL.List-abc { margin-left:22.00pt; text-indent:0pt; list-style-type:lower-alpha; }
+
+
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+
+UL { margin-left:22.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; list-style-type: disc; }
+
+
+
+/* Use the UL style for bulleted lists. Nested lists will use the bullet types according to the nesting scheme below. */
+
+ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul ul ul ul{list-style-image: none;list-style-type: circle}
+
+
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+
+UL.List-Box { list-style-image: none;list-style-type: square}
+
+
+
+Table { font-size:100%; }
+
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+
+Table.Borderless { border:none; }
+
+
+
+/* Use the Bordered style class for tables that need borders. */
+
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+
+TD { vertical-align:top; padding:3px; }
+
+
+
+/* Use the Bordered style class for table headings and cells in Bordered or Bordered-Wide tables. */
+
+.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; }
+
+
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+
+TD.Icon { width:40px; }
+
+
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+
+TH { font-weight:bold; padding:3px; }
+
+
+
+/* Use the Left-Align style class for table headings and cells that you want to left align instead of center align. */
+
+.Left-Align { text-align:left; }
+
+
+
+/***************************************************/
+
+/* CHARACTER FORMATS */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* CHARACTER FORMATS Updated to conform with the CSE HTML Validator Pro */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* Use the Dark-Red format for warnings or cautions. */
+
+.Dark-Red { color: #800000 }
+
+
+
+/* Use the Monospace format for code or syntax examples. */
+
+.Monospace { font-family: Courier New; font-size: 100%; }
+
+
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+
+.Monospace-Bold { font-family: Courier New; font-weight: bold; font-size: 100%; }
+
+
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+
+.Monospace-Italic { font-family: Courier New; font-style: italic; font-size: 100%; }
+
+
+
+/* small class */
+
+.smallFont { font-size:87.5%; }
+
+
+
+/* Bold class */
+
+.Bold { font-weight: bold; }
+
+
+
+/* Italic class */
+
+.Italic { font-style: italic; }
+
+
+
+/* Use the Platform format to denote a specific platform. */
+
+.Platform { color: #0000FF; font-weight: bold; }
+
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+
+.Symbol { font-family: Symbol; }
+
+
+
+/* Use the Red-text format to call attention to text that needs  information added or edited by techcomm */
+
+.Red-text {color: #FF0000;}
+
+
+
+/* Use the Green-Underline format for the green defintion in the conventions topic */
+
+.Green-Underline {color: #007700; text-decoration : underline;}
+
+
+
+/* Use the glossButton format for the glossary buttons used in the glossary topic */
+
+.glossButton { font-size:12px; color:black; }
+
+
+
+/* Use for text sections and hyphenated words that should not break at line wraps */
+
+.nobreak{white-space:nowrap}
+
+
+
+/* Use for template instructions. */
+
+.instructions{color:red; font-style:italic}
+
+
+
+/*Use for words and text sections that do not need to be localized */
+
+.DNL { }
+
+
+
+/* The following styles define the color of links. */
+
+a:link { color: #007700 }
+
+a:visited { color: #7F007F }
+
+a:link:hover { color: #FF0000 }
+
+a:link:active { color: #FF0000 }
+
+
+
+/***************************************************
+
+** Forms */
+
+
+
+form { margin-top:0pt; margin-bottom:3pt; color:black; }
+
+select { font-size:100%; color:black; }
+
+
+
+/*******************************************************
+
+** Margins **
+
+** Use these styles for block-level elements inside tables cells or list items where you do not want extra padding at the top or bottom of a cell. */
+
+.noTopMargin { margin-top:0pt;}
+
+.noBottomMargin { margin-bottom:0pt;}
+
+
+
+/***************************************************
+
+** CODE STYLES **
+
+** The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+-->
+</style>
+<script type="text/javascript"> // define hyperlinks and function for launching a URL in a browser
+
+var L_case_structure = "http://digital.ni.com/express.nsf/bycode/ex746bzhs";
+var L_while_loops = "http://digital.ni.com/express.nsf/bycode/ext9fgzhs";
+var L_shift_registers = "http://digital.ni.com/express.nsf/bycode/exar5kzhs";
+var L_enums = "http://digital.ni.com/express.nsf/bycode/ex3zj7zhs";
+var L_typedefs = "http://digital.ni.com/express.nsf/bycode/exicszzhs";
+var L_event_structures = "http://digital.ni.com/express.nsf/bycode/exfjrpzhs";
+var L_value_change_events = "http://digital.ni.com/express.nsf/bycode/exb2cbzhs";
+var L_error_handling = "http://digital.ni.com/express.nsf/bycode/exfbp3zhs";
+var L_clusters = "http://digital.ni.com/express.nsf/bycode/exwemqzhs";
+var L_control_refnums = "http://digital.ni.com/express.nsf/bycode/exend6zhs";
+var L_parallel = "http://digital.ni.com/express.nsf/bycode/exxaf6zhs";
+var L_PC = "http://digital.ni.com/express.nsf/bycode/exbfny";
+var L_state_machines = "http://digital.ni.com/express.nsf/bycode/ex85gn";
+var L_user_events = "http://digital.ni.com/express.nsf/bycode/exgpivzhs";
+var L_queues = "http://digital.ni.com/express.nsf/bycode/exkpzt";
+var L_fxp = "http://digital.ni.com/express.nsf/bycode/ex3j5gzhs";
+var L_flat_sequence = "http://digital.ni.com/express.nsf/bycode/exxniizhs";
+var L_feedback = "http://digital.ni.com/express.nsf/bycode/exc5mrzhs";
+var L_global_var = "http://digital.ni.com/express.nsf/bycode/exjuwvzhs";
+var L_libraries = "http://digital.ni.com/express.nsf/bycode/exge57zhs";
+var L_np_sv = "http://digital.ni.com/express.nsf/bycode/ex64tbzhs";
+var L_network_streams = "http://digital.ni.com/express.nsf/bycode/ex64ktzhs";
+var L_qmh = "http://digital.ni.com/express.nsf/bycode/LVqueuedmsgzhs";
+var L_sv_api = "http://digital.ni.com/express.nsf/bycode/exfe6pzhs";
+var L_ssm = "http://digital.ni.com/express.nsf/bycode/LVstatemachinezhs";
+var L_schema = "http://digital.ni.com/express.nsf/bycode/exwf6izhs";
+var L_functional = "http://digital.ni.com/express.nsf/bycode/exi86dzhs";
+var L_sys_config = "http://digital.ni.com/express.nsf/bycode/exkaxa";
+var L_timedloops = "http://digital.ni.com/express.nsf/bycode/exrt53zhs";
+var L_nidaqmx = "http://digital.ni.com/express.nsf/bycode/exuvh9";
+var L_trademarks = "http://digital.ni.com/express.nsf/bycode/rdtrad";
+var L_patents = "http://digital.ni.com/express.nsf/bycode/rdlv17";
+var L_walkthrough = "http://digital.ni.com/express.nsf/bycode/DW_RTRIOzhs";
+
+function WWW(url) 
+	{
+	var urlWindow;
+	urlWindow = window.open(url, "New", "directories=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes");
+	}
+</script>
+
+</HEAD>
+<body>
+
+<h1>LabVIEW实时控制(NI-DAQmx)</h1>
+
+
+<p class="Body">LabVIEW实时控制(NI-DAQmx)范例项目使用NI-DAQmx代码实现确定性的、基于软件的设备控制。控制算法在实时控制器上运行。控制器从DAQ输入通道读取数据并写入数据至DAQ输出通道。通过运行在台式机上的用户界面发送命令和设置点更改至控制算法。实时控制器还用于监视应用的状态，例如，CPU负载和内存使用量。</p>
+<p class="Body">该范例项目是基于&#8220;简单状态机&#8221;和&#8220;队列消息处理器&#8221;模板。关于模板工作的详细信息，可通过<strong>新建项目</strong>对话框获取&#8220;简单状态机&#8221;和&#8220;队列消息处理器&#8221;模板及文档。</p>
+
+<h2>功能</h2>
+
+<ul>
+	<li>确定性和基于软件的控制－实时控制器在超过1 kHz的频率下执行控制算法。</li>
+	<li>用户界面－用户界面VI与实时控制器交互并显示控制循环的数据。该VI可随时连接或断开与设备的连接，且不会影响控制循环。</li>
+	<li>错误处理－应用报告并记录实时控制器的全部错误。设备在遇到关键性错误时将关闭。</li>
+</ul>
+<h2>开发者概览</h2>
+<p class="Body">关于LabVIEW实时范例项目的开发者概览，见<a href="javascript:WWW(L_walkthrough)">ni.com</a>。</p>
+<a name="system_req"></a><h2>系统要求</h2>
+<h3>开发系统</h3>
+<ul>
+	<li>LabVIEW完整版或专业版开发系统</li>
+	<li>LabVIEW Real-Time模块</li>
+	<li>NI-DAQmx设备驱动程序软件</li>
+</ul>
+
+<h3>Real-Time终端。（例如，带有实时控制器的NI PXI机箱）</h3>
+<ul>
+	<li>软件：
+		<ul>
+			<li>LabVIEW Real-Time</li>
+			<li>网络流</li>
+			<li>网络变量引擎</li>
+			<li>NI系统配置</li>
+			<li>NI-DAQmx</li>
+			<li>NI-Watchdog</li>
+	</ul>
+	</li>
+	<li>硬件：DAQ设备范例项目设计用于带有至少4个模拟输入通道和4个模拟输出通道的NI PXI DAQ设备。例如，NI PXIe-6363。</li>
+</ul>
+
+<h2>概述</h2>
+
+<img src="loc_rt_control_daqmx.gif" border="1">
+
+<p class="Body">范例项目由跨2个执行终端的8个并行循环组成。下列循环在台式机上并行运行：</p>
+<ul>
+	<li>处理用户界面事件（UI Main.vi - 事件处理循环)－根据前面板事件生成发送至&#8220;UI消息循环&#8221;的消息。</li>
+	<li>处理用户界面和实时控制器信息（UI Main.vi - UI消息循环）－使用网络流接收和响应来自事件处理循环和RT消息处理循环的消息。</li>
+	<li>显示来自实时控制器的消息和数据（UI Main.vi - 监控循环）－显示RT循环采集到的信息的最新值－System Health and FPGA Monitoring.vi</li>
+</ul>	
+
+<p class="Body">下列循环在实时控制器上并行运行：</p>
+<ul>
+	<li>控制设备（RT循环 - RSI Control.vi）读取DAQ输入通道、对每个通道应用控制算法并写入DAQ输出通道。控制算法使用设定点数据和发送自用户界面的PID增益。</li>
+	<li>处理来自用户界面的命令（RT循环- UI Commands.vi）－使用网络流读取发送自UI Main.vi的命令，并生成相应的消息。</li>
+	<li>处理来自实时控制器的全部循环的消息（RT Main.vi - 消息处理循环）－处理运行在实时控制器上的所有循环的消息。</li>
+	<li>确保RT控制器保持响应（RT循环－Watchdog.vi）－发送信号至看门狗，确保RT控制器保持响应。</li>
+	<li>监视实时控制器的诊断信息（RT循环－System Health and Monitoring.vi）－监控实时控制器的CPU和内存使用量及控制算法信息。该信息被写入网络发布的共享变量并出现在UI Main.vi的<strong>数据监控</strong>和<strong>系统监控</strong>选项卡。</li>
+	
+</ul>	
+
+<h2>运行范例项目</h2>
+<ol>
+	<li>确保全部设备均已配置并与开发计算机连至同一网络。</li>
+	<li>在<strong>项目浏览器</strong>窗口中，添加或找到RT终端至顶层项目项。</li>
+	<li>将默认RT终端中的下列项目项拖曳至在步骤2中添加的终端：
+	<ul>
+		<li>Error Handlers文件夹</li>
+		<li>Globals文件夹</li>
+		<li>RT Loops文件夹</li>
+		<li>Support VIs文件夹</li>
+		<li>Type Definitions文件夹</li>
+		<li>Deterministic Loop Variables.lvlib</li>
+		<li>Shared Variables.lvlib</li>	
+		<li>RT Main.vi</li>	
+	</ul>	
+	</li>
+	<li>删除不再具有关联VI的默认RT终端项目项。</li>
+	<li>自定义下列位置的代码，以与DAQ设备进行通信：
+		<ul>
+			<li>DAQ Close.vi</li>
+			<li>DAQ Initialize.vi</li>
+			<li>DAQ Read.vi</li>
+			<li>DAQ Write Safe Outputs.vi</li>
+			<li>DAQ Write.vi</li>
+			<li>DAQ Tasks.ctl</li>
+		</ul>
+	</li>
+	<li>在<strong>项目浏览器</strong>窗口，运行<strong>RT PXI终端&raquo; Main.vi</strong>。该VI部署程序至DAQ设备。<strong>RT Main.vi</strong>现在运行在目标设备中。</li>
+	<li>打开并运行<strong>我的电脑&raquo;UI Main.vi</strong>。</li>
+	<li>在<strong>控制器地址</strong>文本框中输入RT控制器的IP地址，并单击<strong>连接</strong>。</li>
+	<li>连接设备后，单击<strong>运行控制</strong>（位于<strong>控制设置</strong>页面）或<strong>运行手动</strong>（位于<strong>手动设置</strong>页面）。</li>
+	<li>按照需求调整通道的值并查看<strong>数据监控</strong>页面的输出。直至<a href="#define_control">定义控制算法</a>前，全部<strong>控制输出值</strong>将读取0。</li>
+</ol>
+
+<h2>修改范例项目</h2>
+
+<a name="define_control"></a><h3>定义控件算法</h3>
+<p class="Body">在RT循环中找到条件结构的控制(PID)子框图－DAQ Control.vi，更改子框图以应用控制算法。例如，可使用包含在NI LabVIEW PID &amp; Fuzzy Logic工具包内的PID VI。默认情况下，该算法在全部输出通道上返回常量值0。在各个通道上可执行不同的算法。</p>
+
+<p class="Body">尽管范例项目设计用于执行PID算法，但可修改范例项目以使用任意算法。</p>
+
+<a name="define_safe_state"></a><h3>定义连接至DAQ设备的硬件的安全值</h3>
+<p class="Body">全局<strong>安全输出值</strong>－Configuration Options.vi，定义连接至DAQ设备输出通道的硬件的理论安全值。RT循环中条件结构的默认子框图（安全状态）－DAQ Control.vi写入该值至全部DAQ输出通道。默认情况下，安全状态的值为0。</p>
+
+<h3>配置应用</h3>
+<p class="Body">在<strong>项目浏览器</strong>窗口，打开<strong>我的电脑&raquo;Globals&raquo;Global - Configuration Options.vi</strong>并配置范例项目的设置。</p>
+
+<h2>涉及的LabVIEW功能和概念</h2>
+
+<ul>
+	<li><a href="javascript:WWW(L_case_structure)">条件结构</a></li>
+	<li><a href="javascript:WWW(L_clusters)">簇</a></li>
+	<li><a href="javascript:WWW(L_control_refnums)">控件引用句柄</a></li>
+	<li><a href="javascript:WWW(L_enums)">枚举型</a></li>
+	<li><a href="javascript:WWW(L_error_handling)">错误簇</a></li>
+	<li><a href="javascript:WWW(L_event_structures)">事件结构</a></li>
+	<li><a href="javascript:WWW(L_feedback)">反馈节点</a></li>
+	<li><a href="javascript:WWW(L_flat_sequence)">平铺式顺序结构</a></li>
+	<li><a href="javascript:WWW(L_functional)">功能全局变量</a></li>
+	<li><a href="javascript:WWW(L_global_var)">全局变量</a></li>
+	<li><a href="javascript:WWW(L_schema)">LabVIEW模式VI和函数</a></li>
+	<li><a href="javascript:WWW(L_np_sv)">网络发布共享变量</a></li>
+	<li><a href="javascript:WWW(L_network_streams)">网络流</a></li>
+	<li><a href="javascript:WWW(L_nidaqmx)">NI-DAQmx</a> VI</li>
+	<li><a href="javascript:WWW(L_parallel)">并行</a></li>
+	<li><a href="javascript:WWW(L_PC)">生产者/消费者设计模式</a></li>
+	<li><a href="javascript:WWW(L_libraries)">项目库</a></li>
+	<li><a href="javascript:WWW(L_qmh)">队列消息处理器模板</a></li>
+	<li><a href="javascript:WWW(L_queues)">队列</a></li>
+	<li><a href="javascript:WWW(L_sv_api)">共享变量节点、VI和函数</a></li>
+	<li><a href="javascript:WWW(L_shift_registers)">移位寄存器</a></li>
+	<li><a href="javascript:WWW(L_ssm)">简单状态机模板</a></li>
+	<li><a href="javascript:WWW(L_state_machines)">状态机</a></li>
+	<li><a href="javascript:WWW(L_sys_config)">系统配置</a> VI</li>
+	<li><a href="javascript:WWW(L_timedloops)">定时循环</a></li>
+	<li><a href="javascript:WWW(L_typedefs)">自定义类型</a></li>
+	<li><a href="javascript:WWW(L_value_change_events)">值改变事件</a></li>
+	<li><a href="javascript:WWW(L_user_events)">用户事件</a></li>
+	<li><a href="javascript:WWW(L_while_loops)">While循环</a></li>
+</ul>
+
+<hr>
+<h2>重要信息</h2>
+<!--Copyright-->
+<p class="Body"><strong>版权</strong></p>
+<p class="Body">&copy; 2013 National Instruments.版权所有</p>
+
+<p class="Body">根据版权法，未经National Instruments公司事先书面同意，本发行物不得以任何形式（包括电子或机械形式）进行全部或部分复制或传播，包括影印、录制、储存于任何信息检索系统中，以及翻译。</p>
+
+<p class="Body">National Instruments公司尊重他方的知识产权，也恳请用户能给予我们同样的尊重。NI软件受版权法及其他知识产权法的保护。在将NI软件用于复制为他方所有的软件或其他资料的任何场合，NI软件仅可用于在符合许可证或其他法律限制的情况下复制上述资料。</p>
+
+<p class="Body"><strong>最终用户许可协议和第三方法律声明</strong></p>
+<p class="Body">可在下列位置找到最终用户许可协议(EULA)和第三方法律声明：</p>
+<ul>
+<li><span class="Monospace">&lt;National Instruments&gt;\_Legal Information</span>和<span class="Monospace">&lt;National Instruments&gt;</span>目录下有法律声明。</li> 
+<li>EULA位于<span class="Monospace">&lt;National Instruments&gt;\Shared\MDF\Legal\license</span>目录下。</li>
+<li>如需使NI产品生成的安装程序中包含法律相关信息，请参考<span class="Monospace">&lt;National Instruments&gt;\_Legal Information.txt</span>。</li>
+</ul>
+
+<!--Trademarks-->
+<p class="Body"><strong>商标</strong></p>
+
+<p class="Body"><span class="DNL">LabVIEW</span>、<span class="DNL">National Instruments</span>、<span class="DNL">NI</span>、<span class="DNL">ni.com</span>、<span class="DNL">National Instruments</span>、公司标识，以及鹰形标识均为<span class="DNL">National Instruments Corporation</span>的商标。关于其他<a href="javascript:WWW(L_trademarks)"><span class="DNL">National Instruments</span> 商标</a>.，请访问<span class="Monospace">ni.com/trademarks</span>，参考<em><span class="DNL">Trademark Information</span></em>。 </p>
+
+<p class="Body">此处提及的其他产品和公司名称均为其各自公司的商标或商业名称。</p>
+
+<!--Patents-->
+<p class="Body"><strong>专利权</strong></p>
+<p class="Body">关于NI产品和技术的专利权，请查看软件中的<strong>帮助&raquo;专利信息</strong>、光盘中的<span class="Monospace">patents.txt</span>文件或<span class="Monospace">ni.com/patents</span>上的<a href="javascript:WWW(L_patents)">National Instruments Patent Notice</a>。</p>
+</body>
+</html>

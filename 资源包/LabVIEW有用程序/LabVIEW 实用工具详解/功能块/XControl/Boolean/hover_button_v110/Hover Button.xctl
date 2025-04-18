@@ -1,0 +1,88 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="12008004">
+	<Property Name="NI.Lib.Description" Type="Str">&lt;B&gt;Version 1.0.0.0&lt;/B&gt;
+
+This Xcontrol gives a Boolean button functionality that makes it behave as a Hover Button.  When the mouse is 'hovering' over the button, the appearance of the button changes to indicate that fact.
+
+On/Off colors can be defined in addition to the Hovering/not Hovering colors.
+
+On/Off text can be defined in addtion to the Boolean text color for the Hovering/not Hovering cases.
+
+All properties that can be set for the Hover button can also be changed programmatically with the set of defined property nodes.
+
+Button Text property - Read/Write the Boolean text that will appear on the button.
+Button Colors property - Read/Write the button colors when the mouse is not hovering
+Hover Colors property - Read/Write the button colors when the mouse is hovering
+Multiple Strings - Read/Write whether the On/Off boolean text is different.  If FALSE the OFF text is used for both ON/OFF
+Show Boolean Text property - Read/Write whether the Boolean text is visible on the button
+
+&lt;B&gt;Version 1.1.0.0&lt;/B&gt;
+
+Added Font properties to the Hover Button properties window and also added a property node too.</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%A#!"!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(Z!!!*Q(C=\&gt;4"=&gt;MQ%!81N3?(8.6"2CVM#WJ",7Q,OPKI&amp;L9&amp;N;!7NA7VI";=*RL/-&lt;YY%R]-?C8K!Q3?11YDNP9TYE?]@N3?`^K__\`\P`O`=P](T8PAZ=."`\B&amp;0-8D2;2'N3K6]?B[(@H)2T\SE9_]Z3VP?=N&lt;XP+3F\TE*3^ZS6/?]J3H0/5JXQZZS%-?=LMS&amp;B],D5H("'-Q3IS0Y2G?Y2E?0W.YBG&gt;YBG&gt;Y$)HB':\B':\B=6E-T`!-T`!-D[EWS7S(H'&gt;Y4"`.UTT.UTT.9]FIHA:IC\7*WS19U4L&lt;3@-U4`-YD?:JHO:JHO&lt;2(=X40-X40-XDEGV8?N-]$DG0;;*YCK&gt;YCK&gt;Y4"X&amp;5TT&amp;5TT&amp;9\EIHO)JC,*AG2QBSE6F10F20-8D+YKH?)KH?)J(VX;(;NO:B_:RS(G3*XG3*XG3RR320-G40-G40+;.Z%G?Z%G?Z,&amp;5*%`S*%_#J%5N(WGS&gt;'%;F),E]&lt;=^,&lt;H&gt;J&gt;YEO2U2[_'.^6$'?NBC053R(IZ9.TX7T9RVEW*N@KR.D&lt;6:M49BVD]8#RU,%WO27"=`"M&lt;&gt;ZUV&gt;V57&gt;V5E&gt;V5(NV?ZR[3=0P.`P=&lt;P&gt;YHK^RO6SC@0Z(+@4+9\(9RQ/B^DP^\(&lt;\?+^`8+]N;@X^^+,]`^2&lt;__FL`"OD/&gt;Y_`[T2\]"D:H_&lt;!!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">302022660</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.1.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Color Select.ctl" Type="VI" URL="../Color Select.ctl"/>
+	<Item Name="Button Colors.ctl" Type="VI" URL="../Button Colors.ctl"/>
+	<Item Name="Font Properties.ctl" Type="VI" URL="../Font Properties.ctl"/>
+	<Item Name="Data.ctl" Type="Ability VI" URL="../Data.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="State.ctl" Type="Ability VI" URL="../State.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="Facade.vi" Type="Ability VI" URL="../Facade.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="Init.vi" Type="Ability VI" URL="../Init.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="Select Colors.vi" Type="VI" URL="../Select Colors.vi"/>
+	<Item Name="Button Appearance Properties.vi" Type="VI" URL="../Button Appearance Properties.vi"/>
+	<Item Name="Configure Colors.vi" Type="VI" URL="../Configure Colors.vi"/>
+	<Item Name="Configure Text.vi" Type="VI" URL="../Configure Text.vi"/>
+	<Item Name="Get Font List.vi" Type="VI" URL="../Get Font List.vi"/>
+	<Item Name="Button Text" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Button Text</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Button Text</Property>
+		<Item Name="Button Text Read.vi" Type="Property VI" URL="../Button Text Read.vi"/>
+		<Item Name="Button Text Write.vi" Type="Property VI" URL="../Button Text Write.vi"/>
+	</Item>
+	<Item Name="Button Colors" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Button Colors</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Button Colors</Property>
+		<Item Name="Button Colors Read.vi" Type="Property VI" URL="../Button Colors Read.vi"/>
+		<Item Name="Button Colors Write.vi" Type="Property VI" URL="../Button Colors Write.vi"/>
+	</Item>
+	<Item Name="Hover Colors" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Hover Colors</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Hover Colors</Property>
+		<Item Name="Hover Colors Read.vi" Type="Property VI" URL="../Hover Colors Read.vi"/>
+		<Item Name="Hover Colors Write.vi" Type="Property VI" URL="../Hover Colors Write.vi"/>
+	</Item>
+	<Item Name="Multiple Strings" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Multiple Strings</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Multiple Strings</Property>
+		<Item Name="Multiple Strings Read.vi" Type="Property VI" URL="../Multiple Strings Read.vi"/>
+		<Item Name="Multiple Strings Write.vi" Type="Property VI" URL="../Multiple Strings Write.vi"/>
+	</Item>
+	<Item Name="Show Boolean Text" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Show Boolean Text</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Show Boolean Text</Property>
+		<Item Name="Show Boolean Text Read.vi" Type="Property VI" URL="../Show Boolean Text Read.vi"/>
+		<Item Name="Show Boolean Text Write.vi" Type="Property VI" URL="../Show Boolean Text Write.vi"/>
+	</Item>
+	<Item Name="Font" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Font</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Font</Property>
+		<Item Name="Font Read.vi" Type="Property VI" URL="../Font Read.vi"/>
+		<Item Name="Font Write.vi" Type="Property VI" URL="../Font Write.vi"/>
+	</Item>
+</XControl>

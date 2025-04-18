@@ -1,0 +1,721 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=GB2312">
+<title>队列消息处理器</title>
+<style>
+
+<!--
+
+/***************************************************/
+
+/* MINIMAL STYLES */
+
+/* The following section defines styles that every HTML Help project should need. */
+
+
+
+/* Specifies White Background color */
+
+body {background-color:#FFFFFF; font-family:Verdana, sans-serif; font-size:8pt; color: #000000;}
+
+
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+
+P { margin-top:6.00pt; margin-bottom:6.00pt;}
+
+
+
+BR { font-size:4.00pt; }
+
+
+
+/* Use H1 for all topic headings. */
+
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-size:150%; font-weight:bold;  }
+
+
+
+/* Use H2 for second-level headings. */
+
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-size:125%; font-weight:bold;  }
+
+
+
+/* Use H3 for third-level headings. */
+
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use H4 for fourth-level headings. */
+
+H4 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+
+H5 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+H6 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use the Body style class for normal paragraphs. */
+
+P.Body {  }
+
+
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+
+P.Anchor { font-size:125%;  }
+
+
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+
+P.Indent1 { margin-left:12.00pt; margin-bottom:3.00pt;  }
+
+P.Indent2 { margin-left:24.00pt; margin-bottom:3.00pt;  }
+
+P.Indent3 { margin-left:36.00pt; margin-bottom:3.00pt;  }
+
+P.Indent4 { margin-left:48.00pt; margin-bottom:3.00pt;  }
+
+P.Indent5 { margin-left:60.00pt; margin-bottom:3.00pt;  }
+
+
+
+/* Use the LI style for all list items. */
+
+LI { margin-top:3.00pt; margin-bottom:3.00pt; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+
+OL { margin-left:22.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+
+ol ol {list-style-type:lower-alpha}
+
+ol ol ol {list-style-type:decimal}
+
+ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+
+OL.EquationNum { margin-left:36.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+
+OL.List-abc { margin-left:22.00pt; text-indent:0pt; list-style-type:lower-alpha; }
+
+
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+
+UL { margin-left:22.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; list-style-type: disc; }
+
+
+
+/* Use the UL style for bulleted lists. Nested lists will use the bullet types according to the nesting scheme below. */
+
+ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul ul ul ul{list-style-image: none;list-style-type: circle}
+
+
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+
+UL.List-Box { list-style-image: none;list-style-type: square}
+
+
+
+Table { font-size:100%; }
+
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+
+Table.Borderless { border:none; }
+
+
+
+/* Use the Bordered style class for tables that need borders. */
+
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+
+TD { vertical-align:top; padding:3px; }
+
+
+
+/* Use the Bordered style class for table headings and cells in Bordered or Bordered-Wide tables. */
+
+.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; }
+
+
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+
+TD.Icon { width:40px; }
+
+
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+
+TH { font-weight:bold; padding:3px; }
+
+
+
+/* Use the Left-Align style class for table headings and cells that you want to left align instead of center align. */
+
+.Left-Align { text-align:left; }
+
+
+
+/***************************************************/
+
+/* CHARACTER FORMATS */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* CHARACTER FORMATS Updated to conform with the CSE HTML Validator Pro */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* Use the Dark-Red format for warnings or cautions. */
+
+.Dark-Red { color: #800000 }
+
+
+
+/* Use the Monospace format for code or syntax examples. */
+
+.Monospace { font-family: Courier New; font-size: 100%; }
+
+
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+
+.Monospace-Bold { font-family: Courier New; font-weight: bold; font-size: 100%; }
+
+
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+
+.Monospace-Italic { font-family: Courier New; font-style: italic; font-size: 100%; }
+
+
+
+/* small class */
+
+.smallFont { font-size:87.5%; }
+
+
+
+/* Bold class */
+
+.Bold { font-weight: bold; }
+
+
+
+/* Italic class */
+
+.Italic { font-style: italic; }
+
+
+
+/* Use the Platform format to denote a specific platform. */
+
+.Platform { color: #0000FF; font-weight: bold; }
+
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+
+.Symbol { font-family: Symbol; }
+
+
+
+/* Use the Red-text format to call attention to text that needs  information added or edited by techcomm */
+
+.Red-text {color: #FF0000;}
+
+
+
+/* Use the Green-Underline format for the green defintion in the conventions topic */
+
+.Green-Underline {color: #007700; text-decoration : underline;}
+
+
+
+/* Use the glossButton format for the glossary buttons used in the glossary topic */
+
+.glossButton { font-size:12px; color:black; }
+
+
+
+/* Use for text sections and hyphenated words that should not break at line wraps */
+
+.nobreak{white-space:nowrap}
+
+
+
+/* Use for template instructions. */
+
+.instructions{color:red; font-style:italic}
+
+
+
+/*Use for words and text sections that do not need to be localized */
+
+.DNL { }
+
+
+
+/* The following styles define the color of links. */
+
+a:link { color: #007700 }
+
+a:visited { color: #7F007F }
+
+a:link:hover { color: #FF0000 }
+
+a:link:active { color: #FF0000 }
+
+
+
+/***************************************************
+
+** Forms */
+
+
+
+form { margin-top:0pt; margin-bottom:3pt; color:black; }
+
+select { font-size:100%; color:black; }
+
+
+
+/*******************************************************
+
+** Margins **
+
+** Use these styles for block-level elements inside tables cells or list items where you do not want extra padding at the top or bottom of a cell. */
+
+.noTopMargin { margin-top:0pt;}
+
+.noBottomMargin { margin-bottom:0pt;}
+
+
+
+/***************************************************
+
+** CODE STYLES **
+
+** The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+-->
+</style>
+<script type="text/javascript"> // define hyperlinks and function for launching a URL in a browser
+
+var L_case_structure = "http://digital.ni.com/express.nsf/bycode/ex746b2013zhs";
+var L_while_loops = "http://digital.ni.com/express.nsf/bycode/ext9fg2013zhs";
+var L_shift_registers = "http://digital.ni.com/express.nsf/bycode/exar5k2013zhs";
+var L_enums = "http://digital.ni.com/express.nsf/bycode/ex3zj72013zhs";
+var L_typedefs = "http://digital.ni.com/express.nsf/bycode/exicsz2013zhs";
+var L_event_structures = "http://digital.ni.com/express.nsf/bycode/exfjrp2013zhs";
+var L_value_change_events = "http://digital.ni.com/express.nsf/bycode/exb2cb2013zhs";
+var L_error_handling = "http://digital.ni.com/express.nsf/bycode/exfbp32013zhs";
+var L_clusters = "http://digital.ni.com/express.nsf/bycode/exwemq2013zhs";
+var L_control_refnums = "http://digital.ni.com/express.nsf/bycode/exend62013zhs";
+var L_parallel = "http://digital.ni.com/express.nsf/bycode/exxaf62013zhs";
+var L_PC = "http://digital.ni.com/express.nsf/bycode/exbfny";
+var L_state_machines = "http://digital.ni.com/express.nsf/bycode/ex85gn";
+var L_user_events = "http://digital.ni.com/express.nsf/bycode/ex9s6m2013zhs";
+var L_queues = "http://digital.ni.com/express.nsf/bycode/extwnbzhs";
+var L_trademarks = "http://digital.ni.com/express.nsf/bycode/rdtrad";
+var L_patents = "http://digital.ni.com/express.nsf/bycode/rdlv17";
+var L_walkthrough = "http://digital.ni.com/express.nsf/bycode/DW_QMHzhs";
+
+function WWW(url) 
+	{
+	var urlWindow;
+	urlWindow = window.open(url, "New", "directories=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes");
+	}
+</script>
+
+</HEAD>
+<body>
+
+<h1>队列消息处理器</h1>
+<p class="Body">LabVIEW 2013</p>
+
+<p class="Body">&#8220;队列消息处理器(QMH)&#8221;模板便于并行执行多段代码，以及在段与段之间发送数据。每段代码表示一个任务，如采集数据。其设计模式和状态机相似。这种设计模式可以将每个任务分成多个状态。</p>
+
+<p class="Body">QMH模板是生产者/消费者设计模式的一种实现，其中用户界面（生产者）负责生成消息，任务（消费者）负责处理消息。但在QMH模板中，也可从消费者循环生成消息。</p>
+
+<p class="Body">该模板包含一个生产者循环和一个消费者循环。用户可根据需求<a href="#add_task">添加消费者循环</a>。</p>
+
+<h2>范例</h2>
+<p class="Body">关于修改本模板以用于测量应用程序的范例，见<strong>创建项目</strong>对话框中的&#8220;连续测量和记录&#8221;范例项目。</p>
+
+<h2>开发者走查</h2>
+<p class="Body">关于本模板开发者走查的详细信息见<a href="javascript:WWW(L_walkthrough)">ni.com</a>。</p>
+
+<h2>系统要求</h2>
+<p class="body">LabVIEW基础版、完整版或专业版开发系统</p>
+
+<h2>使用条件</h2>
+<p class="Body">OMH模板用于多个任务并行执行的应用程序，且速率通常各不相同。例如，连续采集、记录并显示两个信号（一个RS-232信号和一个模拟信号）的应用程序。这些信号发生的速率各不相同，因此应用程序必须包含两个并行运行的循环。此外，每个循环分为以下状态：</p>
+<ul>
+	<li>初始化数据采集硬件</li>
+	<li>采集数据</li>
+	<li>将采集数据记录至磁盘</li>
+	<li>在波形图表中显示采集到的数据</li>
+	<li>将硬件设置为安全状态</li>
+	<li>停止数据采集并关闭硬件</li>
+</ul>
+
+<p class="Body">该应用程序需要一个交互式用户界面，即应用程序执行其他命令时，用户可以单击按钮。因此，应用程序需要第三个并行循环，用于持续监控前面板事件，例如下列命令：</p>
+<ul>
+	<li>开始RS-232采集</li>
+	<li>停止RS-232采集</li>
+	<li>启用RS-232记录</li>
+	<li>禁用RS-232记录</li>
+	<li>开始模拟数据采集</li>
+	<li>停止模拟数据采集</li>
+	<li>启用模拟数据记录</li>
+	<li>禁用模拟数据记录</li>
+</ul>
+
+<p class="Body">QMH模板提供一个编写此类应用程序的起点。</p>
+
+<h2>概述</h2>  
+
+<img src="loc_queued_message_handler.gif">
+<p class="Body">该模板重复执行下列步骤：</p>
+<ol>
+	<li>用户与前面板交互，导致事件处理循环(EHL)中的事件结构生成一个消息。LabVIEW将消息存储在队列中。</li>
+	<li>消息处理循环(MHL)从消息队列中读取消息，将消息清除。</li>
+	<li>消息本身是一个字符串，匹配MHL条件结构的一个分支。因此，读取消息将执行条件结构中对应的分支。该分支对应于一个消息，因而被称为<em>消息框图</em>。</li>
+	<li>（可选）消息框图生成另一个消息，存储在消息队列中。</li>
+</ol>
+
+<p class="Body">注：</p>
+<ul>
+	<li>EHL为生产者循环。MHL为消费者循环。这两个循环并行运行，且由消息队列连接，便于循环之间进行通信。</li>
+	<li>消息队列是一个LabVIEW队列，存储用于处理的消息。EHL将消息发送至该队列，而非直接发送至MHL。因此，MHL未处理消息时，EHL也可生成消息。每个消息队列属于一个单独的MHL。</li>
+	<li>MHL的每次循环都将读取消息队列中最早的消息，然后执行相应的消息框图。虽然MHL主要负责处理消息，它也可以生成消息。</li>
+	<li>每个循环通过特定的错误处理器子VI处理错误。如队列消息处理器在消息处理循环中遇到错误，则LabVIEW将显示错误消息。</li>
+	<li>应用程序可包含多个MHL。每个MHL对应于应用程序执行的一个任务，如采集或记录数据。</li>
+	<li>注意上面程序框图中的<strong>UI数据</strong>簇。该簇是MHL中每个消息框图可访问和修改的数据。本模板中，该簇被定义为一个自定义类型：UI Data.ctl。每个自定义类型属于一个单独的MHL。</li>
+</ul>
+
+<h2>运行本模板</h2>
+<ol>
+	<li>在<strong>项目浏览器</strong>窗口，打开并运行Main.vi。</li>
+	<li>单击前面板输入控件，观察显示控件<strong>显示</strong>中列出的消息。</li>
+</ol>
+
+<h2>修改本模板</h2>
+
+<h3>确定需求</h3>
+<p class="Body">下表总结了修改本模板时必须作出的设计决定：</p>
+
+<table class="Bordered">
+	<tr class="Bordered">
+		<th class="Bordered">设计决定</th>
+		<th class="Bordered">范例</th>
+		<th class="Bordered">详细信息</th>
+	</tr>
+	<tr class="Bordered">
+		<td class="Bordered">确定待添加的MHL数量。每个MHL定义一个和其他任务并行执行的任务。</td>
+		<td class="Bordered">一个应用程序需要采集数据且并行记录该数据至磁盘。<br><br>该应用程序包含两个任务：数据采集和数据记录。因此，需要使用两个消息处理循环。
+</td>
+		<td class="Bordered"><a href="#add_task">创建消息处理循环</a></td>
+	</tr>
+	<tr class="Bordered">
+		<td class="Bordered">对于每个MHL，确定待添加的消息框图。<br><br>消息框图是MHL中条件结构的分支。每个分支对应于任务可能处于的一个状态。因此，确定待添加的消息框图前，先将每个任务分成多个状态。
+</td>
+		<td class="Bordered">希望将数据采集任务分成三个状态：Initialize、Acquire Data和Exit。因此，需要在MHL中创建这些采集数据的消息框图。<br><br>希望将数据记录任务分成三个状态：Initialize、Log和Close。因此，需要在MHL中创建这些记录数据的消息框图。
+</td>
+		<td class="Bordered"><a href="#add_diagram">创建消息框图</a></td>
+	</tr>
+	<tr class="Bordered">
+		<td class="Bordered">确定MHL的消息框图所需的数据。</td>
+		<td class="Bordered">数据采集MHL的每个消息框图需要访问一个硬件引用。&quot;Initialize&quot;消息框图需打开该参考，&quot;Acquire Data&quot;消息框图使用该参考采集数据，&quot;Exit&quot;消息框图则关闭该参考。</td>
+		<td class="Bordered"><a href="#change_ui_data">定义消息处理循环所需的数据</a></td></tr>
+	<tr class="Bordered">
+		<td class="Bordered">确定每个消息框图的执行时间。消息框图在MHL收到相应的消息后执行。因此，需要决定何时将每个消息发送至MHL。可从前面板控件或消息框图发送消息。</td>
+		<td class="Bordered">希望添加一个按钮，发送&quot;Initialize&quot;消息至数据采集MHL。<br><br>之后，希望&quot;Initialize&quot;消息框图发送&quot;Acquire Data&quot;消息至同一MHL。
+</td>
+		<td class="Bordered"><a href="#add_control">添加发送消息至消息处理循环的控件</a>或<a href="#send_message">发送消息至消息处理循环</a>，具体依据用户是否希望用控件发送消息。</td></tr>
+	<tr class="Bordered">
+		<td class="Bordered">确定是否希望&quot;Exit&quot;消息停止每个MHL。&#8220;消息出队&#8221;VI使用该消息，原因是它可以关闭MHL。</td>
+		<td class="Bordered">希望每个MHL收到&quot;Stop&quot;消息（而不是&quot;Exit&quot;消息）时关闭。</td>
+		<td class="Bordered"><a href="#change_stop_msg">修改停止消息处理循环的消息</a></td></tr>
+	<tr class="Bordered">
+		<td class="Bordered">必须确定是否需要忽略EHL或MHL中某些特定的错误。</td>
+		<td class="Bordered">从消息队列读取消息时，希望忽略网络超时错误。</td>
+		<td class="Bordered"><a href="#ignore_errors">忽略事件处理循环和消息处理循环中的错误</a></td></tr>
+</table>
+
+<a name="add_task"></a><h3>创建消息处理循环</h3>
+<p class="Body">消息处理循环(MHL)表示应用程序可与其他任务并行执行的任务，如采集数据或记录数据。每个MHL可被分成多个子任务，对应于各个状态。MHL由下列部分构成：</p>
+<ul>
+	<li>一个消息队列</li>
+	<li>一个从消息队列读取消息的While循环</li>
+	<li>对于每个可能被读取的消息，还有一个包含分支（也称消息框图）的条件结构，其中，每个消息对应于任务的一个状态</li>
+	<li>（可选）MHL的每个消息框图可访问的数据</li>
+</ul>
+<p class="Body">按照下列步骤，添加一个MHL：</p>
+
+<ol>
+	<li>本模板包含一个自定义类型，定义了放置所有消息队列引用句柄的簇。默认情况下，该自定义类型只有一个队列。按照下列步骤，为该自定义类型添加一个队列：
+		<ol>
+			<li>在<strong>项目浏览器</strong>窗口，打开Message Queue.lvlib:Create All Message Queues.vi。</li>
+			<li>右键单击<strong>所有消息队列</strong>常量并打开自定义类型：<br><br><img src="loc_open_msg_queue_typedef.png"><br><br>LabVIEW会启动<strong>控件编辑器</strong>窗口。</li>
+			<li>展开<strong>消息队列</strong>簇的边框。</li>
+			<li>创建簇中<strong>UI</strong>队列引用句柄的一个副本。</li>
+			<li>重新命名这个新的队列引用句柄。例如： <br><br><img src="loc_new_task_typedef.png"></li>
+			<li>选择<strong>文件&raquo;应用改动</strong>，关闭<strong>控件编辑器</strong>窗口。<strong>消息队列</strong>自定义类型将包含新添加消息队列。</li>
+		</ol>
+	</li>
+	<li>修改Create All Message Queues.vi，执行下列步骤：
+		<ul>
+			<li>获取消息队列引用</li>
+			<li>将该队列捆绑至<strong>消息队列输出</strong>簇</li>
+			<li>（可选）向新MHL发送初始消息</li>
+		</ul>
+		<br>下面的截图显示了一个完成上述步骤的代码范例：<br><br><img src="loc_create_two_queues.png">
+	</li>		
+	<li>（可选）如MHL需要访问数据，创建按一个表示该数据的自定义类型。</li>
+	<li>在Main.vi中，创建表示该任务的消息处理循环：<br><br><img src="loc_new_task_loop.png">
+	
+		<br><br>注：
+		<ol>
+			<li>注意在步骤2中，<strong>新任务</strong>队列引用句柄已被绑定至<strong>消息队列输出</strong>簇。上面的代码显示了该簇在何处解除捆绑，以及<strong>新任务</strong>队列的连线分支与<strong>新任务</strong>MHL的连线方式。</li>
+			<li>注意在步骤2中，可选择将初始消息发送至消息队列。步骤2中的代码显示了初始消息<span id="Monospace">Initialize</span>。上面的代码显示了收到该消息时执行的消息框图(Initialize)。</li>
+			<li>注意在步骤4中，可选择创建一个自定义类型。上面的代码显示了该自定义类型<strong>新任务数据</strong>的连线方法，以便MHL可以使用。</li>			
+			<li>如希望新任务向<strong>UI</strong>队列发送消息，应将UI队列引用句柄的连线分支与<strong>新任务</strong>循环相连。</li>
+			<li>上面的代码显示了&#8220;假&#8221;常量与While循环的条件接线端相连。每个MHL中，只有一个消息框图可以使MHL停止执行。这种设计可以避免应用程序意外关闭或不完全关闭，确保下列情况：
+		<ul>
+			<li>MHL关闭前，关闭代码仅在右侧运行。</li>
+			<li>关闭代码总是运行直到彻底完成。</li>
+		</ul>
+			</li>
+			<li>为使Main.vi的程序框图更简洁、可读性更强，可将每个MHL封装到一个子VI中。为进一步组织项目，还可将每个子VI、所有支持的VI及其数据自定义类型放入项目库。关于该设计的范例，见<strong>创建项目</strong>对话框中的&#8220;连续测量和记录&#8221;范例项目。</li>
+			<li>上图中的MHL无需访问&#8220;停止事件&#8221;连线。模板中的MHL使用该连线执行&#8220;触发用户事件－停止&#8221;VI，该VI将关闭事件处理循环。其他MHL无需执行此操作。</li>
+		</ol>		
+	</li>
+	<li><a href="#add_diagram">添加消息框图</a>至MHL中的条件结构。为减少出错和非预期行为，确保每个MHL包含下列消息框图：
+		<ol>
+			<li>负责对任务进行初始化的消息框图；比如，该框图可能连接至硬件设备，或为数据记录打开文件。</li>
+			<li><a href="#handle_unrecognized">处理无法识别的消息</a>的消息框图。</li>
+			<li>执行时释放消息队列并停止循环的消息框图。例如：<br><br><img src="loc_stop_task.png"><br><br>默认情况下，触发该消息框图的消息为<span id="Monospace">&quot;Exit&quot;</span>，用户可<a href="#change_stop_msg">修改停止消息</a>。</li>
+			<li>（可选）如应用程序要求MHL停止执行任务，但保持活动状态（以便将来重启任务），则需要创建一个使用&#8220;清空队列&#8221;函数的消息框图，以便删除全部待处理的消息。<br><br>例如，在连续测量应用程序中，可使用<strong>开始测量</strong>和<strong>停止测量</strong>按钮。单击<strong>开始测量</strong>初始化MHL，该循环通过不断向自身发送同样的消息实现继续执行。在该应用程序中，单击<strong>停止测量</strong>应同时停止测量并清空消息队列，但不会停止MHL。如未清除消息队列，单击<strong>停止测量</strong>将不会产生任何影响。消息队列包含更多消息以便继续测量，同时每个消息还会生成同一类型的其他消息。</li>
+		</ol>	
+	</li>
+	<li>在EHL中添加代码，发生错误或应用程序停止时命令新的MHL停止执行，即执行步骤5c中创建的消息框图。将该代码添加至事件结构和&#8220;错误&#8221;分支，如下图所示：<br><br><img src="loc_stop_new_mhl.png"></li>
+	<li><a href="#send_message">发送消息至MHL</a>。</li>
+</ol>
+
+<a name="add_diagram"></a><h3>创建消息框图</h3>
+<p class="Body">消息框图是条件结构的一个分支，位于消息处理循环内部，负责处理特定的消息，类似于状态机的一个状态。</p>
+<p class="Body">消息框图是条件结构的一个分支，用一个字符串标记。当MHL收到和该标签匹配的消息时执行。</p>
+<p class="Body">按照下列步骤，创建一个消息框图：</p>
+<ol>
+	<li>对于表示任务的MHL，在条件结构中添加一个分支。
+	
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_tip.png"></td><td><strong>提示</strong>&nbsp;&nbsp;	如在模板中的MHL添加消息框图，可创建&quot;---Copy This Frame---&quot;分支的副本，自动将数据和错误连线包含在新消息框图中。</td></tr></table>
+	
+</li>
+	<li>对于触发该消息框图执行的消息，可在条件选择器标签中输入其文本。例如，下面的消息框图将在LabVIEW从消息队列中读取到<span id="Monospace">&quot;New Message&quot;</span>时执行：<br><br><img src="loc_new_message_diagram.png"></li>
+	<li>添加收到该消息时需要执行的代码。完成该步骤时，需注意下列事项：
+		<ul>
+			<li>如需访问和修改任务数据，可调用&#8220;按名称解除捆绑&#8221;和&#8220;按名称捆绑&#8221;函数：<br><br><img src="loc_access_task_data.png"></li>
+			<li>为确保跟踪到所有错误，可调用&#8220;合并错误&#8221;函数，将分支中所有节点的错误合并。</li>
+			<li>如需访问消息数据，可将<strong>消息数据</strong>输入隧道连线至&#8220;变体至数据转换&#8221;函数：<br><br><img src="loc_convert_variant.png"></li>
+			<li>如需向消息队列发送消息，可调用&#8220;消息入队&#8221;VI。</li>
+		</ul>	
+	</li>
+	<li>如需执行消息框图，可<a href="#send_message">发送消息</a>至MHL。发送的消息必须和步骤2中输入的消息框图标签匹配。</li>
+</ol>
+
+<a name="change_ui_data"></a><h3>定义消息处理循环所需的数据</h3>
+<p class="Body">模板中的<strong>UI Data.ctl</strong>是一个自定义类型，定义了MHL可访问的数据簇：</p>
+
+<img src="loc_ui_data.png">
+
+<p class="Body">按照应用程序的实际需求，可对该自定义类型进行修改。例如，若MHL中多个消息框图需要修改同一个布尔输入控件，可添加一个布尔输入控件至该自定义类型。</p>
+<p class="Body">存在多个MHL时，应为每个MHL创建一个自定义类型。这种设计确保了一个MHL无法访问另一个MHL的数据，因而可以避免出错。</p>
+
+<a name="add_control"></a><h3>添加发送消息至消息处理循环的控件</h3>
+
+<ol>
+	<li>在前面板上添加一个输入控件。</li>
+	<li>（可选）如需消息框图通过编程修改该控件，可<a href="#bundle_control">捆绑控件引用句柄</a>至MHL的自定义类型。</li>
+	<li>在事件处理循环中给事件结构添加一个事件分支。</li>
+	<li>配置事件结构：当新按钮的值发生变化时，触发事件：<br><br><img src="loc_value_change_event.png"> </li>
+	<li>单击<strong>确定</strong>。LabVIEW会在事件结构中创建一个事件分支。</li>
+	<li>拖曳新控件程序框图接线端至该事件分支的内部，将接线端与事件相关联。</li>
+	<li>在事件分支中添加代码，<a href="#send_message">发送消息至MHL</a>。</li>
+</ol>
+
+<a name="send_message"></a><h3>发送消息至消息处理循环</h3>
+<p class="Body">消息本身是字符串，用于命令MHL执行一个消息框图。消息由EHL生成并存储在消息队列中。MHL的每次循环都读取消息队列中最早的消息，然后执行相应的消息框图。</p>
+
+<p class="Body">按照下列步骤，发送消息至MHL：</p>
+<ol>
+	<li>确定应用程序将要发送消息的部分，以及将要接收消息的MHL。可以从EHL或消息框图发送消息。</li>
+	<li>确定MHL收到该消息时执行的消息框图。确保该消息框图存在，且和希望发送的消息名称一致。如消息框图不存在，可<a href="#add_diagram">创建消息框图</a>。</li>
+	<li>在Main.vi中，访问表示接收方MHL消息队列的连线。将由&#8220;创建所有消息队列&#8221;VI的<strong>消息队列输出</strong>簇返回的连线解除捆绑，访问该连线。Main.vi已经包含了解除捆绑UI队列引用句柄的代码，如下图所示：<br><br><img src="loc_message_queue_wire.png"> <br><br>展开&#8220;按名称解除捆绑&#8221;函数，访问所有MHL消息队列的连线。</li>
+	<li>在应用程序将要发送消息的部分，创建下列代码：<br><br><img src="loc_enqueue_generic_message.png"><br><br>上述代码中，<span id="Monospace">Message</span>是指和步骤2中确定的与消息框图相匹配的文本，&#8220;消息队列引用句柄&#8221;是指步骤3中确定的连线。
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp;&#8220;消息入队&#8221;VI可通过模板的<strong>项目浏览器</strong>窗口或快速放置功能找到。</td></tr></table>
+	</li>
+	<li>（可选）如需指定该消息代替队列中已经存在的其他消息，可将&#8220;真&#8221;常量连线至&#8220;消息入队&#8221;VI的<strong>优先消息？</strong>输入接线端：<br><br><img src="loc_enqueue_priority_message.png"><br><br>高优先级的消息通常为紧急停止的情况预留。这些消息将被放置在消息队列的头部，这样放置可以确保这些消息被优先读取。</li>
+	<li>（可选）如需在发送消息时附带发送数据，可将需要发送的值连线至&#8220;消息入队&#8221;VI的<strong>消息数据</strong>输入接线端。该接线端可连接任何类型的数据。例如，下列代码在发送消息时附带发送一个双精度浮点型数值：<br><br><img src="loc_enqueue_message_with_data.png"><br><br>由于该接线端的数据类型为变体，LabVIEW在输入接线端处显示了一个强制转换点。</li>
+</ol>
+
+<a name="change_stop_msg"></a><h3>修改停止消息处理循环的消息</h3>
+<p class="Body">消息本身是字符串，可以按实际需要创建或修改消息，不需要修改自定义类型。但本模板定义了一个消息：Message Queue.lvlib:Dequeue Message.vi定义了<span id="Monospace">Exit</span>消息。</p>
+
+<img src="loc_exit_message.png">
+
+<p class="Body">如希望通过其他消息（而不是<span id="Monospace">Exit</span>消息）关闭MHL，应对该VI中的消息进行修改。</p>
+
+<a name="handle_unrecognized"></a><h3>处理无法识别的消息</h3>
+
+<p class="Body">确保MHL的所有条件结构都包含一个<strong>默认</strong>消息框图。该框图中的代码在MHL读取到没有对应的消息框图时执行。包含一个<strong>默认</strong>消息框图十分重要，因为消息是用户编程时输入的字符串，而非从枚举型中选择的值。</p>
+
+<a name="ignore_errors"></a><h3>忽略事件处理循环和消息处理循环中的错误</h3>
+<p class="Body">按照下列步骤，可为EHL和MHL指定其各自的错误处理器子VI可以忽略的错误。</p>
+
+<ol>
+	<li>在<strong>项目浏览器</strong>窗口中，打开Error Handler - Event Handling Loop.vi或Error Handler - Message Handling Loop.vi（取决于LabVIEW需要忽略哪里的错误），显示程序框图。</li>
+	<li>定位标签为<strong>忽略错误（静态列表）</strong>的数组常量：<br><br><img src="loc_qmh_ignore_errors.png"></li>
+</ol>
+
+<p class="Body">To ignore errors in the EHL or MHL, add error codes to the array. Specify one error code per array element. The errors to ignore depend on your application.例如，通过网络读取队列时，可能需要忽略超时错误。</p>
+
+<p class="Body">如需在运行时动态设定忽略的错误，可将错误处理器子VI的<strong>忽略错误（运行时）</strong> 输入与数组输入控件相连。每个数组元素中设定一个错误代码。</p>
+
+<p class="Body">LabVIEW将所有未设定为可忽略的错误将被作为常规错误。LabVIEW会将常规错误作为Error消息发送给MHL，然后由MHL决定当前应用程序如何对常规错误进行处理。</p>
+
+<a name="bundle_control"></a><h3>启用消息处理循环编程修改控件</h3>
+<p class="Body">如需启用MHL编程修改某个控件，应创建一个该控件的引用句柄，并将其捆绑至存储该MHL数据的自定义控件。下面将UI Data.ctl作为一个例子。</p>
+
+<ol>
+	<li>创建控件引用句柄并将其放入MHL的&quot;Initialize&quot;分支中。</li>
+	<li>打开UI Data.ctl，展开簇以便放置引用句柄。</li>
+	<li>在&#8220;Initialize&#8221;分支中，展开&#8220;按名称捆绑&#8221;函数的新接线端，并将控件引用句柄连线至该接线端：<br><br><img src="loc_bundle_new_button_ref.png"></li>
+</ol>
+
+<p class="Body">此时，所有可访问UI Data.ctl的消息分支都可以访问该控件的引用句柄。例如，以下代码中显示了&quot;Disable Button&quot;消息框图，该框图通过上述控件引用句柄禁用前面板的按钮并使其变灰：</p>
+
+<img src="loc_disable_new_button.png">
+
+<h2>涉及的LabVIEW功能和概念</h2>
+<ul>
+	<li><a href="javascript:WWW(L_case_structure)">条件结构</a></li>
+	<li><a href="javascript:WWW(L_clusters)">簇</a></li>
+	<li><a href="javascript:WWW(L_control_refnums)">控件引用句柄</a></li>
+	<li><a href="javascript:WWW(L_enums)">枚举型</a></li>
+	<li><a href="javascript:WWW(L_error_handling)">错误簇</a></li>
+	<li><a href="javascript:WWW(L_event_structures)">事件结构</a></li>
+	<li><a href="javascript:WWW(L_parallel)">并行</a></li>
+	<li><a href="javascript:WWW(L_PC)">生产者/消费者设计模式</a></li>
+	<li><a href="javascript:WWW(L_queues)">队列</a></li>
+	<li><a href="javascript:WWW(L_shift_registers)">移位寄存器</a></li>
+	<li><a href="javascript:WWW(L_state_machines)">状态机</a></li>
+	<li><a href="javascript:WWW(L_typedefs)">自定义类型</a></li>
+	<li><a href="javascript:WWW(L_value_change_events)">值改变事件</a></li>
+	<li><a href="javascript:WWW(L_user_events)">用户事件</a></li>
+	<li><a href="javascript:WWW(L_while_loops)">While循环</a></li>
+</ul>
+
+<h2>开发者走查</h2>
+
+<p class="Body">关于如何使用和自定义该范例项目的开发者走查的详细信息见<a href="http://www.ni.com">ni.com</a>。</p>
+
+<hr>
+<h2>重要信息</h2>
+<!--Copyright-->
+<p class="Body"><strong>版权</strong></p>
+<p class="Body">&copy; 2013 National Instruments.版权所有</p>
+
+<p class="Body">根据版权法，未经National Instruments公司事先书面同意，本发行物不得以任何形式（包括电子或机械形式）进行全部或部分复制或传播，包括影印、录制、储存于任何信息检索系统中，或翻译。</p>
+
+<p class="Body">National Instruments公司尊重他方的知识产权，也恳请用户能给予我们同样的尊重。NI软件受版权法及其他知识产权法的保护。在将NI软件用于复制为他方所有的软件或其他资料的任何场合，NI软件仅可用于在符合许可证或其他法律限制的情况下复制上述资料。</p>
+
+<p class="Body"><strong>最终用户许可协议和第三方法律声明</strong></p>
+<p class="Body">可在下列位置找到最终用户许可协议(EULA)和第三方法律声明：</p>
+<ul>
+<li><span class="Monospace">&lt;National Instruments&gt;\_Legal Information</span>和<span class="Monospace">&lt;National Instruments&gt;</span>目录下有法律声明。</li> 
+<li><span class="Monospace">&lt;National Instruments&gt;\Shared\MDF\Legal\license</span>目录下有最终用户许可协议。</li>
+<li>如需使NI产品生成的安装程序中包含法律相关信息，请参考<span class="Monospace">&lt;National Instruments&gt;\_Legal Information.txt</span>。</li>
+</ul>
+
+<!--Trademarks-->
+<p class="Body"><strong>商标</strong></p>
+
+<p class="Body"><span class="DNL">LabVIEW</span>、<span class="DNL">National Instruments</span>、<span class="DNL">NI</span>、<span class="DNL">ni.com</span>和<span class="DNL">National Instruments</span>公司标识，以及鹰形标识均为<span class="DNL">National Instruments Corporation</span>的商标。关于其他<a href="javascript:WWW(L_trademarks)"><span class="DNL">National Instruments</span>商标</a>的详细信息见<span class="Monospace">ni.com/trademarks</span>的<em><span class="DNL">Trademark Information</span></em>部分。</p>
+
+<p class="Body">此处提及的其他产品和公司名称均为其各自公司的商标或商业名称。</p>
+
+<!--Patents-->
+<p class="Body"><strong>专利权</strong></p>
+<p class="Body">关于NI产品和技术的专利权，请查看软件中的<strong>帮助&raquo;专利信息</strong>，光盘中的<span class="Monospace">patents.txt</span>文件，或<span class="Monospace">ni.com/patents</span>上的<a href="javascript:WWW(L_patents)">National Instruments Patent Notice</a>。</p>
+</body>
+</html>

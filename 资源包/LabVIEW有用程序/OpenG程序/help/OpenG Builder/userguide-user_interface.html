@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+ <style type="text/css">
+/* <![CDATA[ */ 
+@import "css/readyset.css"; 
+@import "css/inst.css";
+/*  ]]> */
+ </style>
+
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>User Guide</title>
+</head>
+
+<body>
+<div class="app">
+<div class="readyset">
+ <h2><img src="images/OGB_logo.png" width="326" height="108" /><br />
+v3.0.0: User Guide - User Interface </h2>
+
+
+ <div id="projectinfo">
+ <h3>Product Release Information</h3>
+ <div class="axial">
+ <table border="1" cellpadding="3" cellspacing="2">
+  <tr>
+   <th>Product:</th> 
+   <td><a href="http://builder.openg.org" target="_top">OpenG Builder </a></td> 
+  </tr>
+  <tr>
+    <th>Release Number:</th>
+    <td> 3.0.0 Build:8 </td>
+  </tr>
+  <tr>
+    <th>Release Date:</th>
+    <td> 11/23/2009 10:31:01 PM</td>
+  </tr>
+  <tr>
+   <th>User Support:</th> 
+   <td>For more information or support, please visit <a href="http://builder.openg.org" target="_top">http://builder.openg.org</a></td> 
+  </tr>
+ </table>
+ </div>
+ </div> <!-- /projectinfo -->
+
+ <div id="toc">
+   <hr />
+ <h3><a name="Introduction" id="Introduction"></a>User Interface </h3>
+ <ul>
+   <li><a href="userguide-user_interface.html#General_Settings">General Settings</a></li>
+   <li><a href="userguide-user_interface.html#First_Impressions">First Impressions</a></li>
+   <li><a href="userguide-user_interface.html#Adding_Source_Files">Adding Source Files</a></li>
+   <li><a href="userguide-user_interface.html#Defining_Destinations">Defining Destinations</a></li>
+   <li><a href="userguide-user_interface.html#Defining_Exclusions">Defining Exclusions</a></li>
+   <li><a href="userguide-user_interface.html#Adding_Support_Files">Adding Support Files</a></li>
+   <li><a href="userguide-user_interface.html#Defining_Resource_Handling">Defining Resource Handling</a></li>
+ </ul>
+ <h4><a name="First_Impressions" id="First_Impressions"></a>First Impressions</h4>
+ <p>The OpenG Builder UI was designed to look and feel similar to the LabVIEW Application Builder, since most users will already have experience with it. However, when you first look at the OpenG Builder you will notice some immediate differences. The OpenG Builder UI is slightly larger (but, we won't draw any conclusions from that). Also, you will notice that there is no option for choosing a Build Target (for example EXE or DLL). The reason for this, is that building a stand-alone application is very similar to building a reuse library, source distribution, LabVIEW IDE extension, etc. The OpenG Builder allows one to build an executable by optionally converting one of the destination LLBs into an executable (EXE) file. If this destination folder contains a Top-Level VI, then the EXE will auto-launch the Top-Level VI.</p>
+ <table width="200" border="1">
+   <tr>
+     <td><strong>OpenG Builder </strong></td>
+     </tr>
+   <tr>
+     <td><img src="images/Tab%20-%20General.png" width="657" height="495" /></td>
+     </tr>
+ </table>
+ <table width="200" border="1">
+   <tr>
+     <td><strong>LabVIEW Application Builder (for comparison) </strong></td>
+   </tr>
+   <tr>
+     <td><img src="images/LabVIEW%20Application%20Builder.png" width="623" height="407" /></td>
+   </tr>
+ </table>
+ <h4><a name="General_Settings" id="General_Settings"></a>General Settings </h4>
+ <p>The <em>General</em> tab allows one to define the <em>Root Paths</em> of the project, the <em>Log File</em> settings, and the <em>Build Version </em>settings. It also allows setting some global parameters, such as <em>Namespace</em> and <em>Password</em> protection. </p>
+ <p><img src="images/Tab%20-%20General.png" width="657" height="495" /></p>
+ <h5>Root Paths </h5>
+ <p>Pressing the <em>Root Paths...</em> button opens the Root Path Properties dialog.</p>
+ <p><img src="" alt="" name="root_paths_properties" width="414" height="305" id="root_paths_properties" /> </p>
+ <h5>Log File </h5>
+ <p>Pressing the <em>Log File...</em> button opens the Log File Properties dialog. </p>
+ <p><img src="images/Tab%20-%20General%20-%20Log%20File.png" width="411" height="343" /></p>
+ <h5>Software Version </h5>
+ <p>Pressing the <em>Software Version...</em>button opens the Software  Version dialog.</p>
+ <p><img src="images/Tab%20-%20General%20-%20Software%20Product%20Version.png" width="415" height="323" /></p>
+ <p>&nbsp;</p>
+ <h4><a name="Adding_Source_Files" id="Adding_Source_Files"></a>Adding Source Files</h4>
+ <p>Add and remove Top-Level and Dynamic VIs to and from the build using the <em>Source Files</em> tab of the OpenG Builder.</p>
+ <p><img src="images/Tab%20-%20Source%20Files.png" width="657" height="495" /></p>
+ <p>&nbsp;</p>
+ <p>You can chose whether the path to the Source File is are stored as absolute or Relative to the project's <em>Source Root</em>. Select the <em>Source File</em> from the listbox and toggle the checkbox at the bottom to change this setting. </p>
+ <p><img src="images/Tab%20-%20Top-Level%20and%20Dynamic%20VIs%20Rel%20or%20Abs.png" width="657" height="495" /></p>
+ <p>Notice that the VI Path changes from relative to absolute when the box is checked. </p>
+ <p><img src="images/Tab%20-%20Top-Level%20and%20Dynamic%20VIs%20Abs.png" width="483" height="64" /></p>
+ <h4><a name="Defining_Destinations" id="Defining_Destinations"></a>Defining Destinations </h4>
+ <p>A <em>Destination</em> is grouping of files, based upon a specified <em>Source Dir</em> location. Any components of the Source Files' VI hierarchies that are found beneath the <em>Source Dir</em> belong to the <em>Destination </em>group. Each <em>Destination</em> group has unique settings. Some settings can be defined to override the global settings which are defined in the <em>General</em> tab.</p>
+ <p><img src="images/Tab%20-%20Destinations.png" width="657" height="495" /></p>
+ <h5>Destination Settings </h5>
+ <p>Select a <em>Destination</em> from the <em>Destinations</em> listbox and edit the settings. You can specify paths as abolute or relative by toggling the appropriate checkbox. You can also specify other options for the <em>Destination</em>.</p>
+ <p><img src="images/Tab%20-%20Destinations%20-%20Destination.png" width="486" height="191" /></p>
+ <h4><a name="Defining_Exclusions" id="Defining_Exclusions"></a>Defining Exclusions </h4>
+ <p><img src="images/Tab%20-%20Exclusions.png" width="657" height="495" /></p>
+ <h4><a name="Adding_Support_Files" id="Adding_Support_Files"></a>Adding Support Files </h4>
+ <p><img src="images/Tab%20-%20Support%20Files.png" width="657" height="495" /></p>
+ <h5>Support File Settings </h5>
+ <p>Select a <em>Support File </em> from the <em>Support Files </em> listbox and edit the settings. You can specify paths as abolute or relative by toggling the appropriate checkbox. You can also specify other options for the <em>Support Files. </em>.</p>
+ <p><img src="images/Tab%20-%20Support%20Files%20-%20Settings.png" width="486" height="162" /></p>
+ <h4><a name="Defining_Resource_Handling" id="Defining_Resource_Handling"></a>Defining Resource Handling </h4>
+ <p>The OpenG Builder will dynamically discover resource dependencies such as html and chm help files, shared libraries, and external subroutines. You can use the <em>Resources</em> tab to specify the build target location for these files. </p>
+ <p><img src="images/Tab%20-%20Resources.png" width="657" height="495" /></p>
+ </div> </div>
+
+
+<div class="legal1">Company Proprietary</div>
+
+<div class="footnote">
+ Copyright &#169; 2004 Konstantin Shifershteyn and James Kring. <a href="gfdl.html">Distributed under the terms of the GNU Free Documentation License</a>.</div>
+
+</div>
+</body>
+</html>

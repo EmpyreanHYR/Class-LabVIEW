@@ -1,0 +1,14 @@
+F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\obj\Debug\ResolveAssemblyReference.cache
+F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\obj\Debug\dmc2410b_demo.Dialog1.resources
+F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\obj\Debug\dmc2410b_demo.Resources.resources
+F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\obj\Debug\dmc_demo.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\dmc2410b_demo.Dialog1.resources
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\dmc2410b_demo.Resources.resources
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\dmc_demo.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\Demo_VB\bin\Debug\dmc2410b_demo.exe
+C:\Users\Administrator\Desktop\Demo_VB\bin\Debug\dmc2410b_demo.pdb
+C:\Users\Administrator\Desktop\Demo_VB\bin\Debug\dmc2410b_demo.xml
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\dmc2410b_demo.exe
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\dmc2410b_demo.xml
+C:\Users\Administrator\Desktop\Demo_VB\obj\Debug\dmc2410b_demo.pdb

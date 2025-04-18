@@ -1,0 +1,4 @@
+该内容是《LabVIEW使用工具详解》的配套资源
+更多资源可以参见：mit.dozan.cn/labview
+
+把Book文件夹拷贝至D盘根目录下即可。

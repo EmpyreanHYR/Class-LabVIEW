@@ -1,0 +1,1 @@
+先安装一下Report Generation Toolkit，然后再运行本示例程序就可以。这个是利用NI专门的插件包进行处理的。功能比较强大。

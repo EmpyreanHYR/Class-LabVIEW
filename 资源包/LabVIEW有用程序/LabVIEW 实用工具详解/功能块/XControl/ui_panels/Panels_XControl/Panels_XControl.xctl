@@ -1,0 +1,70 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="13008000">
+	<Property Name="NI.Lib.ContainingLib" Type="Str">UI Panels.lvlib</Property>
+	<Property Name="NI.Lib.ContainingLibPath" Type="Str">../../UI Panels.lvlib</Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%Q#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(]!!!*Q(C=\&gt;8"=&gt;MQ%!8143;(8.6"2CVM#WJ",7Q,SN&amp;(N&lt;!NK!7VM#WI"&lt;8A0$%94UZ2$P%E"Y.?G@I%A7=11U&gt;M\7P%FXB^VL\`NHV=@X&lt;^39O0^N(_&lt;8NZOEH@@=^_CM?,3)VK63LD-&gt;8LS%=_]J'0@/1N&lt;XH,7^\SFJ?]Z#5P?=F,HP+5JTTF+5`Z&gt;MB$(P+1)YX*RU2DU$(![)Q3YW.YBG&gt;YBM@8'*\B':\B'2Z&gt;9HC':XC':XD=&amp;M-T0--T0-.DK%USWS(H'2\$2`-U4`-U4`/9-JKH!&gt;JE&lt;?!W#%;UC_WE?:KH?:R']T20]T20]\A=T&gt;-]T&gt;-]T?/7&lt;66[UTQ//9^BIHC+JXC+JXA-(=640-640-6DOCC?YCG)-G%:(#(+4;6$_6)]R?.8&amp;%`R&amp;%`R&amp;)^,WR/K&lt;75?GM=BZUG?Z%G?Z%E?1U4S*%`S*%`S'$;3*XG3*XG3RV320-G40!G3*D6^J-(3D;F4#J,(T\:&lt;=HN+P5FS/S,7ZIWV+7.NNFC&lt;+.&lt;GC0819TX-7!]JVO,(7N29CR6L%7,^=&lt;(1M4#R*IFV][.DX(X?V&amp;6&gt;V&amp;G&gt;V&amp;%&gt;V&amp;\N(L@_Z9\X_TVONVN=L^?Y8#ZR0J`D&gt;$L&amp;]8C-Q_%1_`U_&gt;LP&gt;WWPAG_0NB@$TP@4C`%`KH@[8`A@PRPA=PYZLD8Y!#/7SO!!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">318799872</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="References" Type="Folder">
+		<Item Name="Panel_Refnums.ctl" Type="VI" URL="../Controls/References/Panel_Refnums.ctl"/>
+	</Item>
+	<Item Name="Commands" Type="Folder">
+		<Item Name="Panel_Command.ctl" Type="VI" URL="../Controls/Panel_Command.ctl"/>
+		<Item Name="Panel_Command_Enum.ctl" Type="VI" URL="../Controls/Panel_Command_Enum.ctl"/>
+	</Item>
+	<Item Name="Panels" Type="Folder">
+		<Item Name="Panel.vi" Type="VI" URL="../Panel.vi"/>
+		<Item Name="Floating Panel.vi" Type="VI" URL="../Floating Panel.vi"/>
+	</Item>
+	<Item Name="Methods" Type="Folder">
+		<Item Name="Create Panel.vi" Type="Method VI" URL="../Methods/Create Panel.vi"/>
+		<Item Name="Insert SubPanel.vi" Type="Method VI" URL="../Methods/Insert SubPanel.vi"/>
+		<Item Name="Set Title.vi" Type="Method VI" URL="../Methods/Set Title.vi"/>
+		<Item Name="Set Splitter Position.vi" Type="Method VI" URL="../Methods/Set Splitter Position.vi"/>
+		<Item Name="Set Spliter Properties.vi" Type="Method VI" URL="../Methods/Set Spliter Properties.vi"/>
+		<Item Name="Add Menu Items.vi" Type="Method VI" URL="../Methods/Add Menu Items.vi"/>
+		<Item Name="Register Menu Events.vi" Type="Method VI" URL="../Methods/Register Menu Events.vi"/>
+		<Item Name="Delete Panel.vi" Type="Method VI" URL="../Methods/Delete Panel.vi"/>
+		<Item Name="Delete All.vi" Type="Method VI" URL="../Methods/Delete All.vi"/>
+	</Item>
+	<Item Name="subVIs" Type="Folder">
+		<Item Name="Create New Panel.vi" Type="VI" URL="../subVIs/Create New Panel.vi"/>
+		<Item Name="Remove ans Stop Panel.vi" Type="VI" URL="../subVIs/Remove ans Stop Panel.vi"/>
+		<Item Name="Pane Bounds to Panel Bounds.vi" Type="VI" URL="../subVIs/Pane Bounds to Panel Bounds.vi"/>
+		<Item Name="Refresh Sub Panels.vi" Type="VI" URL="../subVIs/Refresh Sub Panels.vi"/>
+		<Item Name="_Insert SubPanel.vi" Type="VI" URL="../subVIs/_Insert SubPanel.vi"/>
+		<Item Name="_Set Title.vi" Type="VI" URL="../subVIs/_Set Title.vi"/>
+		<Item Name="_Set Splitter Position.vi" Type="VI" URL="../subVIs/_Set Splitter Position.vi"/>
+		<Item Name="_Set Splitter Properties.vi" Type="VI" URL="../subVIs/_Set Splitter Properties.vi"/>
+		<Item Name="_Add Menu Items.vi" Type="VI" URL="../subVIs/_Add Menu Items.vi"/>
+		<Item Name="_Register Menu Events.vi" Type="VI" URL="../subVIs/_Register Menu Events.vi"/>
+	</Item>
+	<Item Name="Typedefs" Type="Folder">
+		<Item Name="Splitter Properties.ctl" Type="VI" URL="../Typedefs/Splitter Properties.ctl"/>
+		<Item Name="Menu Event.ctl" Type="VI" URL="../Typedefs/Menu Event.ctl"/>
+		<Item Name="Menu Item.ctl" Type="VI" URL="../Typedefs/Menu Item.ctl"/>
+	</Item>
+	<Item Name="Data 1.ctl" Type="Ability VI" URL="../Data 1.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="State 1.ctl" Type="Ability VI" URL="../State 1.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="Facade 1.vi" Type="Ability VI" URL="../Facade 1.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="Init 1.vi" Type="Ability VI" URL="../Init 1.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="Controls[]" Type="Property Folder">
+		<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Controls[]</Property>
+		<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">Controls[]</Property>
+		<Item Name="Controls[].vi" Type="Property VI" URL="../Properties/Controls[].vi"/>
+	</Item>
+</XControl>

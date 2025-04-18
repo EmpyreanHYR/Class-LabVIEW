@@ -1,0 +1,635 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0080)http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f -->
+<HTML><HEAD><TITLE>Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8"><LINK 
+media="screen, projection" 
+href="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/noteshackv2.css" 
+type=text/css rel=stylesheet><LINK media=print 
+href="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/noteshackv2print.css" 
+type=text/css rel=stylesheet>
+<META 
+content="Many applications require a type of control or indicator that is not included in LabVIEW. This document describes how to use a picture ring in LabVIEW to create a custom control, such as a chess board control. This document is not intended to give a detailed " 
+name=description><!-- <meta name="keywords" content=""> -->
+<META content=2006-09-07 name=date>
+<META content=devzone/devzoneweb.nsf/Opendoc?openagent&amp; name=path><!-- <meta name="product" content="Products >> Software >> LabVIEW">
+<meta name="Industry" content=""> -->
+<META content=DevZone name=section>
+<META content=dzLibrary name=subsection>
+<META content=dzConcept name=subsection2>
+<META content=Technical name=ContentClass>
+<META content=Tutorial name=ContentType>
+<META content=English name=Language>
+<META content="Customizing Controls Using a Picture Ring" name=ShortTitle>
+<META content="Web Only" name=docType>
+<META content="" name=DocumentID>
+<META content=", " name=keywords>
+<SCRIPT language=JavaScript type=text/javascript>
+<!-- 
+function FormatAndSend(){
+
+	var frm = document.search2
+	var temp = "";
+
+	frm.query.value = replaceChars(frm.query.value);
+	frm.query1.value = replaceChars(frm.query1.value);
+		
+	if (frm.query1.value=="")
+		{return false;}
+	else {
+			temp = frm.query1.value + "&lang=" + frm.lang.value;
+			frm.query.value = temp;
+			return true;
+}
+}
+function replaceChars (textstring) {
+// function replaces ampersands with "AND"
+ 	tempstring = "";
+ 		for (i=0; i < textstring.length; i++) {
+  			tempchar = textstring.charAt(i);
+  			 if (tempchar == "&") {
+   				tempstring += "AND";
+  			}
+  			else {
+   				tempstring += tempchar;
+  			}
+ 		}
+ 	return tempstring;
+}
+
+// -->
+</SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+<!-- 
+function validate(){
+	var test;
+	var field1 = document.suppfeed.valueanalysis;
+//	var field2 = document.suppfeed.comments;
+	var field3 = document.suppfeed.emailadd;
+	for(var i=0;i<field1.length;i++){
+		if (field1[i].checked){
+			test="test"}
+	}
+//	if((field2.value != "Document needs work? Please tell us why.") & (field2.value !="")){
+//		test = "test"}
+	for (var i=0;i<field3.length;i++){
+		if (field3[i].checked){
+			test="test"}
+	}
+	if(test=="test"){
+		document.suppfeed.submit();
+		return;} 
+	else {
+		alert("Please fill out one or more fields before clicking the Submit button.");
+	return;}
+}
+
+// -->
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2963" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff><A name=top></A>
+<DIV id=wrapper><A name=top></A><A href="http://www.ni.com/"><IMG id=logo 
+height=64 alt="NI Home" 
+src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/logo.gif" 
+width=157 border=0></A> 
+<DIV class=noindex id=search></FORM>
+<FORM name=search action=http://search.ni.com/nisearch/jsp/forward.jsp><A 
+href="http://sine.ni.com/apps/utf8/nios.store?action=view_cart"><IMG height=8 
+alt="view cart" 
+src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/cart.gif" 
+width=12 border=0></A> <A 
+href="http://sine.ni.com/apps/utf8/nios.store?action=view_cart">view 
+cart</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+href="http://www.ni.com/help/">help</A>&nbsp;&nbsp;|&nbsp;&nbsp;search&nbsp;<SELECT 
+class=fineprint name=scope><OPTION value=dzTutorial>Tutorials<OPTION 
+  value=dzExplprog>Example Code<OPTION value=DZone selected>NI Developer 
+  Zone<OPTION value=site>Entire Site</OPTION></SELECT> <INPUT maxLength=254 
+size=16 name=query>&nbsp;<INPUT class=topalign type=image 
+src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/search_go.gif"></FORM>
+<SCRIPT language=JavaScript>document.write('<form method=post name="DominoForm1" action="' + document.forms[0].action + '">'); </SCRIPT>
+</DIV>
+<DIV class=noindex><MAP name=globalnav><AREA shape=RECT alt=Academic 
+  coords=557,0,627,20 href="http://www.ni.com/academic/"><AREA shape=RECT 
+  alt=Company coords=684,0,751,20 href="http://www.ni.com/company/"><AREA 
+  shape=RECT alt=Events coords=629,0,682,20 
+  href="http://www.ni.com/events/"><AREA shape=RECT alt="NI Developer Zone" 
+  coords=441,0,555,20 href="http://zone.ni.com/zone/jsp/zone.jsp"><AREA 
+  shape=RECT alt=Support coords=378,0,439,20 
+  href="http://www.ni.com/support/"><AREA shape=RECT alt=Solutions 
+  coords=307,0,376,20 href="http://www.ni.com/solutions/"><AREA shape=RECT 
+  alt="Products &amp; Services" coords=180,0,305,20 
+  href="http://www.ni.com/products/"><AREA shape=RECT alt="Contact NI" 
+  coords=91,0,179,20 href="http://sine.ni.com/apps/utf8/nicc.call_me"><AREA 
+  shape=RECT alt=MyNI coords=0,0,90,20 
+href="http://my.ni.com/myni/myni"></MAP></DIV>
+<DIV class=noindex id=sitenavigation><IMG height=20 alt="" 
+src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/devzone1_on.gif" 
+width=752 useMap=#globalnav border=0></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD id=holdthenav>
+      <DIV id=bodycontainer>
+      <DIV class=noindex id=hierarchynavigation>
+      <UL>
+        <LI><A class=haschildren 
+        href="http://zone.ni.com/devzone/devzone.nsf/webcategories/2E4161187E3DEB30862568660020BCC8">Development 
+        System</A> 
+        <UL>
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/7EE18E2AF2AA1BB586256A1F00601E69">Fundamentals</A> 
+
+          <LI><A class=haschildren 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/8DA27C34C5069CB486256793006F5079">Building 
+          User Interfaces</A> 
+          <UL>
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/D34BD2FC1A9B06708625688B00729CC4">General</A> 
+
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/806C56BE19D4E6DE86256AB7006A2012">Acquiring 
+            User Input</A> 
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/A0CA73CF5185AEEF862567AC0057E6FF">Controlling 
+            Front Panel Objects Programmatically</A> 
+            <LI><A id=on 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/01DA3ED38B8928E1862567AC0057F0AD">Customizing 
+            Controls</A> 
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/C03ADB54B2CC0099862567AC0057E06E">Designing 
+            Dialog Boxes</A> 
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/3C7083670273122686256AB7006A3A2A">Displaying 
+            Data</A> 
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/EB5B90FAD612A7C2862567AC0057D90C">Menus 
+            and Toolbars</A> 
+            <LI><A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/DF6C376444460910862567E1006CD25F">Playing 
+            Sounds</A> </LI></UL>
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/EADE78F29101E8DB862567AC0058596B">Printing 
+          and Publishing Data</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/CED67EBCA91EADD0862567AC00585F4C">Distributing 
+          and Documenting VIs</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/9B7EBE009FDF14718625688B00731D38">Hardware 
+          Input and Output</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/FD494388AEB00E2E86256AB7006B7080">Analyzing 
+          and Processing Signals</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/24D5D307A272361A86256AB7006ABD59">Programmatically 
+          Controlling VIs</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/D12EF4E7ECEFCFBF862567930057C190">Networking</A> 
+
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/4161F118BF99CCE686256AB7006A68EB">Communicating 
+          with External Applications</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/7F6F464042305247862567AC00580B83">Optimizing 
+          Applications</A> 
+          <LI><A 
+          href="http://zone.ni.com/devzone/devzone.nsf/webcategories/321B275A902C5088862569390077DD3E">Industry 
+          Applications</A> </LI></UL></LI></UL></DIV>
+      <DIV id=primarycontentcontainer></DIV></DIV></TD>
+    <TD>
+      <DIV class=noindex id=breadcrumbcontainer>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD id=breadcrumblabel>You are here:</TD>
+          <TD id=breadcrumb><A href="http://www.ni.com/">NI&nbsp;Home</A> &gt; 
+            <A 
+            href="http://zone.ni.com/zone/jsp/zone.jsp">NI&nbsp;Developer&nbsp;Zone</A> 
+            &gt; <A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/4d58b1b80ec41ef70625683f006e1d6d">Development&nbsp;Library</A> 
+            &gt; <A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/4F40E451C90E20F686256A960072518B">Measurement&nbsp;and&nbsp;Automation&nbsp;Software</A> 
+            &gt; <A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/BE7D9C62186B777F86256785006D62C8">LabVIEW</A> 
+            &gt; <A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/2E4161187E3DEB30862568660020BCC8">Development&nbsp;System</A> 
+            &gt; <A 
+            href="http://zone.ni.com/devzone/devzone.nsf/webcategories/8DA27C34C5069CB486256793006F5079">Building&nbsp;User&nbsp;Interfaces</A> 
+            &gt; Customizing&nbsp;Controls</TD>
+          <TD id=locale></TD></TR></TBODY></TABLE></DIV>
+      <TABLE id=junktable cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD>
+            <DIV id=pagearea>
+            <SCRIPT language=JavaScript>
+function gotoDevZoneDoc(docid)
+{
+	window.location="/devzone/devzoneweb.nsf/Opendoc?openagent&" + docid;	
+}
+function gotoOracleWebForm(guid,node)
+{
+	temp ="http://sine.ni.com/apps/we/niepd_web_display.display_epd4?p_guid=<<guid>>&p_node=<<node>>&p_source=external";
+	temp = replaceSubstring(temp,"<<guid>>",guid);
+	temp = replaceSubstring(temp,"<<node>>",node);	
+	window.location= temp;
+}
+function replaceSubstring(text,expression,value)
+{
+	var exp = new RegExp(expression,'g');
+	return text.replace(exp,value);
+}
+</SCRIPT>
+
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD noWrap><SPAN style="COLOR: #e67a3c"><STRONG>This Document 
+                  is not yet Rated</STRONG></SPAN></TD>
+                <TD noWrap>&nbsp;<SPAN style="FONT-SIZE: 9pt"><A 
+                  href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#rank">Rate 
+                  this Document</A></SPAN></TD></TR></TBODY></TABLE>
+            <P><SPAN class=title1>Customizing Controls Using a Picture 
+            Ring</SPAN><BR><!--stopindex--><A 
+            href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578A4B3772EC6EB1062569DF0063270F?opendocument&amp;node=dz00000_us"><IMG 
+            src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/printer_icon.gif" 
+            border=0></A>&nbsp;<A 
+            href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578A4B3772EC6EB1062569DF0063270F?opendocument&amp;node=dz00000_us">Print 
+            this Page</A><BR><BR><!--startindex-->
+            <P>Many applications require a type of control or indicator that is 
+            not included in LabVIEW. This document describes how to use a 
+            picture ring in LabVIEW to create a custom control, such as a chess 
+            board control. This document is not intended to give a detailed 
+            description of custom controls. If your application requires an 
+            interface more complicated than the standard string, numeric, and 
+            Boolean controls, you can use these controls in combination to 
+            create a custom interface. Refer to Application Note 159: LabVIEW 
+            Custom Controls, Indicators, and Type Definitions (linked below) for 
+            more information about custom controls. Refer to the 2-Player Chess 
+            example (linked below) to see the chess board control used in a 
+            VI.</P><STRONG>Table of Contents:</STRONG> 
+            <UL type=disc>
+              <LI type=disc><A class=toc 
+              href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#1">Scenario</A> 
+
+              <LI type=disc><A class=toc 
+              href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#2">Step 
+              1. Creating the Square Custom Indicator</A> 
+              <LI type=disc><A class=toc 
+              href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#3">Step 
+              2. Creating the Board</A> 
+              <LI type=disc><A class=toc 
+              href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#4">Step 
+              3. Creating the Indicator Array</A> 
+              <LI type=disc><A class=toc 
+              href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#5">Step 
+              4. Creating the Control Array</A> 
+              <LI type=disc><A class=toc 
+              href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578a4b3772ec6eb1062569df0063270f#6">Step 
+              5. Grouping the Arrays</A></LI></UL>
+            <UL></UL>
+            <OL></OL></DIV>
+            <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=linebuffer vAlign=bottom colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=tablegbg><IMG height=1 alt="" 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                        width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=subheader>&nbsp;</TD>
+                <TD class=subheader width="100%"><A 
+              name=1>Scenario</A><BR></TD></TR></TBODY></TABLE><BR>Suppose you 
+            want to create a chess VI. The digital controls and indicators would 
+            not be useful for displaying a chess board with squares and pieces. 
+            XY graphs, charts, and other such indicators also would not be 
+            useful. You could use a picture control, but doing so would require 
+            a lot of work to draw each piece. One solution is to use a picture 
+            ring to build a custom control to use in making a chess 
+            board.<BR><BR>This document describes how to create a custom 
+            indicator (Square) from a picture ring that represents one square of 
+            the board. An 8 x 8 array of these custom indicators displays the 
+            board (Board Array). To allow the user to select which piece to move 
+            and where to move it, an 8 x 8 array of transparent Boolean buttons 
+            is placed over the board (Controls Array). When the user clicks one 
+            of these buttons, LabVIEW can then react. In addition, a third 8 x 8 
+            Boolean array is placed under the 8 x 8 Controls Array but over the 
+            Board Array (Indicator Array). This indicator array shows the user 
+            possible moves.
+            <UL></UL>
+            <OL></OL>
+            <DIV></DIV>
+            <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=linebuffer vAlign=bottom colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=tablegbg><IMG height=1 alt="" 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                        width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=subheader>&nbsp;</TD>
+                <TD class=subheader width="100%"><A name=2>Step 1. Creating 
+                  the Square Custom 
+            Indicator</A><BR></TD></TR></TBODY></TABLE><BR>Complete the 
+            following steps to create the Square custom indicator.<BR><BR>
+            <OL>
+              <LI>On the <B>Controls»Ring &amp; Enum</B> palette, select a pict 
+              ring and place it on the front panel.<BR><BR>
+              <LI>Right-click the pict ring and select <B>Advanced»Customize</B> 
+              from the shortcut menu to display the Control Editor.<BR><BR>
+              <LI>In the Control Editor, click the <B>Edit Mode</B> button in 
+              the toolbar.<BR><BR>
+              <LI>Draw all the chess pieces in a paint program. Because each 
+              piece can either be light or dark, and can exist on a light or 
+              dark square, you must draw 26 pieces (6 chess pieces * 2 piece 
+              colors * 2 square colors + 2 empty squares).<BR><BR>
+              <LI>Paste each piece by right-clicking the pict ring and selecting 
+              <B>Import Picture</B> from the shortcut menu. Because each piece 
+              picture is associated with a number, the picture order is 
+              important. In this example, even-numbered pictures correspond to 
+              light squares, and odd-numbered pictures correspond to dark 
+              squares. After you paste all the pictures into the pict ring, the 
+              ring appears as follows.<BR><BR><IMG height=77 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/0.gif" 
+              width=75> 
+              <LI>Hide the increment and decrement buttons and resize the 
+              control to minimize the border and avoid distorting the piece 
+              picture by selecting <B>Operate»Change to Customize Mode</B>. You 
+              can spread out the components of the pict ring as 
+              follows.<BR><BR><IMG height=83 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/3.gif" 
+              width=243> 
+              <LI>Make the chess square by resizing the background rectangle and 
+              the frame rectangle to the same size as the picture.<BR><BR>
+              <LI>Overlay all components on top of each other by selecting 
+              <B>Operate»Change to Edit Mode</B>. The pict ring appears as 
+              follows.<BR><BR><IMG height=37 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/4.gif" 
+              width=37> 
+              <LI>Right-click the control and remove the checkmark by <B>Visible 
+              Items»Label</B>.<BR><BR>
+              <LI>Use the Coloring tool to make the up/down buttons transparent. 
+              The chess square appears as follows.<BR><BR><IMG height=38 alt="" 
+              src="F:\大曾\ni\09.18\Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files\4(1).gif" 
+              width=37> 
+              <LI>Save this chess square as a custom control with the name Chess 
+              Square.ctl.</LI></OL>
+            <UL></UL>
+            <OL></OL>
+            <DIV></DIV>
+            <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=linebuffer vAlign=bottom colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=tablegbg><IMG height=1 alt="" 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                        width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=subheader>&nbsp;</TD>
+                <TD class=subheader width="100%"><A name=3>Step 2. Creating 
+                  the Board</A><BR></TD></TR></TBODY></TABLE><BR>Complete the 
+            following steps to create the board.<BR>
+            <OL>
+              <LI>Create a 2-dimensional array of Chess Squares by changing the 
+              Chess Square.ctl to an indicator, placing it inside an array, and 
+              resizing the array to a size of 8 x 8.<BR><BR>
+              <LI>Right-click the array and remove the checkmarks from 
+              <B>Visible Items»Indexes</B> and <B>Visible Items»Label</B> to 
+              simplify the appearance of the array.<BR><BR>
+              <LI>Create a VI to fill the array with valid data, as 
+              follows.<BR><BR><IMG height=234 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/21.gif" 
+              width=366> 
+              <LI>After running this VI, the chess board appears as 
+              follows.<BR><BR><IMG height=276 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/44.gif" 
+              width=272></LI></OL>
+            <UL></UL>
+            <OL></OL>
+            <DIV></DIV>
+            <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=linebuffer vAlign=bottom colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=tablegbg><IMG height=1 alt="" 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                        width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=subheader>&nbsp;</TD>
+                <TD class=subheader width="100%"><A name=4>Step 3. Creating 
+                  the Indicator Array</A><BR></TD></TR></TBODY></TABLE><BR>To allow 
+            the user to select a piece to move and where to move it, complete 
+            the following steps to create an 8 x 8 transparent array and place 
+            it over the chess board.<BR>
+            <OL>
+              <LI>Create the indicator array by selecting an array object from 
+              the <B>Controls</B> palette and using the Coloring tool to make it 
+              transparent.<BR><BR>
+              <LI>On the <B>Controls»Classic Controls»Boolean</B> palette, 
+              select a flat Boolean button and place it in the empty 
+              array.<BR><BR>
+              <LI>Resize the flat Boolean button to match the exact size of the 
+              Chess Square and change the button to an indicator.<BR><BR>
+              <LI>Hide the indexes and the label of the indicator array.<BR><BR>
+              <LI>Resize the array to be the same size as the chess board and 
+              add a dimension if necessary to make the array 2-dimensional, as 
+              follows.<BR><BR><IMG height=309 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/23.gif" 
+              width=307> 
+              <LI>Use the Coloring tool to make the background and foreground of 
+              the flat Boolean button transparent in the off state. In the on 
+              state, make only the background invisible and the foreground 
+              (outline) yellow. Therefore, when a specific element in the 
+              indicator array is turned on, a yellow outline appears around the 
+              selected piece or pieces. The following example shows both the 
+              chess board and the invisible indicator array on top of each 
+              other. The yellow squares around both kings come from the 
+              indicator array.<BR><BR><IMG height=272 alt="" 
+              src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/46.gif" 
+              width=272></LI></OL>
+            <UL></UL>
+            <OL></OL>
+            <DIV></DIV>
+            <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=linebuffer vAlign=bottom colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=tablegbg><IMG height=1 alt="" 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                        width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=subheader>&nbsp;</TD>
+                <TD class=subheader width="100%"><A name=5>Step 4. Creating 
+                  the Control Array</A><BR></TD></TR></TBODY></TABLE><BR>Repeat step 
+            3, but make the Boolean button a control instead of an indicator.
+            <UL></UL>
+            <OL></OL>
+            <DIV></DIV>
+            <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=linebuffer vAlign=bottom colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=tablegbg><IMG height=1 alt="" 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                        width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=subheader>&nbsp;</TD>
+                <TD class=subheader width="100%"><A name=6>Step 5. Grouping 
+                  the Arrays</A><BR></TD></TR></TBODY></TABLE><BR>Group the three 
+            arrays to avoid accidentally moving one of them by using the 
+            Positioning tool to select all the arrays, clicking the <B>Reorder 
+            </B>button in the toolbar, and selecting <B>Group </B>from the 
+            shortcut menu.
+            <UL></UL>
+            <OL></OL>
+            <DIV></DIV><BR><B><FONT size=2>Related Links:</FONT></B><BR><FONT 
+            size=2><A 
+            href="http://sine.ni.com/apps/we/niepd_web_display.display_epd4?p_guid=B123AE0CBB36111EE034080020E74861&amp;p_node=DZ52036&amp;p_source=external">2-Player 
+            Chess in LabVIEW</A><BR><A 
+            href="http://zone.ni.com/devzone/devzoneweb.nsf/Opendoc?openagent&amp;29050150F356473186256A300064FE1A">LabVIEW 
+            Custom Controls, Indicators, and Type Definitions</A><BR></FONT><!--stopindex--><BR><A 
+            href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578A4B3772EC6EB1062569DF0063270F?opendocument&amp;node=dz00000_us"><IMG 
+            src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/printer_icon.gif" 
+            border=0></A>&nbsp;<A 
+            href="http://zone.ni.com/devzone/conceptd.nsf/webmain/578A4B3772EC6EB1062569DF0063270F?opendocument&amp;node=dz00000_us">Print 
+            this Page</A><BR><!--startindex--><!---->
+            <SCRIPT language=javascript>
+function comments() {
+	var com_URL = "/devzone/dzcomments.nsf/userresponse?openform&id=578A4B3772EC6EB1062569DF0063270F&type=CD&title=Customizing~Controls~Using~a~Picture~Ring&location=devzone/conceptd.nsf&submit=&node=DZ52036_US";
+	window.location = com_URL;
+}
+</SCRIPT>
+            <A name=rank></FORM>
+            <FORM name=suppfeed 
+            action=/devzone\conceptd.nsf/webmain/578A4B3772EC6EB1062569DF0063270F?SaveDocument&amp;node= 
+            method=post>
+            <TABLE class=clearbg cellSpacing=0 cellPadding=0 width=350 
+            align=center border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=top noWrap width=90><STRONG 
+                  style="PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-SIZE: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">Your 
+                  Feedback!</STRONG></TD>
+                <TD vAlign=top noWrap align=middle colSpan=5><SPAN 
+                  style="FONT-SIZE: 10px"><IMG height=7 alt=poor 
+                  src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/arrow_poor.gif" 
+                  width=4 
+                  border=0>&nbsp;Poor&nbsp;&nbsp;|&nbsp;&nbsp;Excellent&nbsp;<IMG 
+                  height=7 alt=excellent 
+                  src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/arrow_excellent.gif" 
+                  width=4 border=0></SPAN></TD>
+                <TD width=1><IMG height=1 
+                  src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                  width=1 border=0></TD>
+                <TD>&nbsp;</TD>
+                <TD vAlign=top align=middle><SPAN 
+                  style="FONT-SIZE: 10px">Yes</SPAN></TD>
+                <TD vAlign=top align=middle><SPAN 
+                  style="FONT-SIZE: 10px">No</SPAN></TD></TR>
+              <TR>
+                <TD 
+                style="BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #ccc 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid" 
+                vAlign=top noWrap><SPAN style="FONT-SIZE: 10px">&nbsp;Document 
+                  Quality?&nbsp;</SPAN></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=1 name=valueanalysis></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=2 name=valueanalysis></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=3 name=valueanalysis></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=4 name=valueanalysis></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=5 name=valueanalysis></TD>
+                <TD width=1><IMG height=1 alt="" 
+                  src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/invis.gif" 
+                  width=1 border=0></TD>
+                <TD 
+                style="BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; BORDER-BOTTOM: #ccc 1px solid" 
+                noWrap><SPAN style="FONT-SIZE: 10px">&nbsp;Answered Your 
+                  Question?&nbsp;</SPAN></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=yes name=emailadd></TD>
+                <TD class=black20 vAlign=center align=middle><INPUT type=radio 
+                  value=no name=emailadd></TD></TR>
+              <TR vAlign=top align=middle>
+                <TD>&nbsp;</TD>
+                <TD><SPAN style="FONT-SIZE: 10px">1</SPAN></TD>
+                <TD><SPAN style="FONT-SIZE: 10px">2</SPAN></TD>
+                <TD><SPAN style="FONT-SIZE: 10px">3</SPAN></TD>
+                <TD><SPAN style="FONT-SIZE: 10px">4</SPAN></TD>
+                <TD><SPAN style="FONT-SIZE: 10px">5</SPAN></TD></TR>
+              <TR>
+                <TD colSpan=10><SPAN class=query style="FONT-SIZE: 10px"><TEXTAREA style="BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #ccc 1px solid; WIDTH: 374px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid; HEIGHT: 65px" name=comments rows=3 cols=60>Document needs work? Please tell us why.</TEXTAREA></SPAN></TD></TR>
+              <TR>
+                <TD align=left colSpan=10>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD width="75%"><SPAN style="FONT-SIZE: 10px">Please <A 
+                        href="http://sine.ni.com/apps/we/nicc.call_me">Contact 
+                        NI</A> for all product and support inquiries.</SPAN></TD>
+                      <TD align=right colSpan=2><A 
+                        href="javascript:validate()"><IMG alt=submit 
+                        src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/submit.gif" 
+                        border=0></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <FORM><BR>
+            <P></P><IMG height=1 alt="" 
+            src="F:\大曾\ni\09.18\Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files\invis(1).gif" 
+            width=1 border=0> 
+          <!--startindex--><!--End Right Accesory Bar--></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!--stopindex--><!-- Begin Footer -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3><IMG height=25 alt="" 
+      src="F:\大曾\ni\09.18\Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files\invis(1).gif" 
+      width=1 border=0></TD></TR>
+  <TR>
+    <TD 
+    background="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/dot_line.gif"><IMG 
+      height=1 alt="" 
+      src="F:\大曾\ni\09.18\Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files\invis(1).gif" 
+      width=1 border=0></TD></TR>
+  <TR vAlign=bottom align=middle>
+    <TD noWrap align=left height=25><A class=fineprint 
+      href="http://www.ni.com/profile/">My Profile</A>&nbsp;|&nbsp;<A 
+      class=fineprint 
+      href="http://www.ni.com/legal/privacy/unitedstates/us/">Privacy</A>&nbsp;|&nbsp;<A 
+      class=fineprint href="http://www.ni.com/legal/">Legal</A>&nbsp;|&nbsp;<A 
+      class=fineprint 
+      href="http://sine.ni.com/apps/we/nicc.call_me?p_lang_id=US">Contact 
+      NI</A>&nbsp;&nbsp;&nbsp;<SPAN class=wayfineprint style="COLOR: #959595">© 
+      2003 National Instruments Corporation. All rights 
+      reserved.</SPAN>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A 
+      href="http://www.ni.com/cgi-bin/mail_me.cgi"><IMG height=11 
+      alt="E-Mail this Page" 
+      src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/email.gif" 
+      width=16 align=absMiddle border=0></A>&nbsp;<A class=fineprint 
+      href="http://www.ni.com/cgi-bin/mail_me.cgi">E-Mail this 
+Page</A></A></TD></TR>
+  <TR>
+    <TD colSpan=3><IMG height=10 alt="" 
+      src="F:\大曾\ni\09.18\Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files\invis(1).gif" 
+      width=1 border=0></TD></TR>
+  <SCRIPT language=JavaScript 
+  src="Customizing Controls Using a Picture Ring - Tutorial - Development Library - National Instruments.files/tag-footer.js" 
+  type=text/javascript></SCRIPT>
+  </TBODY></TABLE><!-- End Footer --><NOSCRIPT></NOSCRIPT></FORM></DIV></BODY></HTML>

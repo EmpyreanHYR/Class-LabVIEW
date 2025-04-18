@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="dmc_demo">
+</Property><Property Name="解决方案文件" Value="F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\dmc_demo.sln">
+</Property><Property Name="Date" Value="2014年10月23日">
+</Property><Property Name="Time" Value="14:45:45">
+</Property></Properties><Event ErrorLevel="0" Project="dmc_demo" Source="dmc_demo.vbproj" Description="项目文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\dmc_demo.vbproj">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="Dialog1.Designer.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\Dialog1.Designer.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="Dialog1.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\Dialog1.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="LTDMC.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\LTDMC.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\AssemblyInfo.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\Application.Designer.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\Resources.Designer.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\Settings.Designer.vb" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\Application.myapp" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\Settings.settings" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="Dialog1.resx" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\Dialog1.resx">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="My Project\Resources.resx" Description="文件已成功备份为 F:\工作交接内容20140916\工作交接资料20140916\用户手册（编写）\DMC5000系列\20140916\DMC5000系列控制卡光盘_20140916\例程\VB.NET\Demo_VB\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="dmc_demo.vbproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="dmc_demo" Source="dmc_demo.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="dmc_demo" Source="dmc_demo.vbproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

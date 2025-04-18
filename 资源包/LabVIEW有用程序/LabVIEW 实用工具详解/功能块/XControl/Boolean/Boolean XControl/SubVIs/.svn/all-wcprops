@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs
+END
+Redraw__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/Redraw__LCR.vi
+END
+BX.SetStringSize__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/BX.SetStringSize__LCR.vi
+END
+CheckUpdatedSettings__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/CheckUpdatedSettings__LCR.vi
+END
+GetOwningPane__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/GetOwningPane__LCR.vi
+END
+Disabled__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/Disabled__LCR.vi
+END
+State.Changed__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/State.Changed__LCR.vi
+END
+HilitePicture__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/HilitePicture__LCR.vi
+END
+BX.SetPictSize__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/BX.SetPictSize__LCR.vi
+END
+AddMessageToState__LCR.vi
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/AddMessageToState__LCR.vi
+END
+FontDialog.llb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/rep/!svn/ver/4/trunk/BooleanXControl/built%202007-08-04%2018-04-15/SubVIs/FontDialog.llb
+END

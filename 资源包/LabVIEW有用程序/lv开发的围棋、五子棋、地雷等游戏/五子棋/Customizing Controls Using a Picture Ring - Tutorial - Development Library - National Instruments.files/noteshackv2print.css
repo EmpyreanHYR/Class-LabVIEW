@@ -1,0 +1,13 @@
+@import url( /css/global/us/noteshackv2.css );
+#hierarchynavigation {
+	DISPLAY: none
+}
+#search {
+	DISPLAY: none
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#wrapper {
+	WIDTH: 100%
+}

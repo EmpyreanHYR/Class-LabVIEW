@@ -1,0 +1,16 @@
+; ========================= Office Viewer OCX control inf ========================
+; INF file for OA.ocx
+
+[version] 
+; version signature (same for both NT and Win95) do not remove
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+[Add.Code]
+OA.ocx=OA.ocx
+
+[OA.ocx]
+file-win32-x86=thiscab
+clsid={18A295DA-088E-42D1-BE31-5028D7F9B9B5}
+FileVersion=3,1,0,4
+RegisterServer=yes

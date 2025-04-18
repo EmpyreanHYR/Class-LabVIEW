@@ -1,0 +1,888 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=GB2312">
+<title>操作者框架</title>
+<style>
+
+<!--
+
+/***************************************************/
+
+/* MINIMAL STYLES */
+
+/* The following section defines styles that every HTML Help project should need. */
+
+
+
+/* Specifies White Background color */
+
+body {background-color:#FFFFFF; font-family:Verdana, sans-serif; font-size:8pt; color: #000000;}
+
+
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+
+P { margin-top:6.00pt; margin-bottom:6.00pt;}
+
+
+
+BR { font-size:4.00pt; }
+
+
+
+/* Use H1 for all topic headings. */
+
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-size:150%; font-weight:bold;  }
+
+
+
+/* Use H2 for second-level headings. */
+
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-size:125%; font-weight:bold;  }
+
+
+
+/* Use H3 for third-level headings. */
+
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use H4 for fourth-level headings. */
+
+H4 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+
+H5 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+H6 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use the Body style class for normal paragraphs. */
+
+P.Body {  }
+
+
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+
+P.Anchor { font-size:125%;  }
+
+
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+
+P.Indent1 { margin-left:12.00pt; margin-bottom:3.00pt;  }
+
+P.Indent2 { margin-left:24.00pt; margin-bottom:3.00pt;  }
+
+P.Indent3 { margin-left:36.00pt; margin-bottom:3.00pt;  }
+
+P.Indent4 { margin-left:48.00pt; margin-bottom:3.00pt;  }
+
+P.Indent5 { margin-left:60.00pt; margin-bottom:3.00pt;  }
+
+
+
+/* Use the LI style for all list items. */
+
+LI { margin-top:3.00pt; margin-bottom:3.00pt; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+
+OL { margin-left:22.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+
+ol ol {list-style-type:lower-alpha}
+
+ol ol ol {list-style-type:decimal}
+
+ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+
+OL.EquationNum { margin-left:36.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+
+OL.List-abc { margin-left:22.00pt; text-indent:0pt; list-style-type:lower-alpha; }
+
+
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+
+UL { margin-left:22.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; list-style-type: disc; }
+
+
+
+/* Use the UL style for bulleted lists. Nested lists will use the bullet types according to the nesting scheme below. */
+
+ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul ul ul ul{list-style-image: none;list-style-type: circle}
+
+
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+
+UL.List-Box { list-style-image: none;list-style-type: square}
+
+
+
+Table { font-size:100%; }
+
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+
+Table.Borderless { border:none; }
+
+
+
+/* Use the Bordered style class for tables that need borders. */
+
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+
+TD { vertical-align:top; padding:3px; }
+
+
+
+/* Use the Bordered style class for table headings and cells in Bordered or Bordered-Wide tables. */
+
+.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; }
+
+
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+
+TD.Icon { width:40px; }
+
+
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+
+TH { font-weight:bold; padding:3px; }
+
+
+
+/* Use the Left-Align style class for table headings and cells that you want to left align instead of center align. */
+
+.Left-Align { text-align:left; }
+
+
+
+/***************************************************/
+
+/* CHARACTER FORMATS */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* CHARACTER FORMATS Updated to conform with the CSE HTML Validator Pro */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* Use the Dark-Red format for warnings or cautions. */
+
+.Dark-Red { color: #800000 }
+
+
+
+/* Use the Monospace format for code or syntax examples. */
+
+.Monospace { font-family: Courier New; font-size: 100%; }
+
+
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+
+.Monospace-Bold { font-family: Courier New; font-weight: bold; font-size: 100%; }
+
+
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+
+.Monospace-Italic { font-family: Courier New; font-style: italic; font-size: 100%; }
+
+
+
+/* small class */
+
+.smallFont { font-size:87.5%; }
+
+
+
+/* Bold class */
+
+.Bold { font-weight: bold; }
+
+
+
+/* Italic class */
+
+.Italic { font-style: italic; }
+
+
+
+/* Use the Platform format to denote a specific platform. */
+
+.Platform { color: #0000FF; font-weight: bold; }
+
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+
+.Symbol { font-family: Symbol; }
+
+
+
+/* Use the Red-text format to call attention to text that needs  information added or edited by techcomm */
+
+.Red-text {color: #FF0000;}
+
+
+
+/* Use the Green-Underline format for the green defintion in the conventions topic */
+
+.Green-Underline {color: #007700; text-decoration : underline;}
+
+
+
+/* Use the glossButton format for the glossary buttons used in the glossary topic */
+
+.glossButton { font-size:12px; color:black; }
+
+
+
+/* Use for text sections and hyphenated words that should not break at line wraps */
+
+.nobreak{white-space:nowrap}
+
+
+
+/* Use for template instructions. */
+
+.instructions{color:red; font-style:italic}
+
+
+
+/*Use for words and text sections that do not need to be localized */
+
+.DNL { }
+
+
+
+/* The following styles define the color of links. */
+
+a:link { color: #007700 }
+
+a:visited { color: #7F007F }
+
+a:link:hover { color: #FF0000 }
+
+a:link:active { color: #FF0000 }
+
+
+
+/***************************************************
+
+** Forms */
+
+
+
+form { margin-top:0pt; margin-bottom:3pt; color:black; }
+
+select { font-size:100%; color:black; }
+
+
+
+/*******************************************************
+
+** Margins **
+
+** Use these styles for block-level elements inside tables cells or list items where you do not want extra padding at the top or bottom of a cell. */
+
+.noTopMargin { margin-top:0pt;}
+
+.noBottomMargin { margin-bottom:0pt;}
+
+
+
+/***************************************************
+
+** CODE STYLES **
+
+** The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+-->
+</style>
+<script type="text/javascript"> // define hyperlinks and function for launching a URL in a browser
+
+var L_case_structure = "http://digital.ni.com/express.nsf/bycode/ex746b2013zhs";
+var L_while_loops = "http://digital.ni.com/express.nsf/bycode/ext9fg2013zhs";
+var L_shift_registers = "http://digital.ni.com/express.nsf/bycode/exar5k2013zhs";
+var L_enums = "http://digital.ni.com/express.nsf/bycode/ex3zj72013zhs";
+var L_typedefs = "http://digital.ni.com/express.nsf/bycode/exicsz2013zhs";
+var L_event_structures = "http://digital.ni.com/express.nsf/bycode/exfjrp2013zhs";
+var L_value_change_events = "http://digital.ni.com/express.nsf/bycode/exb2cb2013zhs";
+var L_error_handling = "http://digital.ni.com/express.nsf/bycode/exfbp32013zhs";
+var L_clusters = "http://digital.ni.com/express.nsf/bycode/exwemq2013zhs";
+var L_control_refnums = "http://digital.ni.com/express.nsf/bycode/exend62013zhs";
+var L_parallel = "http://digital.ni.com/express.nsf/bycode/exxaf62013zhs";
+var L_state_machines = "http://digital.ni.com/express.nsf/bycode/ex85gn";
+var L_user_events = "http://digital.ni.com/express.nsf/bycode/ex9s6m2013zhs";
+var L_queues = "http://digital.ni.com/express.nsf/bycode/extwnbzhs";
+var L_AF_dialog = "http://digital.ni.com/express.nsf/bycode/ex9nn92013zhs";
+var L_AF_VIs = "http://digital.ni.com/express.nsf/bycode/ex3umz2013zhs";
+var L_LVOOP = "http://digital.ni.com/express.nsf/bycode/exr4sb2013zhs";
+var L_Notifiers = "http://digital.ni.com/express.nsf/bycode/exyhme2013zhs";
+var NO_LOC_AF_Community = "http://digital.ni.com/express.nsf/bycode/exwhyc";
+var NO_LOC_MAL_MVC = "http://digital.ni.com/express.nsf/bycode/exr345";
+var NO_LOC_Large_Apps = "http://digital.ni.com/express.nsf/bycode/exaed9";
+var L_Adv_Arch = "http://digital.ni.com/express.nsf/bycode/exq58ezhs";
+var L_Core_3 = "http://digital.ni.com/express.nsf/bycode/exnnfyzhs";
+var L_OO_Design = "http://digital.ni.com/express.nsf/bycode/exs545zhs";
+var L_calling_convention = "http://digital.ni.com/express.nsf/bycode/exgs3xzhs";
+var L_trademarks = "http://digital.ni.com/express.nsf/bycode/rdtrad";
+var L_patents = "http://digital.ni.com/express.nsf/bycode/rdlv17";
+var L_walkthrough = "http://digital.ni.com/express.nsf/bycode/DW_Afzhs";
+
+function WWW(url) 
+	{
+	var urlWindow;
+	urlWindow = window.open(url, "New", "directories=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes");
+	}
+</script>
+
+</HEAD>
+<body>
+<h1>操作者框架</h1>
+
+<p class="Body">LabVIEW 2013</p>
+
+<p class="Body">&#8220;操作者框架&#8221;模板创建的LabVIEW应用程序可包含多个需要互相进行通信的独立任务。该框架专门设计用于解决常见开发情形中遇到的问题：扩展功能或添加其他处理时需要大量复制代码。</p>
+
+<p class="Body">每个操作者被定义为一个LabVIEW类，启动操作者的一个实例可实例化LabVIEW类，操作者实例由LabVIEW对象表示。基础操作者类（&#8220;操作者&#8221;）的所有子孙类都包含&#8220;操作者核心&#8221;方法，其作用相当于一个队列消息处理器。该VI接收并响应系统中其他操作者发送给它的消息和数据。但由于操作者是LabVIEW类，因而比传统的队列消息处理器更容易重复使用和扩展。</p>
+
+<p class="Body">操作者之间的通信线路总是构成一棵层次树。通常在&#8220;操作者框架&#8221;应用程序中，一个小型stub VI启动一个根操作者。该操作者成为一个或多个嵌套操作者的调用方操作者。每个嵌套的操作者可能启动它自己的嵌套操作者，依次类推。&#8220;调用方至操作者&#8221;关系和操作者层次树是&#8220;操作者框架&#8221;应用程序涉及的基础。通常情况下，一个操作者只能和它的调用方，或者它自己的嵌套操作者通信。National Instruments建议避免在操作者层次树中建立任何直接通信。不过，如有充分理由，在层次树中建立跨越节点的直接通信也是可行的。关于操作者层次树的更多信息，见<a href="Actor%20Framework%20Whitepaper.html">操作者框架白皮书</a>。</p>
+
+<p class="Body">本模板包含三个操作者：应用程序(Application)、Alpha和Beta，同时还演示了它们彼此之间进行通信的方式。</p>
+
+<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp; 本模板大量使用LabVIEW类。使用&#8220;操作者框架&#8221;设计应用程序要求熟悉LabVIEW面向对象编程原理。本文档提供了理解和修改&#8220;操作者框架&#8221;模板所需的相关信息。关于使用&#8220;操作者框架&#8221;设计应用程序的详细信息，见<strong>项目浏览器</strong>窗口中Project Documentation文件夹下的Actor Framework Whitepaper。</td></tr></table>
+
+<h2>范例</h2>
+<p class="Body">关于修改本模板以用于应用程序的范例，见<strong>创建项目</strong>对话框中的&#8220;反馈式蒸发冷却器&#8221;范例项目。</p>
+
+<h2>开发者走查</h2>
+<p class="Body">关于本模板开发者走查的详细信息见<a href="javascript:WWW(L_walkthrough)">ni.com</a>。</p>
+
+<h2>系统要求</h2>
+
+<p class="Body">LabVIEW基础版、完整版或专业版开发系统</p>
+
+<h2>使用条件</h2>
+
+<p class="Body">&#8220;操作者框架&#8221;适用的应用程序为：需要复制大量代码，但每个副本改动不大的情况。使用这种方法开发大中型应用程序十分困难，尤其是用户需要维护和扩展应用程序的时候。</p>
+
+<p class="Body">例如，假设一个测量应用程序需要连续同时进行应变测量和电阻测量。传统的操作方法可能如下：创建一个进行应变测量的队列消息处理器，复制该队列消息处理器，修改副本以进行电阻测量，然后将两个队列消息处理器合并在一个应用程序中。这样的操作方式导致两个队列消息处理器共用大量相同的代码，但彼此之间又有细微的差别。如修改程序的某个部分，则必须在另一个程序中跟踪并复制这些修改。</p>
+
+<p class="Body">使用&#8220;操作者框架&#8221;方法时，首先需要确定两种测量类型共有的功能，如下列步骤所示：</p>
+
+<ul>
+	<li>获取硬件设备的引用</li>
+	<li>连续进行测量</li>
+	<li>连续处理测量</li>
+	<li>连续向用户显示处理后的测量结果，附带显示之前测量的历史记录</li>
+	<li>关闭硬件设备的引用</li>
+</ul>
+
+<p class="Body">每个步骤类似于队列消息处理器中的一个状态，或消息框图。尽管两种测量中这些步骤相同，但每种测量特定的命令有所区别。例如，使用的硬件设备不同，采集数据的VI不同，应用于测量的处理也各不相同。</p>
+
+<p class="Body">&#8220;操作者框架&#8221;面向对象的方法解决了可扩展性和重复使用的问题，同时还提供其他功能。使用&#8220;操作者框架&#8221;可将上述通用功能封装到一个&#8220;测量&#8221;操作者中。&#8220;测量&#8221;操作者是一个LabVIEW类，本身无法进行测量；相反，它的成员VI可以从总体上定义需要哪些步骤。每个步骤都和类中的一个成员VI相关联。</p>
+
+<p class="Body">由于&#8220;测量&#8221;操作者是一个LabVIEW类，因此可创建两个从&#8220;测量&#8221;操作者继承特定功能的子操作者：一个&#8220;应变&#8221;操作者和一个&#8220;电阻&#8221;操作者。子操作者将继承父操作者的功能，但同时还会添加与应变或电阻相关的特定操作，从而使得这些操作者可以进行连续测量，并处理和显示测量结果。这种方法将通用功能封装到一个单独的点（&#8220;测量&#8221;操作者），从而将代码的重复使用性最大化，定义特定的命令则由其子操作者完成。</p>
+
+<p class="Body">此外，由于每个操作者是一个独立的实体，因而应用程序可以将操作者动态加载到内存。例如，可设置这样一个应用程序：单击一个按钮，进行应变或电阻测量。没有&#8220;操作者框架&#8221;，要实现这种功能十分困难，耗费时间且容易出错，尤其是计划将来修改或扩展应用程序的时候。&#8220;操作者框架&#8221;就是为了这些应用程序而设计的。</p>
+
+<h2>运行本模板</h2>
+
+<p class="Body">按照下列步骤运行本模板：</p>
+
+<ol>
+	<li>在<strong>项目浏览器</strong>窗口，打开并运行应用程序启动器.lvlib:Splash Screen.vi。</li>
+	<li>查看<strong>事件记录</strong>中的消息，它们是每个嵌套操作者（Alpha和Beta）发送至顶层操作者（应用程序）的消息。</li>
+	<li>单击<strong>发送Alpha消息</strong>。应用程序操作者发送一个消息至Alpha操作者。查看<strong>事件记录</strong>的响应。</li>
+	<li>单击<strong>发送Beta消息</strong>。应用程序操作者发送一个消息至Beta操作者。查看<strong>事件记录</strong>的响应。</li>
+	<li>单击<strong>停止全部</strong>可停止应用程序。</li>
+</ol>
+
+<h2>操作者框架组成部分</h2>
+
+<p class="Body">&#8220;操作者框架&#8221;由<em>操作者</em>和<em>消息</em>构成。消息在<em>消息队列</em>中传输。为减少出错和提高应用程序的可靠性，&#8220;操作者框架&#8221;限制了能够互相发送消息的操作者。</p>
+
+<h3>操作者</h3>
+
+<p>操作者是LabVIEW类，代表某个任务的状态。所有操作者类均从LabVIEW中的&#8220;操作者&#8221;类继承。该类由三个主要部分构成：</p>
+<ul>
+	<li><strong>操作者的核心VI</strong>－核心VI是一个特定命名的方法（&#8220;操作者核心&#8221;），用来定义操作者的连续行为。该方法定义了所有操作者的消息处理行为。该类的子孙类重写方法以显示操作者的用户界面、添加并行循环和启动嵌套操作者。</li>
+	<li><strong>操作者的特定方法</strong>－这些VI是LabVIEW类的成员VI，用于定义操作者。通常每个方法对应于操作者能够执行的一个任务。祖先类（&#8220;操作者&#8221;类）包含几个专门设计用于被子孙类重写的方法。</li>
+	<li><strong>操作者的消息</strong>－消息是一个LabVIEW类，定义了操作者能够接收的指令和作出响应的方式。其他操作者将这些消息发送至一个操作者，以便让操作者调用其中的一个方法。在&#8220;操作者框架&#8221;基础上创建应用程序时，通常需要为操作者的每个方法定义一个消息。所有消息均从LabVIEW中的&#8220;消息&#8221;类继承。<br><br>虽然消息本身并不是操作者的一部分，但用户通常在定义操作者的同时定义了操作者的消息。由于这种紧密的联系，模板将操作者和消息放在同一个项目库中。</li>
+</ul>
+
+<p class="Body">例如，下面截图显示的项目库包含一个操作者Alpha（<strong>Alpha</strong>类）和一个消息(<strong>Alpha任务消息</strong>类)。</p>
+
+<img src="loc_alpha_class.png">
+
+<p class="Body">上面的截图显示了与该操作者相关的下列文件：</p>
+
+<ul>
+<li><strong>操作者的核心VI</strong>是<strong>操作者核心</strong>。该方法重写其祖先的&#8220;操作者核心&#8221;方法，定义了Alpha操作者特有的连续行为。</li>
+<li><strong>操作者的方法</strong>是<strong>停止核心</strong>和<strong>任务</strong>。这些方法在下列条件下执行：
+	<ul>
+		<li><strong>停止核心</strong>在Alpha操作者收到&#8220;停止&#8221;消息时执行。该方法重写&#8220;操作者&#8221;类的&#8220;停止核心&#8221;方法，用于定义Alpha操作者特有的行为。</li>
+		<li><strong>任务</strong>在Alpha操作者收到&#8220;任务&#8221;消息时执行。该方法为Alpha操作者特有，即&#8220;操作者&#8221;类中未定义该方法。</li>
+	</ul>
+</li>
+<li><strong>操作者的消息</strong>包含在<strong>Alpha的消息</strong>文件夹中。该操作者仅定义一个消息，即<strong>Alpha任务消息</strong>，该消息从&#8220;消息&#8221;类继承，包含下列文件：
+	<ul>
+		<li><strong>Alpha任务消息</strong>控件是该消息携带的数据。</li>
+		<li><strong>发送Alpha任务</strong>是其他操作者用来发送&#8220;任务&#8221;消息至Alpha操作者的VI。该VI将创建消息的一个实例并用一些数据填充消息。</li>
+		<li><strong>执行</strong>定义了Alpha收到&#8220;任务&#8221;消息时执行的动作。本模板中，&#8220;执行&#8221;VI命令Alpha执行其&#8220;任务&#8221;方法。</li>
+	</ul>
+	
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp;
+	<ul>
+	<li>Alpha类包含一个&#8220;停止核心&#8221;方法，该方法收到&#8220;停止&#8221;消息时执行；但本模板未定义一个&#8220;停止&#8221;消息。&#8220;停止消息&#8221;类在操作者框架中定义；所有操作者均从&#8220;操作者&#8221;类中继承了处理该消息的能力。子孙类（如Alpha）仅需重写&#8220;停止核心&#8221;方法。</li>
+	<li>Alpha类无需定义接收和响应消息的过程。该行为在&#8220;操作者&#8221;类的&#8220;操作者核心&#8221;方法中定义并被所有操作者继承。</li>	
+	</ul>
+</td></tr></table>
+</li>
+</ul>
+
+<h3>最小化操作者之间的通信错误</h3>
+
+<p class="Body">默认情况下，一个特定的操作者X仅可将消息发送至下列操作者：</p>
+
+<ul>
+	<li><strong>调用方</strong>－启动X的VI（可能是一个操作者）</li>
+	<li><strong>嵌套操作者</strong>－X启动的任何操作者</li>
+</ul>
+<p class="Body">这种被限制的通信顺序称为<em>任务树</em>。这表明仅有一个通信路径需要管理，因而很容易写入代码，确保关闭之前其他操作者有机会接收消息并作出响应。</p>
+
+<p class="Body">例如，本模板定义了下列任务树：</p>
+
+<img src="loc_task_tree.png">
+
+<p class="Body">其中<em>项目_名称</em>指用户给项目的命名。 </p>
+
+<p class="Body">该图表明应用程序操作者同时启动Alpha和Beta操作者。因此，应用程序操作者被称为<em>顶层操作者</em>。顶层操作者启动所有其他操作者。顶层操作者本身从一个正常VI启动。</p>
+
+<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp;任务树层次结构与LabVIEW类继承层次结构有所不同。虽然Alpha和Beta从应用程序启动，但Alpha和Beta类并不从<em>项目_名称</em>类中继承。</td></tr></table>
+
+<p class="Body">在该任务树中，下列通信规则有效：</p>
+
+<ul>
+	<li>应用程序可将消息发送至Alpha和Beta</li>
+	<li>Alpha仅能将消息发送至应用程序</li>
+	<li>Beta仅能将消息发送至应用程序</li>
+</ul>
+
+<p class="Body">这说明Alpha和Beta无法将消息发送至对方。Alpha必须发送一个消息至应用程序，确定Beta是否需要接收该消息并采取相应的动作。同样，限制通信路径有助于写入更多易于管理和正确无误的代码。</p>
+
+<p class="Body">下面的程序框图显示了<em>项目_名称</em>类中&#8220;操作者核心&#8221;方法的代码，该代码通过启动Alpha和Beta定义任务树：</p>
+
+<img src="loc_launch_nested_actors.png">
+
+<h3>消息队列</h3>
+
+<p class="Body">消息通过队列发送。为了限制任务树，每个操作者最初仅可访问下列两个消息队列：</p>
+
+<ul>
+	<li>操作者用来将消息发送至调用方的队列</li>
+	<li>操作者用来将消息发送至自身的队列</li>	
+</ul>
+
+<p class="Body">访问一个队列与队列本身有所不同。为避免其他操作者释放其消息队列，操作者并不共享自身的队列。相反，操作者框架引入了<em>待入队列</em>的概念。待入队列是一个引用，可使操作者发送消息至队列，但不执行其他任何操作。</p>
+
+<p class="Body">例如，假设操作者X已经在运行。启动时，X获得一个用来发送消息至自身的队列。在X看来，该队列是<em>至当前类队列</em>。如X启动Y，则发生下列动作：</p> 
+
+<ol>
+	<li>X是Y的调用方，因此X允许Y访问X的至当前类队列。在Y看来，该队列是<em>至调用方</em>队列。队列相同，但有两个不同的观察角度。</li>
+	<li>Y获得一个发送消息至自身的队列。在Y看来，该队列是<em>至当前类</em>队列。</li>
+	<li>Y允许X访问步骤2中获得的队列。</li>
+</ol>
+
+<p class="Body">现在Y可以访问两个队列：</p>
+
+<ul>
+	<li><strong>至调用方队列</strong>－步骤1中X允许Y访问的队列。注意该队列和X用来与自身通信的队列相同。</li>
+	<li><strong>至当前类队列</strong>－步骤3中Y为自身获得的队列。</li>
+</ul>
+
+<p class="Body">下图显示了这两个操作者互相进行通信的方式：</p>
+
+<img src="loc_Actor_and_Queues_Flowchart.gif" border="1">
+
+<p class="body">现在X能够将消息发送至自身(1)和Y (2)。Y能够将消息发送至X (3)和自身(4)。尽管有四个消息可进入的方向，但只包含了两个队列。此外，两个操作者都无法释放对方的队列。相反，每个操作者释放自身的队列，作为其关闭程序的一部分。</p>
+
+<h2>项目层次结构</h2>
+
+<p class="Body">在本模板的基础上创建项目后，LabVIEW将显示下列层次结构：</p>
+<ul>
+	<li><strong>Project Documentation</strong>－包含关于模板的相关文档。用户开发和分布项目时，National Instruments建议对该文档进行相应的更新。</li>
+	<li><strong><em>项目_名称</em>启动器</strong>库－关于启动顶层应用程序的文件。
+		<ul>
+			<li><strong>本地化</strong>－将所有用户面对的字符串集中到一个VI，有助于字符串的翻译。</li>
+			<li><strong>初始屏幕</strong>－执行&#8220;加载应用程序&#8221;VI时显示初始屏幕。</li>
+		</ul>
+	</li>
+	<li><strong><em>项目_名称</em>库</strong>－包含应用程序操作者及其能够接收的消息。
+		<ul>
+			<li><strong><em>项目_名称</em>的消息</strong>－包含应用程序操作者能够接收的消息。
+				<ul>
+					<li><strong>记录事件消息</strong>类－定义一个消息，该消息命令应用程序操作者用字符串更新其事件记录。
+						<ul>
+							<li><strong>发送记录事件</strong>－发送&#8220;记录事件&#8221;消息至应用程序操作者，附带一个字符串作为数据。Alpha和Beta操作者均发送该消息至应用程序操作者；因此，该VI从Alpha和Beta操作者的&#8220;任务&#8221;方法中调用。</li>
+							<li><strong>执行</strong>－使用&#8220;发送记录事件&#8221;VI携带的数据，命令应用程序操作者调用其Log Event.vi方法。</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><strong><em>项目_名称</em></strong>类－&#8220;应用程序&#8221;操作者。
+				<ul>
+					<li><strong>本地化</strong>－将所有用户面对的字符串集中到一个VI，有助于字符串的翻译。</li>
+					<li><strong>操作者核心</strong>－操作者的核心VI，执行下列任务：
+						<ul>
+							<li>启动Alpha和Beta操作者。</li>
+							<li>允许这些操作者访问队列，发送消息至应用程序操作者。</li>
+							<li>显示UI。</li>
+							<li>等待前面板事件。</li>
+							<li>通过发送消息至Alpha和Beta操作者，响应这些事件。</li>					
+						</ul>					
+					</li>
+					<li><strong>读取配置文件</strong>－从配置文件中读取整数。</li>
+					<li><strong>停止核心</strong>－发送&#8220;停止&#8221;消息至Alpha和Beta操作者。</li>
+					<li><strong>记录事件</strong>－滚动<em>项目_名称</em>类中&#8220;操作者核心&#8221;前面板上的<strong>事件记录</strong>文本框。</li>
+					<li><strong>加载应用程序</strong>－启动<em>项目_名称</em>操作者，从而启动应用程序本身，并将正在加载的状态发布至&#8220;初始屏幕&#8221;VI。</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><strong>Alpha操作者</strong>库－包含Alpha操作者及其能够接收的消息。
+		<ul>
+			<li><strong>Alpha的消息</strong>－包含Alpha操作者能够接收的消息。
+				<ul>
+					<li><strong>Alpha任务消息</strong>类－定义一个命令Alpha操作者执行其Task.vi方法的消息。
+						<ul>
+							<li><strong>发送Alpha任务</strong>－发送&#8220;任务&#8221;消息至Alpha操作者，同时附带发送一些数据。该VI从<em>项目_名称</em>类的&#8220;操作者核心&#8221;方法中调用。</li>
+							<li><strong>执行</strong>－使用&#8220;发送Alpha任务&#8221;VI携带的数据，命令Alpha操作者运行其&#8220;任务&#8221;方法。</li>
+							<li><strong>写入数据</strong>－将整数捆绑至Alpha操作者从其&#8220;操作者核心&#8221;方法发送的&#8220;任务&#8221;消息。</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><strong>Alpha</strong>类－Alpha操作者。
+				<ul>
+					<li><strong>本地化</strong>－将所有用户面对的字符串集中到一个VI，有助于字符串的翻译。</li>
+					<li><strong>操作者核心</strong>－命令Alpha操作者每<em>n</em>毫秒执行其Task.vi方法，数据为-1。接收&#8220;任务&#8221;消息命令Alpha执行其&#8220;任务&#8221;方法，但数据不是-1。 </li>
+					<li><strong>停止核心</strong>－阻止传递定时消息（在&#8220;操作者核心&#8221;方法中定义）。</li>
+					<li><strong>任务</strong>－发送一个&#8220;记录事件&#8221;消息至应用程序操作者，附带一个整数。</li>
+				</ul>
+			</li>				
+		</ul>			
+	</li>
+	<li><strong>Beta操作者</strong>库－包含Beta操作者及其能够接收的消息。这些文件的结构和功能类似于Alpha Actor.lvlib中文件的功能，但有两个例外：
+		<ul>
+			<li>Beta类与Alpha类的的&#8220;操作者核心&#8221;方法运行方式各不相同。</li>
+			<li>&#8220;Beta任务消息&#8221;类中不包含&#8220;写入数据&#8221;方法。</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>修改本模板</h2>
+
+<h3>确定需求</h3>
+
+<p class="Body">操作者是一个LabVIEW类。和其他LabVIEW类一样，创建之前必须明白操作者的含义及其作用。</p>
+
+<p class="Body">为了明确待创建的操作者的类型及其功能，需考虑应用程序中独立运行的任务以及每个任务能够执行的动作。例如，假设一个从模拟设备中进行连续测量的任务。该任务需明确如何连接至硬件、连续采集测量结果、将安全值写入硬件以及从硬件断开。此任务的操作者可能对于每个动作都有一个方法。为每个确定的任务<a href="#create_actor">创建一个操作者</a>。</p>
+
+<p class="Body">明确操作者需执行的动作后，还需确定操作者运行时哪些动作连续发生，哪些动作仅在从另一个操作者收到消息后发生。连续发生的动作应添加在操作者的&#8220;操作者核心&#8221;方法中。响应消息而发生的动作应表示为操作者类的一个方法。使用该信息<a href="#define_actor_behavior">定义操作者行为</a>。然后，<a href="#create_message">创建消息</a>，命令操作者调用每个方法。</p>
+
+<a name="define_actor_behavior"></a><h3>定义操作者行为</h3>
+
+<p class="Body">操作者框架提供两种定义操作者行为的方法。必须首先确定下列何种方法比较合适：</p>
+
+<ul>
+	<li>对于响应消息而发生的行为，应首先<a href="#create_method">创建操作者方法</a>，然后<a href="#create_message">创建触发方法的消息。</a><br><br>例如，从硬件设备中采集单次测量结果就是一种响应消息而发生的行为。该动作的开头和结尾明显有别，且不需要连续执行。该动作的持续时间比操作者自身的持续时间短。</li>
+	<li>对于操作者运行时应连续发生的动作，需要<a href="#override_actor_core">重写&#8220;操作者核心&#8221;方法</a>。<br><br>例如，监控用户界面并对事件作出响应就是一种应该连续发生的动作。该动作在操作者运行的整个过程中都需要发生；即与操作者自身的持续时间相等。</li>
+</ul>
+
+<a name="create_method"></a><h4>创建操作者方法</h4>
+
+<ol>
+	<li>在类中创建一个成员VI。注意祖先操作者类的一些方法是专门设计用于被重写的。</li>
+	<li><a href="#create_message">创建消息</a>以命令操作者调用该方法。</li>
+	<li><a href="#send_message">确保应用程序的另一部分发送消息至操作者</a>。</li>
+</ol>
+
+<a name="override_actor_core"></a><h4>定义操作者的连续行为 </h4>
+<p class="Body">操作者类的&#8220;操作者核心&#8221;方法包含对发送至操作者的消息进行处理和响应的代码。每个操作者都继承了这种行为。操作者处理消息时，可连续执行其他动作。如需定义操作者的连续行为，可在子孙类中重写&#8220;操作者核心&#8221;方法。</p>
+
+<p class="Body">下面的截图显示了本模板中重写&#8220;操作者核心&#8221;方法的三个操作者：</p>
+
+<img src="loc_actor_core_override.png">
+
+<a name="create_actor"></a><h3>创建操作者</h3>
+
+<ol>
+	<li>创建一个LabVIEW类并将其设置为从<span class="DNL">Actor Framework.lvlib:Actor.lvclass</span>继承。</li>
+	<li><a href="#define_actor_behavior">定义操作者的行为</a>。</li>
+	<li><a href="#create_message">创建操作者可接收的消息</a>。</li>
+	<li>确保应用程序的另一部分<a href="#launch_actor">启动操作者</a>。</li>
+	<li>确保应用程序的其他部分<a href="#send_message">发送消息至操作者</a>。</li>
+	<li>创建<a href="#stop_actor">停止操作者</a>的代码。</li>
+</ol>
+
+<a name="stop_actor"></a><h3>停止操作者</h3>
+
+<p class="Body">如需停止操作者，可通过使用一个下列VI，发送停止消息至操作者：</p>
+
+<ul>
+	<li>发送标准停止</li>
+	<li>发送紧急停止</li>
+	<li>发送标准或紧急停止</li>
+</ul>
+
+<p class="Body">这些方法可以在<strong>函数</strong>选板中找到。关于停止操作者范例的详细信息，见<em>项目_名称</em>类的&#8220;停止核心&#8221;方法。</p>
+
+<a name="launch_actor"></a><h3>启动操作者</h3>
+
+<p class="Body">通过使用<strong>函数</strong>选板上的&#8220;启动操作者&#8221;方法可启动一个操作者。关于启动顶层操作者范例的详细信息，见&#8220;加载应用程序&#8221;VI中的下列代码：</p>
+
+<img src="loc_launch_top_level_actor.png">
+
+<p class="Body">关于启动嵌套操作者范例的详细信息，见<em>项目_名称</em>类中&#8220;操作者核心&#8221;的下列代码：</p>
+
+<img src="loc_launch_nested_actors.png">
+
+<a name="create_message"></a><h3>创建消息 </h3>
+
+<p class="Body">消息是LabVIEW类，可命令操作者调用一个方法。按照下列步骤，为操作者创建一个消息：</p>
+
+<ol>
+	<li>确保已打开包含操作者的一个LabVIEW项目。</li>
+	<li>启动<strong>操作者框架消息制作器</strong>对话框：<br><br><img src="loc_af_message_maker.png"></li>
+	<li>选择要创建消息的方法。例如：<br><br><img src="loc_create_message_list.png"></li>
+	<li>单击<strong>生成选中项</strong>。单击该按钮后，LabVIEW将创建<em>方法</em>消息.lvclass，并将其插入<strong>项目浏览器</strong>窗口。其中，<em>方法</em>就是用户之前选择的方法。例如：<br><br><img src="loc_created_message.png"><br><br>LabVIEW同时也打开类的成员VI，其中：
+		<ul>
+			<li><strong><em>方法</em>消息.lvclass：<em>方法</em>消息.ctl</strong>是消息可访问的私有数据。</li>
+			<li><strong><em>方法</em>消息.lvclass:发送<em>方法</em>.vi</strong>是用来发送消息至操作者的VI。</li>
+			<li><strong><em>方法</em>消息.lvclass:Do.vi</strong>定义了操作者收到该消息时的动作。默认情况下，Do.vi命令操作者调用<em>方法</em>.vi。</li>
+		</ul>		
+	</li>
+	<li>用户可根据应用程序的实际需求定制这些VI。</li>
+	<li><a href="#send_message">发送消息</a>。</li>
+</ol>
+
+<a name="send_message"></a><h3>发送消息</h3>
+
+<p class="Body">如需发送消息，可使用<em>方法</em>消息.lvclass:发送<em>方法</em>.vi。其中，<em>方法</em>是希望接受方操作者执行的方法。<a href="#create_message">创建消息</a>时已创建&#8220;发送<em>方法</em>.vi&#8221;。</p>
+
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>注</strong>&nbsp;&nbsp;关于发送停止或紧急停止消息的详细信息，见<a href="#stop_actor">停止操作者</a>。</td></tr></table>
+
+<p class="Body">本模板中关于发送消息的范例，见下列VI：</p>
+
+<ul>
+	<li>Beta类的&#8220;操作者核心&#8221;方法－发送&#8220;记录事件&#8221;消息至应用程序操作者。</li>
+	<li>Beta类的&#8220;任务&#8221;方法－发送&#8220;记录事件&#8221;消息至应用程序操作者。</li>
+	<li>Alpha类的&#8220;任务&#8221;方法－发送&#8220;记录事件&#8221;消息至应用程序操作者。</li>
+	<li><em>项目_名称</em>类的&#8220;操作者核心&#8221;方法－
+		<ul>
+			<li>发送&#8220;Alpha任务&#8221;消息至Alpha操作者。</li>
+			<li>发送&#8220;Beta任务&#8221;消息至Beta操作者。</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>修改应用程序操作者发送消息至Alpha操作者时发生的事件</h3>
+
+<p class="Body"><em>项目_名称</em>类的&#8220;操作者核心&#8221;方法中，事件结构的<strong>至Alpha的消息</strong>事件分支定义了应用程序操作者发送消息至Alpha操作者时发生的事件。按照应用程序的实际需求，对该事件结构进行修改。</p>
+
+<h3>修改应用程序操作者发送消息至Beta操作者时发生的事件</h3>
+
+<p class="Body"><em>项目_名称</em>类的&#8220;操作者核心&#8221;方法中，事件结构的<strong>至Beta的消息</strong>事件分支定义了应用程序操作者发送消息至Beta操作者时发生的事件。按照应用程序的实际需求，对该事件结构进行修改。</p>
+
+<h3>修改应用程序操作者停止时发生的事件</h3>
+
+<p class="Body">下列位置定义了应用程序操作者的停止行为：</p>
+
+<ul>
+	<li><strong><em>项目_名称.</em>类的&#8220;操作者核心&#8221;方法中，事件结构的</strong>&quot;Stop&quot;: 值改变; 前面板关闭<strong>事件分支</strong>－该事件分支将应用程序操作者的&#8220;停止&#8221;消息发送至自身：<br><br><img src="loc_stopping_actors.png"><br><br>应用程序操作者收到该消息后，&#8220;停止消息&#8221;类的&#8220;执行&#8221;VI将生成错误代码43，表示操作者停止时无错误，且将执行<em>项目_名称</em>类的&#8220;停止核心&#8221;方法。操作者类的&#8220;操作者核心&#8221;方法中定义了该行为。</li>
+	<li><strong>同一事件结构中的</strong>应用程序实例关闭<strong>事件分支</strong>－无论应用程序如何关闭，该分支中的代码都会运行直到彻底完成。可在该分支中根据需要添加清理代码，如在本例中是将硬件重置为安全状态。</li>
+	<li><strong><em>项目_名称</em>类的&#8220;停止核心&#8221;方法</strong>－默认情况下，该方法向Alpha和Beta操作者发送&#8220;停止&#8221;消息。<br><br>如在Alpha和Beta同一层次结构上创建嵌套操作者，需修改该VI，通知这些嵌套操作者也同时停止。这些操作者包含自身的停止行为，可进行<a href="#change_nested_actor_stop">修改</a>。</li>
+</ul>
+<a name="change_nested_actor_stop"></a><h3>修改Alpha和Beta停止时发生的事件</h3>
+
+<p class="Body">类的&#8220;停止核心&#8221;方法中定义了这些操作者的停止行为。默认情况下，这些方法关闭在操作者的&#8220;操作者核心&#8221;方法中启动的并行任务。按照应用程序的实际需求，修改这些方法中的代码。</p>
+
+<p class="Body">如需修改本模板使Alpha或Beta启动任何嵌套操作者，确保操作者的&#8220;停止核心&#8221;方法发送正确的&#8220;停止&#8221;或&#8220;紧急停止&#8221;消息至嵌套操作者。</p>
+
+<h3>修改用户界面</h3>
+
+<p class="Body">通常操作者的用户界面在其&#8220;操作者核心&#8221;方法中定义。本模板中，只有应用程序操作者在其&#8220;操作者核心&#8221;方法中定义用户界面。该VI的前面板为应用程序的用户界面。按照应用程序的实际需求，对该用户界面进行修改。</p>
+
+<h2>涉及的LabVIEW功能和概念</h2>
+<ul>	
+	<li><a href="javascript:WWW(L_AF_dialog)">操作者框架消息制作器</a>对话框</li>
+	<li><a href="javascript:WWW(L_AF_VIs)">操作者框架</a>VI</li>
+	<li><a href="javascript:WWW(L_case_structure)">条件结构</a></li>
+	<li><a href="javascript:WWW(L_clusters)">簇</a></li>
+	<li><a href="javascript:WWW(L_control_refnums)">控件引用句柄</a></li>
+	<li><a href="javascript:WWW(L_enums)">枚举型</a></li>
+	<li><a href="javascript:WWW(L_error_handling)">错误簇</a></li>
+	<li><a href="javascript:WWW(L_event_structures)">事件结构</a></li>
+	<li><a href="javascript:WWW(L_LVOOP)">LabVIEW面向对象编程</a></li>
+	<li><a href="javascript:WWW(L_Notifiers)">通知器</a></li>
+	<li><a href="javascript:WWW(L_parallel)">并行</a></li>
+	<li><a href="javascript:WWW(L_queues)">队列</a></li>
+	<li><a href="javascript:WWW(L_shift_registers)">移位寄存器</a></li>
+	<li><a href="javascript:WWW(L_state_machines)">状态机</a></li>
+	<li><a href="javascript:WWW(L_typedefs)">自定义类型</a></li>
+	<li><a href="javascript:WWW(L_value_change_events)">值改变事件</a></li>
+	<li><a href="javascript:WWW(L_user_events)">用户事件</a></li>
+	<li><a href="javascript:WWW(L_while_loops)">While循环</a></li>
+</ul>
+
+<h2>延伸阅读</h2>
+<ul>
+	<li><a href="javascript:WWW(NO_LOC_AF_Community)">操作者框架社区论坛</a></li>
+	<li><a href="javascript:WWW(L_calling_convention)">调用规范</a></li>
+	<li><a href="javascript:WWW(NO_LOC_Large_Apps)">大型LabVIEW应用程序开发社区论坛</a></li>
+	<li><a href="javascript:WWW(NO_LOC_MAL_MVC)">LabVIEW操作者框架下的测量抽象和模型视图控制器(MVC)项目</a></li>
+</ul>
+
+<h2>NI培训和认证</h2>
+<ul>
+	<li><a href="javascript:WWW(L_Adv_Arch)">LabVIEW高级架构</a></li>
+	<li><a href="javascript:WWW(L_Core_3)">LabVIEW核心教程（三）</a></li>
+	<li><a href="javascript:WWW(L_OO_Design)">LabVIEW面向对象设计和编程</a></li>
+</ul>
+<hr>
+<table class="Bordered">
+<tr><th class="Bordered">文档中使用的名称</th><th class="Bordered">有效的文件名称</th></tr>
+<tr><td class="Bordered">应用程序启动器库</td><td class="Bordered"><span class="DNL">Application Launcher.lvlib</span></td></tr>
+<tr><td class="Bordered">本地化VI</td><td class="Bordered"><span class="DNL">Application Launcher.lvlib:Localization.vi</span></td></tr>
+<tr><td class="Bordered">初始屏幕VI</td><td class="Bordered"><span class="DNL">Application Launcher.lvlib:Splash Screen.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>操作者库</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib</span></td></tr>
+<tr><td class="Bordered">记录事件消息</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:Log Event Msg.lvclass</span></td></tr>
+<tr><td class="Bordered">记录事件消息：执行VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:Log Event Msg.lvclass:Do.vi</span></td></tr>
+<tr><td class="Bordered">记录事件消息：发送记录事件VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:Log Event Msg.lvclass:Send Log Event.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em></td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>：操作者核心VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Actor Core.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>：加载应用程序VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Load App.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>：本地化VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Localization.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>：记录事件VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Log Event.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>：读取配置文件VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Read Config File.vi</span></td></tr>
+<tr><td class="Bordered"><em>项目_名称</em>：停止核心VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Stop Core.vi</span></td></tr>
+<tr><td class="Bordered">Alpha操作者库</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib</span></td></tr>
+<tr><td class="Bordered">Alpha任务消息</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass</span></td></tr>
+<tr><td class="Bordered">Alpha任务消息：执行VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass:Do.vi</span></td></tr>
+<tr><td class="Bordered">Alpha任务消息：发送Alpha任务VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass:Send Alpha Task.vi</span></td></tr>
+<tr><td class="Bordered">Alpha任务消息：写入数据VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass:Write Data.vi</span></td></tr>
+<tr><td class="Bordered">Alpha</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass</span></td></tr>
+<tr><td class="Bordered">Alpha：操作者核心VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Actor Core.vi</span></td></tr>
+<tr><td class="Bordered">Alpha：本地化VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Localization.vi</span></td></tr>
+<tr><td class="Bordered">Alpha：停止核心VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Stop Core.vi</span></td></tr>
+<tr><td class="Bordered">Alpha：任务VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Task.vi</span></td></tr>
+<tr><td class="Bordered">Beta操作者库</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib</span></td></tr>
+<tr><td class="Bordered">Beta任务消息</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta Task Msg.lvclass</span></td></tr>
+<tr><td class="Bordered">Beta任务消息：执行VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta Task Msg.lvclass:Do.vi</span></td></tr>
+<tr><td class="Bordered">Beta任务消息：发送Beta任务VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta Task Msg.lvclass:Send Beta Task.vi</span></td></tr>
+<tr><td class="Bordered">Beta</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass</span></td></tr>
+<tr><td class="Bordered">Beta：操作者核心VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Actor Core.vi</span></td></tr>
+<tr><td class="Bordered">Beta：本地化VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Localization.vi</span></td></tr>
+<tr><td class="Bordered">Beta：停止核心VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Stop Core.vi</span></td></tr>
+<tr><td class="Bordered">Beta：任务VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Task.vi</span></td></tr>
+</table>
+<hr>
+<h2>重要信息</h2>
+<!--Copyright-->
+<p class="Body"><strong>版权</strong></p>
+<p class="Body">&copy; 2013 National Instruments.版权所有</p>
+
+<p class="Body">根据版权法，未经National Instruments公司事先书面同意，本发行物不得以任何形式（包括电子或机械形式）进行全部或部分复制或传播，包括影印、录制、储存于任何信息检索系统中，或翻译。</p>
+
+<p class="Body">National Instruments公司尊重他方的知识产权，也恳请用户能给予我们同样的尊重。NI软件受版权法及其他知识产权法的保护。在将NI软件用于复制为他方所有的软件或其他资料的任何场合，NI软件仅可用于在符合许可证或其他法律限制的情况下复制上述资料。</p>
+
+<p class="Body"><strong>最终用户许可协议和第三方法律声明</strong></p>
+<p class="Body">可在下列位置找到最终用户许可协议(EULA)和第三方法律声明：</p>
+<ul>
+<li><span class="Monospace">&lt;National Instruments&gt;\_Legal Information</span>和<span class="Monospace">&lt;National Instruments&gt;</span>目录下有法律声明。</li> 
+<li><span class="Monospace">&lt;National Instruments&gt;\Shared\MDF\Legal\license</span>目录下有最终用户许可协议。</li>
+<li>如需使NI产品生成的安装程序中包含法律相关信息，请参考<span class="Monospace">&lt;National Instruments&gt;\_Legal Information.txt</span>。</li>
+</ul>
+
+<!--Trademarks-->
+<p class="Body"><strong>商标</strong></p>
+
+<p class="Body"><span class="DNL">LabVIEW</span>、<span class="DNL">National Instruments</span>、<span class="DNL">NI</span>、<span class="DNL">ni.com</span>和<span class="DNL">National Instruments</span>公司标识，以及鹰形标识均为<span class="DNL">National Instruments Corporation</span>的商标。关于其他<a href="javascript:WWW(L_trademarks)"><span class="DNL">National Instruments</span>商标</a>的详细信息见<span class="Monospace">ni.com/trademarks</span>的<em><span class="DNL">Trademark Information</span></em>部分。</p>
+
+<p class="Body">此处提及的其他产品和公司名称均为其各自公司的商标或商业名称。</p>
+
+<!--Patents-->
+<p class="Body"><strong>专利权</strong></p>
+<p class="Body">关于NI产品和技术的专利权，请查看软件中的<strong>帮助&raquo;专利信息</strong>，光盘中的<span class="Monospace">patents.txt</span>文件，或<span class="Monospace">ni.com/patents</span>上的<a href="javascript:WWW(L_patents)">National Instruments Patent Notice</a>。</p>
+</body>
+</html>

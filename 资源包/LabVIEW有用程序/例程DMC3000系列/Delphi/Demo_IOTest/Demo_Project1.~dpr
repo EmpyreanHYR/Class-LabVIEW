@@ -1,0 +1,14 @@
+program Demo_Project1;
+
+uses
+  Forms,
+  Demo_Unit1 in 'Demo_Unit1.pas' {Demo_Form},
+  LTDMC in 'LTDMC.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TDemo_Form, Demo_Form);
+  Application.Run;
+end.

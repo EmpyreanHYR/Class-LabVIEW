@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DMCd6 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/DMCd6.res" /d "NDEBUG" /d "_AFXDLL" "F:\3000问题记录及例程修改\例程\VC6.0\例6_位置比较\DMCd6.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPB79C.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/DMCd6.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\3000问题记录及例程修改\例程\VC6.0\例6_位置比较\DMCd6.cpp"
+"F:\3000问题记录及例程修改\例程\VC6.0\例6_位置比较\DMCd6Dlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPB79C.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPB79D.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/DMCd6.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\3000问题记录及例程修改\例程\VC6.0\例6_位置比较\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPB79D.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/DMCd6.pdb" /machine:I386 /out:"Release/DMCd6.exe"  ".\Release\DMCd6.obj" ".\Release\DMCd6Dlg.obj" ".\Release\StdAfx.obj" ".\Release\DMCd6.res" ".\LTDMC.lib" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+DMCd6.cpp
+DMCd6Dlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+DMCd6.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

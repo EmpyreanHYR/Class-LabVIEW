@@ -1,0 +1,976 @@
+<html>
+<head>
+<title>Extended Code39</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link REL="StyleSheet">
+<style type="text/css"> 
+<!-- 
+BODY {
+scrollbar-face-color:#DCDBD6;
+scrollbar-highlight-color:#DFDFDF;
+scrollbar-3dlight-color:#DCDBD6;
+scrollbar-darkshadow-color:#000000;
+scrollbar-shadow-color:#DFDFDF;
+scrollbar-arrow-color:#EFEFEF;
+scrollbar-track-color:#EFEFEF;
+}
+-->
+</style>
+
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="template/hgrad.gif" style="WIDTH: 100%; HEIGHT: 49px">
+<tr> 
+<td width="5" > </td>
+<td><FONT 
+            color=#ffffff size="5"> <em><strong><IMG alt="" hspace=2 src="images/LVBarcode.bmp" 
+            align=middle>&nbsp;<FONT 
+            size=4 face=Tahoma 
+           > LVBarcode Help</FONT> </strong></em></FONT></td>
+<td width="60" align="right"></td>
+<td width="12">&nbsp;</td>
+</tr>
+</table>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><FONT face=Tahoma><FONT color=#0000ff size=4>Extended Code39</FONT> <BR><BR> 
+</FONT><FONT face=Arial><FONT 
+size=2><script language="JavaScript" type="text/JavaScript">
+function syn(){
+ if(parent.nav.loaded){
+  parent.nav.selectNode(5);
+ }else{
+  setTimeout("syn()",500);
+}}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  document.write('<BR><table width="35%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#666666"><tr><td align="center" bgcolor="#FFFFFF">');
+  document.write('<a href="../index.htm#page=Extended Code39.htm">Show Navigation Frame</a>'); 
+  document.write('</td></tr></table><BR>');
+}
+</script> 
+
+<P><FONT face=Arial>根据输入字符串产生相应的<STRONG>Extended</STRONG> 
+<STRONG>Code39</STRONG>条码.&nbsp;<BR><IMG 
+src="images/ExCode39.JPG"><BR><BR></P>
+<P>
+<TABLE height=82 width=670 align=left border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left width=44><IMG height=16 alt="" 
+      src="images/cstr.gif" width=32></TD>
+    <TD vAlign=top align=left width=157><SPAN class=STYLE2><FONT 
+      face="Times New Roman">Barcode String</FONT></SPAN></TD>
+    <TD width=455>
+      <P><FONT face="Times New Roman">输入条码内容字符<BR><FONT size=2>条码内容长度: 任意<BR>可接受的字符集:</FONT><BR><BR></FONT>
+      <TABLE style="WIDTH: 368pt; BORDER-COLLAPSE: collapse" cellSpacing=0 
+      cellPadding=0 width=490 border=0 x:str>
+        <COLGROUP><FONT face="Times New Roman">
+        <COL style="WIDTH: 45pt; mso-width-source: userset; mso-width-alt: 1920" 
+        width=60>
+        <COL style="WIDTH: 75pt; mso-width-source: userset; mso-width-alt: 3200" 
+        width=100>
+        <COL style="WIDTH: 54pt" width=72>
+        <COL style="WIDTH: 68pt; mso-width-source: userset; mso-width-alt: 2880" 
+        width=90>
+        <COL style="WIDTH: 54pt" width=72>
+        <COL style="WIDTH: 72pt; mso-width-source: userset; mso-width-alt: 3072" 
+        width=96></FONT>
+        
+        <TR style="HEIGHT: 52.5pt; mso-height-source: userset" height=70>
+          <TD class=xl24 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696 1pt solid; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 52.5pt; BACKGROUND-COLOR: navy" 
+          width=60 height=70><FONT face=宋体 color=#ffffff><FONT face="Times New Roman"><STRONG>ASCII 
+            Code</STRONG></FONT></FONT></TD>
+          <TD class=xl24 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696 1pt solid; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: navy" 
+          width=100><FONT face=宋体 color=#ffffff><STRONG>ASCII 
+            Character</STRONG></FONT></TD>
+          <TD class=xl24 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696 1pt solid; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: navy" 
+          width=72><FONT face=宋体 color=#ffffff><STRONG>ASCII 
+            Code</STRONG></FONT></TD>
+          <TD class=xl24 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696 1pt solid; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: navy" 
+          width=90><FONT face=宋体 color=#ffffff><STRONG>ASCII 
+            Character</STRONG></FONT></TD>
+          <TD class=xl24 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696 1pt solid; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: navy" 
+          width=72><FONT face=宋体 color=#ffffff><STRONG>ASCII 
+            Code</STRONG></FONT></TD>
+          <TD class=xl24 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696 1pt solid; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: navy" 
+          width=96><STRONG><FONT face=宋体 color=#ffffff>ASCII 
+            Character</FONT></STRONG></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>0</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>NUL</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>43</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>+</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>86</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>V</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>1</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>SOH</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>44</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>,</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>87</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>W</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>2</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>STX</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>45</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>-</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>88</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>X</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>3</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>ETX</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>46</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>.</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>89</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>Y</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>4</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>EOT</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>47</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>/</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>90</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>Z</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>5</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>ENQ</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>48</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>0</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>91</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>[</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>6</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>ACK</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>49</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>1</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>92</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>\</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>7</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>BEL</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>50</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>2</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>93</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>]</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>8</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>BS</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>51</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>3</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>94</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>^</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>9</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>HT</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>52</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>4</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>95</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>_</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>10</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>LF</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>53</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>5</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>96</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>`</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>11</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>VT</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>54</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>6</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>97</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>a</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>12</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>FF</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>55</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>7</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>98</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>b</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>13</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>CR</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>56</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>8</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>99</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>c</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>14</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>SO</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>57</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90 x:num><FONT face=宋体>9</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>100</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>d</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>15</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>SI</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>58</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>:</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>101</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>e</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>16</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>DLE</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>59</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>;</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>102</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>f</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>17</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>DC1</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>60</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>&lt;</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>103</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>g</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>18</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>DC2</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>61</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>=</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>104</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>h</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>19</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>DC3</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>62</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>&gt;</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>105</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>i</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>20</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>DC4</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>63</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>?</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>106</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>j</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>21</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>NAK</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>64</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>@</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>107</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>k</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>22</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>SYN</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>65</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>A</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>108</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>l</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>23</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>ETB</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>66</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>B</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>109</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>m</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>24</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>CAN</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>67</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>C</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>110</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>n</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>25</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>EM</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>68</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>D</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>111</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>o</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>26</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>SUB</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>69</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>E</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>112</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>p</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>27</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>ESC</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>70</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>F</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>113</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>q</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>28</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>FS</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>71</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>G</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>114</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>r</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>29</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>GS</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>72</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>H</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>115</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>s</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>30</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>RS</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>73</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>I</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>116</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>t</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>31</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>US</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>74</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>J</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>117</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>u</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>32</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>SP</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>75</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>K</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>118</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>v</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>33</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>!</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>76</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>L</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>119</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>w</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>34</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>"</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>77</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>M</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>120</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>x</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>35</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>#</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>78</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>N</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>121</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>y</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>36</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>$</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>79</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>O</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>122</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>z</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>37</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>%</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>80</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>P</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>123</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>{</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>38</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>&amp;</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>81</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>Q</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>124</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>|</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>39</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>'</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>82</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>R</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>125</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>}</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>40</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>(</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>83</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>S</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>126</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>~</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>41</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>)</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>84</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>T</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>127</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>DEL</FONT></TD></TR>
+        <TR style="HEIGHT: 15pt" height=20>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696 1pt solid; WIDTH: 45pt; BORDER-BOTTOM: #969696 1pt solid; HEIGHT: 15pt; BACKGROUND-COLOR: #ccffff" 
+          width=60 height=20 x:num><FONT face=宋体>42</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 75pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=100><FONT face=宋体>*</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72 x:num><FONT face=宋体>85</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 68pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=90><FONT face=宋体>U</FONT></TD>
+          <TD class=xl26 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 54pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #ccffff" 
+          width=72><FONT face=宋体>　</FONT></TD>
+          <TD class=xl25 
+          style="BORDER-RIGHT: #969696 1pt solid; BORDER-TOP: #969696; BORDER-LEFT: #969696; WIDTH: 72pt; BORDER-BOTTOM: #969696 1pt solid; BACKGROUND-COLOR: #99ccff" 
+          width=96><FONT face=宋体>　</FONT></TD></TR></TABLE></FONT></P></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG src="images/cbool.gif"></TD>
+    <TD><FONT face="Times New Roman">Check Code</FONT></TD>
+    <TD>&nbsp;用于指定条码是否包含校验码信息.</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG height=16 alt="" src="images/ccclst.gif" width=32></TD>
+    <TD><FONT face="Times New Roman">error in</FONT></TD>
+    <TD><FONT face="Times New Roman">错误信息输入.</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG height=16 alt="" src="images/icclst.gif" width=32></TD>
+    <TD><FONT face="Times New Roman">Barcode refnum </FONT></TD>
+    <TD><FONT face="Times New Roman">输出条码信息,用于传递给DrawCode绘制条码图像.</FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD><IMG height=16 alt="" src="images/icclst.gif" width=32></TD>
+    <TD><FONT face="Times New Roman">error out</FONT></TD>
+    <TD><FONT face="Times New Roman">错误信息输出.</FONT></TD></TR></TBODY></TABLE></P><P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR></P>
+<P><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT><BR></FONT><BR></FONT><FONT face="Times New Roman" color=#808080 size=2><FONT face="Arial" color  =#808080 size=1>&nbsp;</DIV> 
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">
+<HR>
+</DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"><A 
+href="http://www.testdevgroup.com" target=_blank><IMG src="template/Logo.gif" 
+border=0></A></DIV>
+<DIV 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px">Copyright 
+?2007&nbsp;<A href="http://www.testdevgroup.com" 
+target=_blank>TestDevevelopmentGroup</A> 
+</FONT></FONT></DIV>
+<P 
+style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px"></P></body></HTML>

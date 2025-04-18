@@ -1,0 +1,1 @@
+Copy /y MSCOMCTL.OCX %windir%\system32\

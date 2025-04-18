@@ -1,0 +1,54 @@
+Multistate Boolean LED Indicator V1.0.0
+
+Copyright © 2008, Phillip Duncan
+All rights reserved.
+
+
+Author:
+Phillip Duncan
+phil@prismtechnicalconsulting.com.au
+
+Background:
+I have had many people ask for an LED type indicator for their project. During development, I often get asked to have this Boolean (ie 2 state) indicator display one of (more than 2) colours. 
+Whilst that in itself is not difficult, more often than not I am then asked to make the Boolean LED flash as well to highlight certain states. 
+For example a single LED will often need to indicate the following states:
+OFF (green, red or grey)
+ON (Green, red or grey)
+Flashing (green, red, any other colour)
+I have had so much demand for this functionality, that I decided to develop this XControl and share it with the LabVIEW Community.
+Many thanks must go to Aristos Queue and his inspiring "Scrolling LED XControl" example.
+
+Distribution:
+This code was downloaded from the LAVA Code Repository: http://forums.lavag.org/downloads.html
+
+Description:
+This XControl is a typical Boolean LED indicator that can also be configured to flash between two user defined colours. The flashing interval can also be modified.
+When not flashing, the XControl behaves as a normal Boolean LED. 
+This XControl is an indicator only is is not intended to be used as a control.
+
+Dependancies:
+There are no OpenG dependencies for this XCtonrol
+
+Known Issues:
+If you save this code for version 8.0/8.2, you may encounter issues trying to assign multiple properties in one property node. 
+This is a bug in LabVIEW 8.0/8.2
+
+Support:
+If you have any problems with this code or want to suggest features:
+http://forums.lavag.org/index.php?showtopic=####
+The above link will be available after your submission has been approved. After you get this link, come back, edit this file and resubmit with the updated link.
+
+Change Log:
+1.0.0 Initial release
+
+License:
+Distributed under the BSD licence.
+Copyright (c) 2008, Phillip Duncan
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

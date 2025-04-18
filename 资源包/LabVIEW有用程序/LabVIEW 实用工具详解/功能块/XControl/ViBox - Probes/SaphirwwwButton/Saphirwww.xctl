@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="11008008">
+	<Property Name="NI.Lib.Description" Type="Str">Ouvre le fichier associer au bouton.</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%1#!#!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(\!!!*Q(C=\&gt;8"=&gt;J1%!&lt;A43;(8/EA1QP&lt;!CX1QL&lt;!V5&gt;;W":IA2;W"6KA"?&gt;$??0*+8AG]5Q/FLQ9@EH\0D]^Z)BN_R\R,6[@&lt;@((\@0YM_.`.&lt;W@W_@WY&gt;P,UU8[Y7PWS`:.5;.;F=LNW`5[]J'0@/1D(XH,7^\SFL?]Z35P?=F,8P+3JTTF+5^ZSF/_\@+1BTTE3'0Q-&gt;"I/BK-EV&amp;CP!T0]!T0]0A9QT-]QT-]Q_/5'*\B':\B'2[8R@!-T`!-T`"IN5FGW_5]Q[.^.%`T.%`T.)]BIXE;I!X7'L=G'.%/ND@.UTT.YWUU4`-U4`-UD]020-X40-X40#\::K5XT7/8]WA4R6-]R6-]R;.V&amp;%`R&amp;%`R&amp;)`BIHC+JS$+A+5Z1J3,SAHF1`%5DV^20-640-640!ZN&gt;[CWG8FI(LO=*XG3*XG3*XGUC/2*HO2*HO42.J)H?:)H?:,(5*%]S:-]#:)'.8SE:OH#&gt;&amp;)+EM@0NFJSOUO^38,&lt;)^&lt;CD&lt;5I9SWW7)MIVO+)&gt;&gt;.DX=R9.SH7Z-?;V&amp;C4&amp;7M39PVRM&gt;#R-,%'C88RY]3Y?\WJK\KIMTKJITKIP&gt;I^,PX(*^\P^\D&gt;&lt;H'^8O.SO=4Z@)\4[24(YT%/BU0M^`P9\8:PDY%@^L=(QK`HUIPX\[E0_F`[(TQ&lt;YWP]XN==`12Q1399!!!!!!</Property>
+	<Property Name="NI.Lib.Locked" Type="Str">3B2E84D7D7E2E20E070529A0F1862870</Property>
+	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Functions" Type="Folder">
+		<Item Name="CenterObjectInPane.vi" Type="VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/CenterObjectInPane.vi"/>
+		<Item Name="TimerReferenceHelper.vi" Type="VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/TimerReferenceHelper.vi"/>
+		<Item Name="td_TimerReferenceHeperMode.ctl" Type="VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/td_TimerReferenceHeperMode.ctl"/>
+	</Item>
+	<Item Name="Properties" Type="Folder"/>
+	<Item Name="State.ctl" Type="Ability VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/State.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">State</Property>
+	</Item>
+	<Item Name="Facade.vi" Type="Ability VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/Facade.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+	</Item>
+	<Item Name="Init.vi" Type="Ability VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/Init.vi">
+		<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+	</Item>
+	<Item Name="Data.ctl" Type="Ability VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/Data.ctl">
+		<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+	</Item>
+	<Item Name="Uninit.vi" Type="Ability VI" URL="/&lt;vilib&gt;/_probes/SAPHIR/ViBox - Probes/SaphirwwwButton/Uninit.vi">
+		<Property Name="NI.XItem.Name" Type="Str">UnInit</Property>
+	</Item>
+</XControl>
+<?sig E15EC45B8FC8EB5A1DE29CE0D431B853?>

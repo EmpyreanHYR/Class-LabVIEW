@@ -1,0 +1,11 @@
+Test,,,,
+Product,SerialNumber,data,DeltaTHD1kHZ,Raw Sen
+Display Name ----->,,N/A,N/A,N/A
+PDCA Priority ----->,,N/A,N/A,N/A
+Upper Limit ----->,,0,0.6,N/A
+Lower Limit ----->,,-5.25,N/A,N/A
+Measurement Unit ----->,,dBRe1,%,dBre1
+,1,-4.191,0.205,-35.313
+,2,-4.191,0.205,-35.313
+,3,-4.191,0.205,-35.313
+,4,-4.191,0.205,-35.313

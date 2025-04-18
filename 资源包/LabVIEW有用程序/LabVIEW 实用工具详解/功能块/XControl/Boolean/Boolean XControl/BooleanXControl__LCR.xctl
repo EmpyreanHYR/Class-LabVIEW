@@ -1,0 +1,190 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<XControl LVVersion="11008008">
+	<Property Name="NI.Lib.Description" Type="Str">A quite customizable boolean XControl</Property>
+	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">%1#!#!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!-F!!!*Q(C=T:6"&lt;NN)%%7,UA"C;T0S$2*PH&gt;85:A\A+YCTGA$:V"7]#[S&gt;LV$\T-&lt;1!2,Y#I7ZA;\A*5%)AJ4(6INS&lt;#E'AA2)UU64`\/K(LN&lt;F%A?N=A@MHNNS(@(Y.@V7&lt;`K,^+U0V=H]W&gt;J5N?*U_RU`4K26YX3.*XWKWS02N/8$0N]W@PJ:(Z.7F8BD]?T^,R#\[@5*W/HW9M/O8\WR_0R/&lt;Z*SH;;4E\\;4J.O..T`,.[EG;QP3R`H.]4P9@]@DR&lt;H`:&gt;?`#`7?.S?@7_LC=(@V!(`_L@@`Z-^;1^ZO`+R&gt;ZPOG[N3&gt;ND`P(IGT&gt;NW[X@`S6H]LN/LLJGX4\F@TL[^+ZJZ9R`28L4$-`X@+QXC_ZAH`!XC`6SOWC@T^^A&lt;ZNOMVT)'8_^WSYXSWVTRO`[&lt;^2WOWV0_UWWFU0X-]``:,TOP`\VPHXVJF]]]B&lt;?Z2U1B".';([[8;!(?K!(?K!(OK-\OK-\OK-\OK%&lt;OK%&lt;OK%&lt;OK)LOK)LOK,L97_C#\KAC_:&gt;'$10'A6&amp;AQ,"T;")=!JY!J[!*_$BIQ1]!5`!%`!%0.QC!5`!%`!%0!%0;2,Q"$Q"4]!4]&amp;!KEU1_U/%*?#AP$I`$Y`!Y0!Y0,=8B=1#=:EZBJQA9YJD/B=0D]$A]8)L$Y`!Y0![0QY-N$I`$Y`!Y0!Y0+8F70.0U"TI]F"'$R_!R?!Q?AY@39P!90!;0Q70QU%Y-(I0(A$!;'M6"%#0*O-(Y90!900Q4A]@A-8A-(I-(+[_1Z:HJ;@I$(2[&amp;2_&amp;2?"1?B9=3IP!I0!K0QK0Q5&amp;95(I6(Y6&amp;Y&amp;"Z;C=+D]#A]#ID3F0;C&amp;&amp;-3F:M51?(B,_]7T;PEG54T5&lt;[;_YUK:1.+W6B3.IS5D3"FA;5MH*1&amp;E4,25C:1SM2)?7!J$S)&amp;5%JD+17FX#C0H&amp;@%!X&amp;0X"%XR*SY*C[*CT\V*^`Y_0AIK^6+(BY?Z0\_8O\O\O4GZE&lt;G]\F=8V`,Z?7F8&amp;R=$'_L.RT\52X?3\&gt;=`WB]ZG@^5T7KPKRE]&gt;^=0P$`\&gt;(`G`B)`&amp;`&gt;6JN^D,MB&gt;`^?_BX?D4,[ZC?;/@I+&gt;3&gt;ICQ!!!!!</Property>
+	<Property Name="NI.Lib.LocalName" Type="Str">BXCTL</Property>
+	<Property Name="NI.Lib.Version" Type="Str">2.2.0.0</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Property Name="NI.XClass.Flags" Type="Int">0</Property>
+	<Property Name="NI.XItem.DeclaredLeakProof" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Express" Type="Bool">false</Property>
+	<Property Name="NI.XItem.Name" Type="Str">XControl 1</Property>
+	<Property Name="NI.XItem.SupportsFatalErrorOut" Type="Bool">false</Property>
+	<Item Name="Controls" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="BX.Refs__LCR.ctl" Type="VI" URL="../Controls/BX.Refs__LCR.ctl"/>
+		<Item Name="BX.Commands__LCR.ctl" Type="VI" URL="../Controls/BX.Commands__LCR.ctl"/>
+		<Item Name="BX.Message__LCR.ctl" Type="VI" URL="../Controls/BX.Message__LCR.ctl"/>
+		<Item Name="BX.Orientation__LCR.ctl" Type="VI" URL="../Controls/BX.Orientation__LCR.ctl"/>
+		<Item Name="BX.Behaviour__LCR.ctl" Type="VI" URL="../Controls/BX.Behaviour__LCR.ctl"/>
+		<Item Name="BX.RTSettings__LCR.ctl" Type="VI" URL="../Controls/BX.RTSettings__LCR.ctl"/>
+		<Item Name="BX.Message__LCR.vi" Type="VI" URL="../Controls/BX.Message__LCR.vi"/>
+		<Item Name="BX.ButtonType__LCR.ctl" Type="VI" URL="../Controls/BX.ButtonType__LCR.ctl"/>
+		<Item Name="GUI.States__LCR.ctl" Type="VI" URL="../Controls/GUI.States__LCR.ctl"/>
+	</Item>
+	<Item Name="SubVIs" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="XCTLTools" Type="Folder">
+			<Item Name="AddMessageToState__LCR.vi" Type="VI" URL="../SubVIs/AddMessageToState__LCR.vi"/>
+			<Item Name="GetFirstMessage__LCR.vi" Type="VI" URL="../SubVIs/GetFirstMessage__LCR.vi"/>
+			<Item Name="Disabled__LCR.vi" Type="VI" URL="../SubVIs/Disabled__LCR.vi"/>
+			<Item Name="State.Changed__LCR.vi" Type="VI" URL="../SubVIs/State.Changed__LCR.vi"/>
+		</Item>
+		<Item Name="Redraw__LCR.vi" Type="VI" URL="../SubVIs/Redraw__LCR.vi"/>
+		<Item Name="BX.SetPictSize__LCR.vi" Type="VI" URL="../SubVIs/BX.SetPictSize__LCR.vi"/>
+		<Item Name="BX.SetStringSize__LCR.vi" Type="VI" URL="../SubVIs/BX.SetStringSize__LCR.vi"/>
+		<Item Name="HilitePicture__LCR.vi" Type="VI" URL="../SubVIs/HilitePicture__LCR.vi"/>
+		<Item Name="MessageHandler__LCR.vi" Type="VI" URL="../SubVIs/MessageHandler__LCR.vi"/>
+		<Item Name="Font Dialog__FD__LCR.vi" Type="VI" URL="../SubVIs/Font Dialog__FD__LCR.vi"/>
+		<Item Name="CheckUpdatedSettings__LCR.vi" Type="VI" URL="../SubVIs/CheckUpdatedSettings__LCR.vi"/>
+		<Item Name="NeedRedraw__LCR.vi" Type="VI" URL="../SubVIs/NeedRedraw__LCR.vi"/>
+		<Item Name="GetOwningPane__LCR.vi" Type="VI" URL="../SubVIs/GetOwningPane__LCR.vi"/>
+		<Item Name="Nudge__LCR.vi" Type="VI" URL="../SubVIs/Nudge__LCR.vi"/>
+		<Item Name="Status__LCR.vi" Type="VI" URL="../SubVIs/Status__LCR.vi"/>
+		<Item Name="TagToRefBX__LCR.vi" Type="VI" URL="../SubVIs/TagToRefBX__LCR.vi"/>
+	</Item>
+	<Item Name="Properties" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="RunTimeSettings" Type="Folder">
+			<Item Name="RTSettings" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RTSettings</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the Runtime behaviour of the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:All</Property>
+				<Item Name="GetRTSettings__LCR.vi" Type="Property VI" URL="../Properties/GetRTSettings__LCR.vi"/>
+				<Item Name="SetRTSettings__LCR.vi" Type="Property VI" URL="../Properties/SetRTSettings__LCR.vi"/>
+			</Item>
+			<Item Name="RT.Button" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RT.Button</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the visibility of the button of the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Button</Property>
+				<Item Name="RT.Button.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.Button.Get__LCR.vi"/>
+				<Item Name="RT.Button.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.Button.Set__LCR.vi"/>
+			</Item>
+			<Item Name="RT.Disabled" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RT.Disabled</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the disabled control behaviour of the XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Disabled</Property>
+				<Item Name="RT.Disabled.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.Disabled.Get__LCR.vi"/>
+				<Item Name="RT.Disabled.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.Disabled.Set__LCR.vi"/>
+			</Item>
+			<Item Name="RT.Hilite" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Hilite</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the Hilite behaviour of the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Hilite</Property>
+				<Item Name="RT.Hilite.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.Hilite.Get__LCR.vi"/>
+				<Item Name="RT.Hilite.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.Hilite.Set__LCR.vi"/>
+			</Item>
+			<Item Name="RT.Behaviour" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RT.Behaviour</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the runtime behaviour of the XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Behaviour</Property>
+				<Item Name="RT.Behaviour.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.Behaviour.Get__LCR.vi"/>
+				<Item Name="RT.Behaviour.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.Behaviour.Set__LCR.vi"/>
+			</Item>
+			<Item Name="RT.Nudge" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RT.Nudge</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the Nudge behaviour of the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Nudge</Property>
+				<Item Name="RT.Nudge.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.Nudge.Get__LCR.vi"/>
+				<Item Name="RT.Nudge.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.Nudge.Set__LCR.vi"/>
+			</Item>
+			<Item Name="RT.Hover" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RT.Hover</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Hover</Property>
+				<Item Name="RT.Hover.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.Hover.Get__LCR.vi"/>
+				<Item Name="RT.Hover.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.Hover.Set__LCR.vi"/>
+			</Item>
+			<Item Name="ButtonType" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">RT.ButtonType</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">The button type shown in the Boolean XControl, the options are:
+-System
+-Modern
+-Classic
+-System Decoration</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:RunTime:Button Type</Property>
+				<Item Name="RT.ButtonType.Get__LCR.vi" Type="Property VI" URL="../Properties/RT.ButtonType.Get__LCR.vi"/>
+				<Item Name="RT.ButtonType.Set__LCR.vi" Type="Property VI" URL="../Properties/RT.ButtonType.Set__LCR.vi"/>
+			</Item>
+		</Item>
+		<Item Name="String" Type="Folder">
+			<Item Name="Text" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Text</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the string of the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:Label:Text</Property>
+				<Item Name="GetText__LCR.vi" Type="Property VI" URL="../Properties/GetText__LCR.vi"/>
+				<Item Name="SetText__LCR.vi" Type="Property VI" URL="../Properties/SetText__LCR.vi"/>
+			</Item>
+			<Item Name="TextColor" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">TextColor</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the font color of the string inside the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:Label:Color</Property>
+				<Item Name="GetTextColor__LCR.vi" Type="Property VI" URL="../Properties/GetTextColor__LCR.vi"/>
+				<Item Name="SetTextColor__LCR.vi" Type="Property VI" URL="../Properties/SetTextColor__LCR.vi"/>
+			</Item>
+			<Item Name="Font" Type="Property Folder">
+				<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+				<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Font</Property>
+				<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Sets or gets the font for the string of the Boolean XControl</Property>
+				<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:Label:Font</Property>
+				<Item Name="GetFont__LCR.vi" Type="Property VI" URL="../Properties/GetFont__LCR.vi"/>
+				<Item Name="SetFont__LCR.vi" Type="Property VI" URL="../Properties/SetFont__LCR.vi"/>
+			</Item>
+		</Item>
+		<Item Name="Picture" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">SetPicture</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the picture of the Boolean XControl</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:Picture</Property>
+			<Item Name="GetPicture__LCR.vi" Type="Property VI" URL="../Properties/GetPicture__LCR.vi"/>
+			<Item Name="SetPicture__LCR.vi" Type="Property VI" URL="../Properties/SetPicture__LCR.vi"/>
+		</Item>
+		<Item Name="Orientation" Type="Property Folder">
+			<Property Name="NI.LibItem.Prop.HelpTag" Type="Str"></Property>
+			<Property Name="NI.LibItem.Prop.Identifier" Type="Str">Orientation</Property>
+			<Property Name="NI.LibItem.Prop.Localized.Description" Type="Str">Gets or sets the orientation of the Boolean XControl</Property>
+			<Property Name="NI.LibItem.Prop.Localized.LongName" Type="Str">BooleanXControl:Orientation</Property>
+			<Item Name="GetOrientation__LCR.vi" Type="Property VI" URL="../Properties/GetOrientation__LCR.vi"/>
+			<Item Name="SetOrientation__LCR.vi" Type="Property VI" URL="../Properties/SetOrientation__LCR.vi"/>
+		</Item>
+	</Item>
+	<Item Name="Methods" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
+		<Item Name="ShowGUI.Method__LCR.vi" Type="Method VI" URL="../Methods/ShowGUI.Method__LCR.vi"/>
+		<Item Name="Redraw.Method__LCR.vi" Type="Method VI" URL="../Methods/Redraw.Method__LCR.vi"/>
+	</Item>
+	<Item Name="Settings" Type="Folder">
+		<Item Name="GUI__LCR.vi" Type="VI" URL="../Settings/GUI__LCR.vi"/>
+	</Item>
+	<Item Name="Abilities" Type="Folder">
+		<Item Name="BX.Data__LCR.ctl" Type="Ability VI" URL="../Abilities/BX.Data__LCR.ctl">
+			<Property Name="NI.XItem.Name" Type="Str">Data</Property>
+		</Item>
+		<Item Name="BX.State__LCR.ctl" Type="Ability VI" URL="../Abilities/BX.State__LCR.ctl">
+			<Property Name="NI.XItem.Name" Type="Str">State</Property>
+		</Item>
+		<Item Name="BX.Facade__LCR.vi" Type="Ability VI" URL="../Abilities/BX.Facade__LCR.vi">
+			<Property Name="NI.XItem.Name" Type="Str">Facade</Property>
+		</Item>
+		<Item Name="BX.Init__LCR.vi" Type="Ability VI" URL="../Abilities/BX.Init__LCR.vi">
+			<Property Name="NI.XItem.Name" Type="Str">Init</Property>
+		</Item>
+		<Item Name="BX.ConvertStateForSAve__LCR.vi" Type="Ability VI" URL="../Abilities/BX.ConvertStateForSAve__LCR.vi">
+			<Property Name="NI.XItem.Name" Type="Str">ConvertStateForSave</Property>
+		</Item>
+		<Item Name="BX.Uninit__LCR.vi" Type="Ability VI" URL="../Abilities/BX.Uninit__LCR.vi">
+			<Property Name="NI.XItem.Name" Type="Str">UnInit</Property>
+		</Item>
+	</Item>
+</XControl>

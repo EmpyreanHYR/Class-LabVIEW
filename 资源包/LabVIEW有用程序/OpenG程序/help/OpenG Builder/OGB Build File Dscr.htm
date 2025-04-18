@@ -1,0 +1,648 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>OGB Build File Description</title>
+</head>
+
+<body style="font-family: Verdana; font-size: 10pt">
+
+<p>OGB Build File Format<br>
+OGB Version&nbsp; 1.0.0<br>
+$Revision: 1.3 $<br>
+$Date: 2004/12/24 12:59:10 $</p>
+<p>This document describes parameters of an OpenG Builder (OGB) Build File.</p>
+
+<p><b>[General]</b><br>
+<a href="#General: File Format Version">File Format Version</a><br>
+<a href="#General: Revision File">
+Revision File</a><br>
+<a href="#General: Project Root">Project Root</a><br>
+<a href="#General: Source Root">Source Root</a><br>
+<a href="#General: Build Root">Build Root</a><br>
+<a href="#General: New Build Root">New Build Root</a><br>
+<a href="#General: Ambiguous VI Dest">Ambiguous VIs Dest Dir</a><br>
+<a href="#General: Namespace">Namespace</a><br>
+<a href="#General: Apply New Password">
+Apply New Password</a><br>
+<a href="#General: Log Dir">Log Dir</a><br>
+<a href="#General: Log File">Log File</a><br>
+<a href="#General: Log File Suffix">Log File Suffix</a><br>
+<a href="#General: Unsaved Changes">Unsaved Changes MsgBox</a><br>
+<a href="#General: Overwrite Existing Files">Overwrite Existing Files</a><br>
+<a href="#General: Include Hidden VIs">Include Hidden VIs</a><br>
+<a href="#General: Rsrc Include">Include Help Files</a><br>
+<a href="#General: Rsrc Include">Include Shared Libs</a><br>
+<a href="#General: Rsrc Include">Include External Subrs</a><br>
+<a href="#General: Rsrc Dirs">Help File Dir</a><br>
+<a href="#General: Rsrc Dirs">Shared Lib Dir</a><br>
+<a href="#General: Rsrc Dirs">External Subr Dir</a><br>
+<a href="#General: EXE Icon">EXE Icon File</a><br>
+<a href="#General: Version VI/Ctrl Name">
+Version VI Name</a><br>
+<a href="#General: Version VI/Ctrl Name">
+Version Ctrl Name</a><br>
+<a href="#General: RemovePolyVIsAndTypedefs">RemovePolyVIsAndTypedefs</a><br>
+<a href="#General: Pre/Post-Build VIs">Call Pre-Build VI</a><br>
+<a href="#General: Pre/Post-Build VIs">Call Post-Build VI</a><br>
+<a href="#General: Call-Back VI">Call-Back VI</a><br>
+<a href="#General: Allow CBVI &amp; BH Overlap">Allow CBVI &amp; Build Hierarchy Overlap</a></p>
+
+
+<p>
+<br>
+<a href="#Top-Level VIs"><b>[Top Level VIs]</b></a><br>
+any key names</p>
+
+<p>
+<a href="#Dynamic VIs"><b>[Dynamic VIs]<br>
+</b></a>any key names</p>
+<p><a href="#Exclude Lib Dirs"><b>[Exclude Lib Dirs from Build]</b></a><br>
+any key names</p>
+<p><a href="#Destination"><b>[Destination N]</b></a><br>
+Source Dir<br>
+Target Dir<br>
+Convert Target to LLB<br>
+Convert Target to EXE<br>
+Remove Diagrams<br>
+Default Destination<br>
+Apply New Password<br>
+Namespace</p>
+<p><a href="#SupportFiles"><b>[SupportFiles N]</b></a><br>
+TargetDir<br>
+OverwriteExisting<br>
+FollowVIDirHierarchy<br>
+SourceFile X<br>
+<br>
+</p>
+
+<hr>
+<p><b><a name="General: File Format Version"></a>[General]</b></p>
+<p><b>File Format Version</b>	= x.y.z</p>
+<p><i>File Format Version</i> is optional.  If it is not specified, it is assumed to be
+version 0.0.0. If <i>File Format Version</i> is greater than the current OGB version, a warning will be generated.</p>
+<p><u>Example:</u></p>
+<p>File Format Version = 1.0.0
+</p>
+
+
+<p>&nbsp;
+</p>
+
+
+<hr>
+<p><b><a name="General: Revision File"></a>[General]</b></p>
+<p><b>Revision File</b> = &quot;file path&quot;</p>
+<p><i>Revision File</i> is optional parameter that specifies a Revision File to
+be used. For more information on a Revision File, see <a href="OGB%20Glossary.htm" target="_blank">OGB
+Glossary</a> and <a href="OGB%20Revision%20File%20Dscr.htm" target="_blank">OGB Revision File Description</a>. A <i>Revision
+File</i> may be either an absolute path, or a path relative to the
+<i><a href="#General: Project Root"> Project Root</a></i>. If a specified <i>Revision
+File</i> does not exist, it will be created and default values will be assigned
+to its parameters. It is possible to specify the same <i>Revision File</i> in
+different build files. Information relating to each build file is stored in
+unique section that has name of the build file.</p>
+<p><u>Example:</u></p>
+<p>Revision File = &quot;build_support/MyProjectRevisions.txt&quot;
+</p>
+
+
+<p>&nbsp;
+</p>
+
+
+<hr>
+<p><b><a name="General: Project Root"></a>[General]</b></p>
+<p><b>Project Root</b>	= &quot;dir path&quot;</p>
+<p><i>Project Root</i> is optional.  If it is not specified, it is assumed to be the
+current build file's parent directory.</p>
+<p><u>Examples:</u></p>
+<p>Project Root = &quot;&quot;<br>
+Project Root = &quot;C:\My Project&quot;
+</p>
+<p>&nbsp;</p>
+<hr>
+<p><b><a name="General: Source Root"></a>[General]</b></p>
+<p><b>Source Root</b>	= &quot;dir path&quot;</p>
+<p><i>Source Root</i> is optional.  If it is not specified, it is assumed to be the
+<i><a href="#General: Project Root"> Project Root</a></i>. <i>  Source Root</i> may be either an absolute path, or a path relative to the
+<i> Project Root</i>.</p>
+<p><u>Examples:</u></p>
+<p>Source Root = &quot;&quot;<br>
+Source Root = &quot;Source&quot;<br>
+Source Root = &quot;C:\My Project\Source&quot;
+</p>
+<p>&nbsp;</p>
+<hr>
+<p><b><a name="General: Build Root"></a>[General]</b></p>
+<p><b>Build Root</b>	= "dir path"</p>
+<p><i>Build Root</i> is optional.  If it is not specified, it is assumed to be the
+<i><a href="#General: Project Root"> Project Root</a></i>. <i>  Build Root</i> may be either an absolute path, or a path relative to the
+<i> Project Root</i>.</p>
+<p><u>Examples:</u></p>
+<p>Build Root = &quot;&quot;<br>
+Build Root = &quot;Target&quot;<br>
+Build Root = &quot;C:\My Project\Target&quot;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: New Build Root"></a>[General]</b></p>
+<p><b>New Build Root</b>		= True/False</p>
+<p>If <i> New Build Root</i> key is equal to TRUE and <i><a href="#General: Build Root">Build Root</a></i>
+directory exists when the build begins, the existing directory will be renamed with a date-time suffix and new
+<i>Build Root</i>  directory will be created for the active build. By default, the
+<i>New Build Root</i> is FALSE.
+</p>
+<p>Note that <i><a href="#General: Build Root">Build Root</a></i>
+ directory may contain neither a source VI nor a resource file beneath it to be
+renamed. If any source file is detected beneath a <i>Build Root</i>, the <i>Build
+Root</i> directory will not be renamed and a build terminates with a fatal
+error.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Ambiguous VI Dest"></a>[General]</b></p>
+<p><b>Ambiguous VIs Dest Dir</b>	= &quot;dir/llb path&quot;</p>
+<p><i>Ambiguous VIs Dest Dir</i> is optional parameter that specifies a destination directory
+(or LabVIEW VI library file) to save 'Ambiguous VIs'. The 'Ambiguous VI' term refers to a VI, callers of which expect to load the VI from different locations.
+<i> Ambiguous VIs Dest Dir</i> may be either an absolute path or a path relative to
+<i><a href="#General: Build Root"> Build Root</a></i>. If a path coincides with
+a path specified in <i>Target Dir</i> in any <i><a href="#Destination">[Destination
+N]</a></i> section, a target type (directory/LLB/EXE) is subject to the
+Destination type. Otherwise, it is either a LabVIEW VI library file if the path
+has .llb extension, or a directory, otherwise.
+</p>
+<p>If
+<i> Ambiguous VIs Dest Dir</i>  is missed (or it is an empty path), ambiguous VIs are saved according to the common rules. In any case, information on 'Ambiguous VIs' is reported
+to a log file.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Namespace"></a>[General]</b></p>
+<p><b>Namespace</b> = &quot;string"</p>
+<p>If a <i> Namespace</i> is specified, all VIs and CTLs will be "name mangled" with the
+<i> Namespace</i> as a default suffix.  For example, "MyVI.vi" with a Namespace of "MyApp" becomes "MyVI__MyApp.vi" in the built software product.
+</p>
+<p>If the parameter is
+missed or a value of it is an empty string, no namespace will be applied by
+default. Note that a <i><a href="#Destination">[Destination N]</a></i> section
+may contain its own <i>Namespace</i> parameter that overrides the
+default value specified in [General] section.
+</p>
+<p>A special case is a use of &lt;random:N&gt; keyword to generate a random
+namespace and &lt;none&gt; keyword to disable a namespace. <a href="#KWD: none &amp; pwd">Click
+here</a> for more information.<br>
+</p>
+<p><u>Examples:</u></p>
+<p>Namespace = &quot;&quot;<br>
+Namespace = &quot;MyProjectNamespace&quot;<br>
+Namespace = &quot;&lt;random:16&gt;&quot;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Apply New Password"></a>[General]</b></p>
+<p><b>Apply New Password</b> = &quot;string&quot;</p>
+<p>The <i>Apply New Password</i> is optional parameter that specifies a default
+password to be applied to all target VIs of the build. If the parameter is
+missed or a value of it is an empty string, no password will be applied by
+default. Note that a <i><a href="#Destination">[Destination N]</a></i> section
+may contain its own <i>Apply New Password</i> parameter that overrides the
+default value specified in [General] section.
+</p>
+<p>A special case is a use of &lt;random:N&gt; keyword to generate a random
+password and &lt;none&gt; keyword to disable a password. <a href="#KWD: none &amp; pwd">Click
+here</a> for more information.<br>
+</p>
+<p><u>Examples:</u></p>
+<p>Apply New Password = &quot;&quot;<br>
+Apply New Password = &quot;MySecretPassword&quot;<br>
+Apply New Password = &quot;&lt;random:16&gt;&quot;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Log Dir"></a>[General]</b></p>
+<p><b>Log Dir</b>			= &quot;dir path&quot;</p>
+<p><i>Log Dir</i> is an optional parameter that specifies a directory where a log file is written. If it is not specified, it is assumed to be the
+build file's parent directory.
+<i> Log Dir</i> may be either an absolute path or a path relative to the build file's parent directory.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Log File"></a>[General]</b></p>
+<p><b>Log File</b>		= "file path/name&quot;</p>
+<p><i>Log File</i> is an optional parameter that specifies a log file. If it is not specified, it is assumed to be a file with name of the
+build file and '.log' extension, located in
+<i><a href="#General: Log Dir">Log Dir</a></i> directory. <i> Log File</i> may be either an absolute path or a path relative to
+<i> Log Dir</i> directory. If it's an absolute path, it overrides <i> Log Dir</i>.&nbsp;
+</p>
+<p>Note that an actual name of a log file can contain a suffix if the <i><a href="#General: Log File Suffix">Log
+File Suffix</a></i> parameter specifies any.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Log File Suffix"></a>[General]</b></p>
+<p><b>Log File Suffix</b>		= &quot;string&quot;<br>
+<br>
+<i>Log File Suffix</i> is an optional parameter that specifies a suffix be appended to a name of log file. A suffix will be passes through
+a "Format Date/Time String" primitive to format actual suffix; herewith, all characters that are invalid for target file system (e.g. ':' in Windows) will be replaced with a valid character; also, '.' is replaced with '_'. By default, no suffix appended to
+a log file name.</p>
+<p><u>Example:</u></p>
+<p>Log File Suffix = " %c"</p>
+<p># It appends date/time when a build started to name of a log file.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Unsaved Changes"></a>[General]</b></p>
+<p><b>Unsaved Changes MsgBox</b>	= True/False</p>
+<p><i>Unsaved Changes MsgBox</i> is optional. If it is TRUE and there is an unsaved VI (a VI has
+a non-zero Modification Bitset property), a message box appears to ask a user to either continue or abort building.
+By default, it is TRUE.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Overwrite Existing Files"></a>[General]</b></p>
+<p><b>Overwrite Existing Files</b> = TRUE</p>
+<p><i>Overwrite Existing Files</i> specifies whether to overwrite files in the build location.  This is an optional.  If it is not specified, it is assumed to be FALSE.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Include Hidden VIs"></a>[General]</b></p>
+<p><b>Include Hidden VIs</b>	= True/False</p>
+<p><i>Include Hidden VIs</i> specifies whether include hidden VIs to a build or not. By default, it is TRUE.
+</p>
+<p>
+Background:<br>
+"Application: All VIs In Memory" property does not list hidden VIs. There are hidden VIs in LV DSC, GOOP and perhaps other
+add-ons. More, as soon some LV DSC hidden VIs are loaded, they stay in memory (and run) until LV finishes (even if no
+ordinary VIs opened).
+</p>
+<p>
+&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Rsrc Include"></a>[General]</b></p>
+<p><b>Include Help Files</b>	= True/False<br>
+<b>Include Shared Libs</b>	= True/False<br>
+<b>Include External Subrs</b>	= True/False</p>
+<p>These parameters specify whether to include respective resources to a build. By default, all of them are assumed to be True.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Rsrc Dirs"></a>[General]</b></p>
+<p><b>Help File Dir</b>		= "dir path"<br>
+<b>Shared Lib Dir</b>		= "dir path"<br>
+<b>External Subr Dir</b>	= "dir path"</p>
+<p><i>Help File Dir</i>, <i> Shared Lib Dir</i> and <i> External Subr Dir</i> are optional. Any of them
+may be either an absolute path or a path relative to <i><a href="#General: Build Root"> Build Root</a></i>. By default (if a path is
+empty or missed), the paths
+are assumed to be the <i>Build Root</i>.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: EXE Icon"></a>[General]</b></p>
+<p><b>EXE Icon File</b>		= &quot;file path&quot;</p>
+<p><i>EXE Icon File</i> is optional parameter to specify a custom icon of an executable. It may be either an absolute path to an icon file or a path relative to
+<i><a href="#General: Source Root"> Source Root</a></i>.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Version VI/Ctrl Name"></a>[General]</b></p>
+<p><b>Version VI Name</b>	= &quot;string&quot;<b><br>
+Version Ctrl Name</b>	= &quot;string&quot;</p>
+<p>Both these parameters are optional, they specify a control on FP of a VI that
+is to accept version information of the current build as a default value. <i>Version
+Ctrl Name</i> specifies a control name, and <i>Version VI Name</i> specifies a
+name of the VI that contains the control. The VI must be in the current build
+hierarchy (i.e. in hierarchy of a VI specified in either <i><a href="#Top-Level VIs">[Top
+Level VIs]</a></i> or <i><a href="#Dynamic VIs">[Dynamic VIs]</a></i> section.
+The control must have a type either the same as or compatible with <b><font size="1">Version Info
+Cluster__ogb_api.ctl</font></b> type definition (it can be found on OGB's Controls
+Palette).</p>
+<p>OGB takes the version information from a <a href="#General: Revision File"><i>Revision
+File</i></a> and assigns it to the specified control as default value. This way,
+a built application can obtain version information such as a version string, a
+build number and build date/time at runtime.</p>
+<p>If either of these parameters is empty string (or missed), the OGB does not
+save version information. If either of names is wrong, OGB generates a
+non-fatal error and save the information on it to a <i><a href="#General: Log File">Log
+File</a></i>.</p>
+<p><u>Example:</u></p>
+<p>Version VI Name = &quot;My Project Version.vi&quot;<br>
+Version Ctrl Name = &quot;Version Info&quot;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: RemovePolyVIsAndTypedefs"></a>[General]</b></p>
+<p><b>RemovePolyVIsAndTypedefs</b> = True/False</p>
+<p>The <i>RemovePolyVIsAndTypedefs</i> is optional. If it is TRUE, OGB will
+disconnect type definitions and polymorphic VIs, and not include them into the
+target build. A disconnected type definition instance will look the same, but
+will not longer associated with a type definition file. A polymorphic VI
+instance will become a regular SubVI.
+</p>
+<p>By default, <i>RemovePolyVIsAndTypedefs</i> is FALSE.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Pre/Post-Build VIs"></a>[General]</b></p>
+<p><b>Call Pre-Build VI</b>	= "VI path"<br>
+<b>Call Post-Build VI</b>	= "VI path"</p>
+<p><i>Call Pre-Build VI</i> and <i> Call Post-Build VI</i> are optional parameters that
+specify VI(s) to be called before a build starts and after the build completes respectively. A
+Pre-/Post-Build VI path may be either an absolute path, or a path relative to the
+<i><a href="#General: Project Root"> Project Root</a></i>.
+</p>
+<p> A Pre-build VI takes parameters to be used to perform building; herewith, all paths are absolute. A Post-build VI takes, in addition, actual parameters used during the build.
+</p>
+<p> Use <b><font size="1">Pre-Post Build VI Template__ogb_api.vit</font></b> as a template
+to make a custom pre/post-build VI.
+</p>
+<p> &nbsp;
+</p>
+<hr>
+<p><b><a name="General: Call-Back VI"></a>[General]</b></p>
+<p><b>Call-Back VI</b> = &quot;VI path&quot;<br>
+<b>Call-Back VI N</b> = &quot;VI path&quot;</p>
+<p><i>Call-Back VI</i> is optional parameter to specify Call-Back VI(s). A
+Call-Back VI path may be either an absolute path, or a path relative to the <i><a href="#General: Project Root">Project
+Root</a></i>.
+</p>
+<p>A general form of the parameter is &quot;Call-Back VI N&quot;, where N is a
+positive integer, that allows to specify several Call-Back VIs. In addition, N
+specifies an order to call Call-Back VIs if there are two or more. If N is
+omitted, it assumes to be zero.
+</p>
+<p>OGB calls Call-Back VIs for each VI of a build hierarchy after a VI
+tolerated all the transformations required and immediately before the VI is
+saved to its target location. A Call-Back VI takes a VI reference to the target
+VI, build parameters specific for the VI and general build parameters.
+</p>
+<p>Use <b><font size="1">Call-Back VI Template__ogb_api.vit </font></b>as a
+template to make a custom Call-Back VI.<br>
+</p>
+<p><u>Example:</u></p>
+<p>Call-Back VI&nbsp;&nbsp; = &quot;My Main Call-back.vi&quot;<br>
+Call-Back VI 2 = &quot;My Call-back 2.vi&quot;<br>
+Call-Back VI 3 = &quot;My Call-back 3.vi&quot;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="General: Allow CBVI &amp; BH Overlap"></a>[General]</b></p>
+<p><b>Allow CBVI &amp; Build Hierarchy Overlap</b> = True/False</p>
+<p><i>Allow CBVI &amp; Build Hierarchy Overlap</i> is optional. If it is FALSE
+(by default), a <i><a href="#General: Call-Back VI">Call-Back VI</a></i> is not
+allowed to have VIs in its hierarchy that are also in a currently built
+hierarchy. In this case, OGB will terminate with an error if a VI belongs to
+the both hierarchies.
+</p>
+<p>If the parameter is TRUE, a Call-Back VI is allowed to share VIs with a build
+hierarchy. However, a VI of Call-Back VI hierarchy may not be in memory at build
+start if it belongs to a build hierarchy as well. That means a Call-Back VI
+itself must be out of memory when a build starts if it shares any VI(s) with a
+build hierarchy.
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="Top-Level VIs"></a>[Top Level VIs]</b></p>
+<p><b>keyname</b> = &quot;VI path&quot;</p>
+<p><i>[Top Level VIs]</i> section specifies VIs whose hierarchies are to be included in the build. Additionally, Top Level VIs will be set as "Top-Level" in destination LLBs if the its Destination is
+either an LLB or EXE.  You can use any <i> keyname</i> for Top Level VIs; <i>keynames</i> for this section are arbitrary.</p>
+<p>A VI path may be either an absolute path, or a path relative to <i><a href="#General: Source Root">Source
+Root</a></i>.<br>
+A VI path may contain wildcards in VI name to specify a group of VIs.</p>
+<p><u>Example:</u></p>
+<p>[Top Level VIs]<br>
+Main VI = &quot;Main VI of my application.vi&quot;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="Dynamic VIs"></a>[Dynamic VIs]</b></p>
+<p><b>keyname</b> = &quot;VI path&quot;</p>
+<p><i>[Dynamic VIs]</i> section specifies VIs whose hierarchies are to be included in the build.  You can use any
+<i> keyname</i> for Dynamic VIs; <i>keynames</i> for this section are arbitrary.</p>
+<p>
+A VI path may be either an absolute path, or a path relative to <i><a href="#General: Source Root">Source
+Root</a></i>.<br>
+A VI path may contain wildcards in VI name to specify a group of VIs.</p>
+<p><u>Example:</u></p>
+<p>[Dynamic VIs]<br>
+1 = "Test VI 001.vi"
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="Exclude Lib Dirs"></a>[Exclude Lib Dirs from Build]</b></p>
+<p><b>keyname</b> = &quot;dir/llb path&quot;</p>
+<p><i>[Exclude Lib Dirs from Build]</i> section specifies directories, LLBs and
+individual files to exclude from build. Any VI, CTL or non-VI resource (such as runtime menu, shared library, help file, etc.) will not be included to the build if its path is either the same as or beneath any of
+the specified exclusion path. <i>  Keynames</i> for this section are arbitrary.</p>
+<p>A path may be
+either an absolute path, or a path relative to <i><a href="#General: Source Root">Source
+Root</a></i>.</p>
+<p><u>Example:</u></p>
+<p>LV_Help = &lt;help><br>
+LV_VILIB = &lt;vi.lib&gt;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="Destination"></a>[Destination N]</b></p>
+<p><b>Source Dir</b> = &quot;dir/llb path&quot;<br>
+<b>Target Dir</b> = &quot;path&quot;<br>
+<b>Convert Target to LLB</b> = True/False<br>
+<b>Convert Target to EXE</b> = True/False<br>
+<b>Remove Diagrams</b> = True/False<br>
+<b>Default Destination</b> = True/False<br>
+<b>Apply New Password</b> = &quot;string&quot;<br>
+<b>Namespace</b> = &quot;string&quot;</p>
+<p><i>[Destination N]</i> sections should be named "Destination N", where "N" is an
+arbitrary unique integer.  This allows to specify multiple
+Destination sections. Every VI or CTL in the application source hierarchy which is located beneath <i> Source
+Dir</i> will be aggregated into <i> Target Dir</i>, except for those VIs and CTLs found beneath a subdirectory specified as a
+<i> Source Dir</i> of another Destination.</p>
+<p>A <i><b>Source Dir</b></i> may be either an absolute path, or a path relative to <i><a href="#General: Source Root">Source
+Root</a></i>. A <i>Source Dir</i> may be a directory path, a VI library (LLB) file path or even a VI/CTL/RTM path.</p>
+<p>A <i><b>Target Dir</b></i> may be either an absolute path, or a path relative to <i><a href="#General: Build Root">Build
+Root</a></i>. A <i>Target Dir</i> may contain <u>&lt;KeepHierarchy></u> keyword as the last component of a path. In this case, a VI directory hierarchy in
+<i> Target Dir</i> is saved as it is beneath <i> Source Dir</i>, including sub-directories and LLBs.
+This keyword overrides both <i>Convert Target to LLB</i> and <i>Convert Target
+to EXE</i> keys.</p>
+<p>If <i><b>Convert Target to LLB</b></i> optional parameter is TRUE, the <i>Target Dir</i>
+is actually to be a LabVIEW library file with LLB extension. This setting may be
+overridden by the <i> Convert Target to EXE</i> setting and/or <u>&lt;KeepHierarchy&gt;</u>
+keyword.</p>
+<p>If <i><b>Convert Target to EXE</b></i> optional parameter is TRUE, the <i>Target Dir</i>
+is actually to be an executable file with EXE extension. This setting may be
+overridden by <u>&lt;KeepHierarchy&gt;</u> keyword.</p>
+<p>If the <i><b>Remove Diagrams</b></i> optional parameter is TRUE, all VIs in this Destination will have
+their diagrams removed during the build.</p>
+<p>If <i><b>Default Destination</b></i> optional parameter is TRUE for a section,
+then that Destination will be used as the 'Default Destination'.&nbsp; The
+'Default Destination' is used for any source VIs that are not found within the <i>Source
+Dir</i> of any <i>[Destination N]</i> section.&nbsp; Only one <i>[Destination N]</i>
+section may have a value of TRUE for the <i>Default Destination</i> key.&nbsp;
+If more than one <i>[Destination N]</i> section has a value of TRUE for the <i>Default
+Destination</i> key, it will generate a non-fatal warning, and the lowest
+numbered <i>[Destination N]</i> section will be used as the Default Destination.
+If no <i>[Destination N]</i> section is defined as the <i>Default Destination</i>,
+then a fatal error will be generated if any VI in the application hierarchy does
+not exist within the <i>Source Dir</i> of at least one <i>[Destination N]</i>
+section.
+</p>
+<p> <i><b>Apply New Password</b></i> is optional parameter that may be used to apply
+a password string to all VIs of the destination. If the parameter is missed or a
+value of it is an empty string, OGB uses a value of the <i><a href="#General: Apply New Password">Apply
+New Password</a> </i>parameter in <i> [General]</i> section as a default value. If a
+resulting password is an empty string, no password will be applied to VIs of the
+destination; otherwise, all the target VIs accept the password. A special case
+is a use of &lt;random:N&gt; keyword to generate a random password and
+&lt;none&gt; keyword to disable a password. <a href="#KWD: none &amp; pwd">Click
+here</a> for more information.
+</p>
+<p><i><b>Namespace</b></i> is optional parameter that may be used to override a
+default <i><a href="#General: Namespace">Namespace</a></i>, specified in <i>
+[General]</i> section, for VIs of the destination. If the parameter is missed or a
+value of it is an empty string, OGB uses a default namespace. A special case is
+a use of &lt;random:N&gt; keyword to generate a random namespace and
+&lt;none&gt; keyword to discard a namespace. <a href="#KWD: none &amp; pwd">Click
+here</a> for more information.<br>
+</p>
+<p><u>Example:</u></p>
+<p>[Destination 0001]<br>
+Source Dir = &quot;&quot;<br>
+Target Dir = &quot;test_built"<br>
+Convert Target to LLB = TRUE<br>
+Convert Target to EXE = FALSE<br>
+Remove Diagrams = FALSE<br>
+Default Destination = TRUE<br>
+Apply New Password = &quot;MySecretPassword&quot;<br>
+Namespace = &quot;abcd&quot;
+</p>
+<p>[Destination 1001]<br>
+Source Dir = &lt;vi.lib&gt;<br>
+Target Dir = &quot;Support VIs\vi_lib.llb"<br>
+Convert Target to LLB = TRUE<br>
+Convert Target to EXE = FALSE<br>
+Remove Diagrams = FALSE<br>
+Default Destination = FALSE<br>
+Apply New Password = &quot;&quot;<br>
+Namespace = &quot;&quot;
+</p>
+<p>[Destination 2001]<br>
+Source Dir = &lt;user.lib><br>
+Target Dir = &quot;Support VIs\user.lib\&lt;KeepHierarchy>"<br>
+Convert Target to LLB = FALSE<br>
+Convert Target to EXE = FALSE<br>
+Remove Diagrams = FALSE<br>
+Default Destination = FALSE<br>
+Apply New Password = &lt;random:16&gt;<br>
+Namespace = &lt;random&gt;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p><b><a name="SupportFiles"></a>[SupportFiles N]</b></p>
+<p><b>TargetDir</b> = &quot;dir path&quot;<br>
+<b>OverwriteExisting </b>= True/False<br>
+<b>FollowVIDirHierarchy</b>	= True/False<br>
+<b>SourceFile X</b> = &quot;file path/name&quot;</p>
+<p><i>[SupportFiles N]</i> sections should be named "SupportFiles N", where "N" is an
+arbitrary unique integer. This allows to specify multiple SupportFiles sections.</p>
+<p><i><b>TargetDir</b></i> is an optional parameter to specify a target directory.  If it is not specified, it is assumed to be the
+<i><a href="#General: Build Root"> Build Root</a></i>. A <i>TargetDir</i> may be either an absolute path, or a path relative to the
+<i> Build Root</i>.<br>
+<br>
+<i><b>OverwriteExisting</b></i> specifies whether to overwrite files in the <i> TargetDir</i>.  This is an optional.  If it is not specified, it is assumed to be FALSE<br>
+<br>
+<i><b>SourceFile X</b></i> keys should be named "SourceFile X", where "X" is an
+arbitrary unique integer.
+It allows to specify multiple source files for the <i> TargetDir</i>. A <i> SourceFile</i> can be either an absolute path or a path relative to
+<i><a href="#General: Source Root"> Source Root</a></i>. A <i> SourceFile</i>
+may contain wildcards in a file name to specify a group of files. It is possible to specify no SourceFiles in order to just create the
+<i> TargetDir</i>.</p>
+<p><i><b>FollowVIDirHierarchy</b></i> is optional. If there are VIs, destination directories of which are beneath
+<i> TargetDir</i>, OGB looks for the specified <i> SourceFiles</i> in the VIs' source directories and copies them to the appropriate positions beneath
+<i> TargetDir</i>. I.e., if a source VI has a support file in its parent directory, it will also have the support file in its new (destination) parent directory. Note that only name of a
+<i> SupportFile</i> is used in this mode, any path is ignored; however, a use of wildcards is still possible.</p>
+<p><u>Example:</u></p>
+<p>[SupportFiles 1001]<br>
+ TargetDir		= ""<br>
+OverwriteExisting	= True<br>
+ FollowVIDirHierarchy	= False<br>
+ SourceFile 001	= "*.ini"<br>
+ SourceFile 002	= "Doc\readme.txt"</p>
+<p># This will copy &quot;*.ini&quot; and &quot;Doc\readme.txt&quot; files from
+Source Root to Build Root.</p>
+<p>[SupportFiles 2001]<br>
+TargetDir		= "Doc"<br>
+OverwriteExisting	= True<br>
+ FollowVIDirHierarchy	= False<br>
+SourceFile 001	= &quot;Doc\*.html&quot;</p>
+<p># This will copy &quot;*.html&quot; files from &lt;Source Root\Doc&gt; to
+&lt;Build Root\Doc&gt;</p>
+<p>[SupportFiles 3001]<br>
+TargetDir		= "App\PlugIns"<br>
+OverwriteExisting	= True<br>
+ FollowVIDirHierarchy	= True<br>
+SourceFile 001	= "*.ini"</p>
+<p># This will copy *.ini files from source directories, where VIs saved to beneath "App\PlugIns" reside, to the respective sub-directories of
+&quot;App\PlugIns&quot;.
+</p>
+
+<p>&nbsp;
+</p>
+
+<hr>
+<p><a name="KWD: none &amp; pwd"></a>Keywords applicable to <i><b>Namespace</b></i>
+and <i><b>Apply New Password</b></i> parameters</p>
+<p>&lt;random:N&gt; keyword forces OGB to generate a random string of length N,
+where N is a positive integer. If N is less than or equal to zero, or it is
+omitted, it assumes the default value of 32. A random string may contain digits (0..9), upper-case letters (A..Z) and lower-case letters (a..z).</p>
+<p>&lt;none&gt; keyword forces OGB to generate empty string. A use of this
+keyword is useful in <i><a href="#Destination">[Destination N]</a></i> section
+to discard a default password and/or a default namespace (<i><a href="#General: Apply New Password">Apply
+New Password</a></i> and <i><a href="#General: Namespace">Namespace</a></i>
+parameters in General section) for VIs of the destination.</p>
+<p>Note that both &lt;random:N&gt; and &lt;none&gt; keywords are
+case-insensitive.</p>
+<p><u>Examples:</u></p>
+<p>Namespace = &lt;none&gt;<br>
+Namespace = &lt;random:16&gt;<br>
+Apply New Password = &lt;Random&gt;<br>
+Apply New Password = &lt;NONE&gt;
+</p>
+<p>&nbsp;
+</p>
+<hr>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

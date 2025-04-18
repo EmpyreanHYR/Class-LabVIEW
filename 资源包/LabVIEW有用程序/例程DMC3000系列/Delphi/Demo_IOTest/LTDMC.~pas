@@ -1,0 +1,340 @@
+unit LTDMC;
+
+interface
+
+//板卡配置
+function dmc_board_init():Smallint;stdcall; //初始化控制卡
+function dmc_board_reset():Smallint;stdcall; 
+function dmc_board_close():Smallint;stdcall; //关闭控制卡
+function dmc_get_CardInfList(out CardNum:WORD;out CardTypeList:LongWORD;out CardIdList:WORD):Smallint;stdcall;  //获取所有卡号
+function dmc_get_card_version(CardNo:WORD;out CardVersion:LongWORD):Smallint;stdcall; //读取控制卡硬件版本
+function dmc_get_card_soft_version(CardNo:WORD;out FirmID:LongWORD;out SubFirmID:LongWORD):Smallint;stdcall; //读取控制卡硬件的固件版本
+function dmc_get_card_lib_version(out LibVer:LongWORD):Smallint;stdcall;   //读取控制卡动态库版本
+function dmc_get_total_axes(CardNo:WORD;out TotalAxis:longint):Smallint;stdcall; //读取指定卡轴数
+//3800专用 轴IO映射配置
+function dmc_set_AxisIoMap(CardNo:WORD;axis:WORD;IoType:WORD;MapIoType:WORD;MapIoIndex:WORD;Filter:LongWORD):Smallint;stdcall; 
+function dmc_get_AxisIoMap(CardNo:WORD;axis:WORD;out IoType:WORD;out MapIoType:WORD;out MapIoIndex:WORD;out Filter:LongWORD):Smallint;stdcall; 
+//下载参数文件
+function dmc_download_configfile(CardNo:WORD;FileName:String):Smallint;stdcall; 
+//下载固件文件
+function dmc_download_firmware(CardNo:WORD;FileName:String):Smallint;stdcall; 
+//限位/异常设置
+function dmc_set_emg_mode(CardNo:WORD;axis:WORD;enable:WORD;emg_logic:WORD):Smallint;stdcall;  //设置EMG信号
+function dmc_get_emg_mode(CardNo:WORD;axis:WORD;out enbale:WORD;out emg_logic:WORD):Smallint;stdcall; //读取设置EMG信号
+function dmc_set_el_mode(CardNo:WORD;axis:WORD;el_enable:WORD;el_logic:WORD;el_mode:WORD):Smallint;stdcall; //设置EL信号
+function dmc_get_el_mode(CardNo:WORD;axis:WORD;out el_enable:WORD;out el_logic:WORD;out el_mode:WORD):Smallint;stdcall; //读取设置EL信号
+function dmc_set_softlimit(CardNo:WORD;axis:WORD;enable:WORD;source_sel:WORD;SL_action:WORD;N_limit:longint;P_limit:longint):Smallint;stdcall; //设置软限位参数
+function dmc_get_softlimit(CardNo:WORD;axis:WORD;out enable:WORD;out source_sel:WORD;out SL_action:WORD;out N_limit:longint;out P_limit:longint):Smallint;stdcall; //读取软限位参数
+//外部减速停止信号及减速停止时间设置
+function dmc_set_dstp_mode(CardNo:WORD;axis:WORD;enable:WORD;logic:WORD;time:WORD):Smallint;stdcall; 	
+function dmc_get_dstp_mode(CardNo:WORD;axis:WORD;out enable:WORD;out logic:WORD;out time:WORD):Smallint;stdcall; 
+//速度设置
+function dmc_set_profile(CardNo:WORD;axis:WORD;Min_Vel:double;Max_Vel:double;Tacc:double;Tdec:double;stop_vel:double):Smallint;stdcall; //设定速度曲线参数
+function dmc_get_profile(CardNo:WORD;axis:WORD;out Min_Vel:double;out Max_Vel:double;out Tacc:double;out Tdec:double;out stop_vel:double):Smallint;stdcall; //读取速度曲线参数
+function dmc_set_s_profile(CardNo:WORD;axis:WORD;s_mode:WORD;s_para:double):Smallint;stdcall; //设置平滑速度曲线参数
+function dmc_get_s_profile(CardNo:WORD;axis:WORD;s_mode:WORD;out s_para:double):Smallint;stdcall; //读取平滑速度曲线参数
+function dmc_set_vector_profile_multicoor(CardNo:WORD;crd:WORD;Min_Vel:double;Max_Vel:double;Tacc:double;Tdec:double;stop_vel:double):Smallint;stdcall; 
+function dmc_get_vector_profile_multicoor(CardNo:WORD;crd:WORD;out Min_Vel:double;out Max_Vel:double;out Tacc:double;out Tdec:double;out stop_vel:double):Smallint;stdcall;
+//运动模块脉冲模式
+function dmc_set_pulse_outmode(CardNo:WORD;axis:WORD;outmode:WORD):Smallint;stdcall; //设定脉冲输出模式
+function dmc_get_pulse_outmode(CardNo:WORD;axis:WORD;out outmode:WORD):Smallint;stdcall; //读取脉冲输出模式
+//点位运动
+function dmc_pmove(CardNo:WORD;axis:WORD;dist:longint;posi_mode:WORD):Smallint;stdcall; //指定轴做定长位移运动
+function dmc_reset_target_position(CardNo:WORD;axis:WORD;dist:longint;posi_mode:WORD):Smallint;stdcall; //运动中改变目标位置
+function dmc_change_speed(CardNo:WORD;axis:WORD;Curr_Vel:double;Taccdec:double):Smallint;stdcall; //在线改变指定轴的当前运动速度
+function dmc_update_target_position(CardNo:WORD;axis:WORD;dist:longint;posi_mode:WORD):Smallint;stdcall; //运动中改变目标位置
+//PVT运动
+function dmc_PvtTable(CardNo:WORD;axis:WORD;count:LongWORD;pTime:double;pPos:longint;pVel:double):Smallint;stdcall;
+function dmc_PtsTable(CardNo:WORD;axis:WORD;count:LongWORD;pTime:double;pPos:longint;pPercent:double):Smallint;stdcall;
+function dmc_PvtsTable(CardNo:WORD;axis:WORD;count:LongWORD;pTime:double;pPos:longint; velBegin:double;velEnd:double):Smallint;stdcall;
+function dmc_PttTable(CardNo:WORD;axis:WORD;count:LongWORD;pTime:double;pPos:longint):Smallint;stdcall;
+function dmc_PvtMove(CardNo:WORD;AxisNum:WORD;AxisList:WORD):Smallint;stdcall;
+//JOG运动
+function dmc_vmove(CardNo:WORD;axis:WORD;dir:WORD):Smallint;stdcall; //指定轴做连续运动
+//直线插补
+function dmc_line_multicoor(CardNo:WORD;crd:WORD;axisNum:WORD;axisList:WORD;DistList:longint;posi_mode:WORD):Smallint;stdcall; 	//指定轴直线插补运动
+//平面圆弧
+function dmc_arc_move_multicoor(CardNo:WORD;crd:WORD;AxisList:WORD;Target_Pos:longint;Cen_Pos:longint;Arc_Dir:WORD;posi_mode:WORD):Smallint;stdcall;
+//回零运动
+function dmc_set_home_pin_logic(CardNo:WORD;axis:WORD;org_logic:WORD;filter:double):Smallint;stdcall;  //设置HOME信号
+function dmc_get_home_pin_logic(CardNo:WORD;axis:WORD;out org_logic:WORD;out filter:double):Smallint;stdcall; //读取设置HOME信号
+function dmc_set_homemode(CardNo:WORD;axis:WORD;home_dir:WORD;vel_mode:double;mode:WORD;EZ_count:WORD):Smallint;stdcall; //设定指定轴的回原点模式
+function dmc_get_homemode(CardNo:WORD;axis:WORD;out home_dir:WORD;out vel_mode:double;out home_mode:WORD;out EZ_count:WORD):Smallint;stdcall; //读取指定轴的回原点模式
+function dmc_home_move(CardNo:WORD;axis:WORD):Smallint;stdcall;
+//3800专用 原点锁存
+function dmc_set_homelatch_mode(CardNo:WORD;axis:WORD;enable:WORD;logic:WORD;source:WORD):Smallint;stdcall;
+function dmc_get_homelatch_mode(CardNo:WORD;axis:WORD;out enable:WORD;out logic:WORD;out source:WORD):Smallint;stdcall;
+function dmc_get_homelatch_flag(CardNo:WORD;axis:WORD):Smallint;stdcall;
+function dmc_reset_homelatch_flag(CardNo:WORD;axis:WORD):Smallint;stdcall;
+function dmc_get_homelatch_value(CardNo:WORD;axis:WORD):Smallint;stdcall;
+//手轮运动
+//3800专用 手轮通道选择
+function dmc_set_handwheel_channel(CardNo:WORD;index:WORD):Smallint;stdcall;
+function dmc_get_handwheel_channel(CardNo:WORD;out index:WORD):Smallint;stdcall;
+//一个手轮信号控制单个轴运动		
+function dmc_set_handwheel_inmode(CardNo:WORD;axis:WORD;inmode:WORD;multi:double;vh:double):Smallint;stdcall; 	//设置输入手轮脉冲信号的工作方式
+function dmc_get_handwheel_inmode(CardNo:WORD;axis:WORD;out inmode:WORD;out multi:double;out vh:double):Smallint;stdcall; 	//读取输入手轮脉冲信号的工作方式
+//3800专用 一个手轮信号控制多个轴运动
+function dmc_set_handwheel_inmode_extern(CardNo:WORD;inmode:WORD;AxisNum:WORD;AxisList:WORD;multi:longint):Smallint;stdcall;	//设置输入手轮脉冲信号的工作方式 控制多轴
+function dmc_get_handwheel_inmode_extern(CardNo:WORD;out inmode:WORD;out AxisNum:WORD;out AxisList:WORD;out multi:longint):Smallint;stdcall;	
+//启动指定轴的手轮脉冲运动
+function dmc_handwheel_move(CardNo:WORD;axis:WORD):Smallint;stdcall; 	
+//编码器
+function dmc_set_counter_inmode(CardNo:WORD;axis:WORD;mode:WORD):Smallint;stdcall;  //设定编码器的计数方式
+function dmc_get_counter_inmode(CardNo:WORD;axis:WORD;out mode:WORD):Smallint;stdcall; //读取编码器的计数方式
+function dmc_get_encoder(CardNo:WORD;axis:WORD):longint;stdcall;
+function dmc_set_encoder(CardNo:WORD;axis:WORD;encoder_value:longint):Smallint;stdcall;
+function dmc_set_ez_mode(CardNo:WORD;axis:WORD;ez_logic:WORD;ez_mode:WORD;filter:double):Smallint;stdcall; //设置EZ信号
+function dmc_get_ez_mode(CardNo:WORD;axis:WORD;out ez_logic:WORD;out ez_mode:WORD;out filter:double):Smallint;stdcall; //读取设置EZ信号
+//高速锁存
+function dmc_set_ltc_mode(CardNo:WORD;axis:WORD;Ltc_logic:WORD;Ltc_Mode:WORD;filter:double):Smallint;stdcall;
+function dmc_get_ltc_mode(CardNo:WORD;axis:WORD;out Ltc_logic:WORD;out Ltc_Mode:WORD;out filter:double):Smallint;stdcall;
+function dmc_set_latch_mode(CardNo:WORD;axis:WORD;all_enable:WORD;latch_source:WORD;triger_chunnel:WORD):Smallint;stdcall;  	//设置锁存方式
+function dmc_get_latch_mode(CardNo:WORD;axis:WORD;out all_enable:WORD;out latch_source:WORD;out triger_chunnel:WORD):Smallint;stdcall;
+function dmc_get_latch_value(CardNo:WORD;axis:WORD):longint;stdcall;  	//读取锁存器的值
+function dmc_get_latch_flag(CardNo:WORD;axis:WORD):Smallint;stdcall;  	//读取锁存器标志
+function dmc_reset_latch_flag(CardNo:WORD;axis:WORD):Smallint;stdcall;  	//复位锁存器标志
+function dmc_get_latch_value_extern(CardNo:WORD;axis:WORD;index:WORD):longint;stdcall;  //按索引读取锁存器的值
+function dmc_get_latch_flag_extern(CardNo:WORD;axis:WORD):Smallint;stdcall;  	//读取有效锁存次数
+//DMC3410专用 LTC端口触发延时急停时间 单位us
+function dmc_set_latch_stop_time(CardNo:WORD;axis:WORD;time:longint):Smallint;stdcall; 
+function dmc_get_latch_stop_time(CardNo:WORD;axis:WORD;out time:longint):Smallint;stdcall; 
+//DMC3800专用 LTC反相输出
+function dmc_SetLtcOutMode(CardNo:WORD;axis:WORD;enable:WORD;bitno:WORD):Smallint;stdcall; 
+function dmc_GetLtcOutMode(CardNo:WORD;axis:WORD;out enable:WORD;out bitno:WORD):Smallint;stdcall; 
+//单轴低速位置比较		
+function dmc_compare_set_config(CardNo:WORD;axis:WORD;enable:WORD;cmp_source:WORD):Smallint;stdcall;  	//配置比较器
+function dmc_compare_get_config(CardNo:WORD;axis:WORD;out enable:WORD;out cmp_source:WORD):Smallint;stdcall; 	//读取配置比较器
+function dmc_compare_clear_points(CardNo:WORD;axis:WORD):Smallint;stdcall;  	//清除所有比较点
+function dmc_compare_add_point(CardNo:WORD;axis:WORD;pos:longint;dir:WORD;action:WORD;actpara:LongWORD):Smallint;stdcall;  	//添加比较点
+function dmc_compare_get_current_point(CardNo:WORD;axis:WORD;out pos:longint):Smallint;stdcall;  	//读取当前比较点
+function dmc_compare_get_points_runned(CardNo:WORD;axis:WORD;out pointNum:longint):Smallint;stdcall;  	//查询已经比较过的点
+function dmc_compare_get_points_remained(CardNo:WORD;axis:WORD;out pointNum:longint):Smallint;stdcall;  	//查询可以加入的比较点数量
+//二维低速位置比较
+function dmc_compare_set_config_extern(CardNo:WORD;enable:WORD;cmp_source:WORD):Smallint;stdcall;  	//配置比较器
+function dmc_compare_get_config_extern(CardNo:WORD;out enable:WORD;out cmp_source:WORD):Smallint;stdcall; 	//读取配置比较器
+function dmc_compare_clear_points_extern(CardNo:WORD):Smallint;stdcall;
+function dmc_compare_add_point_extern(CardNo:WORD;axis:WORD;pos:longint;dir:WORD;action:WORD;actpara:LongWORD):Smallint;stdcall;  	//添加两轴位置比较点
+function dmc_compare_get_current_point_extern(CardNo:WORD;out pos:longint):Smallint;stdcall;  	//读取当前比较点
+function dmc_compare_get_points_runned_extern(CardNo:WORD;out pointNum:longint):Smallint;stdcall;  	//查询已经比较过的点
+function dmc_compare_get_points_remained_extern(CardNo:WORD;out pointNum:longint):Smallint;stdcall;  	//查询可以加入的二维比较点数量
+//3410专用 单轴高速位置比较
+//function dmc_set_cmp_config(CardNo:WORD;axis:WORD;cmp_pos:longint;cmp_source:WORD;cmp_logic:WORD):Smallint;stdcall; 
+//function dmc_get_cmp_config(CardNo:WORD;axis:WORD;out cmp_pos:longint;out cmp_source:WORD;out cmp_logic:WORD):Smallint;stdcall;
+//function dmc_set_cmp_enable(CardNo:WORD;axis:WORD;cmp_enable:WORD):Smallint;stdcall; 
+//function dmc_get_cmp_enable(CardNo:WORD;axis:WORD;out cmp_enable:WORD):Smallint;stdcall;
+function dmc_hcmp_set_mode(CardNo:WORD;hcmp:WORD;cmp_mode:WORD):Smallint;stdcall; 
+function dmc_hcmp_get_mode(CardNo:WORD;hcmp:WORD;cmp_mode:WORD):Smallint;stdcall; 
+function dmc_hcmp_set_config(CardNo:WORD;hcmp:WORD;axis:WORD;cmp_source:WORD;cmp_logic:WORD;time:longint):Smallint;stdcall; 
+function dmc_hcmp_get_config(CardNo:WORD;hcmp:WORD;out axis:WORD;out cmp_source:WORD;out cmp_logic:WORD;out time:longint):Smallint;stdcall; 
+function dmc_hcmp_add_point(CardNo:WORD;hcmp:WORD, long cmp_pos:longint):Smallint;stdcall; 
+function dmc_hcmp_set_liner(CardNo:WORD;hcmp:WORD;Increment:longint;Count:longint):Smallint;stdcall; 
+function dmc_hcmp_get_liner(CardNo:WORD;hcmp:WORD;out Increment:longint;out Count:longint):Smallint;stdcall; 
+function dmc_hcmp_get_current_state(CardNo:WORD;hcmp:WORD;out remained_points:longint;out current_point:longint;out runned_points:longint):Smallint;stdcall;  
+function dmc_hcmp_clear_points(CardNo:WORD;hcmp:WORD):Smallint;stdcall; 	
+function dmc_read_cmp_pin(CardNo:WORD;hcmp:WORD):Smallint;stdcall;
+function dmc_write_cmp_pin(CardNo:WORD;hcmp:WORD;on_off:WORD):Smallint;stdcall; 
+
+//通用IO
+function dmc_read_inbit(CardNo:WORD;bitno:WORD):Smallint;stdcall; //读取输入口的状态
+function dmc_write_outbit(CardNo:WORD;bitno:WORD;ON_OFF:WORD):Smallint;stdcall;  //设置输出口的状态
+function dmc_read_outbit(CardNo:WORD;bitno:WORD):Smallint;stdcall;    //读取输出口的状态
+function dmc_read_inport(CardNo:WORD;portno:WORD):LongWORD;stdcall; //读取输入端口的值
+function dmc_read_outport(CardNo:WORD;portno:WORD):LongWORD;stdcall;   //读取输出端口的值
+function dmc_write_outport(CardNo:WORD;IoMask:LongWORD;outport_val:LongWORD):Smallint;stdcall; //设置输出端口的值
+//3800专用 IO辅助功能
+function dmc_IO_TurnOutDelay(CardNo:WORD;bitno:WORD;DelayTime:LongWORD):Smallint;stdcall;
+function dmc_SetIoCountMode(CardNo:WORD;bitno:WORD;mode:WORD;filter:LongWORD):Smallint;stdcall;
+function dmc_GetIoCountMode(CardNo:WORD;bitno:WORD;out mode:WORD;out filter:LongWORD):Smallint;stdcall;
+function dmc_SetIoCountValue(CardNo:WORD;bitno:WORD;CountValue:LongWORD):Smallint;stdcall;
+function dmc_GetIoCountValue(CardNo:WORD;bitno:WORD;out CountValue:LongWORD):Smallint;stdcall;
+//伺服专用IO
+function dmc_set_inp_mode(CardNo:WORD;axis:WORD;enable:WORD;inp_logic:WORD):Smallint;stdcall; //设置INP信号
+function dmc_get_inp_mode(CardNo:WORD;axis:WORD;out enable:WORD;out inp_logic:WORD):Smallint;stdcall; //读取设置INP信号
+function dmc_set_alm_mode(CardNo:WORD;axis:WORD;enable:WORD;alm_logic:WORD;alm_action:WORD):Smallint;stdcall; //设置ALM信号
+function dmc_get_alm_mode(CardNo:WORD;axis:WORD;out enable:WORD;out alm_logic:WORD;out alm_action:WORD):Smallint;stdcall; //读取设置ALM信号
+function dmc_write_sevon_pin(CardNo:WORD;axis:WORD;ON_OFF:WORD):Smallint;stdcall;   //输出SEVON信号
+function dmc_read_sevon_pin(CardNo:WORD;axis:WORD):WORD;stdcall;   //读取SEVON信号
+function dmc_read_rdy_pin(CardNo:WORD;axis:WORD):Smallint;stdcall;   //读取RDY状态
+function dmc_write_erc_pin(CardNo:WORD;axis:WORD;sel:WORD):Smallint;stdcall; //控制ERC信号输出
+//运动状态
+function dmc_read_current_speed(CardNo:WORD;axis:WORD):Double;stdcall; //读取指定轴的当前速度
+function dmc_read_vector_speed(CardNo:WORD):Double;stdcall; //读取当前卡的插补速度
+function dmc_get_position(CardNo:WORD;axis:WORD):longint;stdcall;  //读取指定轴的当前位置
+function dmc_set_position(CardNo:WORD;axis:WORD;current_position:longint):Smallint;stdcall; //设定指定轴的当前位置
+function dmc_get_target_position(CardNo:WORD;axis:WORD):longint;stdcall;  //读取指定轴的当前位置
+function dmc_check_done(CardNo:WORD;axis:WORD):Smallint;stdcall;
+function dmc_check_done_multicoor(CardNo:WORD;crd:WORD):Smallint;stdcall;
+function dmc_axis_io_status(CardNo:WORD;axis:WORD):Smallint;stdcall; //读取指定轴有关运动信号的状态
+function dmc_stop(CardNo:WORD;axis:WORD;stop_mode:WORD):Smallint;stdcall; //单轴停止
+function dmc_stop_multicoor(CardNo:WORD;crd:WORD;stop_mode:WORD):Smallint;stdcall; 
+function dmc_emg_stop(CardNo:WORD):Smallint;stdcall; //紧急停止所有轴
+//检测轴到位状态
+function dmc_set_factor_error(CardNo:WORD;axis:WORD;factor:double;error:longint);
+function dmc_get_factor_error(CardNo:WORD;axis:WORD;out factor:double;out error:longint);
+function dmc_check_success_pulse(CardNo:WORD;axis:WORD);
+function dmc_check_success_encoder(CardNo:WORD;axis:WORD);
+//3800专用 主卡与接线盒通讯状态
+function dmc_LinkState(CardNo:WORD;out State:WORD):Smallint;stdcall; 	//连接状态
+implementation
+//板卡配置
+function dmc_board_init;external'LTDMC.dll';
+function dmc_board_reset;external'LTDMC.dll';
+function dmc_board_close;external'LTDMC.dll';
+function dmc_get_CardInfList;external'LTDMC.dll';
+function dmc_get_card_version;external'LTDMC.dll';
+function dmc_get_card_soft_version;external'LTDMC.dll';
+function dmc_get_card_lib_version;external'LTDMC.dll';
+function dmc_get_total_axes;external'LTDMC.dll';
+function dmc_set_AxisIoMap;external'LTDMC.dll';
+function dmc_get_AxisIoMap;external'LTDMC.dll';
+function dmc_download_configfile;external'LTDMC.dll';
+function dmc_download_firmware;external'LTDMC.dll';
+//限位/异常设置
+function dmc_set_el_mode;external'LTDMC.dll';
+function dmc_get_el_mode;external'LTDMC.dll';
+function dmc_set_emg_mode;external'LTDMC.dll';
+function dmc_get_emg_mode;external'LTDMC.dll';
+function dmc_set_softlimit;external'LTDMC.dll';
+function dmc_get_softlimit;external'LTDMC.dll';
+function dmc_set_dstp_mode;external'LTDMC.dll';
+function dmc_get_dstp_mode;external'LTDMC.dll';
+//速度设置
+function dmc_set_profile;external'LTDMC.dll';
+function dmc_get_profile;external'LTDMC.dll';
+function dmc_set_s_profile;external'LTDMC.dll';
+function dmc_get_s_profile;external'LTDMC.dll';
+function dmc_set_vector_profile_multicoor;external'LTDMC.dll';
+function dmc_get_vector_profile_multicoor;external'LTDMC.dll';
+//运动模块脉冲模式
+function dmc_set_pulse_outmode;external'LTDMC.dll';
+function dmc_get_pulse_outmode;external'LTDMC.dll';
+//点位运动
+function dmc_pmove;external'LTDMC.dll';
+function dmc_reset_target_position;external'LTDMC.dll';
+function dmc_change_speed;external'LTDMC.dll';
+function dmc_update_target_position;external'LTDMC.dll';
+//PVT
+function dmc_PvtTable;external'LTDMC.dll';
+function dmc_PtsTable;external'LTDMC.dll';
+function dmc_PvtsTable;external'LTDMC.dll';
+function dmc_PttTable;external'LTDMC.dll';
+function dmc_PvtMove;external'LTDMC.dll';
+//JOG运动
+function dmc_vmove;external'LTDMC.dll';
+//直线插补
+function dmc_line_multicoor;external'LTDMC.dll';
+function dmc_arc_move_multicoor;external'LTDMC.dll';
+//回零运动
+function dmc_set_home_pin_logic ;external'LTDMC.dll';
+function dmc_get_home_pin_logic ;external'LTDMC.dll';
+function dmc_set_homemode;external'LTDMC.dll';
+function dmc_get_homemode;external'LTDMC.dll';
+function dmc_home_move;external'LTDMC.dll';
+//原点锁存
+function dmc_set_homelatch_mode;external'LTDMC.dll';
+function dmc_get_homelatch_mode;external'LTDMC.dll';
+function dmc_get_homelatch_flag;external'LTDMC.dll';
+function dmc_reset_homelatch_flag;external'LTDMC.dll';
+function dmc_get_homelatch_value;external'LTDMC.dll';
+//手轮运动
+function dmc_set_handwheel_channel;external'LTDMC.dll';
+function dmc_get_handwheel_channel;external'LTDMC.dll';
+function dmc_set_handwheel_inmode;external'LTDMC.dll';
+function dmc_get_handwheel_inmode;external'LTDMC.dll';
+function dmc_set_handwheel_inmode_extern;external'LTDMC.dll';
+function dmc_get_handwheel_inmode_extern;external'LTDMC.dll';
+function dmc_handwheel_move;external'LTDMC.dll';
+//编码器
+function dmc_set_counter_inmode;external'LTDMC.dll';
+function dmc_get_counter_inmode;external'LTDMC.dll';
+function dmc_get_encoder;external'LTDMC.dll';
+function dmc_set_encoder;external'LTDMC.dll';
+function dmc_set_ez_mode;external'LTDMC.dll';
+function dmc_get_ez_mode;external'LTDMC.dll';
+//锁存
+function dmc_set_latch_mode;external'LTDMC.dll';
+function dmc_get_latch_mode;external'LTDMC.dll';
+function dmc_get_latch_value;external'LTDMC.dll';
+function dmc_get_latch_flag;external'LTDMC.dll';
+function dmc_reset_latch_flag;external'LTDMC.dll';
+function dmc_set_ltc_mode;external'LTDMC.dll';
+function dmc_get_ltc_mode;external'LTDMC.dll';
+function dmc_get_latch_value_extern;external'LTDMC.dll';
+function dmc_get_latch_flag_extern;external'LTDMC.dll';
+function dmc_set_latch_stop_time;external'LTDMC.dll';
+function dmc_get_latch_stop_time;external'LTDMC.dll';
+function dmc_SetLtcOutMode;external'LTDMC.dll';
+function dmc_GetLtcOutMode;external'LTDMC.dll';
+//位置比较
+function dmc_compare_set_config;external'LTDMC.dll';
+function dmc_compare_get_config;external'LTDMC.dll';
+function dmc_compare_clear_points;external'LTDMC.dll';
+function dmc_compare_add_point;external'LTDMC.dll';
+function dmc_compare_get_current_point;external'LTDMC.dll';
+function dmc_compare_get_points_runned;external'LTDMC.dll';
+function dmc_compare_get_points_remained;external'LTDMC.dll';
+//二维位置比较
+function dmc_compare_set_config_extern;external'LTDMC.dll';
+function dmc_compare_get_config_extern;external'LTDMC.dll';
+function dmc_compare_clear_points_extern;external'LTDMC.dll';
+function dmc_compare_add_point_extern;external'LTDMC.dll';
+function dmc_compare_get_current_point_extern;external'LTDMC.dll';
+function dmc_compare_get_points_runned_extern;external'LTDMC.dll';
+function dmc_compare_get_points_remained_extern;external'LTDMC.dll';
+//高速位置比较
+//function dmc_set_cmp_config;external'LTDMC.dll';
+//function dmc_get_cmp_config;external'LTDMC.dll';
+//function dmc_set_cmp_enable;external'LTDMC.dll';
+//function dmc_get_cmp_enable;external'LTDMC.dll';
+function dmc_hcmp_set_mode;external'LTDMC.dll';
+function dmc_hcmp_get_mode;external'LTDMC.dll';
+function dmc_hcmp_set_config;external'LTDMC.dll';
+function dmc_hcmp_get_config;external'LTDMC.dll';
+function dmc_hcmp_add_point;external'LTDMC.dll';
+function dmc_hcmp_set_liner;external'LTDMC.dll';
+function dmc_hcmp_get_liner;external'LTDMC.dll';
+function dmc_hcmp_get_current_state;external'LTDMC.dll';
+function dmc_hcmp_clear_points;external'LTDMC.dll';
+function dmc_read_cmp_pin;external'LTDMC.dll';
+function dmc_write_cmp_pin;external'LTDMC.dll';
+//通用IO
+function dmc_read_inbit;external'LTDMC.dll';
+function dmc_write_outbit;external'LTDMC.dll';
+function dmc_read_outbit;external'LTDMC.dll';
+function dmc_read_inport ;external'LTDMC.dll';
+function dmc_read_outport;external'LTDMC.dll';
+function dmc_write_outport;external'LTDMC.dll';
+//IO辅助功能
+function dmc_IO_TurnOutDelay;external'LTDMC.dll';
+function dmc_SetIoCountMode;external'LTDMC.dll';
+function dmc_GetIoCountMode;external'LTDMC.dll';
+function dmc_SetIoCountValue;external'LTDMC.dll';
+function dmc_GetIoCountValue;external'LTDMC.dll';
+//专用IO
+function dmc_set_inp_mode;external'LTDMC.dll';
+function dmc_get_inp_mode;external'LTDMC.dll';
+function dmc_set_alm_mode;external'LTDMC.dll';
+function dmc_get_alm_mode;external'LTDMC.dll';
+function dmc_write_sevon_pin;external'LTDMC.dll';
+function dmc_read_sevon_pin;external'LTDMC.dll';
+function dmc_read_rdy_pin;external'LTDMC.dll';
+function dmc_write_erc_pin;external'LTDMC.dll';
+//运动状态
+function dmc_read_current_speed;external'LTDMC.dll';
+function dmc_read_vector_speed;external'LTDMC.dll';
+function dmc_get_position;external'LTDMC.dll';
+function dmc_set_position;external'LTDMC.dll';
+function dmc_get_target_position;external'LTDMC.dll';
+function dmc_check_done;external'LTDMC.dll';
+function dmc_check_done_multicoor;external'LTDMC.dll';
+function dmc_axis_io_status;external'LTDMC.dll';
+function dmc_stop;external'LTDMC.dll';
+function dmc_stop_multicoor;external'LTDMC.dll';
+function dmc_emg_stop;external'LTDMC.dll';
+function dmc_set_factor_error;external'LTDMC.dll';
+function dmc_get_factor_error;external'LTDMC.dll';
+function dmc_check_success_pulse;external'LTDMC.dll';
+function dmc_check_success_encoder;external'LTDMC.dll';
+function dmc_LinkState;external'LTDMC.dll';
+end.
